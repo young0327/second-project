@@ -22,15 +22,15 @@
           <div class="register-inner-content">
 	          <form id="frm">
 	           <p class="rg-content">회원가입</p>
-		            <h5>아이디</h5>
+		            <h5></h5>
 		            <input class="form-control" type="text" name="id" id ="id" placeholder="ID" autocomplete="off">
 		            <div class="check-box"><i class="fas fa-check" id = "idcheck" style="text-align: left; ">중복 확인</i></div>
-		            <h5>비밀번호</h5>
+		            <h5></h5>
 		            <input class="form-control pw-input" type="password" name="pwd" id="pwd" placeholder="Password">
-		            <h5>비밀번호 확인</h5>
+		            <h5></h5>
 		            <input class="form-control pw-reinput" type="password" name="pwd_check" id="pwd_check"  placeholder="비밀번호를 재입력해주세요">
 		            <div class="pw_alertbox"><span class="pw_alert"></span></div>
-		            <h5>닉네임</h5>
+		            <h5></h5>
 		            <input class="form-control bbox" type="text" name="nick" id ="nick" placeholder="Nickname" autocomplete="off">
 		            <div class="btn-box bbox">
 		              <button class="btn rg-btn" type="button" id = "register">회원가입</button>
