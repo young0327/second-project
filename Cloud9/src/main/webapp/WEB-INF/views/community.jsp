@@ -29,15 +29,17 @@
         <div class="black-modal" v-if="modalOpen==false">
           <div class="white-modal ">
             <span class="badge badge-pill badge-dark" @click="modalOpen=true">X</span>
+           <form id ='frm'>
             <div class="modal-id">
               <p class="nav-font-en login-h3">LOGIN</p>
-              <i class="fas fa-sign-in-alt" style="width: 40px; color: gray; "></i><input class="modal-input input-id" type="text" placeholder="Type your ID">
+              <i class="fas fa-sign-in-alt" style="width: 40px; color: gray; "></i><input class="modal-input input-id" type="text" placeholder="Type your ID" name='id' id = 'id' autocomplete="off">
             </div>
             <div class="modal-pw">
-              <i class="fas fa-lock" style="width: 40px; color: gray;"></i><input class="modal-input input-pw" type="text" placeholder="Type your password"><br>
+              <i class="fas fa-lock" style="width: 40px; color: gray;"></i><input class="modal-input input-pw" type="password" placeholder="Type your password" name='pwd' id='pwd'><br>
             </div>
-            <button @click="modalOpen=true" class="login-btn nav-font-en" type="submit">LOGIN</button>
-            <p class="login-rg nav-font-en" style="text-align: center;"><a class="login-rg" href="register.html">OR REGISTER</a></p>
+            <button @click="modalOpen=true" class="login-btn nav-font-en" type="button" id ="btn_Login">LOGIN</button>
+            <p class="login-rg nav-font-en" style="text-align: center; cursor:pointer;" onclick="location.href='register.do'">OR REGISTER</p>
+           </form>
           </div>
           </div>
         </div>
@@ -65,8 +67,15 @@
         </nav>
       </div>
       <div class="col-sm-1 loginbox"></div>
-      <div style="text-align: right;" class="col-sm-1 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
-      <div style="text-align: right;" class="col-sm-2 loginbox"><a class="nav-font-en" href="register.html"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
+      <c:choose>
+        	<c:when test="${empty users}">
+        		<div style="text-align: right;" class="col-sm-1 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
+      		</c:when>
+      		<c:otherwise>
+       			<div class="col-sm-1 loginbox solo"><p>${users.nick}님 반갑습니다</p></div>
+       		</c:otherwise>
+       		</c:choose>	
+      <div style="text-align: right;" class="col-sm-2 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
     </div>
   </nav>
     <!-- Navbar end-->
@@ -175,6 +184,39 @@
       $('.category').on('click',function(){
         $('.list-group').slideToggle();
       })
+      
+      // 로그인 확인 및 설정 
+      $(document).on('click','#btn_Login',function(){
+		if($('#id').val()!="" && $('#pwd').val()!=""){
+			let loginData=$("#frm").serialize();
+			$.ajax({ 
+				url:"login.do",
+				type: "post",
+				data : loginData,
+				success : function(YN){
+					console.log(YN)
+					if(YN=="y"){
+						location.href="main"
+					}else{
+						alert("아이디와 비밀번호를 확인해 주세요");
+					}
+				},
+				error : function(){
+					alert("아이디와 비밀번호를 확인해 주세요");
+				}
+			});
+			
+		}else{
+			
+			if($('#id').val()==""){
+				alert("아이디를 입력해 주세요")
+			}
+			
+			if($('#pwd').val()==""){
+				alert("비밀번호를 입력해 주세요")
+			}
+		}
+	});
     </script>
     
   </body>
