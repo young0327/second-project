@@ -47,9 +47,23 @@
     </transition>
 
     <!-- Community Modal Start-->
-    <div class="comm-black-modal">
-      <div class="comm-white-modal">
-
+     <div class="comm-black-modal">
+      <div class="comm-white-modal shadow p-3 mb-5 bg-white rounded">
+        <div class="modal-box">
+          <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
+          <div class="comm-writer"><p class="modal-p">작성자</p><input class="comm-input" type='text'></div>
+          <div class="comm-option">
+            <p class="modal-p">카테고리</p>
+            <select class="modal-select">
+              <option>코로나19</option>
+              <option>직장생활</option>
+              <option>뒷담</option>
+            </select>
+          </div>
+          <div class="comm-title"><p class="modal-p">제목</p><input class="comm-input" type='text'></div>
+          <div class="comm-content"><p class="modal-p">내용</p><textarea class="modal-area"></textarea></div>
+          <div class="comm-btn"><button type="submit" id="commbtn" class="btn btn-dark">Submit</button></div>
+        </div>
       </div>
     </div>
   </div>

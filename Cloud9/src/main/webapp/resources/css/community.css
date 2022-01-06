@@ -73,22 +73,83 @@ body{
 .comm-white-modal{
   width: 550px;
   min-width: 250px;
-  height: 40%;
+  height: 50%;
   background: white;
   position: inline-block;
-  margin-top: 200px;
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
   padding: 30px;
-  
+}
+.modal-box{
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+.comm-writing{
+  margin-top: -20px;
+  height: 10%;
+  font-size: 28px;
+  font-weight: 700;
+}
+.comm-writer{
+  height: 15%;
+  text-align: left;
+}
+.comm-option{
+ height: 15%;
+ text-align: left;
+}
+.comm-title{
+  height: 15%;
+  text-align: left;
+}
+.comm-content{
+  height: 15%;
+  text-align: left;
+}
+.modal-p{
+  margin-bottom: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-select{
+  background-color: #eee;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+}
+.modal-area{
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  border-radius: 10px;
+  border: none;
+}
+.comm-input{
+  width: 100%;
+  height: 34px;
+  border: none;
+  background-color: #eee;
+  border-radius: 10px;
+}
+.comm-btn{
+  width: 50px;
+  height: 50px;
+  margin-top: 150px;
+  text-align: right;
+}
+.comm-btn button{
 }
 /* community modal */
 .main-content-box{
   text-align: center;
 }
-
-
+#commbtn{
+  background: linear-gradient(to right, rgb(162, 161, 161),rgb(129, 124, 171));
+  border: none;
+}
 @media screen and (max-width: 992px) {
   .article-box{
     position: relative;
