@@ -25,8 +25,8 @@ public class UserService {
 	}
 	
 	public int idcheckAjax(String id) {
-		List<User> checklist= mapper.idcheckAjax(id);
+		List<User> checklist=mapper.idcheckAjax(id);
 		int result =checklist.size();
-		return result;
+		 return result;
 	}
 }

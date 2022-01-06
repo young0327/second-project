@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!doctype html>
 <html lang="en">
@@ -71,7 +71,7 @@
 
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
       <div class="col-sm-5">
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline">
@@ -105,8 +105,8 @@
                 <a href="#" class="list-group-item list-group-item-action">category3</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="Comparing.html">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="Community.html">커뮤니티</a></li>
+            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" >유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do">커뮤니티</a></li>
             <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing">글 작성</a></li>
            </ul>
           <!-- Side Bar end--> 
@@ -116,50 +116,30 @@
             <div class="left-inner-box shadow p-3 mb-5 bg-white rounded">
               <div class="article-navbox">
                 <ul class="article-navbox-ul row nav-font-en">
-                  <li class="col-sm-2">Category1</li>
-                  <li class="col-sm-2">Category1</li>
-                  <li class="col-sm-2">Category1</li>
-                  <li class="col-sm-2">Category1</li>
-                  <li class="col-sm-2">Category1</li>
-                  <li class="col-sm-2">Category1</li>
+                  <li class="col-sm-2 cate" value=0>전체 강의</li>
+                  <li class="col-sm-2 cate" value=1>Category1</li>
+                  <li class="col-sm-2 cate" value=2>Category2</li>
+                  <li class="col-sm-2 cate" value=3>Category3</li>
+                  <li class="col-sm-2 cate" value=4>Category4</li>
+                  <li class="col-sm-2 cate" value=5>Category5</li>
                 </ul>
               </div>
+              
               <div class="article-box">
-                                
+               <c:forEach items="${boardlist}" var="list" >          
                 <div class="article-list">
-                  <span>카테고리</span>
-                  <a><h5>연말 강아지 자랑대회</h5></a>
+                  <span>${list.category}</span>
+                  <a><h5>${list.title}</h5></a>
                   <div>
-                    <a><p>고양이 대회에 이어 강아지 대회 진행하겠습니다. </p></a>
+                    <a><p>${list.content}</p></a>
                   </div>
                   <div>
-                    <span>참치팩</span>
+                    <span>${list.nick}</span>
                   </div>
                 </div>
-                <div class="article-list">
-                  <span>카테고리</span>
-                  <a><h5>연말 강아지 자랑대회</h5></a>
-                  <div>
-                    <a><p>고양이 대회에 이어 강아지 대회 진행하겠습니다. </p></a>
-                  </div>
-                  <div>
-                    <span>참치팩</span>
-                  </div>
-                </div>
-                
-                <div class="article-list">
-                  <span>카테고리</span>
-                  <a><h5>연말 강아지 자랑대회</h5></a>
-                  <div>
-                    <a><p>고양이 대회에 이어 강아지 대회 진행하겠습니다. </p></a>
-                  </div>
-                  <div>
-                    <span>참치팩</span>
-                  </div>
-                </div>
-                
-            
+               </c:forEach>
               </div>
+              
             </div>
           </div>
         </div>
@@ -231,6 +211,40 @@
 			}
 		}
 	});
+       
+    //게시판 리스트 리딩
+    
+  $("document").ready(function(){
+	  let cateN = "category";
+	  $.ajax({
+		  url:"boardListAjax.do",
+		  type:"get",
+		  data: {"cate":cateN},
+		  success:function(){
+		  },
+		  error:function(){
+		  }
+	  });
+	  console.log(cateN);
+  })
+  
+   $(".cate").click(function(){
+    	cateN = "category"+this.value;
+    	  $.ajax({
+    		  url:"boardListAjax.do",
+    		  type:"get",
+    		  data: {"cate":cateN},
+    		  success:function(){
+    			  alert(cateN)
+    			  console.log(cateN)
+    			  location.reload();
+    		  },
+    		  error:function(){
+    		  }
+    	  });
+    	
+    	
+    })
     </script>
     
   </body>

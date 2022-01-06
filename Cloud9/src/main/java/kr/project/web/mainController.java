@@ -29,7 +29,6 @@ public class mainController {
 	
 	@RequestMapping("/community.do")
 	public String community() {
-		System.out.println("할로");
 		return "community";
 	}
 }
