@@ -226,11 +226,26 @@
           modalOpen : true,
         }
       })
+       
+      // function write_right(e){
+   	//	let id = "<c:out value='${users.id}'/>"
+     //  	if(id==""){
+      // 		// 글쓰기 모달창 안열리게 해주세요!
+       //		alert("로그인해야 글을 작성할 수 있습니다.");
+     	//  	} 
+      // }
+       
       var write = document.querySelector('.writing')
-      //var comm_modal = document.querySelector('.comm-black-modal')
-      //write.addEventListener('click',function(){
-      //  comm_modal.style.display ='block'
-      //})
+      var comm_modal = document.querySelector('.comm-black-modal')
+      write.addEventListener('click',function(){
+    	  let id = "<c:out value='${users.id}'/>"
+    	       	if(id==""){
+    	       		// 글쓰기 모달창 안열리게 해주세요!
+    	       		alert("로그인해야 글을 작성할 수 있습니다.");
+    	     	  	} else {
+    	     	 		comm_modal.style.display ='block'
+    	     	  	}   
+      })
 
       comm_modal.addEventListener('click', function(e){
         if(e.target == e.currentTarget){
@@ -339,17 +354,7 @@
     	  });
     })
     
-    function write_right(e){
-		let id = "<c:out value='${users.id}'/>"
-    	if(id==""){
-    		// 글쓰기 모달창 안열리게 해주세요!
-    		alert("로그인해야 글을 작성할 수 있습니다.");
-    		e.preventDefault();
-    		var modal = document.querySelector('.comm-black-modal')
-    		modal.style.display = 'none';
-    	}
-    }
-    write_right();
+    
     //게시글 작성
     $("#commbtn").on("click",function(){
     	let WriteData = $("#write_frm").serialize();
