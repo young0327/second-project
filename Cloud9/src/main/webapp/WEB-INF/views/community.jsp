@@ -68,7 +68,54 @@
     </div>
   </div>
     <!-- Community Modal End-->
-
+	 <!-- board detail Modal start HERE-->
+    <div class="board-detail-blackmodal">
+      <div class="board-detail-whitemodal shadow p-3 mb-5 bg-white rounded">
+        <div class="modal-box">
+          <div class="detail-topbox">
+            <div><p>카테고리</p></div>
+            <div><p class="detail-title">제목란</p></div>
+            <div><p>아이디인지 닉네임인지</p></div>
+            <div class="detail-date">2022-01-02</div>
+          </div>
+          <div class="detail-botbox">
+            <p>형들 로템 방산조립 신검만 남았는데
+              포스코(정비)도 최합 돼있어서 고민입니다
+              
+              제가 알기론 주5일 근무하면 실수령 월급280
+              정도로 알고 있어요 10년 뒤 20년 뒤 월급을
+              알고 싶어요 도와주세용 ㅠㅠㅠ
+              초봉은 포스코가 높은데 길게 보면 어디가 좋을지...</p>
+          </div>
+          <div class="detail-btnbox">
+            <div><button class="detail-btn btn">  <i class="fas fa-trash-alt"></i></button></div>
+            <div><button class="detail-btn btn">  <i class="fas fa-recycle"></i></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- board detail Modal end-->
+     <!--modifying Modal start HERE-->
+    <div class="modifying-modal-black">
+      <div class="modifying-modal-white">
+        <div class="modifying-modal-box">
+          <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
+          <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input" type='text'></div>
+          <div class="modifying-option">
+            <p class="modifying-modal-p">카테고리</p>
+            <select class="modifying-modal-select">
+              <option>코로나19</option>
+              <option>직장생활</option>
+              <option>뒷담</option>
+            </select>
+          </div>
+          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input" type='text'></div>
+          <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area"></textarea></div>
+          <div class="modifying-btn"><button type="submit" id="commbtn" class="btn btn-dark">Submit</button></div>
+        </div>
+      </div>
+    </div>
+    <!--modifying Modal start-->
     <!-- Navbar Start-->
     <div class="navbar-box row">
       <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
