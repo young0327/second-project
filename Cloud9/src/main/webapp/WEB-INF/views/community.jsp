@@ -50,19 +50,24 @@
      <div class="comm-black-modal">
       <div class="comm-white-modal shadow p-3 mb-5 bg-white rounded">
         <div class="modal-box">
+         <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
-          <div class="comm-writer"><p class="modal-p">작성자</p><input class="comm-input" type='text'></div>
+          <div class="comm-writer"><p class="modal-p">작성자</p>
+          <input class="comm-input" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
           <div class="comm-option">
             <p class="modal-p">카테고리</p>
-            <select class="modal-select">
-              <option>코로나19</option>
-              <option>직장생활</option>
-              <option>뒷담</option>
+            <select class="modal-select" name ="category">
+              <option value="category1">category1</option>
+              <option value="category2">category2</option>
+              <option value="category3">category3</option>
+              <option value="category4">category4</option>
+              <option value="category5">category5</option>
             </select>
           </div>
-          <div class="comm-title"><p class="modal-p">제목</p><input class="comm-input" type='text'></div>
-          <div class="comm-content"><p class="modal-p">내용</p><textarea class="modal-area"></textarea></div>
-          <div class="comm-btn"><button type="submit" id="commbtn" class="btn btn-dark">Submit</button></div>
+          <div class="comm-title"><p class="modal-p">제목</p><input class="comm-input" type='text' id= 'title' name='title'></div>
+          <div class="comm-content"><p class="modal-p">내용</p><textarea class="modal-area" id='content' name='content'></textarea></div>
+          <div class="comm-btn"><button type="button" id="commbtn" class="btn btn-dark">작성하기</button></div>
+           </form>
         </div>
       </div>
     </div>
@@ -107,7 +112,7 @@
             </a></li>
             <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" >유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do">커뮤니티</a></li>
-            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing">글 작성</a></li>
+            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing" onclick="write_right()")>글 작성</a></li>
            </ul>
           <!-- Side Bar end--> 
         </div>
@@ -215,17 +220,16 @@
     //게시판 리스트 리딩
     
   $("document").ready(function(){
-	  let cateN = "category";
+	  let cateN = "category0";
 	  $.ajax({
 		  url:"boardListAjax.do",
 		  type:"get",
 		  data: {"cate":cateN},
 		  success:function(){
-		  },
+				},
 		  error:function(){
 		  }
 	  });
-	  console.log(cateN);
   })
   
    $(".cate").click(function(){
@@ -235,16 +239,36 @@
     		  type:"get",
     		  data: {"cate":cateN},
     		  success:function(){
-    			  alert(cateN)
-    			  console.log(cateN)
     			  location.reload();
     		  },
     		  error:function(){
     		  }
     	  });
-    	
-    	
     })
+    
+    function write_right(){
+		let id = "<c:out value='${users.id}'/>"
+    	if(id==""){
+    		// 글쓰기 모달창 안열리게 해주세요!
+    		alert("로그인해야 글을 작성할 수 있습니다.");
+    	}
+    }
+    //게시글 작성
+    $("#commbtn").on("click",function(){
+    	let WriteData = $("#write_frm").serialize();
+    	$.ajax({
+    		url:"boardwrite.do",
+    		type: "get",
+    		data: WriteData,
+    		success : function(){
+    			// 글쓰기 모달창 닫아주세요!
+    		},
+    		error: function(){
+    			alert("error")
+    		}
+    	});
+    })
+    
     </script>
     
   </body>

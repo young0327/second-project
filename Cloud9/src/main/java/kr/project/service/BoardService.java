@@ -18,4 +18,8 @@ public class BoardService {
 		List<Board> list = mapper.boardList(category);
 		return list;
 	}
+	
+	public void boardwrite(Board vo) {
+		mapper.boardInsert(vo);
+	}
 }

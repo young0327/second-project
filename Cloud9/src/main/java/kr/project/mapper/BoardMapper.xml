@@ -7,4 +7,8 @@
     <select id="boardList" resultType="kr.project.domain.Board" parameterType="String">
        select * from tsboard where category like CONCAT('%',#{category},'%')
     </select>
+    
+    <insert id="boardInsert" parameterType="kr.project.domain.Board">
+        insert into tsboard(nick, title, content, category, day) values(#{nick},#{title},#{content},#{category},now())
+    </insert>
 </mapper>
