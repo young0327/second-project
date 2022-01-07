@@ -143,6 +143,143 @@ body{
 .comm-btn button{
 }
 /* community modal */
+/* board detail modal HERE*/
+.board-detail-blackmodal{
+  width: 100%;
+  height: 1500px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 6;
+  position: fixed;
+  margin-top: -20px;
+  margin-left : -15px;
+  display: none;
+}
+.board-detail-whitemodal{
+  width: 550px;
+  min-width: 250px;
+  height: 50%;
+  background: white;
+  position: inline-block;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  padding: 30px;
+}
+.detail-topbox{
+  width: 100%;
+  height: 25%;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  text-align: left;
+}
+.detail-botbox{
+  padding-top: 30px;
+  width: 100%;
+  height: 60%;
+  border-bottom: 1px solid rgb(189, 189, 189);
+}
+.detail-title{
+  font-weight: 800;
+  font-size: 32px;
+}
+.detail-btn{
+  float: right;
+  margin-left: 10px;
+}
+.detail-btn:hover{
+  color: red;
+}
+.detail-date{
+  margin-left : 340px;
+  margin-top: -10px;
+  color: gray;
+}
+/* board detail modal*/
+/*modifying modal start HERE*/
+.modifying-modal-black{
+  width: 100%;
+  height: 1500px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 6;
+  position: fixed;
+  margin-top: -20px;
+  margin-left : -15px;
+  display: none;
+}
+.modifying-modal-white{
+  width: 550px;
+  min-width: 250px;
+  height: 50%;
+  background: white;
+  position: inline-block;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 30px;
+}
+.modifying-modal-box{
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+.modifying-writing{
+  margin-top: -20px;
+  height: 10%;
+  font-size: 28px;
+  font-weight: 700;
+}
+.modifying-writer{
+  height: 15%;
+  text-align: left;
+}
+.modifying-option{
+ height: 15%;
+ text-align: left;
+}
+.modifying-title{
+  height: 15%;
+  text-align: left;
+}
+.modifying-content{
+  height: 15%;
+  text-align: left;
+}
+.modifying-modal-p{
+  margin-bottom: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.modifying-modal-select{
+  background-color: #eee;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+}
+.modifying-modal-area{
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  border-radius: 10px;
+  border: none;
+}
+.modifying-input{
+  width: 100%;
+  height: 34px;
+  border: none;
+  background-color: #eee;
+  border-radius: 10px;
+}
+.modifying-btn{
+  width: 50px;
+  height: 50px;
+  margin-top: 150px;
+  text-align: right;
+}
+/*modifying modal end*/
+
 .main-content-box{
   text-align: center;
 }
