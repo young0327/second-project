@@ -74,7 +74,11 @@
   </div>
     <!-- Community Modal End-->
 	 <!-- board detail Modal start HERE-->
+<<<<<<< HEAD
    <div class="board-detail-blackmodal"">
+=======
+   <div class="board-detail-blackmodal">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
       <div class="board-detail-whitemodal shadow p-3 mb-5 bg-white rounded">
         <div class="modal-box">
           <div class="detail-topbox">
@@ -101,7 +105,11 @@
     </div>
     <!-- board detail Modal end-->
      <!--modifying Modal start HERE-->
+<<<<<<< HEAD
      <div class="modifying-modal-black";>
+=======
+     <div class="modifying-modal-black">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
       <div class="modifying-modal-white">
         <div class="modifying-modal-box">
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
@@ -190,6 +198,17 @@
                   </div>
                 </div>
                </c:forEach>
+               
+                <div class="article-list">
+                <span>categoty1</span>
+                <a><h5>시험용 test</h5></a>
+                  <div>
+                    <a><p>시험용입니다.</p></a>
+                    </div>
+                     <div>
+                     <span>tester</span>
+                     </div>
+                    </div>
               </div>
               
             </div>
