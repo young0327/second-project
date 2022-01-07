@@ -238,6 +238,7 @@
        
       var write = document.querySelector('.writing')
       var comm_modal = document.querySelector('.comm-black-modal')
+      var commBtn = document.querySelector('.commbtn')
       write.addEventListener('click',function(){
     	  let id = "<c:out value='${users.id}'/>"
     	       	if(id==""){
@@ -247,7 +248,9 @@
     	     	 		comm_modal.style.display ='block'
     	     	  	}   
       })
-
+		commBtn.addEventListener('click',function(){
+			comm_modal.style.display = 'none'
+		})
       comm_modal.addEventListener('click', function(e){
         if(e.target == e.currentTarget){
           comm_modal.style.display = 'none'
