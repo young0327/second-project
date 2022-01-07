@@ -182,9 +182,9 @@
                <c:forEach items="${boardlist}" var="list" >          
                 <div class="article-list">
                   <span>${list.category}</span>
-                  <a><h5 class="article">${list.title}</h5></a>
+                  <a><h5 class="article" data-value="${list.bidx}">${list.title}</h5></a>
                   <div>
-                    <a><p class="article">${list.content}</p></a>
+                    <a><p class="article" data-value="${list.bidx}">${list.content}</p></a>
                   </div>
                   <div>
                     <span>${list.nick}</span>
@@ -371,6 +371,7 @@
     		}
     	});
     })
+    
     
     </script>
     
