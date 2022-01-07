@@ -126,6 +126,7 @@ body{
   background-color: #eee;
   border-radius: 10px;
   border: none;
+  resize : none;
 }
 .comm-input{
   width: 100%;
@@ -178,6 +179,12 @@ body{
   width: 100%;
   height: 60%;
   border-bottom: 1px solid rgb(189, 189, 189);
+}
+.test{
+	overflow : hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	width:80%;
 }
 .detail-title{
   font-weight: 800;
@@ -265,6 +272,7 @@ body{
   background-color: #eee;
   border-radius: 10px;
   border: none;
+  resize: none;
 }
 .modifying-input{
   width: 100%;
