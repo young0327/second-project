@@ -181,9 +181,9 @@
                <c:forEach items="${boardlist}" var="list" >          
                 <div class="article-list">
                   <span>${list.category}</span>
-                  <a><h5>${list.title}</h5></a>
+                  <a><h5 class="article">${list.title}</h5></a>
                   <div>
-                    <a><p>${list.content}</p></a>
+                    <a><p class="article">${list.content}</p></a>
                   </div>
                   <div>
                     <span>${list.nick}</span>
@@ -193,9 +193,9 @@
                
                 <div class="article-list">
                 <span>categoty1</span>
-                <a><h5>시험용 test</h5></a>
+                <a><h5 class='article'>시험용 test</h5></a>
                   <div>
-                    <a><p>시험용입니다.</p></a>
+                    <a><p class=article>시험용입니다.</p></a>
                     </div>
                      <div>
                      <span>tester</span>
@@ -227,10 +227,10 @@
         }
       })
       var write = document.querySelector('.writing')
-      var comm_modal = document.querySelector('.comm-black-modal')
-      write.addEventListener('click',function(){
-        comm_modal.style.display ='block'
-      })
+      //var comm_modal = document.querySelector('.comm-black-modal')
+      //write.addEventListener('click',function(){
+      //  comm_modal.style.display ='block'
+      //})
 
       comm_modal.addEventListener('click', function(e){
         if(e.target == e.currentTarget){
@@ -238,6 +238,15 @@
         }
       })
       
+      // write modal page
+      var article = document.querySelectorAll('.article')
+      var board_modal = document.querySelector('.board-detail-blackmodal')
+      comm_modal.addEventListener('click', function(e){
+        if(e.target == e.currentTarget){
+          comm_modal.style.display = 'none'
+        }
+      })
+      // write modal page end
       //  detail modal page start HERE
       article.forEach(function(e){
         e.addEventListener('click',function(){
@@ -330,13 +339,17 @@
     	  });
     })
     
-    function write_right(){
+    function write_right(e){
 		let id = "<c:out value='${users.id}'/>"
     	if(id==""){
     		// 글쓰기 모달창 안열리게 해주세요!
     		alert("로그인해야 글을 작성할 수 있습니다.");
+    		e.preventDefault();
+    		var modal = document.querySelector('.comm-black-modal')
+    		modal.style.display = 'none';
     	}
     }
+    write_right();
     //게시글 작성
     $("#commbtn").on("click",function(){
     	let WriteData = $("#write_frm").serialize();

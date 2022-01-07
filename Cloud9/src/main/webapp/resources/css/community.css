@@ -135,7 +135,7 @@ body{
   border-radius: 10px;
 }
 .comm-btn{
-  width: 50px;
+  width: 100px;
   height: 50px;
   margin-top: 150px;
   text-align: right;
@@ -287,6 +287,8 @@ body{
 #commbtn{
   background: linear-gradient(to right, rgb(162, 161, 161),rgb(129, 124, 171));
   border: none;
+  width:100px;
+  height:40px;
 }
 @media screen and (max-width: 992px) {
   .article-box{
