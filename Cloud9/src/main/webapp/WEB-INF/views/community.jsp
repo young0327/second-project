@@ -227,6 +227,32 @@
         }
       })
       
+      //  detail modal page start HERE
+      article.forEach(function(e){
+        e.addEventListener('click',function(){
+          board_modal.style.display = 'block'
+        })
+      })
+      board_modal.addEventListener('click', function(e){
+        if(e.target == e.currentTarget){
+          board_modal.style.display = 'none'
+        }
+      })
+      //  detail modal page end
+      // modifying modal page start HERE
+      var modifying = document.querySelector('.fa-recycle')
+      var modifyModal = document.querySelector('.modifying-modal-black')
+      modifying.addEventListener('click',function(){
+        board_modal.style.display = 'none';
+        modifyModal.style.display = 'block';
+      })
+      modifyModal.addEventListener('click',function(e){
+        if(e.target == e.currentTarget){
+          modifyModal.style.display = 'none'
+        }
+      })
+      // modifying modal page end
+      
       $('.category').on('click',function(){
         $('.list-group').slideToggle();
       })
