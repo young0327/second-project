@@ -74,7 +74,7 @@
   </div>
     <!-- Community Modal End-->
 	 <!-- board detail Modal start HERE-->
-    <div class="board-detail-blackmodal">
+   <div class="board-detail-blackmodal" style="display:none;">
       <div class="board-detail-whitemodal shadow p-3 mb-5 bg-white rounded">
         <div class="modal-box">
           <div class="detail-topbox">
@@ -101,7 +101,7 @@
     </div>
     <!-- board detail Modal end-->
      <!--modifying Modal start HERE-->
-    <div class="modifying-modal-black">
+     <div class="modifying-modal-black" style="display:none;">
       <div class="modifying-modal-white">
         <div class="modifying-modal-box">
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
