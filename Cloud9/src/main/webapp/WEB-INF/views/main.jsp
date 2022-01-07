@@ -43,28 +43,29 @@
       <!-- Login Modal Page end-->
     </transition>
     <!-- Navbar Start-->
-      <div class="navbar-box row">
-        <div class="col-sm-2 logobox"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
-        <div class="col-sm-5">
-          <nav class="navbar navbar-light bg-white">
-            <form class="form-inline">
-              <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-              <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          </nav>
-        </div>
-        <div class="col-sm-1 loginbox"></div>
-        <c:choose>
+    <div class="navbar-box row">
+      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+      <div class="col-sm-4">
+        <nav class="navbar navbar-light bg-white">
+          <form class="form-inline">
+            <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </nav>
+      </div>
+      <div class="col-sm-1 loginbox"></div>
+      <c:choose>
         	<c:when test="${empty users}">
-        		<div style="text-align: right;" class="col-sm-1 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
+        		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-1 loginbox solo"><p>${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo"><p>${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
-      <div style="text-align: right;" class="col-sm-2 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark" >Register</button></a></div>
+      <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
+      <div style='margin-left:30px; margin-top:23px'><a class="nav-font-en"><button class='top-icon-btn btn btn-dark'>LOGOUT</button></a></div>
     </div>
-    </nav>
+  </nav>
     <!-- Navbar end-->
     <!-- Side Bar Start-->
     <div class="main-box">
