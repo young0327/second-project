@@ -54,13 +54,16 @@ public class RestMainController {
 
 	@GetMapping("/boardListAjax.do")
 	public String boardListAjax(String cate, HttpSession session){
-		System.out.println("넘어와!");
-		System.out.println("카테고리:"+cate);
 		if(cate.equals("category0")){
 			cate = "category";
 		}
 		List<Board>boardlist= boardService.boardList(cate);
 		session.setAttribute("boardlist",boardlist);
 		return "community";
+	}
+	
+	@GetMapping("/boardwrite.do")
+	public void boardwrite(Board vo) {
+		boardService.boardwrite(vo);
 	}
 }
