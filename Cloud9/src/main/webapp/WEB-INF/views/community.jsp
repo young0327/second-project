@@ -53,11 +53,7 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-<<<<<<< HEAD
-          <input class="comm-input " type='text' name ="nick" readonly="readonly"></div>
-=======
           <input class="comm-input font-kr" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
           <div class="comm-option">
             <p class="modal-p font-kr">카테고리</p>
             <select class="modal-select font-kr" name ="category">
@@ -169,7 +165,7 @@
             </a></li>
             <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" >유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do">커뮤니티</a></li>
-            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing" onclick="write_right()")>글 작성</a></li>
+            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing")>글 작성</a></li>
            </ul>
           <!-- Side Bar end--> 
         </div>
@@ -225,9 +221,9 @@
         }
       })
        
-      // function write_right(e){
-   	//	let id = "<c:out value='${users.id}'/>"
-     //  	if(id==""){
+     // function write_right(e){
+   		//let id = "<c:out value='${users.id}'/>"
+      	//if(id==""){
       // 		// 글쓰기 모달창 안열리게 해주세요!
        //		alert("로그인해야 글을 작성할 수 있습니다.");
      	//  	} 
@@ -333,8 +329,8 @@
       		error:function(){}
       	})
       })
+      
     //게시판 리스트 리딩
-    
    $(".cate").click(function(){
 	  	$('div.article-box').html('');
     	cateN = "category"+this.value;
@@ -347,18 +343,17 @@
     			  for(let i = 0; i < data.length; i++){
     			  let articles = `
     			  		 <div class="article-list">
-    			          <span class="article" style ="pointer-events: none;">` + data[i].category + `</span>
-    			          <a><h5 class="article" data-value="` + data[i].bidx +`">` + data[i].title + `</h5></a>
+    			          <span class="article font-kr" style ="pointer-events: none;">` + data[i].category + `</span>
+    			          <a><h5 class="article font-kr" data-value="` + data[i].bidx +`">` + data[i].title + `</h5></a>
     			          <div>
-    			            <a><p class="article" id="test" data-value="`+ data[i].bidx + `">` + data[i].content + `</p></a>
+    			            <a><p class="article font-kr" id="test" data-value="`+ data[i].bidx + `">` + data[i].content + `</p></a>
     			          </div>
     			          <div>
-    			            <span class="article" style ="pointer-events: none;">` + data[i].nick + `</span>
+    			            <span class="article font-kr" style ="pointer-events: none;">` + data[i].nick + `</span>
     			          </div>
     			        </div>
-    			  	
     				  	`;
-    			  $('div.article-box').append(articles);
+    			  $('.article-box').append(articles);	
     			  }
     			  console.log(data)
     		  },
@@ -367,6 +362,7 @@
     	  });
     })
     
+  
     
     //게시글 작성
     $("#commbtn").on("click",function(){
@@ -385,16 +381,17 @@
     		}
     	});
     })
+  
     
     //게시글 상세 보기
-    $(".article").on("click",function(){
-    	
+   $(document).on("click",".article",function(){
     	let bidx= $(this).attr("data-value");
     	$.ajax({
     		url:"boardread.do",
     		type:"get",
     		data:{"bidx":bidx},
     		success: function(data){
+    			board_modal.style.display = 'block'
     			let ps = $('.md');
     			$(ps[0]).html(data[0].category);
     			$(ps[1]).html(data[0].title);
@@ -408,9 +405,12 @@
     		}
     	});
     })
+    
+    
     //게시글 수정
     $(".modifying-modal-box").ready(function(){
     	let bidx= $("#detailBidx").html()
+    	console.log(bidx)
     	$.ajax({
     		url:"boardread.do",
     		type:"get",
@@ -445,7 +445,7 @@
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
-    	let bidx= $("#detailBidx").html()
+    	let bidx= $("#detailBidx").val()
     	$.ajax({
     		url :"boardDelete.do",
     		type:"get",
