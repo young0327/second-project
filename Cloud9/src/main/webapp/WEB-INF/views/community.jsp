@@ -53,7 +53,7 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-          <input class="comm-input" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
+          <input class="comm-input " type='text' name ="nick" readonly="readonly"></div>
           <div class="comm-option">
             <p class="modal-p">카테고리</p>
             <select class="modal-select" name ="category">
@@ -100,10 +100,9 @@
       <div class="modifying-modal-white">
         <div class="modifying-modal-box">
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
-          <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input" type='text'></div>
-          <input class="comm-input" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
+          <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input mdc" type='text' value ="${users.nick}"readonly="readonly"></div>
           <div class="modifying-option">
-            <p class="modifying-modal-p">카테고리</p>
+            <p class="modifying-modal-p mdc">카테고리</p>
             <select class="modifying-modal-select" name= "category">
            	  <option value="category1">category1</option>
               <option value="category2">category2</option>
@@ -112,8 +111,8 @@
               <option value="category5">category5</option>
             </select>
           </div>
-          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input" type='text'></div>
-          <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area"></textarea></div>
+          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text' ></div>
+          <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area mdc"></textarea></div>
           <div class="modifying-btn"><button type="submit" id="commbtn" class="btn btn-dark">Submit</button></div>
         </div>
       </div>
@@ -139,13 +138,14 @@
        			<div class="col-sm-3 loginbox solo"><p>${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
-      <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
        <c:choose>
       	<c:when  test ="${!empty users.nick}">
       		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
       	</c:when>
       	<c:otherwise>
       	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      		  <div style="text-align: right; display:block;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
       	</c:otherwise>
       </c:choose>
     </div>
@@ -332,20 +332,31 @@
     //게시판 리스트 리딩
     
    $(".cate").click(function(){
+	  	$('div.article-box').html('');
     	cateN = "category"+this.value;
+    	console.log(cateN);
     	  $.ajax({
     		  url:"boardListAjax.do",
     		  type:"get",
     		  data: {"cate":cateN},
     		  success:function(data){
+    			  for(let i = 0; i < data.length; i++){
+    			  let articles = `
+    			  		 <div class="article-list">
+    			          <span class="article" style ="pointer-events: none;">` + data[i].category + `</span>
+    			          <a><h5 class="article" data-value="` + data[i].bidx +`">` + data[i].title + `</h5></a>
+    			          <div>
+    			            <a><p class="article" id="test" data-value="`+ data[i].bidx + `">` + data[i].content + `</p></a>
+    			          </div>
+    			          <div>
+    			            <span class="article" style ="pointer-events: none;">` + data[i].nick + `</span>
+    			          </div>
+    			        </div>
+    			  	
+    				  	`;
+    			  $('div.article-box').append(articles);
+    			  }
     			  console.log(data)
-    			  let catelist=$(".article")
-    			  $(catelist[0]).html(data.content)
-    			  $(catelist[1]).attr("data-value", data.bidx)
-    			  $(catelist[2]).html(data.title)
-   			      $(catelist[3]).attr("data-value", data.bidx)
-    			  $(catelist[4]).html(data.content)
-    			  $(catelist[5]).html(data.nick)
     		  },
     		  error:function(){
     		  }
@@ -373,6 +384,7 @@
     
     //게시글 상세 보기
     $(".article").on("click",function(){
+    	
     	let bidx= $(this).attr("data-value");
     	$.ajax({
     		url:"boardread.do",
@@ -392,11 +404,28 @@
     		}
     	});
     })
-    
     //게시글 수정
-    $("#boardModify").on("click",function(){
+    $(".modifying-modal-box").ready(function(){
     	let bidx= $("#detailBidx").html()
-    	
+    	$.ajax({
+    		url:"boardread.do",
+    		type:"get",
+    		data:{"bidx":bidx},
+    		success: function(data){
+    			
+    		},
+    		error: function(){
+    			console.log("전송 성공")
+    		}
+    	});
+    })
+    
+    
+    
+    
+    /*$("#boardModify").on("click",function(){
+    	let bidx= $("#detailBidx").html()
+    	let modifyData = 
     	$.ajax({
     		url:"boardModify.do",
     		type:"get",
@@ -408,7 +437,7 @@
     			alert("error")
     		}
     	});
-    })
+    })*/
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
