@@ -44,7 +44,7 @@
     </transition>
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img"></a></div>
       <div class="col-sm-4">
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline">
@@ -63,7 +63,14 @@
        		</c:otherwise>
        		</c:choose>	
       <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
-      <div style='margin-left:30px; margin-top:23px'><a class="nav-font-en"><button class='top-icon-btn btn btn-dark'>LOGOUT</button></a></div>
+      <c:choose>
+      	<c:when  test ="${!empty users.nick}">
+      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      	</c:when>
+      	<c:otherwise>
+      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      	</c:otherwise>
+      </c:choose>
     </div>
   </nav>
     <!-- Navbar end-->
@@ -80,7 +87,7 @@
               </div>
             </a></li>
             <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="#">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do">커뮤니티</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
         </div>
@@ -186,6 +193,16 @@
 			}
 		}
 	});
+      
+      $("#logout").on("click",function(){
+      	$.ajax({
+      		url:"logout.do",
+      		success:function(){
+      			location.reload();
+      		},
+      		error:function(){}
+      	})
+      })
     </script>
 
     

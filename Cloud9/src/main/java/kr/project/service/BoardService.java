@@ -19,7 +19,17 @@ public class BoardService {
 		return list;
 	}
 	
-	public void boardwrite(Board vo) {
+	public void boardWrite(Board vo) {
 		mapper.boardInsert(vo);
 	}
+	
+	public List<Board> boardRead(String bidx) {
+		List<Board> boardDT=mapper.boardRead(bidx);
+		return boardDT;
+	}
+	
+	public void boardDelete(String bidx) {
+		mapper.boardDelete(bidx);
+	}
+	
 }

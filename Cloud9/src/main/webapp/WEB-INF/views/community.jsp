@@ -77,23 +77,18 @@
    <div class="board-detail-blackmodal">
       <div class="board-detail-whitemodal shadow p-3 mb-5 bg-white rounded">
         <div class="modal-box">
-          <div class="detail-topbox">
-            <div><p>카테고리</p></div>
-            <div><p class="detail-title">제목란</p></div>
-            <div><p>아이디인지 닉네임인지</p></div>
-            <div class="detail-date">2022-01-02</div>
+          <div class="detail-topbox" >
+            <div><p class="detail md"></p></div>
+            <div><p class="detail-title md"></p></div>
+            <div><p class="detail md"></p></div>
+            <div class="detail-date md"></div>
           </div>
           <div class="detail-botbox">
-            <p>형들 로템 방산조립 신검만 남았는데
-              포스코(정비)도 최합 돼있어서 고민입니다
-              
-              제가 알기론 주5일 근무하면 실수령 월급280
-              정도로 알고 있어요 10년 뒤 20년 뒤 월급을
-              알고 싶어요 도와주세용 ㅠㅠㅠ
-              초봉은 포스코가 높은데 길게 보면 어디가 좋을지...</p>
+            <p class="detail md"></p>
+            <p class="detail md" style="display:none" id ="detailBidx"></p>
           </div>
           <div class="detail-btnbox">
-            <div><button class="detail-btn btn">  <i class="fas fa-trash-alt"></i></button></div>
+            <div><button class="detail-btn btn" id ="boardDelete">  <i class="fas fa-trash-alt"></i></button></div>
             <div><button class="detail-btn btn">  <i class="fas fa-recycle"></i></button></div>
           </div>
         </div>
@@ -123,7 +118,7 @@
     <!--modifying Modal start-->
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" ></a></div>
       <div class="col-sm-4">
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline">
@@ -142,7 +137,7 @@
        		</c:otherwise>
        		</c:choose>	
       <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
-      <div style='margin-left:30px; margin-top:23px'><a class="nav-font-en"><button class='top-icon-btn btn btn-dark'>LOGOUT</button></a></div>
+      <div style='margin-left:30px; margin-top:23px'><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
     </div>
   </nav>
     <!-- Navbar end-->
@@ -179,30 +174,18 @@
               </div>
               
               <div class="article-box">
-               <c:forEach items="${boardlist}" var="list" >          
+               <c:forEach items="${boardlist}" var="list">          
                 <div class="article-list">
-                  <span>${list.category}</span>
+                  <span class="article" style ="pointer-events: none;">${list.category}</span>
                   <a><h5 class="article" data-value="${list.bidx}">${list.title}</h5></a>
                   <div>
-                    <a><p class="article" data-value="${list.bidx}">${list.content}</p></a>
+                    <a><p class="article" id="test" data-value="${list.bidx}">${list.content}</p></a>
                   </div>
                   <div>
-                    <span>${list.nick}</span>
+                    <span class="article" style ="pointer-events: none;">${list.nick}</span>
                   </div>
                 </div>
                </c:forEach>
-               
-                <div class="article-list">
-                <span>categoty1</span>
-                <a><h5 class='article'>시험용 test</h5></a>
-                  <div>
-                    <a><p class='article test'>시험용입니다.ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p></a>
-                    </div>
-                     <div>
-                     <span>tester</span>
-                     </div>
-                    </div>
-              </div>
               
             </div>
           </div>
@@ -238,19 +221,16 @@
        
       var write = document.querySelector('.writing')
       var comm_modal = document.querySelector('.comm-black-modal')
-      var commBtn = document.querySelector('.commbtn')
+      var commBtn = document.querySelector('#commbtn')
       write.addEventListener('click',function(){
     	  let id = "<c:out value='${users.id}'/>"
     	       	if(id==""){
-    	       		// 글쓰기 모달창 안열리게 해주세요!
     	       		alert("로그인해야 글을 작성할 수 있습니다.");
     	     	  	} else {
     	     	 		comm_modal.style.display ='block'
     	     	  	}   
       })
-		commBtn.addEventListener('click',function(){
-			comm_modal.style.display = 'none'
-		})
+		
       comm_modal.addEventListener('click', function(e){
         if(e.target == e.currentTarget){
           comm_modal.style.display = 'none'
@@ -328,30 +308,29 @@
 			}
 		}
 	});
-       
+     
+    // 로그아웃
+    $("#logout").on("click",function(){
+    	location.href("logout.do")
+    })
+    
     //게시판 리스트 리딩
     
-  $("document").ready(function(){
-	  let cateN = "category0";
-	  $.ajax({
-		  url:"boardListAjax.do",
-		  type:"get",
-		  data: {"cate":cateN},
-		  success:function(){
-				},
-		  error:function(){
-		  }
-	  });
-  })
-  
    $(".cate").click(function(){
     	cateN = "category"+this.value;
     	  $.ajax({
     		  url:"boardListAjax.do",
     		  type:"get",
     		  data: {"cate":cateN},
-    		  success:function(){
-    			  location.reload();
+    		  success:function(data){
+    			  console.log(data)
+    			  let catelist=$(".article")
+    			  $(catelist[0]).html(data.content)
+    			  $(catelist[1]).attr("data-value", data.bidx)
+    			  $(catelist[2]).html(data.title)
+   			      $(catelist[3]).attr("data-value", data.bidx)
+    			  $(catelist[4]).html(data.content)
+    			  $(catelist[5]).html(data.nick)
     		  },
     		  error:function(){
     		  }
@@ -367,12 +346,54 @@
     		type: "get",
     		data: WriteData,
     		success : function(){
-    			// 글쓰기 모달창 닫아주세요!
+    			alert("글이 작성되었습니다.")
+    			comm_modal.style.display = 'none';
+    			location.href=("community.do?category")
     		},
     		error: function(){
     			alert("error")
     		}
     	});
+    })
+    
+    //게시글 상세 보기
+    $(".article").on("click",function(){
+    	let bidx= $(this).attr("data-value");
+    	$.ajax({
+    		url:"boardread.do",
+    		type:"get",
+    		data:{"bidx":bidx},
+    		success: function(data){
+    			let ps = $('.md');
+    			$(ps[0]).html(data[0].category);
+    			$(ps[1]).html(data[0].title);
+    			$(ps[2]).html(data[0].nick);
+    			$(ps[3]).html(data[0].day);
+    			$(ps[4]).html(data[0].content);
+    			$(ps[5]).html(data[0].bidx);
+    		},
+    		error: function(){
+    			console.log("전송 성공")
+    		}
+    	});
+    })
+    
+    
+    $("#boardDelete").on("click",function(){
+    	let bidx= $("#detailBidx").html()
+    	$.ajax({
+    		url :"boardDelete.do",
+    		type:"get",
+    		data:{"bidx":bidx},
+    		success: function(){
+				alert("글이 삭제 되었습니다.")
+				board_modal.style.display = 'none';
+				location.href=("community.do?category")
+    		},
+    		error: function(){
+    			console.log("삭제 실패")
+    		}
+    	})
     })
     
     
