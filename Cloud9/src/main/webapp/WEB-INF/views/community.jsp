@@ -101,6 +101,7 @@
         <div class="modifying-modal-box">
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
           <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input" type='text'></div>
+          <input class="comm-input" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
           <div class="modifying-option">
             <p class="modifying-modal-p">카테고리</p>
             <select class="modifying-modal-select" name= "category">
