@@ -65,7 +65,6 @@ public class RestMainController {
 			cate = "category";
 		}
 		List<Board>boardlist= boardService.boardList(cate);
-		System.out.println(boardlist);
 		return boardlist;
 	}
 	
