@@ -13,4 +13,6 @@ public interface BoardMapper {
 	public List<Board> boardRead(String bidx);
 	
 	public void boardDelete(String bidx);
+	
+	public void boardUpdate(String bidx);
 }

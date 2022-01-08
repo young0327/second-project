@@ -89,7 +89,7 @@
           </div>
           <div class="detail-btnbox">
             <div><button class="detail-btn btn" id ="boardDelete">  <i class="fas fa-trash-alt"></i></button></div>
-            <div><button class="detail-btn btn">  <i class="fas fa-recycle"></i></button></div>
+            <div><button class="detail-btn btn" id ="boardModify">  <i class="fas fa-recycle"></i></button></div>
           </div>
         </div>
       </div>
@@ -103,10 +103,12 @@
           <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input" type='text'></div>
           <div class="modifying-option">
             <p class="modifying-modal-p">카테고리</p>
-            <select class="modifying-modal-select">
-              <option>코로나19</option>
-              <option>직장생활</option>
-              <option>뒷담</option>
+            <select class="modifying-modal-select" name= "category">
+           	  <option value="category1">category1</option>
+              <option value="category2">category2</option>
+              <option value="category3">category3</option>
+              <option value="category4">category4</option>
+              <option value="category5">category5</option>
             </select>
           </div>
           <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input" type='text'></div>
@@ -137,7 +139,14 @@
        		</c:otherwise>
        		</c:choose>	
       <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
-      <div style='margin-left:30px; margin-top:23px'><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+       <c:choose>
+      	<c:when  test ="${!empty users.nick}">
+      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      	</c:when>
+      	<c:otherwise>
+      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      	</c:otherwise>
+      </c:choose>
     </div>
   </nav>
     <!-- Navbar end-->
@@ -311,9 +320,14 @@
      
     // 로그아웃
     $("#logout").on("click",function(){
-    	location.href("logout.do")
-    })
-    
+      	$.ajax({
+      		url:"logout.do",
+      		success:function(){
+      			location.reload();
+      		},
+      		error:function(){}
+      	})
+      })
     //게시판 리스트 리딩
     
    $(".cate").click(function(){
@@ -378,7 +392,24 @@
     	});
     })
     
+    //게시글 수정
+    $("#boardModify").on("click",function(){
+    	let bidx= $("#detailBidx").html()
+    	
+    	$.ajax({
+    		url:"boardModify.do",
+    		type:"get",
+    		data:{"bidx":bidx},
+    		sucess:function(){
+    			alert("수정 되었습니다.")
+    		},
+    		error:function(){
+    			alert("error")
+    		}
+    	});
+    })
     
+    // 게시글 삭제
     $("#boardDelete").on("click",function(){
     	let bidx= $("#detailBidx").html()
     	$.ajax({

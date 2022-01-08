@@ -32,4 +32,7 @@ public class BoardService {
 		mapper.boardDelete(bidx);
 	}
 	
+	public void boardModify(String bidx) {
+		mapper.boardUpdate(bidx);
+	}
 }

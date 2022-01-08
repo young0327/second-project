@@ -32,7 +32,7 @@ public class RestMainController {
 	public void joinAjax(User vo) {
 		userService.regist(vo);
 	}
-
+	
 	@GetMapping("/idcheckAjax.do")
 	public int idcheckAjax(String id) {
 		int result =userService.idcheckAjax(id);
@@ -54,6 +54,11 @@ public class RestMainController {
 		return YN;
 	}
 
+	@GetMapping("/logout.do")
+	public void logout(HttpSession session) {
+		session.invalidate();
+	}
+	
 	@GetMapping("/boardListAjax.do")
 	public List<Board> boardListAjax(String cate){
 		if(cate.equals("category0")){
@@ -80,9 +85,10 @@ public class RestMainController {
 		boardService.boardDelete(bidx);
 	}
 	
-	@GetMapping("/logout.do")
-	public void logout(HttpSession session) {
-		session.invalidate();
-		
+	
+	
+	@GetMapping("/boardModify.do")
+	public void boardModify(String bidx) {
+		boardService.boardModify(bidx);
 	}
 }

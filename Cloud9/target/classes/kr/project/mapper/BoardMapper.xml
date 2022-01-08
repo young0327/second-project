@@ -19,4 +19,5 @@
     <delete id="boardDelete">
         delete from tsboard where bidx=#{bidx}
     </delete>
+    
 </mapper>
