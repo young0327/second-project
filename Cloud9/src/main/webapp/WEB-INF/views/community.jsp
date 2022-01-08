@@ -53,11 +53,8 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-<<<<<<< HEAD
           <input class="comm-input " type='text' name ="nick" readonly="readonly"></div>
-=======
           <input class="comm-input font-kr" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
           <div class="comm-option">
             <p class="modal-p font-kr">카테고리</p>
             <select class="modal-select font-kr" name ="category">
