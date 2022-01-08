@@ -40,6 +40,11 @@ public class mainController {
 	@RequestMapping("/community.do")
 	public String community(HttpServletRequest req, Model model) {
 		String cate = req.getQueryString();
+		System.out.println(cate);
+		if(cate.contains("category0")){
+			cate = "category";
+			System.out.println(cate);
+		}
 		List<Board>boardlist= boardService.boardList(cate);
 		model.addAttribute("boardlist",boardlist);
 		return "community";
