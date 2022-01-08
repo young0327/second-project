@@ -59,7 +59,7 @@
         		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p>${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo"><p class="font-kr">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
@@ -87,7 +87,7 @@
               </div>
             </a></li>
             <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="#">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category">커뮤니티</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
         </div>

@@ -53,10 +53,10 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-          <input class="comm-input" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
+          <input class="comm-input font-kr" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
           <div class="comm-option">
-            <p class="modal-p">카테고리</p>
-            <select class="modal-select" name ="category">
+            <p class="modal-p font-kr">카테고리</p>
+            <select class="modal-select font-kr" name ="category">
               <option value="category1">category1</option>
               <option value="category2">category2</option>
               <option value="category3">category3</option>
@@ -136,7 +136,7 @@
         		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p>${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo"><p class="welcomeBoard font-kr">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       <div style="text-align: right;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
@@ -186,13 +186,13 @@
               <div class="article-box">
                <c:forEach items="${boardlist}" var="list">          
                 <div class="article-list">
-                  <span class="article" style ="pointer-events: none;">${list.category}</span>
-                  <a><h5 class="article" data-value="${list.bidx}">${list.title}</h5></a>
+                  <span class="article font-kr" style ="pointer-events: none;">${list.category}</span>
+                  <a><h5 class="article font-kr" data-value="${list.bidx}">${list.title}</h5></a>
                   <div>
-                    <a><p class="article" id="test" data-value="${list.bidx}">${list.content}</p></a>
+                    <a><p class="article font-kr" id="test" data-value="${list.bidx}">${list.content}</p></a>
                   </div>
                   <div>
-                    <span class="article" style ="pointer-events: none;">${list.nick}</span>
+                    <span class="article font-kr" style ="pointer-events: none;">${list.nick}</span>
                   </div>
                 </div>
                </c:forEach>
