@@ -102,7 +102,7 @@
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
           <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input mdc" type='text' value ="${users.nick}"readonly="readonly"></div>
           <div class="modifying-option">
-            <p class="modifying-modal-p mdc">카테고리</p>
+            <p class="modifying-modal-p">카테고리</p>
             <select class="modifying-modal-select" name= "category">
            	  <option value="category1">category1</option>
               <option value="category2">category2</option>
@@ -111,7 +111,7 @@
               <option value="category5">category5</option>
             </select>
           </div>
-          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text' ></div>
+          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text'></div>
           <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area mdc"></textarea></div>
           <div class="modifying-btn"><button type="submit" id="commbtn" class="btn btn-dark">Submit</button></div>
         </div>
@@ -408,40 +408,22 @@
     
     
     //게시글 수정
-    $(".modifying-modal-box").ready(function(){
+   
+    $("#boardModify").on("click",function(){
     	let bidx= $("#detailBidx").html()
-    	console.log(bidx)
     	$.ajax({
-    		url:"boardread.do",
+    		url:"boardread.do"
     		type:"get",
     		data:{"bidx":bidx},
-    		success: function(data){
-    			
-    		},
-    		error: function(){
-    			console.log("전송 성공")
-    		}
-    	});
-    })
-    
-    
-    
-    
-    /*$("#boardModify").on("click",function(){
-    	let bidx= $("#detailBidx").html()
-    	let modifyData = 
-    	$.ajax({
-    		url:"boardModify.do",
-    		type:"get",
-    		data:{"bidx":bidx},
-    		sucess:function(){
-    			alert("수정 되었습니다.")
+    		sucess:function(data){
+    			let ps = $('.md');
+
     		},
     		error:function(){
     			alert("error")
     		}
-    	});
-    })*/
+    	});*/
+    })
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
