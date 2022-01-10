@@ -53,10 +53,6 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-<<<<<<< HEAD
-          <input class="comm-input " type='text' name ="nick" readonly="readonly"></div>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
           <input class="comm-input font-kr" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
           <div class="comm-option">
             <p class="modal-p font-kr">카테고리</p>
@@ -413,7 +409,7 @@
     
     //게시글 수정
    
-    $("#boardModify").on("click",function(){
+   /*$("#boardModify").on("click",function(){
     	let bidx= $("#detailBidx").html()
     	$.ajax({
     		url:"boardread.do"
@@ -426,8 +422,8 @@
     		error:function(){
     			alert("error")
     		}
-    	});*/
-    })
+    	});
+    }) */
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
