@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mysql.fabric.Response;
@@ -86,8 +87,8 @@ public class RestMainController {
 	
 	
 	
-	@GetMapping("/boardModify.do")
-	public void boardModify(String bidx) {
-		boardService.boardModify(bidx);
+	@GetMapping("/boardmodify.do")
+	public void boardModify(String bidx, String title,String content,String category ) {
+		boardService.boardModify(bidx,title,content,category);
 	}
 }

@@ -2,6 +2,8 @@ package kr.project.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import kr.project.domain.Board;
 
 public interface BoardMapper {
@@ -14,5 +16,5 @@ public interface BoardMapper {
 	
 	public void boardDelete(String bidx);
 	
-	public void boardUpdate(String bidx);
+	public void boardUpdate(@Param("bidx") String bidx, @Param("title")String title, @Param("content")String content, @Param("category")String category);
 }

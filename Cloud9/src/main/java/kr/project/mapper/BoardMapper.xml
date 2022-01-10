@@ -5,7 +5,7 @@
 <mapper namespace="kr.project.mapper.BoardMapper">
 
     <select id="boardList" resultType="kr.project.domain.Board" parameterType="String">
-       select * from tsboard where category like CONCAT('%',#{category},'%')
+       select * from tsboard where category like CONCAT('%',#{category},'%') order by day DESC;
     </select>
     
     <insert id="boardInsert" parameterType="kr.project.domain.Board">
@@ -20,4 +20,7 @@
         delete from tsboard where bidx=#{bidx}
     </delete>
     
+    <update id="boardUpdate" parameterType="map">
+        update tsboard set title=#{title}, content=#{content}, category=#{category}, day=now() where bidx=#{bidx}
+    </update>
 </mapper>

@@ -98,12 +98,14 @@
      <!--modifying Modal start HERE-->
      <div class="modifying-modal-black">
       <div class="modifying-modal-white">
+        <form id="modifyFrm">
         <div class="modifying-modal-box">
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
           <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input mdc" type='text' value ="${users.nick}"readonly="readonly"></div>
+          <span class="mdc" id="modiBidx" style="display:none"></span>
           <div class="modifying-option">
             <p class="modifying-modal-p">카테고리</p>
-            <select class="modifying-modal-select" name= "category">
+            <select class="modifying-modal-select" name= "modicate" id="modicate">
            	  <option value="category1">category1</option>
               <option value="category2">category2</option>
               <option value="category3">category3</option>
@@ -111,10 +113,11 @@
               <option value="category5">category5</option>
             </select>
           </div>
-          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text'></div>
-          <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area mdc"></textarea></div>
-          <div class="modifying-btn"><button type="submit" id="commbtn" class="btn btn-dark">Submit</button></div>
+          <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text' name='title' id ="modititle"></div>
+          <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area mdc" name ='content' id="modicontent"></textarea></div>
+          <div class="modifying-btn"><button type="submit" id="modibtn" class="btn btn-dark">수정하기</button></div>
         </div>
+          <form>
       </div>
     </div>
     <!--modifying Modal start-->
@@ -192,7 +195,7 @@
                     <a><p class="article font-kr" id="test" data-value="${list.bidx}">${list.content}</p></a>
                   </div>
                   <div>
-                    <span class="article font-kr" style ="pointer-events: none;">${list.nick}</span>
+                    <span class="article font-kr" style ="pointer-events: none;" id ="list_nick">${list.nick}</span>
                   </div>
                 </div>
                </c:forEach>
@@ -275,11 +278,7 @@
         board_modal.style.display = 'none';
         modifyModal.style.display = 'block';
       })
-      modifyModal.addEventListener('click',function(e){
-        if(e.target == e.currentTarget){
-          modifyModal.style.display = 'none'
-        }
-      })
+     
       // modifying modal page end
       
       $('.category').on('click',function(){
@@ -410,20 +409,50 @@
     //게시글 수정
    
    $("#boardModify").on("click",function(){
+	   let ps = $('.md');
+	   let nick1= $(ps[2]).html()
+	   let nick="<c:out value='${users.nick}'/>"
+	   if (nick1!=nick){
+		   modifyModal.style.display = 'none';
+		   alert("작성자만 글을 수정할 수 있습니다.")
+  		 }
     	let bidx= $("#detailBidx").html()
     	$.ajax({
-    		url:"boardread.do"
-    		type:"get",
+    		url: "boardread.do",
+    		type: "get",
     		data:{"bidx":bidx},
-    		sucess:function(data){
-    			let ps = $('.md');
-
+    		success:function(data){
+    			let modi = $('.mdc');
+    			$(modi[1]).html(data[0].bidx)
+    			$(modi[2]).val(data[0].title)
+    			$(modi[3]).val(data[0].content)
     		},
     		error:function(){
     			alert("error")
     		}
     	});
     }) 
+    
+    $("#modibtn").on("click",function(){
+	   	let category =$("#modicate option:selected").val()
+	    let title = $("#modititle").val()
+	    let content = $("#modicontent").val()
+    	let bidx = $("#modiBidx").text()
+    	$.ajax({
+    		url:"boardmodify.do",
+    		type:"get",
+    		data:{"bidx":bidx, "category":category, "title":title, "content":content},
+    		success:function(){
+    			alert("수정하였습니다.")
+		        modifyModal.style.display = 'none'
+				location.href=("community.do?category")
+    		},
+    		error:function(){
+    			alert("error")
+    		}
+    	});
+    })
+    
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){

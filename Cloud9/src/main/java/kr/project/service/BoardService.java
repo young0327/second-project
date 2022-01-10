@@ -32,7 +32,7 @@ public class BoardService {
 		mapper.boardDelete(bidx);
 	}
 	
-	public void boardModify(String bidx) {
-		mapper.boardUpdate(bidx);
+	public void boardModify(String bidx, String title,String content,String category ) {
+		mapper.boardUpdate(bidx,title,content,category);
 	}
 }
