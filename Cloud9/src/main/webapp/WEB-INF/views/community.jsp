@@ -407,6 +407,7 @@
     
     
     //게시글 수정
+
    
    $("#boardModify").on("click",function(){
 	   let ps = $('.md');
@@ -416,6 +417,7 @@
 		   modifyModal.style.display = 'none';
 		   alert("작성자만 글을 수정할 수 있습니다.")
   		 }
+
     	let bidx= $("#detailBidx").html()
     	$.ajax({
     		url: "boardread.do",
@@ -445,7 +447,7 @@
     		success:function(){
     			alert("수정하였습니다.")
 		        modifyModal.style.display = 'none'
-				location.href=("community.do?category")
+				location.href=("community.do?category=category0")
     		},
     		error:function(){
     			alert("error")

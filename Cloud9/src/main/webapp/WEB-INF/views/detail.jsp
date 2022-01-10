@@ -81,14 +81,14 @@
                 <div class="iconbox"><img src="../assets/kakao.png"></div>
               </div>
               <div class="line detailtop-name row detailtop col-md-7">
-                <div class="namebox ">
+                <div class="namebox box_udline">
                   <h4 class="kr-font">카카오톡</h4>
                   <p class="kr-font">한줄요약이 들어가는 곳입니다</p>
                   <h2>4.3</h2>
-                  <p class="kr-font">아스팔트 9: 레전드에서 Ferrari, Porsche, Lamborghini, W Motors 등 수많은 세계적 브랜드와 
-                    전설급 일류 제조사의 자동차를 직접 운전해 보세요. 싱글 또는 멀티플레이 모드의 
-                    역동적이고 현실감 넘치는 장소에서 레이스를 즐기고, 실력을 자랑하고, 스턴트 액션에 
-                    도전하세요. 아스팔트 8: 에어본 제작진이 선사하는 짜릿한 레이싱 경험이 여러분을 찾아갑니다.</p>
+                <div class="box">
+                    <div class="content kr-font">
+                    </div>
+                </div>
                 </div>
               </div>
               <div class="detailtop-like detailtop col-md-2">
@@ -98,23 +98,60 @@
                 </div>
               </div>
             </div>
+            <div class="detail-top-imgbox">
+              <ul class="row imgbox-ul">
+                <li class="col-sm-3"><img src="../assets/screen.png"></li>
+                <li class="col-sm-3"><img src="../assets/screen.png"></li>
+                <li class="col-sm-3"><img src="../assets/screen.png"></li>
+                <li class="col-sm-3"><img src="../assets/screen.png"></li>
+              </ul>
+            </div>
+
+            <div class="detail-mid-box">
+              <div class="mid-list-box">
+                <ul class="mid-list-box-div row kr-font">
+                  <li class="col-md-1"></li>
+                  <li class="mid-list-box-list col-md-2">세부사항</li>
+                  <li class="col-md-1"></li>
+                  <li class="mid-list-box-list col-md-2">통계학</li>
+                  <li class="col-md-1"></li>
+                  <li class="mid-list-box-list col-md-2">뭔가있겠지</li>
+                  <li class="col-md-1"></li>
+                  <li class="mid-list-box-list col-md-2">뭔가있지</li>
+                 
+                </ul>
+              </div>
+              <div class="tab-box">
+                <p>아스팔트 9: 레전드에서 Ferrari, Porsche, Lamborghini, W Motors 등 수많은 세계적 브랜드와 
+                  전설급 일류 제조사의 자동차를 직접 운전해 보세요. 싱글 또는 멀티플레이 모드의 
+                  역동적이고 현실감 넘치는 장소에서 레이스를 즐기고, 실력을 자랑하고, 스턴트 액션에 
+                  도전하세요. 아스팔트 8: 에어본 제작진이 선사하는 짜릿한 레이싱 경험이 여러분을 찾아갑니다.
+                </p>
+              </div>
+              <div class="tab-box">
+                <p>second</p>
+              </div>
+              <div class="tab-box">
+                <p>third</p>
+              </div>
+              <div class="tab-box">
+                <p>fourth</p>
+              </div>
+            </div>
           </div>
           <!-- main-top-box-end -->
 
-          <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
+          <!-- <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
             <div class="img-content-box">
               <ul class="img-list-box row">
                 
               </ul>
 
             </div>
-          </div>
+          </div> -->
         </div>
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -128,6 +165,65 @@
         $('.list-group').slideToggle();
       })
 
+     $('.mid-list-box-list').eq(0).click(function(){
+       $('.tab-box').eq(0).css('display','block')
+       $('.tab-box').eq(1).css('display','none')
+       $('.tab-box').eq(2).css('display','none')
+       $('.tab-box').eq(3).css('display','none')
+     })
+     $('.mid-list-box-list').eq(1).click(function(){
+       $('.tab-box').eq(1).css('display','block')
+       $('.tab-box').eq(0).css('display','none')
+       $('.tab-box').eq(2).css('display','none')
+       $('.tab-box').eq(3).css('display','none')
+     })
+     $('.mid-list-box-list').eq(2).click(function(){
+       $('.tab-box').eq(2).css('display','block')
+       $('.tab-box').eq(0).css('display','none')
+       $('.tab-box').eq(1).css('display','none')
+       $('.tab-box').eq(3).css('display','none')
+     })
+     $('.mid-list-box-list').eq(3).click(function(){
+       $('.tab-box').eq(3).css('display','block')
+       $('.tab-box').eq(0).css('display','none')
+       $('.tab-box').eq(1).css('display','none')
+       $('.tab-box').eq(2).css('display','none')
+     })
+     
+
+    </script>
+    <script text="javascript/text">
+      $(document).ready(function(){
+          $('.box').each(function(){
+              var content = $(this).children('.content');
+              var content_txt = content.text();
+              var content_txt_short = content_txt.substring(0,100)+"...";
+              var btn_more = $('<a href="javascript:void(0)" class="more">더보기</a>');
+  
+              $(this).append(btn_more);
+              
+              if(content_txt.length >= 100){
+                  content.html(content_txt_short)
+              }else{
+                  btn_more.hide()
+              }
+              btn_more.click(toggle_content);
+              function toggle_content(){
+                  if($(this).hasClass('short')){
+                      // 접기 상태
+                      $(this).html('더보기');
+                      content.html(content_txt_short)
+                      $(this).removeClass('short');
+                  }else{
+                      // 더보기 상태
+                      $(this).html('접기');
+                      content.html(content_txt);
+                      $(this).addClass('short');
+  
+                  }
+              }
+          });
+      });
     </script>
   </body>
 </html>
