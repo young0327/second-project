@@ -408,8 +408,13 @@
     
     
     //게시글 수정
+<<<<<<< HEAD
    
    /*$("#boardModify").on("click",function(){
+=======
+   
+   $("#boardModify").on("click",function(){
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
     	let bidx= $("#detailBidx").html()
     	$.ajax({
     		url:"boardread.do"
@@ -423,7 +428,7 @@
     			alert("error")
     		}
     	});
-    }) */
+    }) 
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
