@@ -409,7 +409,7 @@
     
     //게시글 수정
    
-   /*$("#boardModify").on("click",function(){
+   $("#boardModify").on("click",function(){
     	let bidx= $("#detailBidx").html()
     	$.ajax({
     		url:"boardread.do"
@@ -423,7 +423,7 @@
     			alert("error")
     		}
     	});
-    }) */
+    }) 
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
