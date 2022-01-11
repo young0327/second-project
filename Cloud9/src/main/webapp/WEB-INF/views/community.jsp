@@ -278,6 +278,11 @@
         board_modal.style.display = 'none';
         modifyModal.style.display = 'block';
       })
+       	modifyModal.addEventListener('click', function(e){
+        if(e.target == e.currentTarget){
+          modifyModal.style.display = 'none'
+        }
+      })
      
       
       // modifying modal page end
