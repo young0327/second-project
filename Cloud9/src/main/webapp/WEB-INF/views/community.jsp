@@ -53,10 +53,10 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-          <input class="comm-input font-kr" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
+          <input class="comm-input kr-font" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
           <div class="comm-option">
-            <p class="modal-p font-kr">카테고리</p>
-            <select class="modal-select font-kr" name ="category">
+            <p class="modal-p kr-font">카테고리</p>
+            <select class="modal-select kr-font" name ="category">
               <option value="category1">category1</option>
               <option value="category2">category2</option>
               <option value="category3">category3</option>
@@ -138,7 +138,7 @@
         		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p class="welcomeBoard font-kr">${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo"><p class="welcomeBoard kr-font">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
        <c:choose>
@@ -159,16 +159,16 @@
       <div class="main-sub row">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
-            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category font-kr" href="#">카테고리
+            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">category1</a>
                 <a href="#" class="list-group-item list-group-item-action">category2</a>
                 <a href="#" class="list-group-item list-group-item-action">category3</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" >유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
-            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing">글 작성</a></li>
+            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font" >유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
+            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a kr-font writing">글 작성</a></li>
            </ul>
           <!-- Side Bar end--> 
         </div>
@@ -188,14 +188,14 @@
               
               <div class="article-box">
                <c:forEach items="${boardlist}" var="list">          
-                <div class="article-list">
-                  <span class="article font-kr" style ="pointer-events: none;">${list.category}</span>
-                  <a><h5 class="article font-kr" data-value="${list.bidx}">${list.title}</h5></a>
+                <div class="article-list kr-font">
+                  <span class="article kr-font" style ="pointer-events: none;">${list.category}</span>
+                  <a><h5 class="article kr-font" data-value="${list.bidx}">${list.title}</h5></a>
                   <div>
-                    <a><p class="article font-kr" id="test" data-value="${list.bidx}">${list.content}</p></a>
+                    <a><p class="article kr-font" id="test" data-value="${list.bidx}">${list.content}</p></a>
                   </div>
                   <div>
-                    <span class="article font-kr" style ="pointer-events: none;" id ="list_nick">${list.nick}</span>
+                    <span class="article kr-font" style ="pointer-events: none;" id ="list_nick">${list.nick}</span>
                   </div>
                 </div>
                </c:forEach>
@@ -348,13 +348,13 @@
     			  for(let i = 0; i < data.length; i++){
     			  let articles = `
     			  		 <div class="article-list">
-    			          <span class="article font-kr" style ="pointer-events: none;">` + data[i].category + `</span>
-    			          <a><h5 class="article font-kr" data-value="` + data[i].bidx +`">` + data[i].title + `</h5></a>
+    			          <span class="article kr-font" style ="pointer-events: none;">` + data[i].category + `</span>
+    			          <a><h5 class="article kr-font" data-value="` + data[i].bidx +`">` + data[i].title + `</h5></a>
     			          <div>
-    			            <a><p class="article font-kr" id="test" data-value="`+ data[i].bidx + `">` + data[i].content + `</p></a>
+    			            <a><p class="article kr-font" id="test" data-value="`+ data[i].bidx + `">` + data[i].content + `</p></a>
     			          </div>
     			          <div>
-    			            <span class="article font-kr" style ="pointer-events: none;">` + data[i].nick + `</span>
+    			            <span class="article kr-font" style ="pointer-events: none;">` + data[i].nick + `</span>
     			          </div>
     			        </div>
     				  	`;
