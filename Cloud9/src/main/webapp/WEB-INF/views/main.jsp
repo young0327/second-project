@@ -59,7 +59,7 @@
         		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p class="font-kr">${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo kr-font"><p class="kr-font">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       
@@ -81,15 +81,15 @@
       <div class="main-sub row">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
-            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category font-kr" href="#">카테고리
+            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">category1</a>
                 <a href="#" class="list-group-item list-group-item-action">category2</a>
                 <a href="#" class="list-group-item list-group-item-action">category3</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="#">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
+            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font href="#">유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
         </div>
@@ -122,17 +122,17 @@
           <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
             <div class="lower-left col-md-4">
               <div class="lower-content">
-                <p class="font-kr">전체 순위</p>
+                <p class='kr-font'>전체 순위</p>
               </div>
             </div>
             <div class="lower-right col-md-4">
               <div class="lower-content">
-                <p class="font-kr">무료 앱 순위</p>
+                <p class="kr-font">무료 앱 순위</p>
               </div>
             </div>
             <div class="lower-right col-md-4">
               <div class="lower-content">
-                <p class="font-kr">유료 앱 순위</p>
+				<p class='kr-font'>유료 앱 순위</p>
               </div>
             </div>
           </div>

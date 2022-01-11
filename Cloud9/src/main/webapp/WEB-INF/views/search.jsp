@@ -113,7 +113,7 @@
 		            <div class="result-box row">
 		              <div class="app-icon-img col-md-3"><img src="${pageContext.request.contextPath}/resources/img/${applist.apidx}.png"></div>
 		              <div class="kr-font app-content-box col-md-9">
-		                <h5 class="kr-font">${applist.appname}</h5>
+		                <h5 class="kr-font"><a href="detail.do">${applist.appname}</a></h5>
 		                <p class="word">${applist.rating}</p>
 		                </div>
 		            </div>

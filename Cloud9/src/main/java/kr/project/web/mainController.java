@@ -65,4 +65,9 @@ public class mainController {
 			return "search";
 		}
 	}
+	
+	@RequestMapping("/detail.do")
+	public String detail() {
+		return "detail";
+	}
 }
