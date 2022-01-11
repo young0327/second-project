@@ -88,7 +88,7 @@
                 <a href="#" class="list-group-item list-group-item-action">category3</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font" href="#">유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font href="#">유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
@@ -122,7 +122,7 @@
           <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
             <div class="lower-left col-md-4">
               <div class="lower-content">
-                <p class="kr-font">전체 순위</p>
+                <p class='kr-font'>전체 순위</p>
               </div>
             </div>
             <div class="lower-right col-md-4">
@@ -132,7 +132,7 @@
             </div>
             <div class="lower-right col-md-4">
               <div class="lower-content">
-                <p class="kr-font">유료 앱 순위</p>
+				<p class='kr-font'>유료 앱 순위</p>
               </div>
             </div>
           </div>
