@@ -15,22 +15,20 @@ nick varchar(10),
 primary key (id)
 );
 
-insert into tsboard(nick, title, content, category, day) values('test01','테스트입니다.','테스트다아아앙','category0',now())
+create table applist(
+apidx int not null  auto_increment,
+appname varchar(30),
+rating int,
+primary key (apidx)
+)
 
+insert into tsboard(nick, title, content, category, day) values('test01','테스트입니다.','테스트다아아앙','category0',now())
+insert into applist(appname,rating) values('카카오톡','4.7')
 
 insert into userinfo values('test1','1234','test1')
-
+select * from applist
 select * from userinfo
 delete from tsboard where bidx = '14'
 desc tsboard
 select * from tsboard
 drop table tsboard
-
-insert into tsboard(nick, title, content, category, day) values('test01','테스트입니다.','테스트다아아앙','category0',now())
-insert into tsboard values('hero','test01','테스트입니다.','테스트다아아앙','category0',now())
-insert into tsboard values('new','test01','테스트입니다.','테스트다아아앙','category0',now())
-       select * from tsboard where category like '%category%'
-
-       
-       
-       

@@ -167,8 +167,8 @@
               </div>
             </a></li>
             <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" >유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do">커뮤니티</a></li>
-            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing")>글 작성</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
+            <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a font-kr writing">글 작성</a></li>
            </ul>
           <!-- Side Bar end--> 
         </div>
@@ -279,6 +279,7 @@
         modifyModal.style.display = 'block';
       })
      
+      
       // modifying modal page end
       
       $('.category').on('click',function(){

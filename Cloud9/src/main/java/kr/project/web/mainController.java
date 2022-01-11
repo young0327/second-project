@@ -10,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.project.domain.App;
 import kr.project.domain.Board;
 import kr.project.domain.User;
+import kr.project.service.AppService;
 import kr.project.service.BoardService;
 import kr.project.service.UserService;
 
@@ -22,7 +24,8 @@ public class mainController {
 	UserService service;
 	@Autowired
 	BoardService boardService;
-	
+	@Autowired
+	AppService appService;
 	@RequestMapping("/main")
 	public String main() { // http://127.0.0.1:8081/web/1
 		return "main";
@@ -48,4 +51,12 @@ public class mainController {
 		return "community";
 	}
 	
+	@RequestMapping("/search.do")
+	public String appSearch(String appname,Model model){
+		System.out.println(appname);
+		List<App>applist = appService.appSearch(appname);
+		model.addAttribute("applist",applist);
+		System.out.println(applist);
+		return "search";
+	}
 }
