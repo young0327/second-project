@@ -54,9 +54,15 @@ public class mainController {
 	@RequestMapping("/search.do")
 	public String appSearch(String appname,Model model){
 		System.out.println(appname);
-		List<App>applist = appService.appSearch(appname);
-		model.addAttribute("applist",applist);
-		System.out.println(applist);
-		return "search";
+		if(appname.equals("")) {
+			System.out.println("하이");
+			return "search";
+		}else {
+			List<App>applist = appService.appSearch(appname);
+			model.addAttribute("applist",applist);
+			model.addAttribute("searchName",appname);
+			System.out.println(applist);
+			return "search";
+		}
 	}
 }

@@ -24,6 +24,10 @@ primary key (apidx)
 
 insert into tsboard(nick, title, content, category, day) values('test01','테스트입니다.','테스트다아아앙','category0',now())
 insert into applist(appname,rating) values('카카오톡','4.7')
+insert into applist(appname,rating) values('질병관리청 COOV(코로나19 전자예방접종증명서)','4')
+insert into applist(appname,rating) values('티빙','3')
+insert into applist(appname,rating) values('카카오뱅크','5')
+insert into applist(appname,rating) values('카카오택시','4')
 
 insert into userinfo values('test1','1234','test1')
 select * from applist
