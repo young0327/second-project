@@ -159,6 +159,7 @@
       <div class="main-sub row">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
+          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a category kr-font" href="main.jsp">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">category1</a>
