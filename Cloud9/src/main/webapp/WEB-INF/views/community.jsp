@@ -123,7 +123,7 @@
     <!--modifying Modal start-->
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" ></a></div>
+      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src="./resources/logo/appv.png" ></a></div>
       <div class="col-sm-4">
         <nav class="navbar navbar-light bg-white">
           <div><form class="form-inline">

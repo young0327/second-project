@@ -42,7 +42,7 @@
     </transition>
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+      <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img"  src="./resources/logo/appv.png"></a></div>
       <div class="col-sm-5">
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline">
