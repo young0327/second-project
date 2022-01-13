@@ -42,7 +42,7 @@
     </transition>
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+      <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img"  src="./resources/logo/appv.png"></a></div>
       <div class="col-sm-5">
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline">
@@ -61,6 +61,7 @@
       <div class="main-sub row">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
+          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main.jsp">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category" href="#">카테고리
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">category1</a>
