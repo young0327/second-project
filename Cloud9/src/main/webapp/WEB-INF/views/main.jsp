@@ -99,51 +99,12 @@
         <div class="main-content-box col-sm-10">
           <!-- Slide Carousel Start-->
           <div class="main-content-carousel">
-            <div class="carousel-imgbox"><img src="./resources/img/banner.png"></div>
+            
             
           </div>
           <!-- Slide Carousel end-->
           <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
-            <div class="lower-top">
-              <div class="lower-word kr-font"><h5>무료앱중에 최고</h5></div>
-              <div class="app-iconbox row">
-                <ul class="row" style="list-style: none;">
-                  <li class="app-icon col-md-2"><img src="./resources/img/1.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/2.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/3.jpg"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/4.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/5.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/wavve.png"><p class='kr-font'>티빙</p></li>
-                </ul>
-              </div>
-              
-            </div>
-            <div class="lower-mid">
-              <div class="lower-word"><h5>무료앱중에 최고</h5></div>
-              <div class="app-iconbox row">
-                <ul class="row" style="list-style: none;">
-                  <li class="app-icon col-md-2"><img src="./resources/img/1.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/2.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/3.jpg"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/4.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/5.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/wavve.png"><p class='kr-font'>티빙</p></li>
-                </ul>
-              </div>
-            </div>
-            <div class="lower-bot">
-              <div class="lower-word"><h5>무료앱중에 최고</h5></div>
-              <div class="app-iconbox row">
-                <ul class="row" style="list-style: none;">
-                  <li class="app-icon col-md-2"><img src="./resources/img/1.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/2.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/3.jpg"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/4.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/5.png"><p class='kr-font'>티빙</p></li>
-                  <li class="app-icon col-md-2"><img src="./resources/img/wavve.png"><p class='kr-font'>티빙</p></li>
-                </ul>
-              </div>
-            </div>
+            
           
         </div>
       </div>  
