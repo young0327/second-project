@@ -100,7 +100,7 @@
 .logo-img{
   width: 10%;
   min-width: 100px;
-  margin-top: -30px;
+  margin-top:0px;
   position: absolute;
   justify-content: center;
   left:20px;
