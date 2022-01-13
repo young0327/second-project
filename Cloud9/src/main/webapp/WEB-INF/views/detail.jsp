@@ -101,10 +101,10 @@
             </div>
             <div class="detail-top-imgbox">
               <ul class="row imgbox-ul">
-                <li class="col-sm-3"><img src="../assets/screen.png"></li>
-                <li class="col-sm-3"><img src="../assets/screen.png"></li>
-                <li class="col-sm-3"><img src="../assets/screen.png"></li>
-                <li class="col-sm-3"><img src="../assets/screen.png"></li>
+                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
+                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
+                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
+                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
               </ul>
             </div>
 

@@ -106,7 +106,7 @@
           <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
             
           
-        </div>
+          </div>
       </div>  
     </div>
 
