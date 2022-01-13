@@ -115,7 +115,7 @@
           </div>
           <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text' name='title' id ="modititle"></div>
           <div class="modifying-content"><p class="modifying-modal-p">내용</p><textarea class="modifying-modal-area mdc" name ='content' id="modicontent"></textarea></div>
-          <div class="modifying-btn"><button type="submit" id="modibtn" class="btn btn-dark">수정하기</button></div>
+          <div class="modifying-btn"><button type="button" id="modibtn" class="btn btn-dark">수정하기</button></div>
         </div>
           <form>
       </div>
@@ -123,7 +123,7 @@
     <!--modifying Modal start-->
     <!-- Navbar Start-->
     <div class="navbar-box row">
-      <div class="col-sm-2 logobox"><a href="main.jsp"><img class="logo-img" src="./resources/logo/appv.png" ></a></div>
+      <div class="col-sm-2 logobox"><a href="main"><img class="logo-img" src="./resources/logo/appv.png" ></a></div>
       <div class="col-sm-4">
         <nav class="navbar navbar-light bg-white">
           <div><form class="form-inline">
@@ -159,7 +159,7 @@
       <div class="main-sub row">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
-          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main.jsp">홈 화면
+          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">category1</a>
@@ -340,7 +340,6 @@
    $(".cate").click(function(){
 	  	$('div.article-box').html('');
     	cateN = "category"+this.value;
-    	console.log(cateN);
     	  $.ajax({
     		  url:"boardListAjax.do",
     		  type:"get",
@@ -361,7 +360,6 @@
     				  	`;
     			  $('.article-box').append(articles);	
     			  }
-    			  console.log(data)
     		  },
     		  error:function(){
     		  }
@@ -380,7 +378,7 @@
     		success : function(){
     			alert("글이 작성되었습니다.")
     			comm_modal.style.display = 'none';
-    			location.href=("community.do?category")
+    			 location.href=("community.do?category=category0")
     		},
     		error: function(){
     			alert("error")
@@ -423,8 +421,7 @@
 	   if (nick1!=nick){
 		   modifyModal.style.display = 'none';
 		   alert("작성자만 글을 수정할 수 있습니다.")
-  		 }
-
+  		 }else{
     	let bidx= $("#detailBidx").html()
     	$.ajax({
     		url: "boardread.do",
@@ -440,6 +437,7 @@
     			alert("error")
     		}
     	});
+    	}
     }) 
     
     $("#modibtn").on("click",function(){
@@ -453,8 +451,7 @@
     		data:{"bidx":bidx, "category":category, "title":title, "content":content},
     		success:function(){
     			alert("수정하였습니다.");
-		        modifyModal.style.display = 'none';
-		    	location.href=("community.do?category")
+		        location.href=("community.do?category=category0")
     		},
     		error:function(){
     			alert("error")
@@ -474,7 +471,7 @@
     		success: function(){
 				alert("글이 삭제 되었습니다.")
 				board_modal.style.display = 'none';
-				location.href=("community.do?category")
+				 location.href=("community.do?category=category0")
     		},
     		error: function(){
     			console.log("삭제 실패")

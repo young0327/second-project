@@ -26,6 +26,7 @@ public class mainController {
 	BoardService boardService;
 	@Autowired
 	AppService appService;
+	
 	@RequestMapping("/main")
 	public String main() { // http://127.0.0.1:8081/web/1
 		return "main";
@@ -55,7 +56,6 @@ public class mainController {
 	public String appSearch(String appname,Model model){
 		System.out.println(appname);
 		if(appname.equals("")) {
-			System.out.println("하이");
 			return "search";
 		}else {
 			List<App>applist = appService.appSearch(appname);
