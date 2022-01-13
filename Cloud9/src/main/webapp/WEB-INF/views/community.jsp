@@ -451,9 +451,9 @@
     		type:"get",
     		data:{"bidx":bidx, "category":category, "title":title, "content":content},
     		success:function(){
-    			alert("수정하였습니다.")
-		        modifyModal.style.display = 'none'
-				location.href=("community.do?category=category0")
+    			alert("수정하였습니다.");
+		        modifyModal.style.display = 'none';
+		    	location.href=("community.do?category")
     		},
     		error:function(){
     			alert("error")
@@ -464,7 +464,8 @@
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
-    	let bidx= $("#detailBidx").val()
+    	let bidx= $("#detailBidx").text()
+    	console.log(bidx);
     	$.ajax({
     		url :"boardDelete.do",
     		type:"get",
@@ -477,7 +478,7 @@
     		error: function(){
     			console.log("삭제 실패")
     		}
-    	})
+    	});
     })
     
     

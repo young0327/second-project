@@ -10,23 +10,27 @@
 		<!-- DB연결에 필요한 API 설정(HikariCP - DBCP) -->
 			<!-- XML파일 안에서는 태그를 사용하여 객체 생성 , bean은 객체를 생성하는 태그 id는 인스턴스-->	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/bigdata"/>
-		<property name="username" value="root"/>
-		<property name="password" value="12345"/>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://testrds.c4fslvqyxo1g.us-east-2.rds.amazonaws.com:3306/Test"/>
+		<property name="username" value="admin"/>
+		<property name="password" value="00000000"/>
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close"> <!-- 여기서 close는 connection을 끊는 개념이 아닌 반납 -->
 		<constructor-arg ref="hikariConfig" />
 	</bean>
 
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	 
 	<!-- SQLSessionFactoryBean API 필요 -->
 	<!-- SQLSessionFactoryBean 객체는 객체가 생성될때 Mapper interface를 찾는다. -->
-	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- <bean class="org.mybatis.spring.SqlSessionFactoryBean"> -->
 	<!-- id 이름은 클래스의 마지막의 첫단어를 소문자 해서 지정한다. -->
 	<!-- 참조할 대상이 없으면 ID는 필요가 없다. -->
-		<property name="dataSource" ref="dataSource"/>
-	</bean>
+	<!--  	<property name="dataSource" ref="dataSource"/>-->
+	<!-- </bean>-->
 	
 	<!-- Mapper들을 메모리에 올리는 작업 -->
 	<mybatis:scan base-package ="kr.project.mapper"/>	

@@ -20,8 +20,8 @@ apidx int not null  auto_increment,
 appname varchar(30),
 rating int,
 primary key (apidx)
-)
-
+);
+delete from tsboard where bidx=2
 insert into tsboard(nick, title, content, category, day) values('test01','테스트입니다.','테스트다아아앙','category0',now())
 insert into applist(appname,rating) values('카카오톡','4.7')
 insert into applist(appname,rating) values('질병관리청 COOV(코로나19 전자예방접종증명서)','4')
