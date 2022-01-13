@@ -21,18 +21,27 @@ appname varchar(30),
 rating int,
 primary key (apidx)
 );
-delete from tsboard where bidx=2
-insert into tsboard(nick, title, content, category, day) values('test01','테스트입니다.','테스트다아아앙','category0',now())
-insert into applist(appname,rating) values('카카오톡','4.7')
-insert into applist(appname,rating) values('질병관리청 COOV(코로나19 전자예방접종증명서)','4')
-insert into applist(appname,rating) values('티빙','3')
-insert into applist(appname,rating) values('카카오뱅크','5')
-insert into applist(appname,rating) values('카카오택시','4')
 
-insert into userinfo values('test1','1234','test1')
+CREATE TABLE app_list(
+    app_no       INT UNSIGNED       COMMENT '앱 번호', 
+    app_name     VARCHAR(20)       NOT NULL    COMMENT '앱  이름', 
+    app_cate     VARCHAR(20)       NOT NULL    COMMENT '앱 카테고리', 
+    app_price    VARCHAR(20) COMMENT '앱 가격', 
+    app_rating   DECIMAL(12, 1)    NOT NULL    COMMENT '앱 평점', 
+    app_company  VARCHAR(20)       NULL        COMMENT '앱 회사', 
+     PRIMARY KEY (app_no)
+);
+
+insert into app_list(app_no,app_name,app_cate,app_rating,app_company) values (1,"카카오뮤직","music","4.3","kakao")
+insert into app_list(app_no,app_name,app_cate,app_rating,app_company) values (2,"메론","music","4.3","malon")
+insert into app_list(app_no,app_name,app_cate,app_rating,app_company) values (3,"벅스","music","4.1","bugsmusic")
+insert into app_list ("1","카카오뮤직","music","4.3","kakao")
+
+delete from tsboard where bidx=2
+select * from app_list where app_name ="카카오뮤직"
+
 select * from applist
 select * from userinfo
-delete from tsboard where bidx = '14'
-desc tsboard
-select * from tsboard
-drop table tsboard
+select * from app_list
+drop table app_list
+desc app_list

@@ -4,8 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.project.mapper.AppMapper">
  
-    <select id ="appSearch"  resultType="kr.project.domain.App">
-        select * from applist where appname like CONCAT('%',#{appname},'%')
+    <resultMap type="kr.project.domain.App" id="AppSelectRM">
+		<result property="appno" column="app_no"/>
+		<result property="appname" column="app_name"/>
+		<result property="appcate" column="app_cate"/>
+		<result property="appprice" column="app_price"/>
+		<result property="apprating" column="app_rating"/>
+		<result property="appcompany" column="app_company"/>
+	</resultMap>
+    
+    
+    <select id ="appSearch"  resultType="kr.project.domain.App" parameterType="String" resultMap="AppSelectRM">
+        select * from app_list where app_name like CONCAT('%',#{appname},'%')
         
     </select>
     

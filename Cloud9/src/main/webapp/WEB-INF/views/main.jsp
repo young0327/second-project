@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  	 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
   </head>
   <body>
 
@@ -49,7 +51,7 @@
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline" action="search.do">
             <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search" name ="appname">
+            <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
           </form>
         </nav>
       </div>
@@ -150,10 +152,10 @@
     
 
     <!-- Optional JavaScript; choose one of the two! -->
-    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->.
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script>
       var Modal = new Vue({
@@ -214,6 +216,32 @@
       })
       
   
+      //자동 완성
+       $(document).ready(function() {
+    	  var searchSource = []; // 배열 생성
+    	  
+	    $("#appSearch").autocomplete({ // autocomplete 구현 시작부
+	        source : searchSource, //source 는 자동완성의 대상
+	        select : function(event, ui) { // item 선택 시 이벤트
+	            console.log(ui.item);
+	        },
+	        focus : function(event, ui) { // 포커스 시 이벤트
+	            return false;
+	        },
+	        minLength : 1, // 최소 글자 수
+	        autoFocus : true, // true로 설정 시 메뉴가 표시 될 때, 첫 번째 항목에 자동으로 초점이 맞춰짐
+	        classes : { // 위젯 요소에 추가 할 클래스를 지정
+	            'ui-autocomplete' : 'highlight'
+	        },
+	        delay : 200	, // 입력창에 글자가 써지고 나서 autocomplete 이벤트 발생될 떄 까지 지연 시간(ms)
+	        disable : false, // 해당 값 true 시, 자동완성 기능 꺼짐
+	        position : { my : 'right top', at : 'right bottom'}, // 제안 메뉴의 위치를 식별
+	        close : function(event) { // 자동완성 창 닫아질 때의 이벤트
+	            console.log(event);
+	        }
+	    });
+	});
+      
     </script>
 
     

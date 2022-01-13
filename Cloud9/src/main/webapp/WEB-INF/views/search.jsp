@@ -49,9 +49,9 @@
       <div class="col-sm-2 logobox"><a href="main"><img class="logo-img" src="./resources/logo/appv.png"></a></div>
       <div class="col-sm-4">
         <nav class="navbar navbar-light bg-white">
-          <form class="form-inline" action="search.do">
+         <form class="form-inline" action="search.do">
             <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search" name ="appname">
+            <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
           </form>
         </nav>
       </div>
@@ -112,10 +112,10 @@
             	<c:when test="${!empty applist}">
 		            <c:forEach items="${applist}" var="applist">  
 		            <div class="result-box row">
-		              <div class="app-icon-img col-md-3"><img src="${pageContext.request.contextPath}/resources/img/${applist.apidx}.png"></div>
+		              <div class="app-icon-img col-md-3"><img src="${pageContext.request.contextPath}/resources/img/${applist.appno}.png"></div>
 		              <div class="kr-font app-content-box col-md-9">
 		                <h5 class="kr-font"><a href="detail.do">${applist.appname}</a></h5>
-		                <p class="word">${applist.rating}</p>
+		                <p class="word">${applist.apprating}</p>
 		                </div>
 		            </div>
 		            </c:forEach>

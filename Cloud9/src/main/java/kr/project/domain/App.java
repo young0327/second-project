@@ -4,7 +4,10 @@ import lombok.Data;
 
 @Data
 public class App {
-private int apidx;
+private int appno;
 private String appname;
-private int rating;
+private String appcate;
+private String appprice;
+private float apprating;
+private String appcompany;
 }
