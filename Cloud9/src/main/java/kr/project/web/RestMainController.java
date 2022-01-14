@@ -1,7 +1,11 @@
 package kr.project.web;
 
+import java.sql.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.omg.CORBA.Request;
@@ -83,8 +87,6 @@ public class RestMainController {
 	public void boardDelete(String bidx) {
 		boardService.boardDelete(bidx);
 	}
-	
-	
 	
 	@GetMapping("/boardmodify.do")
 	public void boardModify(String bidx, String title,String content,String category ) {

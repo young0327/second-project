@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <title>Hello, world!</title>
+    
   </head>
   <body>
     
@@ -83,7 +83,7 @@
               </div>
               <div class="line detailtop-name row detailtop col-md-7">
                 <div class="namebox box_udline">
-                  <h4 class="kr-font">${appinfo[0].appname}</h4>
+                  <h4 class="kr-font" id ="appname">${appinfo[0].appname}</h4>
                   <p class="kr-font">한줄요약이 들어가는 곳입니다</p>
                   <h2>${appinfo[0].apprating}</h2>
                 <div class="box">
@@ -153,6 +153,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script>
        var Modal = new Vue({
         el : '.Modal',
@@ -227,6 +228,25 @@
               }
           });
       });
+      
+      
+      // 즐겨찾기 추가
+      $(".likebtn").on("click",function(){
+    	 let appname=$("#appname").text()
+    		 
+    	 if($.cookie(appname)=="Y"){
+    		 $.removeCookie(appname); 
+    		 alert("관심있는 어플에 등록이 해제되었습니다.");
+    		 console.log(appname)
+    		  $(".likebtn").css("color","black")
+    	 }else{
+    		 $.cookie(appname,"Y",{expires:7})
+    		 alert("관심있는 어플에 등록 되었습니다.");
+    		 console.log(appname)
+    		 $(".likebtn").css("color","blue")
+    	 }
+      })
+      
     </script>
   </body>
 </html>

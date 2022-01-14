@@ -66,10 +66,8 @@ public class mainController {
 	
 	@RequestMapping("/detail.do")
 	public String detail(int appid, Model model) {
-		System.out.println(appid);
 		List<App>appinfo = appService.appInfomation(appid);
 		model.addAttribute("appinfo", appinfo);
-		System.out.println(appinfo);
 		return "detail";
 	}
 }
