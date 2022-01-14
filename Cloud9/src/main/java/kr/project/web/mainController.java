@@ -54,20 +54,22 @@ public class mainController {
 	
 	@RequestMapping("/search.do")
 	public String appSearch(String appname,Model model){
-		System.out.println(appname);
-		if(appname.equals("")) {
+			if(appname.equals("")) {
 			return "search";
 		}else {
 			List<App>applist = appService.appSearch(appname);
 			model.addAttribute("applist",applist);
 			model.addAttribute("searchName",appname);
-			System.out.println(applist);
 			return "search";
 		}
 	}
 	
 	@RequestMapping("/detail.do")
-	public String detail() {
+	public String detail(int appid, Model model) {
+		System.out.println(appid);
+		List<App>appinfo = appService.appInfomation(appid);
+		model.addAttribute("appinfo", appinfo);
+		System.out.println(appinfo);
 		return "detail";
 	}
 }

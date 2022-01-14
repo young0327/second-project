@@ -112,9 +112,9 @@
             	<c:when test="${!empty applist}">
 		            <c:forEach items="${applist}" var="applist">  
 		            <div class="result-box row">
-		              <div class="app-icon-img col-md-3"><img src="${pageContext.request.contextPath}/resources/img/${applist.appno}.png"></div>
+		              <div class="app-icon-img col-md-3"><img src="${pageContext.request.contextPath}/resources/img/${applist.appid}.png"></div>
 		              <div class="kr-font app-content-box col-md-9">
-		                <h5 class="kr-font"><a href="detail.do">${applist.appname}</a></h5>
+		                <h5 class="kr-font"><a href="detail.do?appid=${applist.appid}">${applist.appname}</a></h5>
 		                <p class="word">${applist.apprating}</p>
 		                </div>
 		            </div>

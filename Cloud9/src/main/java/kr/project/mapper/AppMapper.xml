@@ -5,20 +5,35 @@
 <mapper namespace="kr.project.mapper.AppMapper">
  
     <resultMap type="kr.project.domain.App" id="AppSelectRM">
-		<result property="appno" column="app_no"/>
+		<result property="appid" column="app_id"/>
 		<result property="appname" column="app_name"/>
 		<result property="appcate" column="app_cate"/>
 		<result property="appprice" column="app_price"/>
 		<result property="apprating" column="app_rating"/>
 		<result property="appcompany" column="app_company"/>
+		
 	</resultMap>
+	
+    <resultMap type="kr.project.domain.AppInfo" id="AppInfoRM">
+   		<result property="appname" column="app_name"/>
+   		<result property="appid" column="app_id"/>
+   		<result property="appimg1" column="app_img1"/>
+		<result property="appimg2" column="app_img2"/>
+		<result property="appimg3" column="app_img3"/>
+		<result property="appimg4" column="app_img4"/>
+		<result property="appicon" column="app_icon"/>
+		<result property="apprating" column="app_rating"/>
+		<result property="appinfo" column="app_info"/>
+		<result property="appurl" column="app_url"/>
+    </resultMap>
     
     
     <select id ="appSearch"  resultType="kr.project.domain.App" parameterType="String" resultMap="AppSelectRM">
         select * from app_list where app_name like CONCAT('%',#{appname},'%')
-        
     </select>
     
-    
+    <select id = "appInfomation" resultType="kr.project.domain.App" resultMap="AppInfoRM">
+        select * from app_table where app_id = #{appid}
+    </select>
     
  </mapper>

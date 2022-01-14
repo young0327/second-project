@@ -61,7 +61,7 @@
       <div class="main-sub row">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
-          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main.jsp">홈 화면
+          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category" href="#">카테고리
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">category1</a>
@@ -70,7 +70,7 @@
               </div>
             </a></li>
             <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a" href="Comparing.html">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a" href="Community.html">커뮤니티</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a" href="community.do?category=category0">커뮤니티</a></li>
            </ul>
           <!-- Side Bar end--> 
         </div>
@@ -79,13 +79,13 @@
           <div class="main-content-carousel shadow p-3 mb-5 bg-white rounded">
             <div class="detail-top-box row">
               <div class="line detailtop-icon detailtop col-md-3">
-                <div class="iconbox"><img src="../assets/kakao.png"></div>
+                <div class="iconbox"><img src="${appinfo[0].appicon}"></div>
               </div>
               <div class="line detailtop-name row detailtop col-md-7">
                 <div class="namebox box_udline">
-                  <h4 class="kr-font">카카오톡</h4>
+                  <h4 class="kr-font">${appinfo[0].appname}</h4>
                   <p class="kr-font">한줄요약이 들어가는 곳입니다</p>
-                  <h2>4.3</h2>
+                  <h2>${appinfo[0].apprating}</h2>
                 <div class="box">
                     <div class="content kr-font">
                     </div>
@@ -101,10 +101,10 @@
             </div>
             <div class="detail-top-imgbox">
               <ul class="row imgbox-ul">
-                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
-                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
-                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
-                <li class="col-sm-3"><img src="./resources/img/screen.png"></li>
+                <li class="col-sm-3"><img src="${appinfo[0].appimg1}"></li>
+                <li class="col-sm-3"><img src="${appinfo[0].appimg2}"></li>
+                <li class="col-sm-3"><img src="${appinfo[0].appimg3}"></li>
+                <li class="col-sm-3"><img src="${appinfo[0].appimg4}"></li>
               </ul>
             </div>
 
@@ -123,10 +123,8 @@
                 </ul>
               </div>
               <div class="tab-box">
-                <p>아스팔트 9: 레전드에서 Ferrari, Porsche, Lamborghini, W Motors 등 수많은 세계적 브랜드와 
-                  전설급 일류 제조사의 자동차를 직접 운전해 보세요. 싱글 또는 멀티플레이 모드의 
-                  역동적이고 현실감 넘치는 장소에서 레이스를 즐기고, 실력을 자랑하고, 스턴트 액션에 
-                  도전하세요. 아스팔트 8: 에어본 제작진이 선사하는 짜릿한 레이싱 경험이 여러분을 찾아갑니다.
+                <p>
+                ${appinfo[0].appinfo}
                 </p>
               </div>
               <div class="tab-box">
@@ -165,7 +163,11 @@
       $('.category').on('click',function(){
         $('.list-group').slideToggle();
       })
-
+      
+		$("document").ready(function(){
+			$('.tab-box').eq(0).css('display','block')
+		})
+		
      $('.mid-list-box-list').eq(0).click(function(){
        $('.tab-box').eq(0).css('display','block')
        $('.tab-box').eq(1).css('display','none')

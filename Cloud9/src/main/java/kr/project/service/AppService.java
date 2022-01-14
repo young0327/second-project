@@ -18,4 +18,9 @@ public class AppService {
 		List<App>applist = mapper.appSearch(appname);
 		return applist;
 	}
+	
+	public List<App> appInfomation(int appid){
+		List<App>appinfo = mapper.appInfomation(appid);
+		return appinfo;
+	}
 }

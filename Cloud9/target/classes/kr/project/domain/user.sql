@@ -32,16 +32,36 @@ CREATE TABLE app_list(
      PRIMARY KEY (app_no)
 );
 
-insert into app_list(app_no,app_name,app_cate,app_rating,app_company) values (1,"카카오뮤직","music","4.3","kakao")
-insert into app_list(app_no,app_name,app_cate,app_rating,app_company) values (2,"메론","music","4.3","malon")
-insert into app_list(app_no,app_name,app_cate,app_rating,app_company) values (3,"벅스","music","4.1","bugsmusic")
-insert into app_list ("1","카카오뮤직","music","4.3","kakao")
 
+CREATE TABLE app_table
+(
+    app_name    VARCHAR(50)     NOT NULL    COMMENT '앱 이름', 
+    app_id      INT UNSIGNED    NOT NULL    COMMENT '앱 아이디', 
+    app_img1    VARCHAR(200)    NULL        COMMENT '앱 이미지1', 
+    app_img2    VARCHAR(200)    NULL        COMMENT '앱 이미지2', 
+    app_img3    VARCHAR(200)    NULL        COMMENT '앱 이미지3', 
+    app_img4    VARCHAR(200)    NULL        COMMENT '앱 이미지4', 
+    app_icon   VARCHAR(200)    NULL        COMMENT '앱 아이콘', 
+    app_rating  INT             NOT NULL    COMMENT '앱 평균별점', 
+    app_info    TEXT            NOT NULL    COMMENT '앱 상세정보', 
+    app_url     VARCHAR(200)    NULL        COMMENT '연결url', 
+     PRIMARY KEY (app_name)
+);
+
+ALTER TABLE app_table
+    ADD CONSTRAINT FK_app_table_app_id_app_list_app_no FOREIGN KEY (app_id)
+        REFERENCES app_list (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+alter table app_list change column app_no app_id INT UNSIGNED;
+alter table app_list modify column app_name varchar(50);
 delete from tsboard where bidx=2
 select * from app_list where app_name ="카카오뮤직"
-
+ select * from app_table where app_id = 1
 select * from applist
 select * from userinfo
 select * from app_list
+select * from app_table
+desc app_table
+desc test
 drop table app_list
 desc app_list
