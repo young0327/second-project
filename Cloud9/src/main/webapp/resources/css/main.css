@@ -154,7 +154,7 @@
 
 /******** sidebar-box *********/
 .sidebar{
-  width: 100%;
+  width: 15%;
   height: 100%;
   background-color: black;
   float: left;
@@ -163,12 +163,14 @@
   max-width: 250px;
   min-width: 150px;
   position:fixed;
+  padding-left:-20px
 }
 .sidebar-list{
   padding-top: 30px;
   list-style: none;
   text-align: left;
-  margin-left: -10px;
+  margin-left: -20px;
+  padding-left:-20px;
 }
 .sidebar-list li{
   margin-top: 20px;

@@ -58,10 +58,10 @@
       <div class="col-sm-1 loginbox"></div>
       <c:choose>
         	<c:when test="${empty users}">
-        		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
+        		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><i class="fas fa-sign-in-alt"></i>Login</p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo kr-font"><p class="kr-font">${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo kr-font"><p class="kr-font"><i class="fas fa-user-alt"></i>${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       
