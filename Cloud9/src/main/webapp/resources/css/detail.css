@@ -126,6 +126,44 @@ body{
 }
 .tab-box{
     display: none;
+    width: 100%;
+    height: 600px;
+    padding: 10px;
+    overflow: auto;
+}
+.tab-inner-box{
+    width: 100%;
+    height: 100%;
+}
+.tab-content-box{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.tab-content-left{
+    width: 60%;
+}
+.tab-content-right{
+    width: 40%;
+    padding: 10px;
+}
+.helpful-box{
+    width: 100%;
+    height: 40%;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+.helpful-inner{
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.helpful-top{
+    margin-top: 10px;
 }
 /* detail-mid-box end*/
 .main-content-lower{

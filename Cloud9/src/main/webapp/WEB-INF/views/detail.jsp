@@ -111,21 +111,40 @@
             <div class="detail-mid-box">
               <div class="mid-list-box">
                 <ul class="mid-list-box-div row kr-font">
-                  <li class="col-md-1"></li>
+                  <li class="col-md-2"></li>
                   <li class="mid-list-box-list col-md-2">세부사항</li>
                   <li class="col-md-1"></li>
                   <li class="mid-list-box-list col-md-2">통계학</li>
                   <li class="col-md-1"></li>
-                  <li class="mid-list-box-list col-md-2">뭔가있겠지</li>
+                  <li class="mid-list-box-list col-md-2">뭔가있겠</li>
                   <li class="col-md-1"></li>
-                  <li class="mid-list-box-list col-md-2">뭔가있지</li>
                  
                 </ul>
               </div>
               <div class="tab-box">
-                <p>
-                ${appinfo[0].appinfo}
-                </p>
+                <div class="tab-inner-box">
+                  <div class="tab-content-box tab-content-left">11</div>
+                  <div class="tab-content-box tab-content-right">
+                    <div class="helpful-box">
+                      <div class="helpful-inner">
+                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
+                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                      </div>
+                    </div>
+                    <div class="helpful-box">
+                      <div class="helpful-inner">
+                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
+                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                      </div>
+                    </div>
+                    <div class="helpful-box">
+                      <div class="helpful-inner">
+                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
+                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="tab-box">
                 <p>second</p>
