@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css?ver=1">
+    <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/index.css?ver=1">
     <title>Cloud Nine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,36 +79,53 @@
   </nav>
     <!-- Navbar end-->
     <!-- Side Bar Start-->
-    <div class="main-box">
-      <div class="main-sub row">
-        <div class="sidebar col-sm-2" id="List">
-          <ul class="sidebar-list">
-          	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
-            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
-              <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">category1</a>
-                <a href="#" class="list-group-item list-group-item-action">category2</a>
-                <a href="#" class="list-group-item list-group-item-action">category3</a>
-              </div>
-            </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font href="#">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
-          </ul>
-          <!-- Side Bar end--> 
+    <div class="main-box" style="background-image: url('./resources/img/background.jpg');">
+      <div class="main-top">
+        <div class="top-title-box">
+          <div class="title-inner-box"><p class="font-kr">인트로 문구</p></div>
         </div>
-        <div class="main-content-box col-sm-10">
-          <!-- Slide Carousel Start-->
-          <div class="main-content-carousel">
-            
-            
+      </div>
+      <div class="main-bottom">
+        <div class="bottom-topbox">
+          <form class="form-inline" style="display:inline-block" action="search.do">
+          	<button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+          	<input class="main-input" type="search" placeholder="어플 이름을 입력하세요" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
+          </form>
+        </div>
+        <div class="bottom-botbox">
+          <div class="bot-main-box">
+            <div class="bot-main-content">
+              <div class="content-go">
+                <div class="inner-content-box">
+                  <div class="flaticon"><i class="fas fa-edit"></i></div>
+                  <p class="main-title-word font-kr">커뮤니티 게시판</p>
+                  <a href="#"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
+                </div>
+              </div>
+              </div>
+            <div class="bot-main-content">
+              <div class="content-go">
+                <div class="inner-content-box">
+                  <div class="flaticon"><i class="fas fa-not-equal"></i></div>
+                  <p class="main-title-word font-kr">유사어플 비교하기</p>
+                  <a href="#"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="bot-main-content">
+              <div class="content-go">
+                <div class="inner-content-box">
+                  <div class="flaticon"><i class="fas fa-edit"></i></div>
+                  <p class="main-title-word font-kr">커뮤니티 게시판</p>
+                  <a href="#"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Slide Carousel end-->
-          <div class="main-content-lower row shadow p-3 mb-5 bg-white rounded">
-            
-          
-          </div>
-      </div>  
-    </div>
+        </div>
+      </div>
+      </div>          
+ 
 
     
 

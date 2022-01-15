@@ -7,6 +7,9 @@
 .font-kr{
   font-family: 'Noto Sans KR', sans-serif;
 }
+::placeholder{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 /******** Login Modal *********/
 .black-modal{
   width: 100%;
@@ -143,10 +146,7 @@
   height: 920px;
   text-align: center;
   background-color: #eee;
-  /* background-image: url('https://i.stack.imgur.com/spmUM.gif'); */
-  background-image: url('../assets/wall.jpg');
-  /* background: linear-gradient(rgb(81, 81, 208), rgb(43, 43, 43)); */
-  /* background-image: url('https://cdn.pixabay.com/photo/2017/12/29/22/57/background-3048876_960_720.jpg'); */
+  background-image: url('./resources/img/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
