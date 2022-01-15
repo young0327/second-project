@@ -130,20 +130,20 @@
                   <div class="tab-content-box tab-content-right">
                     <div class="helpful-box">
                       <div class="helpful-inner">
-                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
-                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
+                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
                       </div>
                     </div>
                     <div class="helpful-box">
                       <div class="helpful-inner">
-                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
-                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
+                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
                       </div>
                     </div>
                     <div class="helpful-box">
                       <div class="helpful-inner">
-                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
-                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
+                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
                       </div>
                     </div>
                   </div>
