@@ -25,6 +25,11 @@
 		<result property="apprating" column="app_rating"/>
 		<result property="appinfo" column="app_info"/>
 		<result property="appurl" column="app_url"/>
+		<result property="apppoint1" column="app_point1"/>
+		<result property="apppoint2" column="app_point2"/>
+		<result property="apppoint3" column="app_point3"/>
+		<result property="apppoint4" column="app_point4"/>
+		<result property="apppoint5" column="app_point5"/>
     </resultMap>
     
     

@@ -150,7 +150,7 @@
                 </div>
               </div>
               <div class="tab-box">
-                <p><canvas id="pie-chart" width="800" height="450"></canvas><canvas id="doughnut-chart" width="800" height="450"></canvas></p>
+                <p><canvas id="doughnut-chart" width="800" height="450"></canvas></p>
               </div>
               <div class="tab-box">
                 <p>third</p>
@@ -276,42 +276,30 @@
     	 }
       })
       
-      //파이차트
-      new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
-    data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-      datasets: [{
-        label: "Population (millions)",
-        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-        data: [2478,5267,734,784,433]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
-      }
-    }
-});
       
       //도넛차트
+     let apppoint1 = ${appinfo[0].apppoint1}
+     let apppoint2 = ${appinfo[0].apppoint2}
+     let apppoint3 = ${appinfo[0].apppoint3}
+     let apppoint4 = ${appinfo[0].apppoint4}
+     let apppoint5 = ${appinfo[0].apppoint5}
+     console.log(apppoint1,apppoint2,apppoint3,apppoint4,apppoint5)
       new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      labels: ["1점", "2점", "3점", "4점", "5점"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "평점 정보",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2478,5267,734,784,433]
+          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5]
         }
       ]
     },
     options: {
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: '평점 정보'
       }
     }
 });
