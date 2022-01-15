@@ -130,27 +130,27 @@
                   <div class="tab-content-box tab-content-right">
                     <div class="helpful-box">
                       <div class="helpful-inner">
-                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
-                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
+                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
                       </div>
                     </div>
                     <div class="helpful-box">
                       <div class="helpful-inner">
-                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
-                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
+                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
                       </div>
                     </div>
                     <div class="helpful-box">
                       <div class="helpful-inner">
-                        <div class="helpful-top font-kr"><p>작성자 이름</p></div>
-                        <div class="font-kr"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
+                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
+                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="tab-box">
-                <p><canvas id="doughnut-chart" width="800" height="450"></canvas></p>
+                <p><canvas id="doughnut-chart" width="800" height="450"><p class='what'>111</p></canvas></p>
               </div>
               <div class="tab-box">
                 <p>third</p>
@@ -278,6 +278,9 @@
       
       
       //도넛차트
+     Chart.defaults.global.defaultFontSize = 15;
+     Chart.defaults.global.defaultFontColor = "#000000"; 
+     Chart.defaults.global.defaultFontFamily = "Noto Sans KR";
      let apppoint1 = ${appinfo[0].apppoint1}
      let apppoint2 = ${appinfo[0].apppoint2}
      let apppoint3 = ${appinfo[0].apppoint3}
@@ -286,6 +289,7 @@
      
      
      new Chart(document.getElementById("doughnut-chart"),{
+     var chart = new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
       labels: ["1점", "2점", "3점", "4점", "5점"],
