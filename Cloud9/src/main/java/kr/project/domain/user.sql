@@ -52,15 +52,20 @@ ALTER TABLE app_table
     ADD CONSTRAINT FK_app_table_app_id_app_list_app_no FOREIGN KEY (app_id)
         REFERENCES app_list (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-alter table app_list change column app_no app_id INT UNSIGNED;
-alter table app_list modify column app_name varchar(50);
-delete from tsboard where bidx=2
-select * from app_list where app_name ="카카오뮤직"
- select * from app_table where app_id = 1
-select * from applist
-select * from userinfo
-select * from app_list
-select * from app_table
+alter table 
+app_table 
+add COLUMN 
+app_point5 
+INT;  
+
+insert into app_table(app_point1,app_point2,app_point3,app_point4,app_point5) values (2483,3572,1200,4257,7897) where app_id = 1;
+
+update app_table set 
+app_point1="2483",app_point2="3572",app_point3="1243",app_point4="4257",app_point5="7897" 
+where app_name = "카카오뮤직";
+
+select*from app_table
+
 desc app_table
 desc test
 drop table app_list

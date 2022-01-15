@@ -15,5 +15,9 @@ public class AppInfo {
 	private float apprating;
 	private String appinfo;
 	private String appurl;
-
+	private int apppoint1;
+	private int apppoint2;
+	private int apppoint3;
+	private int apppoint4;
+	private int apppoint5;
 }
