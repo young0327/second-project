@@ -112,11 +112,11 @@
               <div class="mid-list-box">
                 <ul class="mid-list-box-div row kr-font">
                   <li class="col-md-2"></li>
-                  <li class="mid-list-box-list col-md-2">세부사항</li>
+                  <li class="mid-list-box-list col-md-2">어플 정보</li>
                   <li class="col-md-1"></li>
-                  <li class="mid-list-box-list col-md-2">통계학</li>
+                  <li class="mid-list-box-list col-md-2">리뷰분석</li>
                   <li class="col-md-1"></li>
-                  <li class="mid-list-box-list col-md-2">뭔가있겠</li>
+                  <li class="mid-list-box-list col-md-2">워드클라우드</li>
                   <li class="col-md-1"></li>
                  
                 </ul>
@@ -149,7 +149,7 @@
                 </div>
               </div>
               <div class="tab-box">
-                <p>second</p>
+                <p><canvas id="pie-chart" width="800" height="450"></canvas><canvas id="doughnut-chart" width="800" height="450"></canvas></p>
               </div>
               <div class="tab-box">
                 <p>third</p>
@@ -175,6 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script>
        var Modal = new Vue({
         el : '.Modal',
@@ -274,6 +275,45 @@
     	 }
       })
       
+      //파이차트
+      new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [2478,5267,734,784,433]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+      
+      //도넛차트
+      new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
     </script>
   </body>
 </html>
