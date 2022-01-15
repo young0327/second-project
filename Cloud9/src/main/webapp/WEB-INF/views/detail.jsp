@@ -83,9 +83,9 @@
               </div>
               <div class="line detailtop-name row detailtop col-md-7">
                 <div class="namebox box_udline">
-                  <h4 class="kr-font" id ="appname">${appinfo[0].appname}</h4>
+                  <h4 class="kr-font" id ="appname">${appinfo[0].appname}</h4><span class='kr-font'>Daum Kakao</span>
                   <p class="kr-font">한줄요약이 들어가는 곳입니다</p>
-                  <h2>${appinfo[0].apprating}</h2>
+                  <h2><i class="fas fa-star" style="font-size:24px"></i>  ${appinfo[0].apprating}</h2>
                 <div class="box">
                     <div class="content kr-font">
                     </div>
@@ -94,8 +94,9 @@
               </div>
               <div class="detailtop-like detailtop col-md-2">
                 <div class="line likebox">
-                  <div class="likebtn"><i class="fas fa-thumbs-up"></i></div>
+                  <div class="likebtn"><i class="fas fa-heart"></i></div>
                   <div class="likeWord">Like</div>
+                  <div class="kr-font">10,300</div>
                 </div>
               </div>
             </div>

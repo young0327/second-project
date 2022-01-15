@@ -11,7 +11,7 @@ body{
 /* detail-top-box start*/
 .main-content-carousel{
     text-align: center;
-    height: 1500px;
+    height: 1700px;
     border: 5px solid black;
 }
 .detail-top-box{
@@ -65,11 +65,11 @@ body{
     font-family: 'Century-Gothic';
     font-weight: 700;
 }
-.fa-thumbs-up{
+.fa-heart{
     font-size: 40px;
     text-shadow: 3px 3px 3px gray;
 }
-.fa-thumbs-up:active{
+.fa-heart:active{
     text-shadow: none;
 }
 .box{
@@ -82,7 +82,7 @@ body{
 /*top img box*/
 .detail-top-imgbox{
     width: 85%;
-    height: 38%;
+    height: 25%;
     display: inline-block;
     padding: 10px;
     border-bottom: 1px solid rgb(189, 189, 189);
@@ -127,9 +127,10 @@ body{
 .tab-box{
     display: none;
     width: 100%;
-    height: 600px;
+    height: 790px;
     padding: 10px;
     overflow: auto;
+    overflow-x:hidden;
 }
 .tab-inner-box{
     width: 100%;
