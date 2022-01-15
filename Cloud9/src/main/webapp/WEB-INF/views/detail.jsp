@@ -176,8 +176,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>    
+<script>
        var Modal = new Vue({
         el : '.Modal',
         data : {
@@ -283,18 +283,19 @@
      let apppoint3 = ${appinfo[0].apppoint3}
      let apppoint4 = ${appinfo[0].apppoint4}
      let apppoint5 = ${appinfo[0].apppoint5}
-     console.log(apppoint1,apppoint2,apppoint3,apppoint4,apppoint5)
-      new Chart(document.getElementById("doughnut-chart"), {
+     
+     
+     new Chart(document.getElementById("doughnut-chart"),{
     type: 'doughnut',
     data: {
       labels: ["1점", "2점", "3점", "4점", "5점"],
-      datasets: [
-        {
+      datasets: [{
           label: "평점 정보",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5]
-        }
-      ]
+          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
+          hoverOffset: 70	
+        }],
+     
     },
     options: {
       title: {

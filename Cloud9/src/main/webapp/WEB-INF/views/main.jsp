@@ -49,7 +49,10 @@
       <div class="col-sm-2 logobox"><a href="main"><img class="logo-img" src="./resources/logo/appv.png"></a></div>
       <div class="col-sm-4">
         <nav class="navbar navbar-light bg-white">
-          
+          <form class="form-inline" action="search.do">
+            <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            <input class="search-input mr-sm-2" type="search" placeholder="Search" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
+          </form>
         </nav>
       </div>
       <div class="col-sm-1 loginbox"></div>
