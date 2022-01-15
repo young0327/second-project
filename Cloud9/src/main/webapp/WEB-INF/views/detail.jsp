@@ -123,7 +123,9 @@
               </div>
               <div class="tab-box">
                 <div class="tab-inner-box">
-                  <div class="tab-content-box tab-content-left">11</div>
+                  <div class="tab-content-box tab-content-left">
+                  ${appinfo[0].appinfo}
+                  </div>
                   <div class="tab-content-box tab-content-right">
                     <div class="helpful-box">
                       <div class="helpful-inner">
@@ -248,6 +250,14 @@
           });
       });
       
+      $("document").ready(function(){
+    	  let appname=$("#appname").text()
+    	  if($.cookie(appname)=="Y"){
+    		 $(".likebtn").css("color","red");
+   		  }else{
+   			 $(".likebtn").css("color","black");
+   		  }
+      })
       
       // 즐겨찾기 추가
       $(".likebtn").on("click",function(){
@@ -256,13 +266,11 @@
     	 if($.cookie(appname)=="Y"){
     		 $.removeCookie(appname); 
     		 alert("관심있는 어플에 등록이 해제되었습니다.");
-    		 console.log(appname)
     		  $(".likebtn").css("color","black")
     	 }else{
     		 $.cookie(appname,"Y",{expires:7})
     		 alert("관심있는 어플에 등록 되었습니다.");
-    		 console.log(appname)
-    		 $(".likebtn").css("color","blue")
+    		 $(".likebtn").css("color","red")
     	 }
       })
       
