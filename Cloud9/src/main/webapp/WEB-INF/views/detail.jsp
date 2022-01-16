@@ -115,7 +115,7 @@
                   <li class="col-md-2"></li>
                   <li class="mid-list-box-list col-md-2">어플 정보</li>
                   <li class="col-md-1"></li>
-                  <li class="mid-list-box-list col-md-2">리뷰분석</li>
+                  <li class="mid-list-box-list col-md-2" id= "detailBtn2">리뷰분석</li>
                   <li class="col-md-1"></li>
                   <li class="mid-list-box-list col-md-2">워드클라우드</li>
                   <li class="col-md-1"></li>
@@ -150,7 +150,7 @@
                 </div>
               </div>
               <div class="tab-box">
-                <p><canvas id="doughnut-chart" width="800" height="450"><p class='what'>111</p></canvas></p>
+                <p><canvas id="doughnut-chart" width="800" height="450"></canvas></p>
               </div>
               <div class="tab-box">
                 <p>third</p>
@@ -287,27 +287,27 @@
      let apppoint4 = ${appinfo[0].apppoint4}
      let apppoint5 = ${appinfo[0].apppoint5}
      
-     
-     new Chart(document.getElementById("doughnut-chart"),{
-     var chart = new Chart(document.getElementById("doughnut-chart"), {
-    type: 'doughnut',
-    data: {
-      labels: ["1점", "2점", "3점", "4점", "5점"],
-      datasets: [{
-          label: "평점 정보",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
-          hoverOffset: 70	
-        }],
-     
-    },
-    options: {
-      title: {
-        display: true,
-        text: '평점 정보'
-      }
-    }
-});
+     $("#detailBtn2").on("click",function(){
+     new Chart($("#doughnut-chart"), {
+	    type: 'doughnut',
+	    data: {
+	      labels: ["1점", "2점", "3점", "4점", "5점"],
+	      datasets: [{
+	          label: "평점 정보",
+	          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
+	          hoverOffset: 70	
+	        }],
+	     
+	    },
+	    options: {
+	      title: {
+	        display: true,
+	        text: '평점 정보'
+	      }
+	    }
+		});
+     })
     </script>
   </body>
 </html>

@@ -143,11 +143,11 @@
        		</c:choose>	
        <c:choose>
       	<c:when  test ="${!empty users.nick}">
-      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en" href="logout.do"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
       		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
       	</c:when>
       	<c:otherwise>
-      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
+      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en" href="logout.do"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
       		  <div style="text-align: right; display:block;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
       	</c:otherwise>
       </c:choose>
@@ -297,8 +297,8 @@
 		if($('#id').val()!="" && $('#pwd').val()!=""){
 			let loginData=$("#frm").serialize();
 			$.ajax({ 
-				url:"login.do",
-				type: "post",
+				url:"user/login",
+				type: "get",
 				data : loginData,
 				success : function(YN){
 					console.log(YN)
@@ -325,23 +325,13 @@
 		}
 	});
      
-    // 로그아웃
-    $("#logout").on("click",function(){
-      	$.ajax({
-      		url:"logout.do",
-      		success:function(){
-      			location.reload();
-      		},
-      		error:function(){}
-      	})
-      })
-      
+   
     //게시판 리스트 리딩
    $(".cate").click(function(){
 	  	$('div.article-box').html('');
     	cateN = "category"+this.value;
     	  $.ajax({
-    		  url:"boardListAjax.do",
+    		  url:"board/list",
     		  type:"get",
     		  data: {"cate":cateN},
     		  success:function(data){
@@ -372,8 +362,8 @@
     $("#commbtn").on("click",function(){
     	let WriteData = $("#write_frm").serialize();
     	$.ajax({
-    		url:"boardwrite.do",
-    		type: "get",
+    		url:"board",
+    		type: "post",
     		data: WriteData,
     		success : function(){
     			alert("글이 작성되었습니다.")
@@ -391,7 +381,7 @@
    $(document).on("click",".article",function(){
     	let bidx= $(this).attr("data-value");
     	$.ajax({
-    		url:"boardread.do",
+    		url:"board/bidx",
     		type:"get",
     		data:{"bidx":bidx},
     		success: function(data){
@@ -424,7 +414,7 @@
   		 }else{
     	let bidx= $("#detailBidx").html()
     	$.ajax({
-    		url: "boardread.do",
+    		url: "board/bidx",
     		type: "get",
     		data:{"bidx":bidx},
     		success:function(data){
@@ -446,8 +436,8 @@
 	    let content = $("#modicontent").val()
     	let bidx = $("#modiBidx").text()
     	$.ajax({
-    		url:"boardmodify.do",
-    		type:"get",
+    		url:"board",
+    		type:"patch",
     		data:{"bidx":bidx, "category":category, "title":title, "content":content},
     		success:function(){
     			alert("수정하였습니다.");
@@ -465,8 +455,8 @@
     	let bidx= $("#detailBidx").text()
     	console.log(bidx);
     	$.ajax({
-    		url :"boardDelete.do",
-    		type:"get",
+    		url :"board/bidx",
+    		type:"delete",
     		data:{"bidx":bidx},
     		success: function(){
 				alert("글이 삭제 되었습니다.")

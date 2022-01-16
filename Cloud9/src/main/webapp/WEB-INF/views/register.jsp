@@ -93,7 +93,7 @@
 	    if($("#id").val()!="" && $("#pwd").val()!="" &&$("#pwd").val()==$("#pwd_check").val()&& $("#nick").val()!="" && id_Check!=0){
 	    	let Jdata=$("#frm").serialize();
 	    	$.ajax({
-	    		url: "joinAjax.do",
+	    		url: "user/singUp",
 	    		type : "post",
 	    		data : Jdata,
 	    		success : function(){
@@ -128,7 +128,7 @@
       $("#idcheck").on("click",function(){
     	let id = $("#id").val();
     	$.ajax({
-    		url : "idcheckAjax.do",
+    		url : "user/idCheck",
     		type : "get",
     		data : {"id":id},
     		dataType:"text",

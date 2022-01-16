@@ -11,8 +11,10 @@ import javax.servlet.http.HttpSession;
 import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,19 +34,19 @@ public class RestMainController {
 	@Autowired
 	BoardService boardService;
 	
-	@PostMapping("/joinAjax.do")
+	@PostMapping("/user/singUp")
 	public void joinAjax(User vo) {
 		userService.regist(vo);
 	}
 	
-	@GetMapping("/idcheckAjax.do")
+	@GetMapping("/user/idCheck")
 	public int idcheckAjax(String id) {
 		int result =userService.idcheckAjax(id);
 		return result;
 	}
 	
 
-	@PostMapping("/login.do")
+	@GetMapping("/user/login")
 	public String login(User vo, HttpSession session) {
 		User user = userService.login(vo);
 		String YN;
@@ -58,12 +60,7 @@ public class RestMainController {
 		return YN;
 	}
 
-	@GetMapping("/logout.do")
-	public void logout(HttpSession session) {
-		session.invalidate();
-	}
-	
-	@GetMapping("/boardListAjax.do")
+	@GetMapping("/board/list")
 	public List<Board> boardListAjax(String cate){
 		if(cate.equals("category0")){
 			cate = "category";
@@ -72,23 +69,23 @@ public class RestMainController {
 		return boardlist;
 	}
 	
-	@GetMapping("/boardwrite.do")
+	@PostMapping("/board") 
 	public void boardWrite(Board vo) {
 		boardService.boardWrite(vo);
 	}
-	
-	@GetMapping("/boardread.do")
+	 
+	@GetMapping("/board/bidx") 
 	public List<Board> boardread(String bidx) {
 		List<Board>boardDT =boardService.boardRead(bidx);
 		return boardDT;
 	}
 	
-	@GetMapping("/boardDelete.do")
+	@DeleteMapping("/board/bidx")
 	public void boardDelete(String bidx) {
 		boardService.boardDelete(bidx);
 	}
 	
-	@GetMapping("/boardmodify.do")
+	@PatchMapping("/board")
 	public void boardModify(String bidx, String title,String content,String category ) {
 		boardService.boardModify(bidx,title,content,category);
 	}
