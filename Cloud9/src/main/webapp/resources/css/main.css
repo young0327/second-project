@@ -2,164 +2,374 @@
 .body{
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
-.font-kr{
+.kr-font{
   font-family: 'Noto Sans KR', sans-serif;
 }
+/******** Login Modal *********/
+.black-modal{
+  width: 100%;
+  height: 1300px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 6;
+  position: fixed;
+  margin-top: -20px;
+}
+.white-modal{
+  width: 350px;
+  min-width: 250px;
+  height: 40%;
+  background: white;
+  position: inline-block;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 30px;
+  
+}
+.badge{
+  margin-right: -300px;
+}
+.modal-id{
+  text-align: center;
+  margin: 20px;
+  margin-top: -10px;
+}
+.input-id{
+  border-radius: 1px;
+  border: none;
+}
+.modal-input{
+  height: 40px;
+  border-bottom: 2px solid rgb(162, 161, 161);
+  margin-top: 20px;
+}
+.modal-input:focus{
+  outline: 2px solid rgb(61, 174, 226);
+}
+.modal-input::placeholder{
+  font-family: 'Century Gothic';
+  font-weight: 500;
+}
+.modal-pw{
+  text-align: center;
+  margin: 20px;
+  margin-top: 20px;
+}
+.input-pw{
+  border: none;
+  border-bottom: 2px solid rgb(162, 162, 162);
+}
+.login-btn{
+  margin-top: 100px;
+  height: 40px;
+  border-radius: 20px;
+  width: 190px;
+  border: none;
+  background: linear-gradient(to right, rgb(162, 161, 161) ,rgb(129, 124, 171));
+}
+.login-rg{
+  margin-top: 70px;
+  color: gray;
+}
+.login-h3{
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.fade-leave-from { opacity: 1}
+.fade-leave-active { transition: all 0.8s}
+.fade-leave-to {opacity: 0}
 
 
+/******** Login Modal End *********/
+/******** top-navbar *********/
+.top-navbar{
+  width: 100%;
+  height: 90px;
+  padding: 50px;
+  position: fixed;
+  z-index: 5;
+}
+.logobox{
+  position: relative;
+}
+.logo-img{
+  width: 10%;
+  min-width: 100px;
+  margin-top:0px;
+  position: absolute;
+  justify-content: center;
+  left:20px;
+}
+.loginbox{
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.solo{
+  padding-left: 50px;
+}
+.search-input{
+  border: none;
+  color: black;
+  font-size: 20px;
+  margin-left: 5px;
+  width: 66%;
+}
+.search-input::placeholder{
+  color: black;
+  font-family: 'Century Gothic';
+}
+.search-input:focus{
+  outline: 0px solid black;
+}
+.nav-font-en{
+  font-family: 'Century Gothic';
+}
+.top-icon-btn{
+  border-radius: 50px;
+  margin-top: -10px;
+  
+}
+
+/******** top-navbar End *********/
 
 /******** main-box *********/
 .main-box{
   width: 100vw;
-  height: 1050px;
+  height: 1000px;
+  margin-left: 20px;
   text-align: center;
   background-color: #eee;
-  /* background-image: url('https://i.stack.imgur.com/spmUM.gif'); */
-  background-image: url('./resources/img/darkness.jpg');
-  /* background: linear-gradient(rgb(81, 81, 208), rgb(43, 43, 43)); */
-  /* background-image: url('https://cdn.pixabay.com/photo/2017/12/29/22/57/background-3048876_960_720.jpg'); */
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-.main-top{
-  width: 100%;
-  height: 10%;
-  padding-left: 300px;
-  padding-right: 300px;
-}
-.top-title-box{
+.main-sub{
   width: 100%;
   height: 100%;
-  padding-top: 50px;
-}
-.title-inner-box {
-  float: left;
-  width: 40%;
-  height: 100%;
-  margin-left:-4%;
-}
-.fa-search{
-  font-size: 24px;
-}
-.search-btn{
-  border: none;
-  background: none;
-}
-.main-bottom{
-  width: 100%;
-  height: 60%;
-}
-.bottom-topbox{
-  width: 100%;
-  height: 60%;
-}
-.app-example-box{
-  width: 100%;
-  height: 400px;
-  margin-top: 50px;
-}
-.main-input{
-  border: none;
-  height: 50px;
-  width: 400px;
-  border-radius: 20px;
-  background-color: #eee;
-}
-.main-input:focus{
-  outline: none;
-}
-.bottom-botbox{
-  width: 100%;
-  height: 80%;
-  padding-left: 280px;
-  padding-right: 280px;
-}
-.bot-main-box{
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  margin-top: 30px;
-}
-.bot-main-content{
-  float: left;
-  width: 33%;
-  height: 100%;
-  padding: 30px;
-}
-.content-go{
-  width: 100%;
-  height: 100%;
-  background-color: #eee;
-  border-radius: 30px;
-  box-shadow: gray 2px 2px 2px 2px;
-  padding: 30px;
-}
-.content-go:hover{
-  background:linear-gradient(rgb(137, 136, 136),rgb(119, 119, 254));
-  color: white;
-}
-.inner-content-box{
-  width: 100%;
-  height: 100%;
-  text-align: left;
-}
-.flaticon{
-  width: 100%;
-  height: 30%;
-  padding-top: 30px;
-}
-.flaticon i{
-  font-size: 24px;
-}
-.direct-go{
-  width: 100%;
-  height: 10%;
-  margin-top: 90px;
-}
-.direct-go p{
-  color: black;
-}
-.main-title-word{
-  font-size: 18px;
-  font-weight: 700;
+  background-color: #eee
 }
 
 /******** sidebar-box *********/
-
-
+.sidebar{
+  width: 15%;
+  height: 100%;
+  background-color: black;
+  float: left;
+  z-index: 1;
+  margin-top: 80px;
+  max-width: 250px;
+  min-width: 150px;
+  position:fixed;
+  padding-left:-20px
+}
+.sidebar-list{
+  padding-top: 30px;
+  list-style: none;
+  text-align: left;
+  margin-left: -20px;
+  padding-left:-20px;
+}
+.sidebar-list li{
+  margin-top: 20px;
+  margin-left: -10px;
+}
+.sidebar-personal-list a{
+  text-decoration: none;
+  color: gray;
+}
+.sidebar-personal-list a:hover{
+  color: white;
+  transition: all 0.3s;
+  font-size: 18px;
+}
+.icon{
+  color: aliceblue;
+  margin-right: 10px;
+}
+.list-group{
+  display: none;
+}
+.list-group-item{
+  background-color: black;
+  border-bottom: 1px solid #eee;
+  
+  
+}
 
 /******** sidebar-box End *********/
 
-/* first list box*/
-.first-list-box{
-  width: 100%;
-  height: 15%;
-  display: inline-block;
-  margin-top: 20px;
-  margin-left: 270px;
-}
-.list-inner-box{
+/******** main-content-box top *********/
+.main-content-box{
+  margin-top: 80px;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  background-color: #eee;
+  float: left;
+}
+.main-content-carousel{
+  margin-top: 20px;
+  width: 90%;
+  height: 30%;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: -30px;
+  display: inline-block;
+  margin-left:300px;
+}
+.carousel-imgbox{
+  width: 100%;
+  height: 100%;
+}
+.carousel-imgbox img{
+  width: 100%;
+  height: 100%;
+}
+.w-100{
+  height: 95%;
+  margin-top: -130px;
+  padding-top: -20px;
+  padding: 10px;
+  
+}
+.item1{
   background-color: white;
 }
-
-/* first list box*/
-
-
+.item2{
+  background-color: white;
+}
+.item3{
+  background-color: white;
+}
+/******** main-content-box top End*********/
 /******** main-content-box lower *********/
 .main-content-lower{
   width: 90%;
-  height: 60%;
+  height: 65%;
   background-color: aliceblue;
   margin-top: 30px;
   padding: 15px;
   display: inline-block;
+  margin-left:300px;
 }
 
 /******** main-content-box lower End *********/
+/******** lower-content-box lower *********/
+.lower-content-app{
+  width: 100%;
+  height: 80%;
+  padding: 15px;
+}
+.lower-content-app ul{
+  list-style: none;
+}
+.imgsrc{
+  width: 100px;
+  height: 100px;
+  list-style: none;
+  border-radius: 10px;
+  margin: 10px;
+}
+.iconsrc{
+  width:100%;
+  height: 100px;
+}
 
+@media screen and (max-width : 582px) {
+.loginbox{
+  display: none;
+}
+.sidebar{
+  width: 150px;
+  margin-left: 0px;
+  font-size: 5px;
+}
 
+}
+@media screen and (max-width : 852px){
+  .main-content-box{
+    position: absolute;
+    left: 150px;
+  }
+  .sidebar{
+    width: 150px;
+    float: left;
+    font-size: 14px;
+  }
+  .sidebar li{
+    margin-left: -20px;
+  }
+  .main-content-carousel{
+    float: right;
+  }
+  .w-100{
+    height: 250px;
+  }
+  .lower-right{
+  }
+  .search-input{
+    float: left;
+  }
+}
+@media screen and (max-width : 582px) {
+.loginbox{
+  display: none;
+}
+.sidebar{
+  width: 150px;
+  margin-left: 0px;
+  font-size: 5px;
+}
+
+}
+@media screen and (max-width : 852px){
+  .main-content-box{
+    position: absolute;
+    left: 150px;
+  }
+  .sidebar{
+    width: 150px;
+    float: left;
+    font-size: 14px;
+  }
+  .sidebar li{
+    margin-left: -20px;
+  }
+  .main-content-carousel{
+    float: right;
+  }
+  .w-100{
+    height: 250px;
+  }
+  .lower-right{
+  }
+  .search-input{
+    float: left;
+  }
+}
+@media screen and (max-width : 970px) {
+.sidebar li{
+  font-size: 12px;
+}  
+.login-modal{
+  margin-left: -100px;
+}
+.app-icon img{
+  width: 200%;
+  }
+}
+@media screen and (max-width : 1400px){
+.app-icon img{
+  width: 100%;
+  }
+}
+@media screen and (max-width : 1200px){
+.app-icon img{
+  width: 100%;
+  }
+  .app-iconbox{
+    margin-left: -40px;
+  }
+}

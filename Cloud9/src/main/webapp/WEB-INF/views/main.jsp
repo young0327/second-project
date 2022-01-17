@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-     <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css?ver=1">
+     <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/index.css?ver=1">
    	<title>Cloud Nine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,14 +27,14 @@
     <div class="main-box" style="background-image: url('./resources/img/darkness.jpg');">
       <div class="main-top">
         <div class="top-title-box">
-          <div class="title-inner-box"></div>
+          <div class="title-inner-box" style="width:30%"></div>
           <div class="title-inner-box">
             <form class="form-inline" action="search.do">
             <button class="search-btn"><i class="fas fa-search"></i></button>
             <input class="main-input" type="search" placeholder="어플 이름을 입력하세요" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
           </form>
           </div>
-          <div class="title-inner-box">
+          <div class="title-inner-box" style="width:30%">
           </div>
         </div>
       </div>
