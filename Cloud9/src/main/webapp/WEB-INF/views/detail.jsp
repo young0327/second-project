@@ -155,7 +155,7 @@
                		<canvas id="line-chart" width="300" height="250"></canvas>
                	  </div>
                	  <div class="tab-top doughnut">평점분석
-               	    <div class='doughnut-box'><canvas id="doughnut-chart" width="300" height="300"></canvas></div>
+               	    <div class='doughnut-box'><canvas id="doughnut-chart" width="200" height="200"></canvas></div>
                	  </div>
                 </div>
                 <div class="tab-inner-bot tab-inner">
@@ -346,7 +346,8 @@
 	          label: "평점 정보",
 	          backgroundColor: ["#1a1423", "#372549","#774c60","#b75d69","#eacdc2"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
-	          hoverOffset: 70	
+	          hoverOffset: 70,
+	          maintainAspectRatio : true
 	        }],
 	     
 	    },

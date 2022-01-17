@@ -192,6 +192,9 @@ body{
 	width:100%;
 	height:50%;
 }
+.tab-inner-bot{
+	margin-top:50px;
+}
 .tab-top{
 	float:left;
 	width:50%;
@@ -208,6 +211,8 @@ body{
 	height:100%;
 	width:100%;
 	padding-left:17%;
+}
+#doughnut-chart{
 }
 /* tab-box inner*/
 
