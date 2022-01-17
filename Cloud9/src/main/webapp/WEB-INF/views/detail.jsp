@@ -278,15 +278,12 @@
       
       
       //도넛차트
-     Chart.defaults.global.defaultFontSize = 15;
-     Chart.defaults.global.defaultFontColor = "#000000"; 
-     Chart.defaults.global.defaultFontFamily = "Noto Sans KR";
+    
      let apppoint1 = ${appinfo[0].apppoint1}
      let apppoint2 = ${appinfo[0].apppoint2}
      let apppoint3 = ${appinfo[0].apppoint3}
      let apppoint4 = ${appinfo[0].apppoint4}
      let apppoint5 = ${appinfo[0].apppoint5}
-     
      $("#detailBtn2").on("click",function(){
      new Chart($("#doughnut-chart"), {
 	    type: 'doughnut',
@@ -294,7 +291,7 @@
 	      labels: ["1점", "2점", "3점", "4점", "5점"],
 	      datasets: [{
 	          label: "평점 정보",
-	          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+	          backgroundColor: ["#1a1423", "#372549","#774c60","#b75d69","#eacdc2"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
 	          hoverOffset: 70	
 	        }],
