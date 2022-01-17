@@ -346,7 +346,7 @@
 	          label: "평점 정보",
 	          backgroundColor: ["#1a1423", "#372549","#774c60","#b75d69","#eacdc2"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
-	          hoverOffset: 70,
+	          hoverOffset: 40,
 	          maintainAspectRatio : true
 	        }],
 	     
