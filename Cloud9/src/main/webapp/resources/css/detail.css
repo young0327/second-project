@@ -127,7 +127,7 @@ body{
 .tab-box{
     display: none;
     width: 100%;
-    height: 790px;
+    height: 900px;
     padding: 10px;
     overflow: auto;
     overflow-x:hidden;
@@ -186,6 +186,30 @@ body{
     margin-right: auto;
     list-style: none;
 }
+
+/* tab-box inner*/
+.tab-inner{
+	width:100%;
+	height:50%;
+}
+.tab-top{
+	float:left;
+	width:50%;
+	height:100%;
+	padding:10px;
+}
+.tab-bot{
+	float:left;
+	width:50%;
+	height:100%;
+	padding:10px;
+}
+.doughnut-box{
+	height:100%;
+	width:100%;
+	padding-left:17%;
+}
+/* tab-box inner*/
 
 @media screen and (max-width : 1000px) {
     .iconbox img{
