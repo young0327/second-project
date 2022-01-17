@@ -142,8 +142,13 @@
               			<option value="180">6 개월</option></select> </p>
                		<canvas id="line-chart" width="300" height="250"></canvas>
                	  </div>
+<<<<<<< HEAD
                	  <div class="tab-top doughnut">
                	    <div class='doughnut-box'><canvas id="doughnut-chart" width="300" height="300"></canvas></div>
+=======
+               	  <div class="tab-top doughnut">평점분석
+               	    <div class='doughnut-box'><canvas id="doughnut-chart" width="200" height="200"></canvas></div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
                	  </div>
                 </div>
                 <div class="tab-inner-bot tab-inner">
@@ -361,7 +366,8 @@
 	          label: "평점 정보",
 	          backgroundColor: ["#1a1423", "#372549","#774c60","#b75d69","#eacdc2"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
-	          hoverOffset: 70	
+	          hoverOffset: 40,
+	          maintainAspectRatio : true
 	        }],
 	     
 	    },
