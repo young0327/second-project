@@ -11,7 +11,7 @@ body{
 /* detail-top-box start*/
 .main-content-carousel{
     text-align: center;
-    height: 1700px;
+    height: 1900px;
     border: 5px solid black;
 }
 .detail-top-box{
@@ -127,7 +127,7 @@ body{
 .tab-box{
     display: none;
     width: 100%;
-    height: 900px;
+    height: 950px;
     padding: 10px;
     overflow: auto;
     overflow-x:hidden;
