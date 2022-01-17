@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="kr.project.mapper.ReviewMapper">
+      
+       <resultMap type="kr.project.domain.Review" id="ReviewRM">
+		<result property="appId" column="app_id"/>
+		<result property="reviewTitle" column="review_title"/>
+		<result property="reviewContent" column="review_content"/>
+		<result property="reviewRating" column="review_rating"/>
+		<result property="emoResult" column="emo_result"/>
+		<result property="reviewDate" column="review_date"/>
+		<result property="appCrawlId" column="app_crawl_id"/>
+		
+		
+	</resultMap>
+	
+      <select id="reviewRead" resultType="kr.project.domain.Review" resultMap="ReviewRM">
+          select * from app_review_table where app_id =#{appid}
+          
+      </select>
+      
+  </mapper>

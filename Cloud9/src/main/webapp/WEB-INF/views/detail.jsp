@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -80,6 +80,7 @@
             <div class="detail-top-box row">
               <div class="line detailtop-icon detailtop col-md-3">
                 <div class="iconbox"><img src="${appinfo[0].appicon}"></div>
+                <span id="appid"style="display:none">${appinfo[0].appid}</span>
               </div>
               <div class="line detailtop-name row detailtop col-md-7">
                 <div class="namebox box_udline">
@@ -127,34 +128,21 @@
                   <div class="tab-content-box tab-content-left">
                   ${appinfo[0].appinfo}
                   </div>
-                  <div class="tab-content-box tab-content-right">
-                    <div class="helpful-box">
-                      <div class="helpful-inner">
-                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
-                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
-                      </div>
-                    </div>
-                    <div class="helpful-box">
-                      <div class="helpful-inner">
-                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
-                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
-                      </div>
-                    </div>
-                    <div class="helpful-box">
-                      <div class="helpful-inner">
-                        <div class="helpful-top kr-font"><p>작성자 이름</p></div>
-                        <div class="kr-font"><p>제목자리</p><p>동북아시아와 국제적인 정세를 살펴보았을때</p></div>
-                      </div>
-                    </div>
+                  <div class="tab-content-box tab-content-right" id ="reviewbox">
+                    
                   </div>
                 </div>
               </div>
               <div class="tab-box">
                 <div class="tab-inner-top tab-inner">
-               	  <div class="tab-top">평점추이
+               	  <div class="tab-top">
+               	  	<p>기간 설정 <select class="daySelect"> 
+               	  		<option value="30">1 개월</option>
+              			<option value="90">3 개월</option>
+              			<option value="180">6 개월</option></select> </p>
                		<canvas id="line-chart" width="300" height="250"></canvas>
                	  </div>
-               	  <div class="tab-top doughnut">평점분석
+               	  <div class="tab-top doughnut">
                	    <div class='doughnut-box'><canvas id="doughnut-chart" width="300" height="300"></canvas></div>
                	  </div>
                 </div>
@@ -272,6 +260,33 @@
    		  }else{
    			 $(".likebtn").css("color","black");
    		  }
+      })
+      
+      $("document").ready(function(){
+    	  let appid=$("#appid").text()
+    	  $.ajax({
+    		  url:"review",
+    		  type:"get",
+    		  data:{"appid":appid},
+    		  success:function(data){
+    			  for (let i =0; i<data.length; i++){
+    				  let reviews=`
+    					   <div class="helpful-box">
+                     		 <div class="helpful-inner">
+                        	<div class="helpful-top kr-font"><p>` + data[i].reviewTitle +` </p></div>
+                        	<div class="kr-font"><p>` + data[i].reviewRating + `</p></div>
+                        	<div class="kr-font"><p>`+data[i].appCrawlId +`</p><p>`+data[i].reviewDate+`</p></div>
+                        	<div class="kr-font"><p>`+data[i].reviewContent+`</p>
+                     		 </div>
+                    		</div>
+    				  `;
+    				  $("#reviewbox").append(reviews);
+    			  }
+    		  },
+    		  error:function(){
+    			  console.log("error")
+    		  }
+    	  })
       })
       
       // 즐겨찾기 추가

@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import kr.project.domain.Board;
+import kr.project.domain.Review;
 import kr.project.domain.User;
 import kr.project.service.BoardService;
+import kr.project.service.ReviewSerivice;
 import kr.project.service.UserService;
 
 @RestController
@@ -33,6 +35,8 @@ public class RestMainController {
 	UserService userService;
 	@Autowired
 	BoardService boardService;
+	@Autowired
+	ReviewSerivice reviewService;
 	
 	@PostMapping("/user/singUp")
 	public void joinAjax(User vo) {
@@ -41,7 +45,7 @@ public class RestMainController {
 	
 	@GetMapping("/user/idCheck")
 	public int idcheckAjax(String id) {
-		int result =userService.idcheckAjax(id);
+		int result = userService.idcheckAjax(id);
 		return result;
 	}
 	
@@ -88,5 +92,13 @@ public class RestMainController {
 	@PatchMapping("/board")
 	public void boardModify(String bidx, String title,String content,String category ) {
 		boardService.boardModify(bidx,title,content,category);
+	}
+	
+	@GetMapping("/review")
+	public List<Review> reviewRead(int appid) {
+		System.out.println("받기:"+appid);
+		List<Review>reviewlist = reviewService.reviewRead(appid);
+		System.out.println(reviewlist);
+		return reviewlist;
 	}
 }
