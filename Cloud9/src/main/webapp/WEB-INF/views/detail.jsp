@@ -156,7 +156,7 @@
                 			</div>
                 		</div>
                 	</div>
-                	<div class='analy-inner analy-inner-right'><p class='kr-font' style="font-size:20px;">가나다라</p>
+                	<div class='analy-inner analy-inner-right'><p class='kr-font' style="font-size:20px;">전체평점분포</p>
                 		<div class="doughnut-box"width="500" height="500">
                	  	<canvas id="doughnut-chart"></canvas>
                	  </div>
