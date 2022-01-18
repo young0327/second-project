@@ -96,9 +96,7 @@ public class RestMainController {
 	
 	@GetMapping("/review")
 	public List<Review> reviewRead(int appid) {
-		System.out.println("받기:"+appid);
 		List<Review>reviewlist = reviewService.reviewRead(appid);
-		System.out.println(reviewlist);
 		return reviewlist;
 	}
 }

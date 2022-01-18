@@ -204,6 +204,7 @@ body{
 	margin-top:50px;
 }
 .doughnut-box{
+<<<<<<< HEAD
 	height:80%;
 	width:80%;
 	margin-left:10%;
@@ -211,6 +212,11 @@ body{
 #ui-word{
 	color:red;
 	font-size:28px;
+=======
+	height:100%;
+	width:100%;
+	
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
 }
 #doughnut-chart{
 	width:130%;
