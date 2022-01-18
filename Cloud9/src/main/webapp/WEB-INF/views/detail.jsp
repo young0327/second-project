@@ -134,30 +134,19 @@
                 </div>
               </div>
               <div class="tab-box">
-                <div class="tab-inner-top tab-inner">
-               	  <div class="tab-top">
+                
                	  	<p>기간 설정 <select class="daySelect"> 
                	  		<option value="30">1 개월</option>
               			<option value="90">3 개월</option>
               			<option value="180">6 개월</option></select> </p>
                		<canvas id="line-chart" width="300" height="250"></canvas>
-               	  </div>
-<<<<<<< HEAD
                	  <div class="tab-top doughnut">
                	    <div class='doughnut-box'><canvas id="doughnut-chart" width="300" height="300"></canvas></div>
-=======
-               	  <div class="tab-top doughnut">평점분석
-               	    <div class='doughnut-box'><canvas id="doughnut-chart" width="200" height="200"></canvas></div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
-               	  </div>
                 </div>
                 <div class="tab-inner-bot tab-inner">
-                  <div class='tab-bot'></div>
-                  <div class='tab-bot'>
-                    <canvas id="line-chart2" width="300" height="250"></canvas>	
-                  </div>
+                    <canvas id="line-chart2" width="500" height="400"></canvas>	
                 </div>
-              </div>
+            
               <div class="tab-box">
                 <p>third</p>
               </div>
@@ -318,7 +307,9 @@
         data: [86,114,106,106,107,111,133,221,783,2478],
         label: "Africa",
         borderColor: "#3e95cd",
-        fill: false
+        fill: false,
+        maintainAspectRatio : false
+        
       }, { 
         data: [282,350,411,502,635,809,947,1402,3700,5267],
         label: "Asia",
@@ -367,11 +358,11 @@
 	          backgroundColor: ["#1a1423", "#372549","#774c60","#b75d69","#eacdc2"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
 	          hoverOffset: 40,
-	          maintainAspectRatio : true
 	        }],
 	     
 	    },
 	    options: {
+	    	responsive:false,
 	      title: {
 	        display: true,
 	        text: '평점 정보'
