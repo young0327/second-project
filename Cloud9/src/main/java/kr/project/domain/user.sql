@@ -101,4 +101,6 @@ desc app_table
 desc test
 drop table app_list
 desc app_list
-desc app_table
+desc app_review_table
+
+select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()

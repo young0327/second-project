@@ -20,5 +20,8 @@ public class ReviewSerivice {
 		return reviewlist;
 	}
 	
-	
+	public float monthRating(int appid, int month) {
+		float monthRate = mapper.monthRating(appid,month);
+		return monthRate;
+	}
 }

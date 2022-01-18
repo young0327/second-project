@@ -99,4 +99,10 @@ public class RestMainController {
 		List<Review>reviewlist = reviewService.reviewRead(appid);
 		return reviewlist;
 	}
+	
+	@GetMapping("app/monthRate")
+	public float monthRating(int appid, int month) {
+		float monthRate = reviewService.monthRating(appid,month);
+		return monthRate;
+	}
 }

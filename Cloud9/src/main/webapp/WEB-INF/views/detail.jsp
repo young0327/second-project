@@ -142,16 +142,16 @@
                 <div class="tab-sentence-box">
                	  <div class="kr-font" style="font-size:20px;">
                	  	<p>
-               	  	<select style="border:none; background:#eee; border-radius:20px;">
-               	  	  <option>1개월</option>
-               	  	  <option>3개월</option>
-               	  	  <option>6개월</option>
-               	  	</select>동안&nbsp<span id="ui-word">카카오뮤직</span>의 평점은 <span id="ui-word">4.5</span>점입니다.</p>
+               	  	<select style="border:none; background:#eee; border-radius:20px;" id="monthSelect">
+               	  	  <option value="1">1개월</option>
+               	  	  <option value="3">3개월</option>
+               	  	  <option value="6">6개월</option>
+               	  	</select>동안&nbsp<span id="ui-word-title" class="ui-word">${appinfo[0].appname}</span>의 평점은 <span id="ui-word-rate" class="ui-word"></span>점입니다.</p>
                	  </div>
                	</div>
                 <div class="tab-inner-top tab-inner">
-               	  <div class="doughnut-box">
-               	  	<canvas id="doughnut-chart" width="200" height="200"></canvas>
+               	  <div class="doughnut-box"width="500" height="500">
+               	  	<canvas id="doughnut-chart"></canvas>
                	  </div>
                 </div>
                 <div class="tab-inner-bot tab-inner">
@@ -262,6 +262,7 @@
           });
       });
       
+      // 페이지 접속시 즐겨찾기 확인
       $("document").ready(function(){
     	  let appname=$("#appname").text()
     	  if($.cookie(appname)=="Y"){
@@ -271,6 +272,7 @@
    		  }
       })
       
+      // 페이지 접속시 도움이 되는 리뷰 출력
       $("document").ready(function(){
     	  let appid=$("#appid").text()
     	  $.ajax({
@@ -298,6 +300,8 @@
     	  })
       })
       
+ 
+      
       // 즐겨찾기 추가
       $(".likebtn").on("click",function(){
     	 let appname=$("#appname").text()
@@ -313,46 +317,7 @@
     	 }
       })
       
-      //라인차트
-        new Chart(document.getElementById("line-chart"), {
-  type: 'line',
-  data: {
-    labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
-    datasets: [{ 
-        data: [86,114,106,106,107,111,133,221,783,2478],
-        label: "Africa",
-        borderColor: "#3e95cd",
-        fill: false
-      }, { 
-        data: [282,350,411,502,635,809,947,1402,3700,5267],
-        label: "Asia",
-        borderColor: "#8e5ea2",
-        fill: false
-      }, { 
-        data: [168,170,178,190,203,276,408,547,675,734],
-        label: "Europe",
-        borderColor: "#3cba9f",
-        fill: false
-      }, { 
-        data: [40,20,10,16,24,38,74,167,508,784],
-        label: "Latin America",
-        borderColor: "#e8c3b9",
-        fill: false
-      }, { 
-        data: [6,3,2,2,7,26,82,172,312,433],
-        label: "North America",
-        borderColor: "#c45850",
-        fill: false
-      }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'World population per region (in millions)'
-    }
-  }
-});
+
       
       //도넛차트
     
@@ -384,46 +349,43 @@
 		});
      })
      
-     // 라인차트 2
-       new Chart(document.getElementById("line-chart2"), {
-  type: 'line',
-  data: {
-    labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
-    datasets: [{ 
-        data: [86,114,106,106,107,111,133,221,783,2478],
-        label: "Africa",
-        borderColor: "#3e95cd",
-        fill: false
-      }, { 
-        data: [282,350,411,502,635,809,947,1402,3700,5267],
-        label: "Asia",
-        borderColor: "#8e5ea2",
-        fill: false
-      }, { 
-        data: [168,170,178,190,203,276,408,547,675,734],
-        label: "Europe",
-        borderColor: "#3cba9f",
-        fill: false
-      }, { 
-        data: [40,20,10,16,24,38,74,167,508,784],
-        label: "Latin America",
-        borderColor: "#e8c3b9",
-        fill: false
-      }, { 
-        data: [6,3,2,2,7,26,82,172,312,433],
-        label: "North America",
-        borderColor: "#c45850",
-        fill: false
-      }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'World population per region (in millions)'
-    }
-  }
-});
+     // 평점 추이 텍스트로 출력
+     $("#detailBtn2").on("click",function(){
+    	let appid = $("#appid").text();
+    	let month = $("#monthSelect").val()
+    		$.ajax({
+	    		url:"app/monthRate",
+	    		type:"get",
+	    		data:{"appid":appid,"month":month},
+	    		success:function(data){
+	    			$("#ui-word-rate").text(data.toFixed(1));
+	    			console.log(data.toFixed(1))
+	    		},
+	    		error: function(){
+	    			console.log("n")
+	    		}
+	    	});
+     })
+   
+     $("#monthSelect").on('change',function(){
+    		let appid = $("#appid").text();
+        	let month = $("#monthSelect").val()
+        		$.ajax({
+    	    		url:"app/monthRate",
+    	    		type:"get",
+    	    		data:{"appid":appid,"month":month},
+    	    		success:function(data){
+    	    			$("#ui-word-rate").text(data.toFixed(1));
+    	    			console.log(data.toFixed(1))
+    	    		},
+    	    		error: function(){
+    	    			console.log("n")
+    	    		}
+    	    	});
+         })
+      
+       
+    
     </script>
     
     <!-- Resources -->
