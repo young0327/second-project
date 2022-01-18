@@ -86,9 +86,9 @@
             <li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category font-kr" href="#">카테고리
               <div class="list-group">
-                <a href="category.do?cate=music" class="list-group-item list-group-item-action">음악</a>
-                <a href="category.do?cate=pic/vd" class="list-group-item list-group-item-action">사진/비디오</a>
-                <a href="category.do?cate=trip" class="list-group-item list-group-item-action">여행</a>
+                <a href="category.do?M" class="list-group-item list-group-item-action">음악</a>
+                <a href="category.do?P" class="list-group-item list-group-item-action">사진/비디오</a>
+                <a href="category.do?H" class="list-group-item list-group-item-action">여행</a>
               </div>
             </a></li>
             <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="#">유사앱 비교</a></li>
@@ -108,8 +108,7 @@
             </c:otherwise>
            </c:choose>
             
-            <c:choose>
-            	<c:when test="${!empty applist}">
+            	<c:if test="${!empty applist}">
 		            <c:forEach items="${applist}" var="applist">  
 		            <div class="result-box row">
 		              <div class="app-icon-img col-md-3"><img src="${pageContext.request.contextPath}/resources/img/${applist.appid}.png"></div>
@@ -119,11 +118,7 @@
 		                </div>
 		            </div>
 		            </c:forEach>
-	            </c:when>
-	            <c:otherwise>
-	            </c:otherwise>
-            </c:choose>
-             
+	            </c:if>
           </div>
         </div>
       </div>  

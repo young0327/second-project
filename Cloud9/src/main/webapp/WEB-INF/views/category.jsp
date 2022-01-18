@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,7 +25,7 @@
       
     <!-- Navbar Start-->
       <div class="navbar-box row">
-        <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img" src='../assets/LOGO2.png'></a></div>
+        <div class="col-sm-2 logobox"><a href="#"><img class="logo-img" src='#'></a></div>
         <div class="col-sm-5">
           <nav class="navbar navbar-light bg-white">
             <form class="form-inline">
@@ -46,41 +47,48 @@
           <ul class="sidebar-list">
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category font-kr" href="#">카테고리
               <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">category1</a>
-                <a href="#" class="list-group-item list-group-item-action">category2</a>
-                <a href="#" class="list-group-item list-group-item-action">category3</a>
+                <a href="category.do?cate=M" class="list-group-item list-group-item-action">category1</a>
+                <a href="category.do?cate=P" class="list-group-item list-group-item-action">category2</a>
+                <a href="category.do?cate=H" class="list-group-item list-group-item-action">category3</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="Comparing.html">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="Community.html">커뮤니티</a></li>
+            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="">유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
         </div>
         <div class="main-content-box col-sm-10 row">
           <!-- Slide Carousel Start-->
           <div class="main-content-carousel shadow p-3 mb-5 bg-white rounded">
-            <div class="kr-font result-alert"><p><span style="font-size: 32px; color: rgb(23, 69, 79); font-weight: 700;">여행</span> 카테고리</p></div>
+            	<c:choose>
+            	<c:when test="${cateList[0].appcate eq 'MF'}">
+            		 <div class="kr-font result-alert"><p><span style="font-size: 32px; color: rgb(23, 69, 79); font-weight: 700;">음악</span> 카테고리</p></div>
+            	</c:when>
+            	<c:when test="${cateList[0].appcate eq 'HF'}">
+    		         <div class="kr-font result-alert"><p><span style="font-size: 32px; color: rgb(23, 69, 79); font-weight: 700;">여행</span> 카테고리</p></div>
+            	</c:when>
+            	<c:when test="${cateList[0].appcate eq 'PF'}">
+            		 <div class="kr-font result-alert"><p><span style="font-size: 32px; color: rgb(23, 69, 79); font-weight: 700;">사진/비디오</span> 카테고리</p></div>
+            	</c:when>
+            	</c:choose>
             <div class="kr-font" style="margin-right:80%;">
-              <select style="border: none; background-color: #eee; border-radius: 10px; font-size: 20px;">
-                <option>유료</option>
-                <option>무료</option>
+              <select style="border: none; background-color: #eee; border-radius: 10px; font-size: 20px;" id ="paySelect">
+                <option value="${cateList[0].appcate}">전체</option>
+                <option value="F">무료</option>
+                <option value="P">유료</option>
               </select>
             </div>
+            <div class="categoryBox">
+            <c:forEach items="${cateList}" var="cateList">
             <div class="result-box row">
-              <div class="app-icon-img col-md-3"><img src="../assets/kakao.png"></div>
+              <div class="app-icon-img col-md-3"><img src=${cateList.appicon}></div>
               <div class="kr-font app-content-box col-md-9">
-                <h4 class="kr-font">{{카카오톡}}</h4>
-                <p class="kr-font" style="font-size: 23px;">4.5<span style="font-size: 15px;">&nbsp&nbsp&nbsp 4600원</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">Daum Kakao</p>
+                <h4 class="kr-font">${cateList.appname}</h4>
+                <p class="kr-font" style="font-size: 23px;">${cateList.apprating}<span style="font-size: 15px;">&nbsp&nbsp&nbsp ${cateList.appprice}</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">${cateList.appcompany}</p>
                 </div>
             </div>
-            <div class="result-box row">
-              <div class="app-icon-img col-md-3"><img src="../assets/kakao.png"></div>
-              <div class="kr-font app-content-box col-md-9">
-                <h4 class="kr-font">{{카카오톡}}</h4>
-                <p class="kr-font" style="font-size: 23px;">4.5<span style="font-size: 15px;">&nbsp&nbsp&nbsp 4600원</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">Daum Kakao</p>
-                </div>
+            </c:forEach>
             </div>
-            
           </div>
         </div>
       </div>  
@@ -98,6 +106,35 @@
         $('.list-group').slideToggle();
       })
 
+      
+      // 가격 카테고리 선택
+      /*${"#paySelect"}.on("change",function(){
+    	  $(".result-box row").html("");
+    	  let payData = $("#paySelect").val();
+    	  let payCate = ${cateList[0].appcate}
+    	  $.ajax({
+    		  url:"cate/pay",
+    		  type:"get",
+    		  data:{"payDate":payData,"payCate":payCate},
+    		  success:function(data){
+    			  for(let i=0; i<data.length; i++){
+    			  let payList=`
+    			  <div class="result-box row">
+                  <div class="app-icon-img col-md-3"><img src=`+${data[i].appicon+`}></div>
+                  <div class="kr-font app-content-box col-md-9">
+                    <h4 class="kr-font">`+${data[i].appname}+`</h4>
+                    <p class="kr-font" style="font-size: 23px;">`+${data[i].apprating}+`<span style="font-size: 15px;">&nbsp&nbsp&nbsp`+${data[i].appprice}+`</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">`+${data[i].appcompany}+`</p>
+                    </div>
+                </div>
+    			  `;}
+    			  ${".categoryBox"}.append(payList);
+    		  },
+    		  error:function(data){
+    			  console.log("error")
+    		  }
+    	  })
+      })*/
+      
     </script>
 
     

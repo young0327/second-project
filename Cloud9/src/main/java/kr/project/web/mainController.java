@@ -73,17 +73,20 @@ public class mainController {
 	
 	@RequestMapping("/detail.do")
 	public String detail(int appid, Model model) {
-		List<App>appinfo = appService.appInfomation(appid);
 		List<AppImg>appimg = appService.appImg(appid);
+		List<App>appinfo = appService.appInfomation(appid);
 		model.addAttribute("appinfo", appinfo);
 		model.addAttribute("appimg",appimg);
 		return "detail";
 	}
 	
-	/*@RequestMapping("/category.do")
+	@RequestMapping("/category.do")
 	public String category(HttpServletRequest req, Model model) {
 		String cate = req.getQueryString();
-		List<App> catelist = appinfoService.catelist(cate);
-		model.addAttribute("catelist",catelist);
-	}*/
+		System.out.println("안녕"+cate);
+		List<App> cateList = appService.cateSearch(cate);
+		model.addAttribute("cateList",cateList);
+		System.out.println(cateList);
+		return "category";
+	}
 }

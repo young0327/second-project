@@ -25,7 +25,17 @@ public class AppService {
 		return appinfo;
 	}
 	public List<AppImg> appImg(int appid){
-		List<AppImg> appimg= mapper.appImg(appid);
+		List<AppImg>appimg= mapper.appImg(appid);
 		return appimg; 
+	}
+	
+	public List<App>cateSearch(String cate){
+		List<App>cateList = mapper.cateSearch(cate);
+		return cateList;
+	}
+	
+	public List<App>catePay(String payData, String payCate){
+		List<App>catePayList = mapper.catePay(payData,payCate);
+		return catePayList;
 	}
 }

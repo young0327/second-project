@@ -20,10 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import kr.project.domain.App;
 import kr.project.domain.Board;
 import kr.project.domain.Review;
 import kr.project.domain.User;
+import kr.project.service.AppService;
 import kr.project.service.BoardService;
 import kr.project.service.ReviewSerivice;
 import kr.project.service.UserService;
@@ -35,6 +36,8 @@ public class RestMainController {
 	UserService userService;
 	@Autowired
 	BoardService boardService;
+	@Autowired
+	AppService appService;
 	@Autowired
 	ReviewSerivice reviewService;
 	
@@ -100,9 +103,15 @@ public class RestMainController {
 		return reviewlist;
 	}
 	
-	@GetMapping("app/monthRate")
+	@GetMapping("/app/monthRate")
 	public float monthRating(int appid, int month) {
 		float monthRate = reviewService.monthRating(appid,month);
 		return monthRate;
+	}
+	
+	@GetMapping("/cate/pay")
+	public List<App> catePay(String payData, String payCate){
+		List<App> catePayList = appService.catePay(payData,payCate);
+		return catePayList;
 	}
 }

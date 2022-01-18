@@ -89,7 +89,7 @@
               </div>
               <div class="line detailtop-name row detailtop col-md-7">
                 <div class="namebox box_udline">
-                  <h4 class="kr-font" id ="appname">${appinfo[0].appname}</h4><span class='kr-font'>Daum Kakao</span>
+                  <h4 class="kr-font" id ="appname">${appinfo[0].appname}</h4><span class='kr-font'>${appinfo[0].appcompany}</span>
                   <p class="kr-font">한줄요약이 들어가는 곳입니다</p>
                   <h2><i class="fas fa-star" style="font-size:24px"></i>  ${appinfo[0].apprating}</h2>
                 <div class="box">
@@ -139,27 +139,67 @@
                 </div>
               </div>
               <div class="tab-box">
-                <div class="tab-sentence-box">
-               	  <div class="kr-font" style="font-size:20px;">
-               	  	<p>
-               	  	<select style="border:none; background:#eee; border-radius:20px;" id="monthSelect">
-               	  	  <option value="1">1개월</option>
-               	  	  <option value="3">3개월</option>
-               	  	  <option value="6">6개월</option>
-               	  	</select>동안&nbsp<span id="ui-word-title" class="ui-word">${appinfo[0].appname}</span>의 평점은 <span id="ui-word-rate" class="ui-word"></span>점입니다.</p>
-               	  </div>
-               	</div>
-                <div class="tab-inner-top tab-inner">
-               	  <div class="doughnut-box"width="500" height="500">
+                <div class="analy-top">
+                	<div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;">평점	분석</p>
+                		<div class='rating-inner'></div>
+                		<div class='rating-inner rating-right'>
+                			<div class='point starPoint kr-font'>
+                				<span id="ui-word-rate" class="ui-word"></span>점
+                			</div>
+                			<div class='point word'>
+                				<p>
+               	  				<select style="border:none; background:#eee; border-radius:20px;" id="monthSelect">
+               	  	  			<option value="1">1개월</option>
+               	  	  			<option value="3">3개월</option>
+               	  	 			<option value="6">6개월</option>
+               	  				</select>동안<br><span id="ui-word-title" class="ui-word">${appinfo[0].appname}</span><br>의 평점</p>
+                			</div>
+                		</div>
+                	</div>
+                	<div class='analy-inner analy-inner-right'><p class='kr-font' style="font-size:20px;">가나다라</p>
+                		<div class="doughnut-box"width="500" height="500">
                	  	<canvas id="doughnut-chart"></canvas>
                	  </div>
+                	</div>
                 </div>
-                <div class="tab-inner-bot tab-inner">
-                  <div class='kr-font' style="font-size:20px;"><p>감성분석 결과</p></div>
-                  <div class="gauge-box" style="width:100%; height:100%;">
-                    <div id="chartdiv"></div>
-                  </div>
+                <div class="analy-bot">
+                	<div class='bot-analy'>
+                		<div class='kr-font' style="font-size:20px;"><p>감성분석 결과</p></div>
+                  		<div class="gauge-box" style="width:100%; height:100%;">
+                    	<div id="chartdiv"></div>
+                  		</div>
+                	</div>
                 </div>
+                <div class='bottom-review-box'>
+                	<div class='review-box kr-font'>
+                		<div class='review-inner' style="text-align:left;">
+                		<p style="font-size:20px;">4.5</p>
+                			<p>내용내용내용내용</p>
+                		</div>
+                	</div>
+                	<div class='review-box kr-font'>
+                		<div class='review-inner' style="text-align:left;">
+                		<p style="font-size:20px;">4.5</p>
+                			<p>내용내용내용내용</p>
+                		</div>
+                	</div>
+                	<div class='review-box kr-font'>
+                		<div class='review-inner' style="text-align:left;">
+                		<p style="font-size:20px;">4.5</p>
+                			<p>내용내용내용내용</p>
+                		</div>
+                	</div>
+                	<div class='review-box kr-font'>
+                		<div class='review-inner' style="text-align:left;">
+                		<p style="font-size:20px;">4.5</p>
+                			<p>내용내용내용내용</p>
+                		</div>
+                	</div>
+                	
+                	
+                	
+                </div>
+               
                 </div>
               </div>
               <div class="tab-box">
@@ -326,7 +366,7 @@
      let apppoint3 = ${appinfo[0].apppoint3}
      let apppoint4 = ${appinfo[0].apppoint4}
      let apppoint5 = ${appinfo[0].apppoint5}
-     
+    
      $("#detailBtn2").on("click",function(){
      new Chart($("#doughnut-chart"), {
 	    type: 'doughnut',

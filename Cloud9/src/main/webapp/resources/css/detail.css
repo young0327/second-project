@@ -11,7 +11,7 @@ body{
 /* detail-top-box start*/
 .main-content-carousel{
     text-align: center;
-    height: 2300px;
+    height: 2200px;
     border: 5px solid black;
 }
 .detail-top-box{
@@ -127,7 +127,7 @@ body{
 .tab-box{
     display: none;
     width: 100%;
-    height: 1100px;
+    height: 1400px;
     padding: 10px;
     overflow: auto;
     overflow-x:hidden;
@@ -150,13 +150,13 @@ body{
 }
 .helpful-box{
     width: 100%;
-    height: 30%;
-    margin-bottom: 15px;
+    height: 25%;
+    margin-bottom: 10px;
     padding: 20px;
 }
 .helpful-inner{
     width: 100%;
-    height: 100%;
+    height: 80%;
     background-color: #eee;
     text-align: left;
     padding-top: 10px;
@@ -193,28 +193,14 @@ body{
 	height:7%;
 	padding:30px;	
 }
-.tab-inner{
-	width:100%;
-	height:40%;
-	padding:30px;
-	padding-left:300px;
-	padding-right:300px;
-}
-.tab-inner-bot{
-	margin-top:50px;
-}
+
 .doughnut-box{
 	height:80%;
 	width:80%;
 	margin-left:10%;
 }
-.ui-word{
-	color:red;
-	font-size:28px;
-	height:100%;
-	width:100%;
-	
-}
+
+
 #doughnut-chart{
 	width:130%;
 	height:130%;	
@@ -231,6 +217,89 @@ body{
 	background:#eee;
 }
 /* tab-box inner*/
+
+
+.analy-top{
+	width:100%;
+	height:39%;
+	border-bottom:1px solid gray;
+}
+
+.analy-inner{
+	float:left;
+	width:50%;
+	height:100%;
+}
+.analy-inner-right{
+	padding:20px;
+}
+.analy-inner-left p{
+	margin-top:20px;
+}
+.rating-inner{
+	float:left;
+	width:10%;
+	height:100%;
+}
+.rating-right{
+	width:90%;
+	height:100%;
+	padding-top:100px;
+	padding-bottom:100px;
+}
+.point{
+	float:left;
+	width:50%;
+	height:100%;
+}
+.starPoint{
+	font-size:80px;
+	font-weight:700;
+	color:red;
+}
+.word{
+	font-size:20px;
+}
+#ui-word-title{
+	font-size:40px;
+	font-weight:700;
+	color:red;
+}
+.analy-bot{
+	width:100%;
+	height:35%;
+	margin-top:20px;
+}
+.bot-analy{
+	display:inline-block;
+	width:50%;
+	height:80%;
+}
+.gauge-box{
+	height:80%;
+}
+.bottom-review-box{
+	width:100%;
+	height:30%;
+}
+.review-box{
+	float:left;
+	width:25%;
+	height:60%;
+	padding:10px;
+}
+.review-inner{
+	width:100%;
+	height:100%;
+	background:#eee;
+	border-radius:10px;
+	padding:20px;
+}
+
+
+
+
+
 
 @media screen and (max-width : 1000px) {
     .iconbox img{

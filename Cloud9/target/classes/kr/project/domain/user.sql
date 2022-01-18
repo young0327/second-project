@@ -101,12 +101,12 @@ update app_table set
 app_point1="2483",app_point2="3572",app_point3="1243",app_point4="4257",app_point5="7897" 
 where app_name = "카카오뮤직";
 
-select*from app_list
+select*from app_table
 select*from app_review_table
 drop table app_review_table
 desc app_table
 desc test
-drop table app_list
+drop table applist
 desc app_list
 desc app_review_table
 drop table user_info
@@ -118,3 +118,6 @@ alter table app_review_table add column app_cate varchar(20);
 update app_review_table set app_cate="뮤직" where app_id =1;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
+insert into app_table(app_name,app_id,app_rating,app_info,app_cate) values("test1",2,3,"test1입니다.","HF")
+insert into app_table(app_name,app_id,app_rating,app_info,app_cate) values("test2",3,1,"test2입니다.","VF")
+select * from app_table where app_cate like 'M%'
