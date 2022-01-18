@@ -108,10 +108,10 @@
             </div>
             <div class="detail-top-imgbox">
               <ul class="row imgbox-ul">
-                <li class="col-sm-3"><img src="${appinfo[0].appimg1}"></li>
-                <li class="col-sm-3"><img src="${appinfo[0].appimg2}"></li>
-                <li class="col-sm-3"><img src="${appinfo[0].appimg3}"></li>
-                <li class="col-sm-3"><img src="${appinfo[0].appimg4}"></li>
+                <li class="col-sm-3"><img src="${appimg[0].appimg1}"></li>
+                <li class="col-sm-3"><img src="${appimg[0].appimg2}"></li>
+                <li class="col-sm-3"><img src="${appimg[0].appimg3}"></li>
+                <li class="col-sm-3"><img src="${appimg[0].appimg4}"></li>
               </ul>
             </div>
 
@@ -326,6 +326,7 @@
      let apppoint3 = ${appinfo[0].apppoint3}
      let apppoint4 = ${appinfo[0].apppoint4}
      let apppoint5 = ${appinfo[0].apppoint5}
+     
      $("#detailBtn2").on("click",function(){
      new Chart($("#doughnut-chart"), {
 	    type: 'doughnut',

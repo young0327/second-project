@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.project.domain.App;
+import kr.project.domain.AppImg;
 import kr.project.mapper.AppMapper;
 
 @Service
@@ -22,5 +23,9 @@ public class AppService {
 	public List<App> appInfomation(int appid){
 		List<App>appinfo = mapper.appInfomation(appid);
 		return appinfo;
+	}
+	public List<AppImg> appImg(int appid){
+		List<AppImg> appimg= mapper.appImg(appid);
+		return appimg; 
 	}
 }

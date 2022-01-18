@@ -4,41 +4,41 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.project.mapper.AppMapper">
  
-    <resultMap type="kr.project.domain.App" id="AppSelectRM">
+    <resultMap type="kr.project.domain.App" id="AppRM">
 		<result property="appid" column="app_id"/>
 		<result property="appname" column="app_name"/>
-		<result property="appcate" column="app_cate"/>
+		<result property="appicon" column="app_icon"/> <!-- img -->
+		<result property="apprating" column=" app_rating"/> <!-- rating -->
+		<result property="appinfo" column="app_info"/> <!-- des -->
+		<result property="appurl" column="app_url"/>
+		<result property="apppoint1" column="app_point1"/> <!-- rating_1 -->
+		<result property="apppoint2" column="app_point2"/><!-- rating_2 -->
+		<result property="apppoint3" column="app_point3"/><!-- rating_3 -->
+		<result property="apppoint4" column="app_point4"/><!-- rating_4 -->
+		<result property="apppoint5" column="app_point5"/><!-- rating_5 -->
 		<result property="appprice" column="app_price"/>
-		<result property="apprating" column="app_rating"/>
-		<result property="appcompany" column="app_company"/>
-		
+		<result property="appcate" column="app_cate"/>
 	</resultMap>
 	
-    <resultMap type="kr.project.domain.AppInfo" id="AppInfoRM">
-   		<result property="appname" column="app_name"/>
-   		<result property="appid" column="app_id"/>
-   		<result property="appimg1" column="app_img1"/>
-		<result property="appimg2" column="app_img2"/>
-		<result property="appimg3" column="app_img3"/>
-		<result property="appimg4" column="app_img4"/>
-		<result property="appicon" column="app_icon"/>
-		<result property="apprating" column="app_rating"/>
-		<result property="appinfo" column="app_info"/>
-		<result property="appurl" column="app_url"/>
-		<result property="apppoint1" column="app_point1"/>
-		<result property="apppoint2" column="app_point2"/>
-		<result property="apppoint3" column="app_point3"/>
-		<result property="apppoint4" column="app_point4"/>
-		<result property="apppoint5" column="app_point5"/>
+    <resultMap type="kr.project.domain.AppImg" id="AppImgRM">
+        <result property="appid" column="app_id"/>
+        <result property="appimg1" column="app_img1"/>
+        <result property="appimg2" column="app_img2"/>
+        <result property="appimg3" column="app_img3"/>
+        <result property="appimg4" column="app_img4"/>
     </resultMap>
+	
     
     
-    <select id ="appSearch"  resultType="kr.project.domain.App" parameterType="String" resultMap="AppSelectRM">
-        select * from app_list where app_name like CONCAT('%',#{appname},'%')
+    <select id ="appSearch" parameterType="String" resultMap="AppRM">
+        select * from app_table where app_name like CONCAT('%',#{appname},'%')
     </select>
     
-    <select id = "appInfomation" resultType="kr.project.domain.App" resultMap="AppInfoRM">
+    <select id = "appInfomation" resultMap="AppRM">
         select * from app_table where app_id = #{appid}
     </select>
     
+    <select id="appImg" resultMap="AppImgRM">
+        select * from app_img where app_id=#{appid}
+    </select>
  </mapper>

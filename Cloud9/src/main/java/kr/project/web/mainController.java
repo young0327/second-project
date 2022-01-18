@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.project.domain.App;
+import kr.project.domain.AppImg;
 import kr.project.domain.Board;
 import kr.project.domain.User;
 import kr.project.service.AppService;
@@ -73,7 +74,16 @@ public class mainController {
 	@RequestMapping("/detail.do")
 	public String detail(int appid, Model model) {
 		List<App>appinfo = appService.appInfomation(appid);
+		List<AppImg>appimg = appService.appImg(appid);
 		model.addAttribute("appinfo", appinfo);
+		model.addAttribute("appimg",appimg);
 		return "detail";
 	}
+	
+	/*@RequestMapping("/category.do")
+	public String category(HttpServletRequest req, Model model) {
+		String cate = req.getQueryString();
+		List<App> catelist = appinfoService.catelist(cate);
+		model.addAttribute("catelist",catelist);
+	}*/
 }

@@ -86,9 +86,9 @@
             <li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category font-kr" href="#">카테고리
               <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">category1</a>
-                <a href="#" class="list-group-item list-group-item-action">category2</a>
-                <a href="#" class="list-group-item list-group-item-action">category3</a>
+                <a href="category.do?cate=music" class="list-group-item list-group-item-action">음악</a>
+                <a href="category.do?cate=pic/vd" class="list-group-item list-group-item-action">사진/비디오</a>
+                <a href="category.do?cate=trip" class="list-group-item list-group-item-action">여행</a>
               </div>
             </a></li>
             <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="#">유사앱 비교</a></li>
@@ -160,7 +160,7 @@
 				success : function(YN){
 					console.log(YN)
 					if(YN=="y"){
-						location.href="main"
+						location.reload();
 					}else{
 						alert("아이디와 비밀번호를 확인해 주세요");
 					}

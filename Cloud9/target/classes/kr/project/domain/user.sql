@@ -1,19 +1,24 @@
-create table tsboard( 
-bidx int not null auto_increment,
-nick varchar(10),
-title varchar(20),
-content varchar(300),
-category varchar (10),
-day date,
-primary key(bidx)
+create table user_info(
+user_id varchar(10),
+user_pwd varchar(10),
+user_nick varchar(10),
+user_joindate date,
+primary key (user_id)
 );
 
-create table userinfo(
-id varchar(10),
-pwd varchar(10),
-nick varchar(10),
-primary key (id)
+CREATE TABLE app_img
+(
+    app_id    VARCHAR(20)    NOT NULL    COMMENT '앱 아이디', 
+    app_img1  TEXT           NULL        COMMENT '앱 이미지1', 
+    app_img2  TEXT           NULL        COMMENT '앱 이미지2', 
+    app_img3  TEXT           NULL        COMMENT '앱 이미지3', 
+    app_img4  TEXT           NULL        COMMENT '앱 이미지4', 
+     PRIMARY KEY (app_id)
 );
+
+ALTER TABLE app_img
+    ADD CONSTRAINT FK_app_img_app_id_app_table_app_id FOREIGN KEY (app_id)
+        REFERENCES app_table (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 create table applist(
 apidx int not null  auto_increment,
@@ -22,7 +27,7 @@ rating int,
 primary key (apidx)
 );
 
-
+insert into app_img values(1,"https://play-lh.googleusercontent.com/dVrao4PQ0z7boZlNeuhvrnptWnHSFVnZqlq-_qEnURY5HlTjRLiVpism40zWHq9KnN8=w720-h310-rw","https://play-lh.googleusercontent.com/oZiNqukKZ4kG2scPLX87KaE_Z_9aWHUG2nM_MT_R7D9Jic1Lv0xVXAbVtyA2tDYq7oE=w720-h310-rw","https://play-lh.googleusercontent.com/QBItVmd6s4HE0lk_Rz7JqKjttIiosuBkFmeHoJZ__VoDMrd40DKXE7GUyxWSZvL2Ig=w720-h310-rw","https://play-lh.googleusercontent.com/_-0IwyMNcUJWwlCP2O1SJwmybuWum4Lb9YaACjftSnoxMB736w5xleUBSwqUxdiZ3CU=w720-h310-rw")
 CREATE TABLE app_review_table
 (
     review_no       INT UNSIGNED      NOT NULL    AUTO_INCREMENT COMMENT '리뷰 번호', 
@@ -64,6 +69,7 @@ CREATE TABLE app_list(
 );
 
 
+
 CREATE TABLE app_table
 (
     app_name    VARCHAR(50)     NOT NULL    COMMENT '앱 이름', 
@@ -95,6 +101,7 @@ update app_table set
 app_point1="2483",app_point2="3572",app_point3="1243",app_point4="4257",app_point5="7897" 
 where app_name = "카카오뮤직";
 
+select*from app_list
 select*from app_review_table
 drop table app_review_table
 desc app_table
@@ -102,5 +109,12 @@ desc test
 drop table app_list
 desc app_list
 desc app_review_table
-
+drop table user_info
+c
+alter table app_table add column app_cate varchar(20);
+ALTER TABLE app_list DROP COLUMN app_cate;
+alter table app_list add column app_cate varchar(20);
+alter table app_review_table add column app_cate varchar(20);
+update app_review_table set app_cate="뮤직" where app_id =1;
+update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
