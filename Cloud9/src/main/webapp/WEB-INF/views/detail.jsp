@@ -16,7 +16,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 400px;
+      }
+      </style>
   </head>
   <body>
     
@@ -134,28 +139,27 @@
                 </div>
               </div>
               <div class="tab-box">
-                <div class="tab-inner-top tab-inner">
-               	  <div class="tab-top">
-               	  	<p>기간 설정 <select class="daySelect"> 
-               	  		<option value="30">1 개월</option>
-              			<option value="90">3 개월</option>
-              			<option value="180">6 개월</option></select> </p>
-               		<canvas id="line-chart" width="300" height="250"></canvas>
+                <div class="tab-sentence-box">
+               	  <div class="kr-font" style="font-size:20px;">
+               	  	<p>
+               	  	<select style="border:none; background:#eee; border-radius:20px;">
+               	  	  <option>1개월</option>
+               	  	  <option>3개월</option>
+               	  	  <option>6개월</option>
+               	  	</select>동안&nbsp<span id="ui-word">카카오뮤직</span>의 평점은 <span id="ui-word">4.5</span>점입니다.</p>
                	  </div>
-<<<<<<< HEAD
-               	  <div class="tab-top doughnut">
-               	    <div class='doughnut-box'><canvas id="doughnut-chart" width="300" height="300"></canvas></div>
-=======
-               	  <div class="tab-top doughnut">평점분석
-               	    <div class='doughnut-box'><canvas id="doughnut-chart" width="200" height="200"></canvas></div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
+               	</div>
+                <div class="tab-inner-top tab-inner">
+               	  <div class="doughnut-box">
+               	  	<canvas id="doughnut-chart" width="200" height="200"></canvas>
                	  </div>
                 </div>
                 <div class="tab-inner-bot tab-inner">
-                  <div class='tab-bot'></div>
-                  <div class='tab-bot'>
-                    <canvas id="line-chart2" width="300" height="250"></canvas>	
+                  <div class='kr-font' style="font-size:20px;"><p>감성분석 결과</p></div>
+                  <div class="gauge-box" style="width:100%; height:100%;">
+                    <div id="chartdiv"></div>
                   </div>
+                </div>
                 </div>
               </div>
               <div class="tab-box">
@@ -278,13 +282,13 @@
     				  let reviews=`
     					   <div class="helpful-box">
                      		 <div class="helpful-inner">
-                        	<div class="helpful-top kr-font"><p>` + data[i].reviewTitle +` </p></div>
-                        	<div class="kr-font"><p>` + data[i].reviewRating + `</p></div>
-                        	<div class="kr-font"><p>`+data[i].appCrawlId +`</p><p>`+data[i].reviewDate+`</p></div>
+                        	<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>` + data[i].reviewTitle +` </p></div>
+                        	<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">`+data[i].appCrawlId +`</span><span style="margin-left:62%; color: rgb(161, 161, 161);">`+data[i].reviewDate+`</span></div>
+                        	<div class="kr-font" style="font-size:20px;"><p><i class="fas fa-star" style="font-size:18px; color:yellow;"></i>&nbsp` + data[i].reviewRating + `</p></div>
                         	<div class="kr-font"><p>`+data[i].reviewContent+`</p>
                      		 </div>
-                    		</div>
-    				  `;
+                    		</div>`;
+    				  
     				  $("#reviewbox").append(reviews);
     			  }
     		  },
@@ -420,6 +424,166 @@
     }
   }
 });
+    </script>
+    
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <!-- Chart code -->
+    <script>
+    am5.ready(function() {
+
+    // Create root element
+    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+    var root = am5.Root.new("chartdiv");
+
+
+    // Set themes
+    // https://www.amcharts.com/docs/v5/concepts/themes/
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
+
+
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/radar-chart/
+    var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+      panX: false,
+      panY: false,
+      startAngle: 180,
+      endAngle: 360
+    }));
+
+
+    // Create axis and its renderer
+    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
+    var axisRenderer = am5radar.AxisRendererCircular.new(root, {
+      innerRadius: -180
+    });
+
+    axisRenderer.grid.template.setAll({
+      stroke: root.interfaceColors.get("background"),
+      visible: true,
+      strokeOpacity: 0.8
+    });
+
+    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+      maxDeviation: 0,
+      min: 0,
+      max: 5,
+      strictMinMax: true,
+      renderer: axisRenderer
+    }));
+
+
+    // Add clock hand
+    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Clock_hands
+    var axisDataItem = xAxis.makeDataItem({});
+
+    var clockHand = am5radar.ClockHand.new(root, {
+      pinRadius: am5.percent(20),
+      radius: am5.percent(70),
+      bottomWidth: 40
+    })
+
+    var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
+      sprite: clockHand
+    }));
+
+    xAxis.createAxisRange(axisDataItem);
+
+    var label = chart.radarContainer.children.push(am5.Label.new(root, {
+      fill: am5.color(0xffffff),
+      centerX: am5.percent(50),
+      textAlign: "center",
+      centerY: am5.percent(50),
+      fontSize: "3em"
+    }));
+
+    axisDataItem.set("value",1.6);
+    bullet.get("sprite").on("rotation", function () {
+      var value = axisDataItem.get("value");
+      var text = Math.round(axisDataItem.get("value")).toString();
+      var fill = am5.color(0x000000);
+      xAxis.axisRanges.each(function (axisRange) {
+        if (value >= axisRange.get("value") && value <= axisRange.get("endValue")) {
+          fill = axisRange.get("axisFill").get("fill");
+        }
+      })
+
+      //label.set("text", Math.round(value).toString());
+      label.set("text", value.toString());
+
+      clockHand.pin.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
+      clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
+    });
+
+
+
+    chart.bulletsContainer.set("mask", undefined);
+
+
+    // Create axis ranges bands
+    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
+    var bandsData = [{
+      title: "ㅅㅄㅄㅄㅂ",
+      color: "#ee1f25",
+      lowScore: 0,
+      highScore: 1,
+    }, {
+      title: "ㅅㅂ?",
+      color: "#f04922",
+      lowScore: 1,
+      highScore: 2
+    }, {
+      title: "보통",
+      color: "#fdae19",
+      lowScore: 2,
+      highScore: 3
+    }, {
+      title: "좀좋아",
+      color: "#f3eb0c",
+      lowScore: 3,
+      highScore: 4
+    }, {
+      title: "개좋아",
+      color: "#b0d136",
+      lowScore: 4,
+      highScore: 5
+    }];
+
+    am5.array.each(bandsData, function (data) {
+      var axisRange = xAxis.createAxisRange(xAxis.makeDataItem({}));
+
+      axisRange.setAll({
+        value: data.lowScore,
+        endValue: data.highScore
+      });
+
+      axisRange.get("axisFill").setAll({
+        visible: true,
+        fill: am5.color(data.color),
+        fillOpacity: 0.8
+      });
+
+      axisRange.get("label").setAll({
+        text: data.title,
+        inside: true,
+        radius: 15,
+        fontSize: "0.9em",
+        fill: root.interfaceColors.get("background")
+      });
+    });
+
+
+    // Make stuff animate on load
+    chart.appear(1000, 100);
+
+    }); // end am5.ready()
+    
     </script>
  
   </body>
