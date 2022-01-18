@@ -51,7 +51,7 @@
             </div>
             <div class="app-animation-box" style="width: 20%;">
               <div class="appicon-box">
-                <p style="color: white;">라인과 카카오톡 비교하기!</p>
+                <p class="font-kr" style="color: white; font-size:24px;">라인과 카카오톡을 비교하면?!</p>
                 <div><img src="./resources/img/kakaoLine.png"></div>
               </div>
             </div>
@@ -105,7 +105,7 @@
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="../JavaScript/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->.
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
    
