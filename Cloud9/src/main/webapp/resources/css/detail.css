@@ -1,6 +1,9 @@
 .kr-font{
     font-family: 'Noto Sans KR', sans-serif;
 }
+.welcomeBoard{
+	font-size: 15px;
+}
 body{
     background-color: #eee;
     height: 1500px;
@@ -207,7 +210,6 @@ body{
 }
 #chartdiv{
 	border-radius:30%;
-	background:#eee;
 }
 .gauge-word-box{
 	width:100%;
