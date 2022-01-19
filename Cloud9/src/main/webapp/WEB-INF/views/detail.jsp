@@ -195,15 +195,19 @@
                 			<p>내용내용내용내용</p>
                 		</div>
                 	</div>
-                	
-                	
-                	
                 </div>
-               
                 </div>
               </div>
               <div class="tab-box">
-                <p>third</p>
+                <div class='wordCloud-box'>
+                	<div class='wordCloud-inner-box'>
+                		<div class='wordCloud-inner'>
+                			<div class="chart-area"> 
+                				<div id="container" style="width:100%; height:100%;"></div>
+                			 </div>
+                		</div>
+                	</div>
+                </div>
               </div>
               <div class="tab-box">
                 <p>fourth</p>
@@ -588,6 +592,50 @@
     }); // end am5.ready()
     
     </script>
+    <!-- 워드클라우드 -->
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script> 
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+	<script> anychart.onDocumentReady(function () {
+		var data = [ 
+			{ "x": "IT",
+			  "value": 590,
+			  category: "Sino-Tibetan" 
+			}, { 
+			 "x": "Python",
+			 "value": 483,
+			 category: "Indo-European" 
+			}, { 
+			 "x": "소프트웨어",
+			"value": 544,
+			category: "Indo-European"
+			}, { 
+			 "x": "JAVA",
+			 "value": 527,
+			 category: "Indo-European"
+			}, {
+			  "x": "C++",
+			  "value": 422,
+			  category: "Afro-Asiatic"
+			}, {
+			 "x": "HTML",
+			 "value": 620,
+			 category: "Afro-Asiatic"
+			}, {
+			 "x": "JavaScript",
+			 "value": 620,
+			 category: "Afro-Asiatic"
+			}, {
+			 "x": "Vue",
+			 "value": 620,
+			 category: "Afro-Asiatic"
+			}
+		  ];
+			var chart = anychart.tagCloud(data);
+			chart.angles([0]); chart.container("container");
+			// chart.getCredits().setEnabled(false);
+			chart.draw(); });
+	</script>
+
  
   </body>
 </html>

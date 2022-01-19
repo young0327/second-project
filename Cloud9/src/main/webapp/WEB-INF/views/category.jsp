@@ -24,7 +24,7 @@
       
     <!-- Navbar Start-->
       <div class="navbar-box row">
-        <div class="col-sm-2 logobox"><a href="#"><img class="logo-img" src='#'></a></div>
+        <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img"  src="./resources/logo/appv.png"></a></div>
         <div class="col-sm-5">
           <nav class="navbar navbar-light bg-white">
             <form class="form-inline">
@@ -137,6 +137,7 @@
     			  let payList = `
     			  <div class="result-box row">
                   <div class="app-icon-img col-md-3"><img src="`+data[i].appicon+`"></div>
+                  <div class="app-icon-img col-md-3"><img src=`+${data[i].appicon}+`></div>
                   <div class="kr-font app-content-box col-md-9">
                     <h4 class="kr-font"><a href=`+detail.do?appid=data[i].appname+`>`+data[i].appname+`</h4>
                     <p class="kr-font" style="font-size: 23px;">`+data[i].apprating.toFixed(1)+`

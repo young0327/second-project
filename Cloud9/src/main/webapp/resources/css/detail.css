@@ -101,7 +101,7 @@ body{
 .detail-mid-box{
     margin-top: 30px;
     width: 85%;
-    height: 20%;
+    height: 5%;
     display: inline-block;
 }
 .mid-list-box ul{
@@ -295,7 +295,23 @@ body{
 }
 
 
-
+/* word cloud box*/
+.wordCloud-box{
+	width:100%;
+	height:50%;
+	z-index:1;
+}
+.wordCloud-inner-box{
+	width:70%;
+	height:100%;
+	display:inline-block;
+	padding-top:100px;
+	padding-bottom:100px;
+}
+.wordCloud-inner{
+	width:100%;
+	height:100%;
+}
 
 
 
