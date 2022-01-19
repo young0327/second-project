@@ -56,6 +56,7 @@ public class RestMainController {
 
 	@GetMapping("/user/login")
 	public String login(User vo, HttpSession session) {
+		System.out.println("ho:"+vo);
 		User user = userService.login(vo);
 		String YN;
 		if (user != null) {

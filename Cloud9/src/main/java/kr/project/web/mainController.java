@@ -87,4 +87,9 @@ public class mainController {
 		model.addAttribute("cateList",cateList);
 		return "category";
 	}
+	
+	@RequestMapping("/compare.do")
+	public String compare() {
+		return "comparing";
+	}
 }
