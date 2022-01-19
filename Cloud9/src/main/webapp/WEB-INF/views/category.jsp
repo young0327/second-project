@@ -25,7 +25,7 @@
       
     <!-- Navbar Start-->
       <div class="navbar-box row">
-        <div class="col-sm-2 logobox"><a href="#"><img class="logo-img" src='#'></a></div>
+        <div class="col-sm-2 logobox"><a href="main.html"><img class="logo-img"  src="./resources/logo/appv.png"></a></div>
         <div class="col-sm-5">
           <nav class="navbar navbar-light bg-white">
             <form class="form-inline">
