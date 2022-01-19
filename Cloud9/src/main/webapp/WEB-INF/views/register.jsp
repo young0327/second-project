@@ -16,7 +16,7 @@
   </head>
   <body>
 
-    <div class="bodyclass">
+    <div class="bodyclass" style="background-image:url('./resources/img/darkness.jpg')">
       <div class="register-box row shadow p-3 mb-5 bg-white rounded">
         <div class="register-left-square col-md-5">
           <div class="register-inner-content">
