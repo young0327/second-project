@@ -35,7 +35,7 @@
           <div class="title-inner-box" style="width:30%"></div>
           <div class="title-inner-box">
             <form class="form-inline" action="search.do">
-            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <button class="search-btn"><i class="fas fa-search" style="color:white;"></i></button>
             <input class="main-input" type="search" placeholder="어플 이름을 입력하세요" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
           </form>
           </div>
@@ -67,29 +67,29 @@
                 <div class="inner-content-box">
                   <div class="flaticon"><i class="fas fa-edit"></i></div>
                   <p class="main-title-word font-kr">커뮤니티 게시판</p>
-                  <a href="#"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
+                  <a href="community.do"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
                 </div>
               </div>
               </div>
             <div class="bot-main-content">
               <div class="content-go">
-                <div class="inner-content-box">
-                  <div class="flaticon"><i class="fas fa-not-equal"></i></div>
+                <div class="inner-content-box" >
+                  <div class="flaticon" style="color:black;"><i class="fas fa-not-equal"></i></div>
                   <p class="main-title-word font-kr">유사어플 비교하기</p>
-                  <a href="#"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
-                </div>
+                  <a href="compare.do"><div class="direct-go"><p class="font-kr" style="color:black;">바로가기</p></div></a>
               </div>
+            </div>
             </div>
             <div class="bot-main-content">
               <div class="content-go">
                 <div class="inner-content-box">
-                  <div class="flaticon"><i class="fas fa-edit"></i></div>
-                  <p class="main-title-word font-kr">커뮤니티 게시판</p>
+                  <div class="flaticon"><i class="fas fa-clipboard-list"></i></div>
+                  <p class="main-title-word font-kr">카테고리 이동하기</p>
                   <a href="#"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
                 </div>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>  

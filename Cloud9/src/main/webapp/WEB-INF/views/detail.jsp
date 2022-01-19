@@ -65,7 +65,7 @@
         		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><button type="button" class="top-icon-btn btn btn-secondary">Login</button></p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p class="font-kr">${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo"><p class="kr-font welcomeBoard">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       
@@ -88,15 +88,15 @@
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
             <li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
-            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category font-kr" href="#">카테고리
+            <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
               <div class="list-group">
                 <a href="category.do?M" class="list-group-item list-group-item-action">음악</a>
                 <a href="category.do?P" class="list-group-item list-group-item-action">사진/비디오</a>
                 <a href="category.do?H" class="list-group-item list-group-item-action">여행</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="compare.do">유사앱 비교</a></li>
-            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
+            <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a kr-font" href="compare.do">유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
         </div>
@@ -164,10 +164,10 @@
                 	<div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;">평점	분석</p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point starPoint kr-font'>
-                				<span id="ui-word-rate" class="ui-word"></span>점
+                			<div class='point kr-font'>
+                				<span id="ui-word-rate" class="ui-word starPoint"></span>점
                 			</div>
-                			<div class='point word'>
+                			<div class='point word kr-font'>
                 				<p>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="monthSelect">
                	  	  			<option value="1">1개월</option>
