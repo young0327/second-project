@@ -21,12 +21,6 @@
         width: 100%;
         height: 400px;
       }
-      html, body, #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
       </style>
   </head>
   <body>
@@ -659,43 +653,44 @@
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script> 
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
 	<script> anychart.onDocumentReady(function () {
-
-	    // create data   
-	    var data = [
-	      {x: "learning", value: 100, category: "noun"},
-	      {x: "includes", value: 56, category: "verb"},
-	      {x: "lists", value: 44, category: "noun"},
-	      {x: "meaning", value: 40, category: "noun"},
-	      {x: "useful", value: 36, category: "adjective"},
-	      {x: "different", value: 32, category: "adjective"},
-	      {x: "grammar", value: 28, category: "noun"},
-	      {x: "teaching", value: 24, category: "noun"},
-	      {x: "example", value: 20, category: "noun"},
-	      {x: "thing", value: 12, category: "noun"}
-	    ];
-
-	    // create a chart and set the data
-	    var chart = anychart.tagCloud(data);
-
-	    // create and configure a color scale.
-	    var customColorScale = anychart.scales.ordinalColor();
-	    customColorScale.colors(["#00b8e6", "#e6b800", "#ff4d4d"]);
-
-	    // set the color scale as the color scale of the chart
-	    chart.colorScale(customColorScale);
-
-	    // add a color range
-	    chart.colorRange().enabled(true);
-
-	    // set the chart title
-	    chart.title("Tag Cloud Chart: Color Scale (Categories)");
-
-	    // set the container id
-	    chart.container("container");
-
-	    // initiate drawing the chart
-	    chart.draw();
-	});
+		var data = [ 
+			{ "x": "IT",
+			  "value": 590,
+			  category: "Sino-Tibetan" 
+			}, { 
+			 "x": "Python",
+			 "value": 483,
+			 category: "Indo-European" 
+			}, { 
+			 "x": "소프트웨어",
+			"value": 544,
+			category: "Indo-European"
+			}, { 
+			 "x": "JAVA",
+			 "value": 527,
+			 category: "Indo-European"
+			}, {
+			  "x": "C++",
+			  "value": 422,
+			  category: "Afro-Asiatic"
+			}, {
+			 "x": "HTML",
+			 "value": 620,
+			 category: "Afro-Asiatic"
+			}, {
+			 "x": "JavaScript",
+			 "value": 620,
+			 category: "Afro-Asiatic"
+			}, {
+			 "x": "Vue",
+			 "value": 620,
+			 category: "Afro-Asiatic"
+			}
+		  ];
+			var chart = anychart.tagCloud(data);
+			chart.angles([0]); chart.container("container");
+			// chart.getCredits().setEnabled(false);
+			chart.draw(); });
 	</script>
 
  

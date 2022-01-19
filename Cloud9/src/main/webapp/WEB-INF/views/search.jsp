@@ -91,7 +91,7 @@
                 <a href="category.do?H" class="list-group-item list-group-item-action">여행</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="#">유사앱 비교</a></li>
+            <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="compare.do">유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <!-- Side Bar end--> 
@@ -152,7 +152,6 @@
 				type: "get",
 				data : loginData,
 				success : function(YN){
-					console.log(YN)
 					if(YN=="y"){
 						location.reload();
 					}else{
@@ -163,7 +162,6 @@
 					alert("아이디와 비밀번호를 확인해 주세요");
 				}
 			});
-			
 		}else{
 			
 			if($('#id').val()==""){
