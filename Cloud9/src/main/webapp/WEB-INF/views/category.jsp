@@ -120,7 +120,7 @@
     			  for(let i=0; i<data.length; i++){
     			  let payList=`
     			  <div class="result-box row">
-                  <div class="app-icon-img col-md-3"><img src=`+${data[i].appicon+`}></div>
+                  <div class="app-icon-img col-md-3"><img src=`+${data[i].appicon}+`></div>
                   <div class="kr-font app-content-box col-md-9">
                     <h4 class="kr-font">`+${data[i].appname}+`</h4>
                     <p class="kr-font" style="font-size: 23px;">`+${data[i].apprating}+`<span style="font-size: 15px;">&nbsp&nbsp&nbsp`+${data[i].appprice}+`</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">`+${data[i].appcompany}+`</p>
