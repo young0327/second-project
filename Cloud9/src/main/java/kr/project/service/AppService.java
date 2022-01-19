@@ -34,8 +34,8 @@ public class AppService {
 		return cateList;
 	}
 	
-	public List<App>catePay(String payData, String payCate){
-		List<App>catePayList = mapper.catePay(payData,payCate);
+	public List<App>catePay(String payD, String payCate){
+		List<App>catePayList = mapper.catePay(payD,payCate);
 		return catePayList;
 	}
 }

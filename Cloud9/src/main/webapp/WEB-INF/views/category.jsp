@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -83,8 +82,17 @@
             <div class="result-box row">
               <div class="app-icon-img col-md-3"><img src=${cateList.appicon}></div>
               <div class="kr-font app-content-box col-md-9">
-                <h4 class="kr-font">${cateList.appname}</h4>
-                <p class="kr-font" style="font-size: 23px;">${cateList.apprating}<span style="font-size: 15px;">&nbsp&nbsp&nbsp ${cateList.appprice}</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">${cateList.appcompany}</p>
+                <h4 class="kr-font"><a href="detail.do?appid=${cateList.appid}">${cateList.appname}</a></h4>
+                <p class="kr-font" style="font-size: 23px;">${cateList.apprating}
+                <c:choose>
+	                <c:when test="${empty cateList.appprice}">
+	               <span style="font-size: 15px;">&nbsp&nbsp&nbsp 무료</span>
+	                </c:when>
+	                <c:otherwise>
+	                <span style="font-size: 15px;">&nbsp&nbsp&nbsp ${cateList.appprice}원</span>
+	                </c:otherwise>
+				</c:choose>               
+               </p><p class="word" style="margin-left: 590px; margin-top: -40px;">${cateList.appcompany}</p>
                 </div>
             </div>
             </c:forEach>
@@ -96,44 +104,58 @@
 
     
 
-    <script src="../JavaScript/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     
     <script>
+    
       $('.category').on('click',function(){
         $('.list-group').slideToggle();
-      })
+      });
 
-      
       // 가격 카테고리 선택
-      /*${"#paySelect"}.on("change",function(){
-    	  $(".result-box row").html("");
-    	  let payData = $("#paySelect").val();
-    	  let payCate = ${cateList[0].appcate}
+      
+      $("#paySelect").on("change",function(){
+    	let payD = $(this).val();
+      	let payCate ='<c:out value='${cateList[0].appcate}'/>'
+    	
+    	  console.log("payD:"+payD)
+    	  console.log("payCate:"+payCate)
     	  $.ajax({
     		  url:"cate/pay",
     		  type:"get",
-    		  data:{"payDate":payData,"payCate":payCate},
-    		  success:function(data){
+    		  data:{"payD":payD, "payCate":payCate},
+    		  success:function(data2){
+    			  var data = data2;
+    			  $(".result-box row").html('');
+    			  var fin = ""
     			  for(let i=0; i<data.length; i++){
-    			  let payList=`
+    				  console.log(data[i].appprice)
+    				  var text = data[i].appprice==null?"무료":data[i].appprice;
+    				  
+    			  let payList = `
     			  <div class="result-box row">
-                  <div class="app-icon-img col-md-3"><img src=`+${data[i].appicon+`}></div>
+                  <div class="app-icon-img col-md-3"><img src="`+data[i].appicon+`"></div>
                   <div class="kr-font app-content-box col-md-9">
-                    <h4 class="kr-font">`+${data[i].appname}+`</h4>
-                    <p class="kr-font" style="font-size: 23px;">`+${data[i].apprating}+`<span style="font-size: 15px;">&nbsp&nbsp&nbsp`+${data[i].appprice}+`</span></p><p class="word" style="margin-left: 590px; margin-top: -40px;">`+${data[i].appcompany}+`</p>
+                    <h4 class="kr-font"><a href=`+detail.do?appid=data[i].appname+`>`+data[i].appname+`</h4>
+                    <p class="kr-font" style="font-size: 23px;">`+data[i].apprating.toFixed(1)+`
+                    <span style="font-size: 15px;">&nbsp&nbsp&nbsp`+text+`</span>
+                    </p><p class="word" style="margin-left: 590px; margin-top: -40px;">`+data[i].appcompany+`</p>
                     </div>
-                </div>
-    			  `;}
-    			  ${".categoryBox"}.append(payList);
+                </div> 
+                `;
+                console.log(`${data}`);
+                //$(".categoryBox").append(payList);
+                fin+=payList;
+    			 }
+                $(".categoryBox").html(fin);
     		  },
-    		  error:function(data){
+    		  error:function(){
     			  console.log("error")
     		  }
-    	  })
-      })*/
+    	  });
+      })
       
     </script>
 

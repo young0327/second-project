@@ -48,16 +48,16 @@
     </select>
     
     <select id="catePay" resultMap="AppRM" parameterType="map">
-        select * from app_table where =#{payCate}
+        select * from app_table where app_cate = #{payCate}
         <choose>
-            <when test="payData=='F'">
-                and app_price isNull;
+            <when test='payD.equals("F")'>
+                and app_price is Null;
             </when>
-            <when test="payData=='P'">
-                and app_price isNotNull;
+            <when test='payD.equals("P")'>
+                and app_price is Not Null;
             </when>
             <otherwise>
-                
+                and 1=1;
             </otherwise>
         </choose>
     </select>

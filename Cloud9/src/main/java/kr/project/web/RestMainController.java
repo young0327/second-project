@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -110,8 +111,8 @@ public class RestMainController {
 	}
 	
 	@GetMapping("/cate/pay")
-	public List<App> catePay(String payData, String payCate){
-		List<App> catePayList = appService.catePay(payData,payCate);
+	public List<App> catePay(String payD,String payCate){
+		List<App> catePayList = appService.catePay(payD,payCate);
 		return catePayList;
 	}
 }

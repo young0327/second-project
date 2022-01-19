@@ -83,10 +83,8 @@ public class mainController {
 	@RequestMapping("/category.do")
 	public String category(HttpServletRequest req, Model model) {
 		String cate = req.getQueryString();
-		System.out.println("안녕"+cate);
 		List<App> cateList = appService.cateSearch(cate);
 		model.addAttribute("cateList",cateList);
-		System.out.println(cateList);
 		return "category";
 	}
 }
