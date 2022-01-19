@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href=" ${pageContext.request.contextPath}/resources/css/community.css">
+    <link rel="stylesheet" href=" ${pageContext.request.contextPath}/resources/css/community.css?ver=1">
     <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css?ver=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,7 +85,7 @@
           </div>
           <div class="detail-botbox">
             <p class="detail md"></p>
-            <p class="detail md" style="display:none" id ="detailBidx"></p>
+            <p class="detail md" style="display:block" id ="detailBidx"></p>
           </div>
           <div class="detail-btnbox">
             <div><button class="detail-btn btn" id ="boardDelete">  <i class="fas fa-trash-alt"></i></button></div>
@@ -162,12 +162,12 @@
           	<li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
             <li class="sidebar-personal-list" ><i class="icon fas fa-adjust"></i><a class="list-a category kr-font" href="#">카테고리
               <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">category1</a>
-                <a href="#" class="list-group-item list-group-item-action">category2</a>
-                <a href="#" class="list-group-item list-group-item-action">category3</a>
+            	<a href="category.do?M" class="list-group-item list-group-item-action">음악</a>
+                <a href="category.do?P" class="list-group-item list-group-item-action">사진/비디오</a>
+                <a href="category.do?H" class="list-group-item list-group-item-action">여행</a>
               </div>
             </a></li>
-            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font" >유사앱 비교</a></li>
+            <li class="sidebar-personal-list" ><i class="icon fas fa-not-equal"></i><a class="list-a kr-font" href="compare.do">유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
             <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a kr-font writing">글 작성</a></li>
            </ul>
@@ -303,7 +303,7 @@
 				success : function(YN){
 					console.log(YN)
 					if(YN=="y"){
-						location.href="main"
+						location.reload();
 					}else{
 						alert("아이디와 비밀번호를 확인해 주세요");
 					}
@@ -402,7 +402,6 @@
     
     
     //게시글 수정
-
    
    $("#boardModify").on("click",function(){
 	   let ps = $('.md');
@@ -452,8 +451,15 @@
     
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
+   	  let ps = $('.md');
+   	   let nick1= $(ps[2]).html()
+   	   let nick="<c:out value='${users.nick}'/>"
+   	   if (nick1!=nick){
+   		   modifyModal.style.display = 'none';
+   		   alert("작성자만 글을 삭제 할 수 있습니다.")
+     		 }else{
     	let bidx= $("#detailBidx").text()
-    	console.log(bidx);
+    	alert(bidx);
     	$.ajax({
     		url :"board/bidx",
     		type:"delete",
@@ -467,7 +473,8 @@
     			console.log("삭제 실패")
     		}
     	});
-    })
+    }
+    });
     
     
     </script>

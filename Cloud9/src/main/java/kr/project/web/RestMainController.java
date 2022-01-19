@@ -23,11 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.project.domain.App;
 import kr.project.domain.Board;
+import kr.project.domain.Deep;
 import kr.project.domain.Review;
 import kr.project.domain.User;
 import kr.project.service.AppService;
 import kr.project.service.BoardService;
-import kr.project.service.ReviewSerivice;
+import kr.project.service.DeepService;
+import kr.project.service.ReviewService;
 import kr.project.service.UserService;
 
 @RestController
@@ -40,7 +42,10 @@ public class RestMainController {
 	@Autowired
 	AppService appService;
 	@Autowired
-	ReviewSerivice reviewService;
+	ReviewService reviewService;
+	@Autowired
+	DeepService deepService;
+	
 	
 	@PostMapping("/user/singUp")
 	public void joinAjax(User vo) {
@@ -114,5 +119,13 @@ public class RestMainController {
 	public List<App> catePay(String payD,String payCate){
 		List<App> catePayList = appService.catePay(payD,payCate);
 		return catePayList;
+	}
+	
+	@GetMapping("/graph/emo")
+	public List<Deep> emoList(String appid){
+		System.out.println("아이디:"+appid);
+	List<Deep> emoResult = deepService.emoList(appid);
+	System.out.println(emoResult);
+	return emoResult;
 	}
 }

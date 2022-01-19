@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.project.mapper.DeepMapper">
+ <resultMap type="kr.project.domain.Deep" id="DeepRM">
+		<result property="appid" column="app_id"/>
+		<result property="emoresult" column="emo_result"/>
+		<result property="deepnum1" column="deep_num1"/>
+		<result property="deepnum2" column="deep_num2"/>
+		<result property="deepnum3" column="deep_num3"/>
+		<result property="deepnum4" column="deep_num4"/>
+		<result property="deepnum5" column="deep_num5"/>
+		<result property="deepnumc1" column="deep_numc1"/>
+		<result property="deepnumc2" column="deep_numc2"/>
+		<result property="deepnumc3" column="deep_numc3"/>
+		<result property="deepnumc4" column="deep_numc4"/>
+		<result property="deepnumc5" column="deep_numc5"/>
+ </resultMap>
+ 
+ <select id="emoList" resultMap="DeepRM">
+     select * from deep_table where app_id = #{appid}
+ </select>
+ 
+ 
+ 
+ 
+ </mapper>

@@ -10,7 +10,7 @@ import kr.project.domain.Review;
 import kr.project.mapper.ReviewMapper;
 
 @Service
-public class ReviewSerivice {
+public class ReviewService {
 
 	@Autowired
 	ReviewMapper mapper;
