@@ -591,26 +591,31 @@
 			      color: "#ee1f25",
 			      lowScore: 0,
 			      highScore: 1,
+			      fontSize: "0.3em"
 			    }, {
 			      title: "나쁨",
 			      color: "#f04922",
 			      lowScore: 1,
-			      highScore: 2
+			      highScore: 2,
+			      fontSize: "0.3em"
 			    }, {
 			      title: "보통",
 			      color: "#fdae19",
 			      lowScore: 2,
-			      highScore: 3
+			      highScore: 3,
+			      fontSize: "0.3em"
 			    }, {
 			      title: "좋음",
 			      color: "#f3eb0c",
 			      lowScore: 3,
-			      highScore: 4
+			      highScore: 4,
+			      fontSize: "0.3em"
 			    }, {
 			      title: "아주좋음",
 			      color: "#b0d136",
 			      lowScore: 4,
-			      highScore: 5
+			      highScore: 5,
+			      fontSize: "0.3em"
 			    }];
 
 			    am5.array.each(bandsData, function (data) {
