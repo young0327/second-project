@@ -65,7 +65,7 @@
         		<div style="text-align: center; margin-left:20px;" class="col-sm-2 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><i class="fas fa-sign-in-alt"></i>Login</p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p class="kr-font welcomeBoard">${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo"><p class="kr-font welcomeBoard" style="font-size:20px;">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       

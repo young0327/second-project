@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans+KR&family=Nunito&display=swap');
 /* background start*/
+#krFont{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .compare-background{
   margin-top: 25px;
   margin-left: 250px;
@@ -62,22 +65,34 @@
 .rating-inner-box{
   width: 100%;
   height: 100%;
+  margin-top:30px;
 }
 .space{
   width: 100%;
-  height: 35%;
+  height: 38%;
   border-bottom: 1px solid rgb(203, 203, 203);
 }
 .rader-chart-box{
   width: 100%;
   height: 50%;
-  background-color: antiquewhite;
   padding: 20px;
   padding-left: 100px;
   padding-right: 100px;
+  margin-top:20px;
 }
 .rader-inner{
   width: 100%;
   height: 100%;
+}
+.chart-box{
+  width: 40%;
+  height: 40%;
+  display: inline-block;
+}
+.second-rating-box{
+  float: left;
+  width: 42.5%;
+  height: 30%;
+  padding: 20px;
 }
 /* background end*/
