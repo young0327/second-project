@@ -192,14 +192,6 @@
                 	</div>
                 </div>
                 <div class='bottom-review-box'>
-                <c:forEach items="">
-                	<div class='review-box kr-font'>
-                		<div class='review-inner' style="text-align:left;">
-                		<p style="font-size:20px;">4.5</p>
-                			<p>내용내용내용내용</p>
-                		</div>
-                	</div>
-                	</c:forEach>
                 </div>
                 </div>
               </div>
@@ -448,14 +440,13 @@
      // 평점 추이 텍스트로 출력
      $("#detailBtn2").on("click",function(){
     	let appid = $("#appid").text();
-    	let month = $("#monthSelect").val()
+    	let month = 1
     		$.ajax({
 	    		url:"app/monthRate",
 	    		type:"get",
 	    		data:{"appid":appid,"month":month},
 	    		success:function(data){
 	    			$("#ui-word-rate").text(data.toFixed(1));
-	    			console.log(data.toFixed(1))
 	    		},
 	    		error: function(){
 	    			console.log("n")
@@ -479,32 +470,20 @@
     	    		}
     	    	});
          })
-      
-       
 
-
-
+         
    // 계기판 차트
    
     $("#detailBtn2").on("click",function(){
-    	let appid =$("#appid").text();
-    	console.log(appid);
-		$.ajax({
-			url:"graph/emo",
-			type:"get",
-			data:{"appid":appid},
-			success:function(data){
 				 // Create root element
 			    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
 			    var root = am5.Root.new("chartdiv");
-
 
 			    // Set themes
 			    // https://www.amcharts.com/docs/v5/concepts/themes/
 			    root.setThemes([
 			      am5themes_Animated.new(root)
 			    ]);
-
 
 			    // Create chart
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/
@@ -514,7 +493,6 @@
 			      startAngle: 180,
 			      endAngle: 360
 			    }));
-
 
 			    // Create axis and its renderer
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
@@ -535,7 +513,6 @@
 			      strictMinMax: true,
 			      renderer: axisRenderer
 			    }));
-
 
 			    // Add clock hand
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Clock_hands
@@ -561,7 +538,7 @@
 			      fontSize: "3em"
 			    }));
 
-			    axisDataItem.set("value",data[0].emoresult);
+			    axisDataItem.set("value",${appinfo[0].apppn}*5);
 			    bullet.get("sprite").on("rotation", function () {
 			      var value = axisDataItem.get("value");
 			      var text = Math.round(axisDataItem.get("value")).toString();
@@ -579,10 +556,7 @@
 			      clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
 			    });
 
-
-
 			    chart.bulletsContainer.set("mask", undefined);
-
 
 			    // Create axis ranges bands
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
@@ -641,20 +615,39 @@
 			      });
 			    });
 
-
 			    // Make stuff animate on load
 			    chart.appear(1000, 100);
-			},
-			error:function(){
-				console.log("n")
-			}
-			
-		})  
     })
 
-    // end am5.ready()
+    // 감정분석 리뷰
+     $("#detailBtn2").on("click",function(){
+    	let appid = ${appinfo[0].appid}
+    	let apppn = ${appinfo[0].apppn}
+    	console.log(appid)
+    	console.log(apppn)
+    		$.ajax({
+	    		url:"review/emo",
+	    		type:"get",
+	    		data:{"appid":appid,"apppn":apppn},
+	    		success:function(data){
+	    			  for (let i =0; i<4; i++){
+	    				  let reviews=`
+	    					  	<div class='review-box kr-font'>
+	                  				<div class='review-inner' style="text-align:left;">
+	                  					<p style="font-size:20px;">`+data[i].reviewRating+`</p>
+	                  					<p>`+data[i].reviewContent+`</p>
+	                  				</div>
+	                    		</div>`;
+	    				  
+	    				  $(".bottom-review-box").append(reviews);
+	    			  	}
+	    			  },
+	    		error: function(){
+	    			console.log("n")
+	    		}
+	    	});
+     })
     
-   
     <!-- 워드클라우드 -->
   anychart.onDocumentReady(function () {
 		var data = [ 

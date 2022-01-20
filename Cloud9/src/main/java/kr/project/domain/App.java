@@ -19,4 +19,8 @@ public class App {
 	private int apppoint5;
 	private String appprice;
 	private String appcate;
+	private float apppn;
+	private float evascore1;
+	private float evascore2;
+	private float evascore3;
 }

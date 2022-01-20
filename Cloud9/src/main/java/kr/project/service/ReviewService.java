@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.project.domain.App;
 import kr.project.domain.Review;
 import kr.project.mapper.ReviewMapper;
 
@@ -23,5 +24,10 @@ public class ReviewService {
 	public float monthRating(int appid, int month) {
 		float monthRate = mapper.monthRating(appid,month);
 		return monthRate;
+	}
+	
+	public List<Review>reviewEmoRead(int appid,float apppn){
+		List<Review>emoReview = mapper.reviewEmoRead(appid,apppn);
+		return emoReview;
 	}
 }
