@@ -60,7 +60,7 @@
         		<div style="text-align: center; margin-left:-20px;" class="col-sm-2 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><i class="fas fa-sign-in-alt"></i>Login</p></div>
       		</c:when>
       		<c:otherwise>
-       			<div class="col-sm-3 loginbox solo"><p class="font-kr">${users.nick}님 반갑습니다</p></div>
+       			<div class="col-sm-3 loginbox solo kr-font"><p class="font-kr" style="font-size:20px;">${users.nick}님 반갑습니다</p></div>
        		</c:otherwise>
        		</c:choose>	
       
@@ -121,7 +121,7 @@
             <div class="result-box row">
               <div class="app-icon-img col-md-3"><img src=${cateList.appicon}></div>
               <div class="kr-font app-content-box col-md-9">
-                <h4 class="kr-font"><a href="detail.do?appid=${cateList.appid}">${cateList.appname}</a></h4>
+                <h5 class="kr-font"><a href="detail.do?appid=${cateList.appid}" style="color:black;">${cateList.appname}</a></h5	>
                 <p class="kr-font" style="font-size: 23px;">${cateList.apprating}
                 <c:choose>
 	                <c:when test="${empty cateList.appprice}">

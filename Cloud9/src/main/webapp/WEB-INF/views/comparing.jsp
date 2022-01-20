@@ -18,8 +18,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <title>Hello, world!</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans+KR&family=Nunito&display=swap');
-      </style>
+    	 #chartdiv{
+          width: 100%;
+          height: 500px;
+        }
+    </style>
   </head>
   <body>
     
@@ -63,7 +66,7 @@
 		        		<div style="text-align: center; margin-left:-20px;" class="col-sm-2 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><i class="fas fa-sign-in-alt"></i>Login</p></div>
 		      		</c:when>
 		      		<c:otherwise>
-		       			<div class="col-sm-3 loginbox solo"><p class="font-kr">${users.nick}님 반갑습니다</p></div>
+		       			<div class="col-sm-3 loginbox solo" id="krFont"><p style="font-size:20px;">${users.nick}님 반갑습니다</p></div>
 		       		</c:otherwise>
 		       		</c:choose>	
 		      
@@ -139,16 +142,57 @@
               </div>
               <div class="space"></div>
               <div class="rader-chart-box">
-                <div class="rader-inner"><p></p></div>
+                <div class="rader-inner">
+                  <div class="chart-box"><canvas id="radar-chart" width="250" height="250"></canvas></div>
+                </div>
+              </div>
+              <div class="second-rating-box"></div>
+              <div class="second-rating-box" style="width: 15%;">감성분석</div>
+              <div class="second-rating-box">
+                <div id="chartdiv"></div>
               </div>
             </div>
           </div>
         </div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script>
+	new Chart(document.getElementById("radar-chart"), {
+	    type: 'radar',
+	    data: {
+	      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+	      datasets: [
+	        {
+	          label: "1950",
+	          fill: true,
+	          backgroundColor: "rgba(179,181,198,0.2)",
+	          borderColor: "rgba(179,181,198,1)",
+	          pointBorderColor: "#fff",
+	          pointBackgroundColor: "rgba(179,181,198,1)",
+	          data: [8.77,55.61,21.69,6.62,6.82]
+	        }, {
+	          label: "2050",
+	          fill: true,
+	          backgroundColor: "rgba(255,99,132,0.2)",
+	          borderColor: "rgba(255,99,132,1)",
+	          pointBorderColor: "#fff",
+	          pointBackgroundColor: "rgba(255,99,132,1)",
+	          pointBorderColor: "#fff",
+	          data: [25.48,54.16,7.61,8.06,4.45]
+	        }
+	      ]
+	    },
+	    options: {
+	      title: {
+	        display: true,
+	        text: 'Distribution in % of world population'
+	      }
+	    }
+	});
+	
+	</script>
 
-
-
-
+	
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
