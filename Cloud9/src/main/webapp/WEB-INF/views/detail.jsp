@@ -51,7 +51,7 @@
     <!-- Navbar Start-->
     <div class="navbar-box row">
       <div class="col-sm-2 logobox"><a href="main"><img class="logo-img" src="./resources/logo/appv.png"></a></div>
-      <div class="col-sm-4">
+      <div class="col-sm-5">
         <nav class="navbar navbar-light bg-white">
          <form class="form-inline" action="search.do">
             <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
@@ -62,7 +62,7 @@
       <div class="col-sm-1 loginbox"></div>
       <c:choose>
         	<c:when test="${empty users}">
-        		<div style="text-align: center; margin-left:-20px;" class="col-sm-3 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><i class="fas fa-sign-in-alt"></i>Login</p></div>
+        		<div style="text-align: center; margin-left:20px;" class="col-sm-2 loginbox solo" @click="modalOpen=false"><p class='nav-font-en login-modal'><i class="fas fa-sign-in-alt"></i>Login</p></div>
       		</c:when>
       		<c:otherwise>
        			<div class="col-sm-3 loginbox solo"><p class="kr-font welcomeBoard">${users.nick}님 반갑습니다</p></div>
@@ -71,12 +71,12 @@
       
       <c:choose>
       	<c:when  test ="${!empty users.nick}">
-      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en" href="logout.do"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
-      		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
+      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en" href="logout.do"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></div>
+      		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
       	</c:when>
       	<c:otherwise>
-      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en" href="logout.do"><button class='top-icon-btn btn btn-dark' id ="logout">LOGOUT</button></a></div>
-      	      <div style="text-align: right; display:block" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><button type="button" class="top-icon-btn btn btn-dark">Register</button></a></div>
+      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en" href="logout.do"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></div>
+      	      <div style="text-align: right; display:block" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
       	</c:otherwise>
       </c:choose>
     </div>

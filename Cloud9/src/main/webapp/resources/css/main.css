@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans+KR&family=Nunito&display=swap');
 .body{
   box-sizing: border-box;
   width: 100%;
@@ -6,6 +6,9 @@
 }
 .kr-font{
   font-family: 'Noto Sans KR', sans-serif;
+}
+.en-font{
+	font-family:'Nunito', sans-serif;
 }
 /******** Login Modal *********/
 .black-modal{
@@ -51,7 +54,7 @@
   outline: 2px solid rgb(61, 174, 226);
 }
 .modal-input::placeholder{
-  font-family: 'Century Gothic';
+  font-family: 'Nunito', sans-serif;
   font-weight: 500;
 }
 .modal-pw{
@@ -109,6 +112,7 @@
   margin-top: 20px;
   font-size: 20px;
   font-weight: 700;
+  font-family: 'Nunito', sans-serif;
 }
 .solo{
   padding-left: 50px;
@@ -122,13 +126,14 @@
 }
 .search-input::placeholder{
   color: black;
-  font-family: 'Century Gothic';
+  font-family: 'Nunito', sans-serif;
 }
 .search-input:focus{
   outline: 0px solid black;
 }
 .nav-font-en{
-  font-family: 'Century Gothic';
+  font-family: 'Nunito', sans-serif;
+  color:black;
 }
 .top-icon-btn{
   border-radius: 50px;
