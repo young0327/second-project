@@ -121,7 +121,7 @@
             <div class="result-box row">
               <div class="app-icon-img col-md-3"><img src=${cateList.appicon}></div>
               <div class="kr-font app-content-box col-md-9">
-                <h4 class="kr-font"><a href="detail.do?appid=${cateList.appid}">${cateList.appname}</a></h4>
+                <h5 class="kr-font"><a href="detail.do?appid=${cateList.appid}" style="color:black;">${cateList.appname}</a></h5	>
                 <p class="kr-font" style="font-size: 23px;">${cateList.apprating}
                 <c:choose>
 	                <c:when test="${empty cateList.appprice}">

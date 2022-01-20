@@ -25,9 +25,6 @@
   </head>
   <body>
 
-    
-      
-      
     <!-- Side Bar Start-->
     <div class="main-box" style="background-image: url('./resources/img/darkness.jpg');">
       <div class="main-top">
@@ -74,7 +71,7 @@
             <div class="bot-main-content">
               <div class="content-go">
                 <div class="inner-content-box" >
-                  <div class="flaticon" style="color:black;"><i class="fas fa-not-equal"></i></div>
+                  <div class="flaticon"><i class="fas fa-not-equal"></i></div>
                   <p class="main-title-word font-kr">유사어플 비교하기</p>
                   <a href="compare.do"><div class="direct-go"><p class="font-kr" style="color:black;">바로가기</p></div></a>
               </div>
