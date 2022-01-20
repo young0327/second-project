@@ -13,5 +13,5 @@ public interface ReviewMapper {
 	
 	public float monthRating(@Param("appid")int appid, @Param("month")int month);
 	
-	
+	public List<Review> reviewEmoRead(@Param("appid")int appid, @Param("apppn")float apppn);
 }

@@ -18,6 +18,10 @@
 		<result property="apppoint5" column="app_point5"/> <!-- rating_5 -->
 		<result property="appprice" column="app_price"/>
 		<result property="appcate" column="app_cate"/>
+		<result property="apppn" column="app_pn"/>
+		<result property="evascore1" column="eva_score1"/>
+		<result property="evascore2" column="eva_score2"/>
+		<result property="evascore3" column="eva_score1"/>
 		<result property="appcompany" column="develop_name"/>
 	</resultMap>
 	

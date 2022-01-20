@@ -18,4 +18,5 @@ public interface AppMapper {
 	public List<App> cateSearch(String cate);
 	
 	public List<App> catePay(@Param("payD")String payD,@Param("payCate")String payCate);
+
 }

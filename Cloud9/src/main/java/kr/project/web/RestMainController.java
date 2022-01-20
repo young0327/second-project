@@ -23,12 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.project.domain.App;
 import kr.project.domain.Board;
-import kr.project.domain.Deep;
 import kr.project.domain.Review;
 import kr.project.domain.User;
 import kr.project.service.AppService;
 import kr.project.service.BoardService;
-import kr.project.service.DeepService;
 import kr.project.service.ReviewService;
 import kr.project.service.UserService;
 
@@ -43,8 +41,7 @@ public class RestMainController {
 	AppService appService;
 	@Autowired
 	ReviewService reviewService;
-	@Autowired
-	DeepService deepService;
+	
 	
 	
 	@PostMapping("/user/singUp")
@@ -120,12 +117,12 @@ public class RestMainController {
 		List<App> catePayList = appService.catePay(payD,payCate);
 		return catePayList;
 	}
-	
-	@GetMapping("/graph/emo")
-	public List<Deep> emoList(String appid){
-		System.out.println("아이디:"+appid);
-	List<Deep> emoResult = deepService.emoList(appid);
-	System.out.println(emoResult);
-	return emoResult;
+
+	@GetMapping("/review/emo")
+	public List<Review> reviewEmoRead(int  appid, float apppn) {
+		System.out.println(appid);
+		System.out.println(apppn);
+		List<Review>emoReview = reviewService.reviewEmoRead(appid,apppn);
+		return emoReview;
 	}
 }

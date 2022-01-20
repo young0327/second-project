@@ -12,7 +12,7 @@ public class Review {
     private int reviewNo;
 
     // 앱 아이디 
-    private String appId;
+    private String appid;
 
     // 리뷰 제목 
     private String reviewTitle;
@@ -31,5 +31,14 @@ public class Review {
 
     // 리뷰 작성자 
     private String appCrawlId;
+    
+    // 리뷰 카테
+    private String reviewCate;
+    
+    // 도움이 되는 리뷰 0은 X 1은 O
+    private String helpRV;
+    
+    // 리뷰 감성
+    private float pn;
 
 }

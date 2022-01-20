@@ -38,4 +38,6 @@ public class AppService {
 		List<App>catePayList = mapper.catePay(payD,payCate);
 		return catePayList;
 	}
+	
+	
 }

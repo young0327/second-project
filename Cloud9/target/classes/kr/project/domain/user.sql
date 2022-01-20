@@ -68,6 +68,12 @@ CREATE TABLE app_list(
      PRIMARY KEY (app_no)
 );
 
+create table wordcloud_table(
+app_id varchar(20),
+mode_word varchar(20),
+mode_count 	int,
+primary key(app_id)
+);
 
 
 CREATE TABLE app_table
@@ -101,7 +107,7 @@ update app_table set
 app_point1="2483",app_point2="3572",app_point3="1243",app_point4="4257",app_point5="7897" 
 where app_name = "카카오뮤직";
 
-select*from app_list
+select*from app_table
 select*from app_review_table
 drop table app_review_table
 desc app_table
@@ -115,7 +121,27 @@ alter table app_table add column app_cate varchar(20);
 ALTER TABLE app_list DROP COLUMN app_cate;
 alter table app_list add column app_cate varchar(20);
 alter table app_review_table add column app_cate varchar(20);
-update app_review_table set app_cate="뮤직" where app_id =1;
+alter table app_table add column app_pn decimal(12,1);
+alter table app_table modify column eva_score1 decimal(12,1);
+alter table app_table modify column eva_score2 decimal(12,1);
+alter table app_table modify column eva_score3 decimal(12,1);
+update app_table set app_pn = 4.5 where app_id =1;
+update app_table set eva_score1 = 0.7
+update app_table set eva_score2 = 0.42
+update app_table set eva_score3 = 0.2
+
+desc app_review_table
+select * from app_review_table
+alter table app_review_table add column pn decimal(12,1);
+alter table app_review_table drop pn;
+update app_review set emo_result = 0.75
+update app_table set app_pn = 0.9 where app_id ="1";
+select * from app_review_table where app_id =1
+update app_review_table set emo_result=0.3 ,h_rv="1" where review_no=1;
+update app_review_table set emo_result=0.7, h_rv="0" where review_no=2;
+update app_review_table set emo_result=0.9 ,h_rv="1" where review_no=3;
+update app_review_table set emo_result=0.2 ,h_rv="1" where review_no=4;
+update app_review_table set emo_result=0.1 ,h_rv="1" where review_no=5;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
 insert into app_table(app_name,app_id,app_rating,app_info,app_cate) values("test1",2,3,"test1입니다.","HF")
@@ -125,3 +151,4 @@ insert into app_list (app_id, app_rating) values(4,3)
 update app_table set app_cate="PF" where app_id=3;
 select * from app_table where app_cate like 'M%'
 alter table app_table add column app_price int;
+desc wordcloud_table
