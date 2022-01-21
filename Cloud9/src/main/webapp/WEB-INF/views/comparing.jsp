@@ -150,7 +150,7 @@
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
               <div class="second-rating-box">
               </div>
-                        <div id="chartdiv"></div>
+                        
             </div>
           </div>
         </div>

@@ -441,7 +441,7 @@
 	      labels: ["1점", "2점", "3점", "4점", "5점"],
 	      datasets: [{
 	          label: "평점 정보",
-	          backgroundColor: ["#c4c7c5", "#36dc73","#cc36dc","#51D2E6","#ff9933"],
+	          backgroundColor: ["#EF9FE4", "#EFE229","#34F2B3","#318AEF","#F05323"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
 	          hoverOffset: 40,
 	          maintainAspectRatio : true
@@ -454,7 +454,22 @@
 		      title: {
 		        display: true,
 		        text: '평점 정보'
-	   		 	}
+	   		 	},
+	   		 plugins:{
+	   			 legend :{
+	   				 position : 'left',
+	   				 labels:{
+	   					padding:30,
+	   					boxHeight : 20,
+	   					color : "black",
+	   					font: {
+	   						size:20,
+	   						family : "'Noto Sans KR', sans-serif",
+	   						
+	   					}
+	   				 }
+	   			 }
+	   		 }
 	    	}
 		});
      })
@@ -518,13 +533,13 @@
 			    // Create axis and its renderer
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
 			    var axisRenderer = am5radar.AxisRendererCircular.new(root, {
-			      innerRadius: -70
+			      innerRadius: -70,
 			    });
 
 			    axisRenderer.grid.template.setAll({
 			      stroke: root.interfaceColors.get("background"),
 			      visible: true,
-			      strokeOpacity: 1
+			      strokeOpacity: 1,
 			    });
 
 			    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
@@ -532,7 +547,7 @@
 			      min: 0,
 			      max: 5,
 			      strictMinMax: true,
-			      renderer: axisRenderer
+			      renderer: axisRenderer,
 			    }));
 
 			    // Add clock hand
