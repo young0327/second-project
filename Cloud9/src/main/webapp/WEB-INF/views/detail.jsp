@@ -418,7 +418,7 @@
 	      labels: ["1점", "2점", "3점", "4점", "5점"],
 	      datasets: [{
 	          label: "평점 정보",
-	          backgroundColor: ["#1a1423", "#372549","#774c60","#b75d69","#eacdc2"],
+	          backgroundColor: ["#c4c7c5", "#36dc73","#cc36dc","#51D2E6","#ff9933"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
 	          hoverOffset: 40,
 	          maintainAspectRatio : true
