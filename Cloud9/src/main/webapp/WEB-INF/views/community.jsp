@@ -57,11 +57,11 @@
           <div class="comm-option">
             <p class="modal-p kr-font">카테고리</p>
             <select class="modal-select kr-font" name ="category">
-              <option value="category1">category1</option>
-              <option value="category2">category2</option>
-              <option value="category3">category3</option>
-              <option value="category4">category4</option>
-              <option value="category5">category5</option>
+              <option value="category1">여행/숙박</option>
+              <option value="category2">음악</option>
+              <option value="category3">게임</option>
+              <option value="category4">엔터테인먼트</option>
+              <option value="category5">자유게시판</option>
             </select>
           </div>
           <div class="comm-title"><p class="modal-p">제목</p><input class="comm-input" type='text' id= 'title' name='title'></div>
@@ -106,11 +106,11 @@
           <div class="modifying-option">
             <p class="modifying-modal-p">카테고리</p>
             <select class="modifying-modal-select" name= "modicate" id="modicate">
-           	  <option value="category1">category1</option>
-              <option value="category2">category2</option>
-              <option value="category3">category3</option>
-              <option value="category4">category4</option>
-              <option value="category5">category5</option>
+           	  <option value="category1">여행/숙박</option>
+              <option value="category2">음악</option>
+              <option value="category3">게임</option>
+              <option value="category4">엔터테인먼트</option>
+              <option value="category5">자유게시판</option>
             </select>
           </div>
           <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text' name='title' id ="modititle"></div>
@@ -177,13 +177,13 @@
           <div class="community-left-box">
             <div class="left-inner-box shadow p-3 mb-5 bg-white rounded">
               <div class="article-navbox">
-                <ul class="article-navbox-ul row nav-font-en">
-                  <li class="col-sm-2 cate" value=0>전체 강의</li>
-                  <li class="col-sm-2 cate" value=1>Category1</li>
-                  <li class="col-sm-2 cate" value=2>Category2</li>
-                  <li class="col-sm-2 cate" value=3>Category3</li>
-                  <li class="col-sm-2 cate" value=4>Category4</li>
-                  <li class="col-sm-2 cate" value=5>Category5</li>
+                <ul class="article-navbox-ul row nav-font-en kr-font">
+                  <li class="col-sm-2 cate" value=0>전체 토픽</li>
+                  <li class="col-sm-2 cate" value=1>여행/숙박</li>
+                  <li class="col-sm-2 cate" value=2>음악</li>
+                  <li class="col-sm-2 cate" value=3>게임</li>
+                  <li class="col-sm-2 cate" value=4>엔터테인먼트</li>
+                  <li class="col-sm-2 cate" value=5>자유게시판</li>
                 </ul>
               </div>
               
