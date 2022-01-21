@@ -224,7 +224,9 @@
                 	<div class='wordCloud-inner-box'>
                 		<div class='wordCloud-inner'>
                 			<div class="chart-area"> 
-                				<div id="wordCloud"></div>
+                				<div id="wordCloud">
+                				<div id="demo"></div>
+                				</div>
                 			 </div>
                 		</div>
                 	</div> 
@@ -703,23 +705,18 @@
      	    	});
           });
      
-     /*
-      $("#monthSelect").on('change',function(){
-     		let appid = $("#appid").text();
-         	let month = $("#monthSelect").val()
-         		$.ajax({
-     	    		url:"app/monthRate",
-     	    		type:"get",
-     	    		data:{"appid":appid,"month":month},
-     	    		success:function(data){
-     	    			$("#ui-word-rate").text(data.toFixed(1));
-     	    			console.log(data.toFixed(1))
-     	    		},
-     	    		error: function(){
-     	    			console.log("n")
-     	    		}
-     	    	});
-          })*/
+    	 $('#demo').jQCloud(words);
+    	 var words = [
+    		  {text: "Lorem", weight: 13},
+    		  {text: "Ipsum", weight: 10.5},
+    		  {text: "Dolor", weight: 9.4},
+    		  {text: "Sit", weight: 8},
+    		  {text: "Amet", weight: 6.2},
+    		  {text: "Consectetur", weight: 5},
+    		  {text: "Adipiscing", weight: 5}
+    		];
+
+    		
     	 </script>
     	
  
