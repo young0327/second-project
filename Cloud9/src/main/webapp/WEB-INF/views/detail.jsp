@@ -17,7 +17,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <style>
-      #chartdiv {
+      #chartdiv{
+        width: 100%;
+        height: 400px;
+      }
+      #wordCloud{
         width: 100%;
         height: 400px;
       }
@@ -144,7 +148,7 @@
                   <li class="col-md-1"></li>
                   <li class="mid-list-box-list col-md-2" id= "detailBtn2">리뷰분석</li>
                   <li class="col-md-1"></li>
-                  <li class="mid-list-box-list col-md-2">워드클라우드</li>
+                  <li class="mid-list-box-list col-md-2" id="detailBtn3">워드클라우드</li>
                   <li class="col-md-1"></li>
                  
                 </ul>
@@ -164,7 +168,7 @@
                 	<div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;">평점	분석</p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point kr-font'>
+                			<div class='point kr-font' style="padding-left:80px;">
                 				<span id="ui-word-rate" class="ui-word starPoint"></span>점
                 			</div>
                 			<div class='point word kr-font'>
@@ -190,23 +194,23 @@
                     	<div id="chartdiv"></div>
                   		</div>
                 	</div>
-                	<div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;">평점	분석</p>
+                	<div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point kr-font'>
+                			<div class='point kr-font' style="padding-left:80px;">
                 				<span id="emotion-word-rate" class="ui-word starPoint"></span>%
                 			</div>
                 			<div class='point word kr-font'>
                 				<p>
-                				<span id="emotion-word-title" class="ui-word">${appinfo[0].appname}</span>을 사용한
-                				<span>사람들이</span>
-               	  				"<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect">
+                				<span id="emotion-word-title" class="ui-word">${appinfo[0].appname}</span><br>
+                				<span>사용한 사람들이</span>
+               	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect">
                	  	  			<option value="0.9">아주좋음</option>
                	  	  			<option value="0.7">좋음</option>
                	  	 			<option value="0.5">보통</option>
                	  	 			<option value="0.3">나쁨</option>
                	  	 			<option value="0.1">아주나쁨</option>
-               	  				</select>"의 감정을 느꼈습니다</p>
+               	  				</select><br>감정을 느꼈습니다</p>
                 			</div>
                 		</div>
                 	</div>
@@ -220,10 +224,10 @@
                 	<div class='wordCloud-inner-box'>
                 		<div class='wordCloud-inner'>
                 			<div class="chart-area"> 
-                				<div id="container" style="width:100%; height:100%;"></div>
+                				<div id="wordCloud"></div>
                 			 </div>
                 		</div>
-                	</div>
+                	</div> 
                 </div>
               </div>
               <div class="tab-box">
@@ -251,9 +255,8 @@
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script> 
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 	
 <script>
        var Modal = new Vue({
@@ -438,7 +441,7 @@
 	      labels: ["1점", "2점", "3점", "4점", "5점"],
 	      datasets: [{
 	          label: "평점 정보",
-	          backgroundColor: ["#c4c7c5", "#36dc73","#cc36dc","#51D2E6","#ff9933"],
+	          backgroundColor: ["#EF9FE4", "#EFE229","#34F2B3","#318AEF","#F05323"],
 	          data: [apppoint1,apppoint2,apppoint3,apppoint4,apppoint5],
 	          hoverOffset: 40,
 	          maintainAspectRatio : true
@@ -451,7 +454,22 @@
 		      title: {
 		        display: true,
 		        text: '평점 정보'
-	   		 	}
+	   		 	},
+	   		 plugins:{
+	   			 legend :{
+	   				 position : 'left',
+	   				 labels:{
+	   					padding:30,
+	   					boxHeight : 20,
+	   					color : "black",
+	   					font: {
+	   						size:20,
+	   						family : "'Noto Sans KR', sans-serif",
+	   						
+	   					}
+	   				 }
+	   			 }
+	   		 }
 	    	}
 		});
      })
@@ -515,13 +533,13 @@
 			    // Create axis and its renderer
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
 			    var axisRenderer = am5radar.AxisRendererCircular.new(root, {
-			      innerRadius: -70
+			      innerRadius: -70,
 			    });
 
 			    axisRenderer.grid.template.setAll({
 			      stroke: root.interfaceColors.get("background"),
 			      visible: true,
-			      strokeOpacity: 1
+			      strokeOpacity: 1,
 			    });
 
 			    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
@@ -529,7 +547,7 @@
 			      min: 0,
 			      max: 5,
 			      strictMinMax: true,
-			      renderer: axisRenderer
+			      renderer: axisRenderer,
 			    }));
 
 			    // Add clock hand
@@ -624,7 +642,7 @@
 			    
 			    // Make stuff animate on load
 			    chart.appear(1000, 100);
-    })
+    });
 
     // 감정분석 리뷰
      $("#detailBtn2").on("click",function(){
@@ -683,7 +701,7 @@
      	    			console.log("error")
      	    		}
      	    	});
-          })
+          });
      
      /*
       $("#monthSelect").on('change',function(){
@@ -702,48 +720,8 @@
      	    		}
      	    	});
           })*/
-    <!-- 워드클라우드 -->
-  anychart.onDocumentReady(function () {
-		var data = [ 
-			{ "x": "IT",
-			  "value": 590,
-			  category: "Sino-Tibetan" 
-			}, { 
-			 "x": "Python",
-			 "value": 483,
-			 category: "Indo-European" 
-			}, { 
-			 "x": "소프트웨어",
-			"value": 544,
-			category: "Indo-European"
-			}, { 
-			 "x": "JAVA",
-			 "value": 527,
-			 category: "Indo-European"
-			}, {
-			  "x": "C++",
-			  "value": 422,
-			  category: "Afro-Asiatic"
-			}, {
-			 "x": "HTML",
-			 "value": 620,
-			 category: "Afro-Asiatic"
-			}, {
-			 "x": "JavaScript",
-			 "value": 620,
-			 category: "Afro-Asiatic"
-			}, {
-			 "x": "Vue",
-			 "value": 620,
-			 category: "Afro-Asiatic"
-			}
-		  ];
-			var chart = anychart.tagCloud(data);
-			chart.angles([0]); chart.container("container");
-			// chart.getCredits().setEnabled(false);
-			chart.draw(); });
-	</script>
-
+    	 </script>
+    	
  
   </body>
 </html>
