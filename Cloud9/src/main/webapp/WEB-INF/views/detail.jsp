@@ -201,11 +201,11 @@
                 				<span id="emotion-word-title" class="ui-word">${appinfo[0].appname}</span>을 사용한
                 				<span>사람들이</span>
                	  				"<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect">
-               	  	  			<option value="5">아주좋음</option>
-               	  	  			<option value="4">좋음</option>
-               	  	 			<option value="3">보통</option>
-               	  	 			<option value="2">나쁨</option>
-               	  	 			<option value="1">아주나쁨</option>
+               	  	  			<option value="0.9">아주좋음</option>
+               	  	  			<option value="0.7">좋음</option>
+               	  	 			<option value="0.5">보통</option>
+               	  	 			<option value="0.3">나쁨</option>
+               	  	 			<option value="0.1">아주나쁨</option>
                	  				</select>"의 감정을 느꼈습니다</p>
                 			</div>
                 		</div>
@@ -385,15 +385,15 @@
     		  data:{"appid":appid},
     		  success:function(data){
     			  for (let i =0; i<data.length; i++){
-    				  let reviews=`
-    					   <div class="helpful-box">
-                     		 <div class="helpful-inner">
-                        	<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>` + data[i].reviewTitle +` </p></div>
-                        	<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">`+data[i].appCrawlId +`</span><span style="margin-left:62%; color: rgb(161, 161, 161);">`+data[i].reviewDate+`</span></div>
-                        	<div class="kr-font" style="font-size:20px;"><p><i class="fas fa-star" style="font-size:18px; color:yellow;"></i>&nbsp` + data[i].reviewRating + `</p></div>
-                        	<div class="kr-font"><p>`+data[i].reviewContent+`</p>
-                     		 </div>
-                    		</div>`;
+    				  let reviews=
+    					   '<div class="helpful-box">'+
+                     		'<div class="helpful-inner">'+
+                        	'<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>' + data[i].reviewTitle +'</p></div>'+
+                        	'<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">'+data[i].appCrawlId +'</span><span style="margin-left:62%; color: rgb(161, 161, 161);">'+data[i].reviewDate+'</span></div>'+
+                        	'<div class="kr-font" style="font-size:20px;"><p><i class="fas fa-star" style="font-size:18px; color:yellow;"></i>&nbsp' + data[i].reviewRating + '</p></div>'+
+                        	'<div class="kr-font"><p>'+data[i].reviewContent+'</p>'+
+                     		 '</div>'+
+                    		'</div>';
     				  
     				  $("#reviewbox").append(reviews);
     			  }
@@ -635,15 +635,14 @@
 	    		type:"get",
 	    		data:{"appid":appid,"apppn":apppn},
 	    		success:function(data){
-	    			console.log(data)
 	    			  for (let i =0; i<4; i++){
-	    				  let reviews=`
-	    					  	<div class='review-box kr-font'>
-	                  				<div class='review-inner' style="text-align:left;">
-	                  					<p style="font-size:20px;">`+data[i].reviewRating+`</p>
-	                  					<p>`+data[i].reviewContent+`</p>
-	                  				</div>
-	                    		</div>`;
+	    				  let reviews=
+	    					  '<div class="review-box kr-font">'+
+	                  				'<div class="review-inner" style="text-align:left;">'+
+	                  					'<p style="font-size:20px;">'+data[i].reviewRating+'</p>'+
+	                  					'<p>'+data[i].reviewContent+'</p>'+
+	                  				'</div>'+
+	                    		'</div>';
 	    				  $(".bottom-review-box").append(reviews);
 	    			  	}
 	    			  },
@@ -656,41 +655,37 @@
      //감성 분석 확률
    $("#detailBtn2").on("click",function(){
     	 let appid = $("#appid").text();
-    	 let tt = $("#emotionSelect").val(Math.ceil(${appinfo[0].apppn})*5)
-    	 let emo = ${appinfo[0].apppn}
-    	 console.log(appid)
-    	 console.log(emo)
+    	 let emo = ${appinfo[0].apppn};
     	  $.ajax({
     		  url:"review/per",
     		  type:"get",
     		  data:{"appid":appid,"emo":emo},
     		  success:function(data){
-    			  console.log(data)
-    			  $("#emotion-word-rate").text(data[0].emoCount)
+    			  $("#emotion-word-rate").text(data.emoCount/data.allCount*100)
     		  },
     		  error:function(){
     			  console.log("error")
     		  }
     	  })
-     })
-    	 
+     });
      
-     /*$("#detailBtn2").on("click",function(){
-     	let appid = $("#appid").text();
-     	let month = 1
-     		$.ajax({
- 	    		url:"review/monthRate",
- 	    		type:"get",
- 	    		data:{"appid":appid,"month":month},
- 	    		success:function(data){
- 	    			$("#ui-word-rate").text(data);
- 	    		},
- 	    		error: function(){
- 	    			console.log("n")
- 	    		}
- 	    	});
-      })
-    
+    	 $("#emotionSelect").on('change',function(){
+     		let appid = $("#appid").text();
+         	let emo = $("#emotionSelect").val()
+         		$.ajax({
+     	    		url:"review/per",
+     	    		type:"get",
+     	    		data:{"appid":appid,"emo":emo},
+     	    		success:function(data){
+     	    			  $("#emotion-word-rate").text(data.emoCount/data.allCount*100)
+     	    		},
+     	    		error: function(){
+     	    			console.log("error")
+     	    		}
+     	    	});
+          })
+     
+     /*
       $("#monthSelect").on('change',function(){
      		let appid = $("#appid").text();
          	let month = $("#monthSelect").val()

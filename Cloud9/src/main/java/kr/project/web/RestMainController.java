@@ -73,15 +73,14 @@ public class RestMainController {
 
 	@GetMapping("/board/list")
 	public List<Board> boardListAjax(String cate){
-		if(cate.equals("category0")){
-			cate = "category";
-		}
+		System.out.println(cate);
 		List<Board>boardlist= boardService.boardList(cate);
 		return boardlist;
 	}
 	
 	@PostMapping("/board") 
 	public void boardWrite(Board vo) {
+		System.out.println(vo);
 		boardService.boardWrite(vo);
 	}
 	 
@@ -127,12 +126,8 @@ public class RestMainController {
 	
 	@GetMapping("/review/per")
 	public HashMap<String, String> reviewEmo (@Param("appid")int appid, @Param("emo")float emo) {
-		System.out.println(appid);
-		System.out.println(emo);
 		String allCount = reviewService.allCn(appid);
 		String emoCount = reviewService.reviewEmo(appid,emo);
-		System.out.println(allCount);
-		System.out.println(emoCount);
 		HashMap<String, String> emoMap = new HashMap<String, String>();
 		emoMap.put("allCount",allCount);
 		emoMap.put("emoCount",emoCount);
