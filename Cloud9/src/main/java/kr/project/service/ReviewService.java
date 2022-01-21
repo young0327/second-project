@@ -3,6 +3,7 @@ package kr.project.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +22,23 @@ public class ReviewService {
 		return reviewlist;
 	}
 	
-	public float monthRating(int appid, int month) {
-		float monthRate = mapper.monthRating(appid,month);
+	public String monthRating(@Param("appid")int appid, @Param("month")int month) {
+		String monthRate = mapper.monthRating(appid,month);
 		return monthRate;
 	}
 	
-	public List<Review>reviewEmoRead(int appid,float apppn){
+	public List<Review>reviewEmoRead(@Param("appid")int appid, @Param("apppn")float apppn){
 		List<Review>emoReview = mapper.reviewEmoRead(appid,apppn);
 		return emoReview;
+	}
+	
+	public String reviewEmo(@Param("appid")int appid, @Param("emo")float emo) {
+		String emoPercent = mapper.reviewEmo(appid, emo);
+		return emoPercent;
+	}
+	
+	public String allCn(int appid) {
+		String allCount = mapper.allCn(appid);
+		return allCount;
 	}
 }

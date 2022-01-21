@@ -17,15 +17,15 @@
 		<result property="helpRV" column="h_rv"/>
 	</resultMap>
 	
-      <select id="reviewRead" resultMap="ReviewRM">
+      <select id="reviewRead" resultType="list" resultMap="ReviewRM">
          select * from app_review_table where app_id = #{appid} and h_rv="1";
       </select>
       
-       <select id="monthRating" resultType="float" parameterType="map">
+       <select id="monthRating" resultType="String" parameterType="map">
       	select avg(review_rating) from app_review_table where app_id = #{appid} and review_date between DATE_SUB(now(), INTERVAL #{month} Month) and now()
       </select>
       
-      <select id="reviewEmoRead" parameterType="map" resultMap="ReviewRM">
+      <select id="reviewEmoRead" parameterType="map"  resultMap="ReviewRM">
           select * from app_review_table where app_id = #{appid}
           <choose>
               <when test='apppn gte 0 and apppn lt 0.2'>
@@ -48,4 +48,33 @@
               </otherwise>
           </choose>
       </select>
+      
+      <select id="reviewEmo" parameterType="map"  resultType="String">
+          select Count(*) from app_review_table where app_id = #{appid}
+          <choose>
+              <when test='emo gte 0 and emo lt 0.2'>
+                   <![CDATA[and emo_result>=0 and emo_result<0.2]]>
+              </when>
+                <when test='emo gte 0.2 and emo lt 0.4'>
+                  <![CDATA[and emo_result>=0.2 and emo_result<0.4]]>
+              </when>
+              <when test='emo gte 0.4 and emo lt 0.6'>
+                  <![CDATA[and emo_result>=0.4 and emo_result<0.6]]>
+              </when>
+               <when test='emo gte 0.6 and emo lt 0.8'>
+                  <![CDATA[and emo_result>=0.6 and emo_result<0.8]]>
+              </when>
+                <when test='emo gte 0.8 and emo lte 1'>
+                  <![CDATA[and emo_result>=0.8 and emo_result<=1]]>
+              </when>
+              <otherwise>
+                  and 1=1
+              </otherwise>
+          </choose>
+      </select>
+      
+      <select id = "allCn"  resultType="String" >
+          select count(*) from app_review_table where app_id = #{appid}
+      </select>
+      
   </mapper>

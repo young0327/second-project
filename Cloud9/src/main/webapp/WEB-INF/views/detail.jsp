@@ -190,6 +190,26 @@
                     	<div id="chartdiv"></div>
                   		</div>
                 	</div>
+                	<div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;">평점	분석</p>
+                		<div class='rating-inner'></div>
+                		<div class='rating-inner rating-right'>
+                			<div class='point kr-font'>
+                				<span id="emotion-word-rate" class="ui-word starPoint"></span>%
+                			</div>
+                			<div class='point word kr-font'>
+                				<p>
+                				<span id="emotion-word-title" class="ui-word">${appinfo[0].appname}</span>을 사용한
+                				<span>사람들이</span>
+               	  				"<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect">
+               	  	  			<option value="5">아주좋음</option>
+               	  	  			<option value="4">좋음</option>
+               	  	 			<option value="3">보통</option>
+               	  	 			<option value="2">나쁨</option>
+               	  	 			<option value="1">아주나쁨</option>
+               	  				</select>"의 감정을 느꼈습니다</p>
+                			</div>
+                		</div>
+                	</div>
                 </div>
                 <div class='bottom-review-box'>
                 </div>
@@ -434,7 +454,6 @@
 	   		 	}
 	    	}
 		});
-     
      })
      
      // 평점 추이 텍스트로 출력
@@ -442,11 +461,11 @@
     	let appid = $("#appid").text();
     	let month = 1
     		$.ajax({
-	    		url:"app/monthRate",
+	    		url:"review/monthRate",
 	    		type:"get",
 	    		data:{"appid":appid,"month":month},
 	    		success:function(data){
-	    			$("#ui-word-rate").text(data.toFixed(1));
+	    			$("#ui-word-rate").text(parseFloat(data).toFixed(1));
 	    		},
 	    		error: function(){
 	    			console.log("n")
@@ -458,12 +477,11 @@
     		let appid = $("#appid").text();
         	let month = $("#monthSelect").val()
         		$.ajax({
-    	    		url:"app/monthRate",
+    	    		url:"review/monthRate",
     	    		type:"get",
     	    		data:{"appid":appid,"month":month},
     	    		success:function(data){
-    	    			$("#ui-word-rate").text(data.toFixed(1));
-    	    			console.log(data.toFixed(1))
+    	    			$("#ui-word-rate").text(parseFloat(data).toFixed(1));
     	    		},
     	    		error: function(){
     	    			console.log("n")
@@ -497,13 +515,13 @@
 			    // Create axis and its renderer
 			    // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
 			    var axisRenderer = am5radar.AxisRendererCircular.new(root, {
-			      innerRadius: -180
+			      innerRadius: -70
 			    });
 
 			    axisRenderer.grid.template.setAll({
 			      stroke: root.interfaceColors.get("background"),
 			      visible: true,
-			      strokeOpacity: 0.8
+			      strokeOpacity: 1
 			    });
 
 			    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
@@ -519,9 +537,9 @@
 			    var axisDataItem = xAxis.makeDataItem({});
 
 			    var clockHand = am5radar.ClockHand.new(root, {
-			      pinRadius: am5.percent(20),
-			      radius: am5.percent(70),
-			      bottomWidth: 40
+			    	 radius: am5.percent(85),
+			    	    topWidth: 3,
+			    	    bottomWidth: 20
 			    })
 
 			    var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
@@ -532,23 +550,13 @@
 
 			    var label = chart.radarContainer.children.push(am5.Label.new(root, {
 			      fill: am5.color(0xffffff),
-			      centerX: am5.percent(50),
-			      textAlign: "center",
-			      centerY: am5.percent(50),
-			      fontSize: "3em"
 			    }));
 
 			    axisDataItem.set("value",${appinfo[0].apppn}*5);
 			    bullet.get("sprite").on("rotation", function () {
 			      var value = axisDataItem.get("value");
 			      var text = Math.round(axisDataItem.get("value")).toString();
-			      var fill = am5.color(0x000000);
-			      xAxis.axisRanges.each(function (axisRange) {
-			        if (value >= axisRange.get("value") && value <= axisRange.get("endValue")) {
-			          fill = axisRange.get("axisFill").get("fill");
-			        }
-			      })
-				
+			      var fill = am5.color(0x666666);
 			      //label.set("text", Math.round(value).toString());
 			      label.set("text", value.toString());
 
@@ -603,7 +611,6 @@
 			      axisRange.get("axisFill").setAll({
 			        visible: true,
 			        fill: am5.color(data.color),
-			        fillOpacity: 0.8
 			      });
 
 			      axisRange.get("label").setAll({
@@ -614,7 +621,7 @@
 			        fill: root.interfaceColors.get("background")
 			      });
 			    });
-
+			    
 			    // Make stuff animate on load
 			    chart.appear(1000, 100);
     })
@@ -623,13 +630,12 @@
      $("#detailBtn2").on("click",function(){
     	let appid = ${appinfo[0].appid}
     	let apppn = ${appinfo[0].apppn}
-    	console.log(appid)
-    	console.log(apppn)
     		$.ajax({
 	    		url:"review/emo",
 	    		type:"get",
 	    		data:{"appid":appid,"apppn":apppn},
 	    		success:function(data){
+	    			console.log(data)
 	    			  for (let i =0; i<4; i++){
 	    				  let reviews=`
 	    					  	<div class='review-box kr-font'>
@@ -638,7 +644,6 @@
 	                  					<p>`+data[i].reviewContent+`</p>
 	                  				</div>
 	                    		</div>`;
-	    				  
 	    				  $(".bottom-review-box").append(reviews);
 	    			  	}
 	    			  },
@@ -648,6 +653,60 @@
 	    	});
      })
     
+     //감성 분석 확률
+   $("#detailBtn2").on("click",function(){
+    	 let appid = $("#appid").text();
+    	 let tt = $("#emotionSelect").val(Math.ceil(${appinfo[0].apppn})*5)
+    	 let emo = ${appinfo[0].apppn}
+    	 console.log(appid)
+    	 console.log(emo)
+    	  $.ajax({
+    		  url:"review/per",
+    		  type:"get",
+    		  data:{"appid":appid,"emo":emo},
+    		  success:function(data){
+    			  console.log(data)
+    			  $("#emotion-word-rate").text(data[0].emoCount)
+    		  },
+    		  error:function(){
+    			  console.log("error")
+    		  }
+    	  })
+     })
+    	 
+     
+     /*$("#detailBtn2").on("click",function(){
+     	let appid = $("#appid").text();
+     	let month = 1
+     		$.ajax({
+ 	    		url:"review/monthRate",
+ 	    		type:"get",
+ 	    		data:{"appid":appid,"month":month},
+ 	    		success:function(data){
+ 	    			$("#ui-word-rate").text(data);
+ 	    		},
+ 	    		error: function(){
+ 	    			console.log("n")
+ 	    		}
+ 	    	});
+      })
+    
+      $("#monthSelect").on('change',function(){
+     		let appid = $("#appid").text();
+         	let month = $("#monthSelect").val()
+         		$.ajax({
+     	    		url:"app/monthRate",
+     	    		type:"get",
+     	    		data:{"appid":appid,"month":month},
+     	    		success:function(data){
+     	    			$("#ui-word-rate").text(data.toFixed(1));
+     	    			console.log(data.toFixed(1))
+     	    		},
+     	    		error: function(){
+     	    			console.log("n")
+     	    		}
+     	    	});
+          })*/
     <!-- 워드클라우드 -->
   anychart.onDocumentReady(function () {
 		var data = [ 

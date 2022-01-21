@@ -101,6 +101,8 @@ add COLUMN
 app_point5 
 INT;  
 
+select count(*) from app_review_table where app_id = 1
+
 insert into app_table(app_point1,app_point2,app_point3,app_point4,app_point5) values (2483,3572,1200,4257,7897) where app_id = 1;
 
 update app_table set 
@@ -144,11 +146,5 @@ update app_review_table set emo_result=0.2 ,h_rv="1" where review_no=4;
 update app_review_table set emo_result=0.1 ,h_rv="1" where review_no=5;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
-insert into app_table(app_name,app_id,app_rating,app_info,app_cate) values("test1",2,3,"test1입니다.","HF")
-insert into app_table(app_name,app_id,app_rating,app_info,app_cate) values("test2",3,1,"test2입니다.","VF")
-insert into app_table(app_name,app_id,app_rating,app_info,app_cate) values("test3",4,2,"test3입니다.","MF")
-insert into app_list (app_id, app_rating) values(4,3)
-update app_table set app_cate="PF" where app_id=3;
-select * from app_table where app_cate like 'M%'
-alter table app_table add column app_price int;
-desc wordcloud_table
+
+

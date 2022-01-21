@@ -1,6 +1,7 @@
 package kr.project.web;
 
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -106,9 +107,9 @@ public class RestMainController {
 		return reviewlist;
 	}
 	
-	@GetMapping("/app/monthRate")
-	public float monthRating(int appid, int month) {
-		float monthRate = reviewService.monthRating(appid,month);
+	@GetMapping("/review/monthRate")
+	public String monthRating(@Param("appid")int appid, @Param("month")int month) {
+		String monthRate = reviewService.monthRating(appid,month);
 		return monthRate;
 	}
 	
@@ -119,10 +120,22 @@ public class RestMainController {
 	}
 
 	@GetMapping("/review/emo")
-	public List<Review> reviewEmoRead(int  appid, float apppn) {
-		System.out.println(appid);
-		System.out.println(apppn);
+	public List<Review> reviewEmoRead(@Param("appid")int appid,  @Param("apppn")float apppn) {
 		List<Review>emoReview = reviewService.reviewEmoRead(appid,apppn);
 		return emoReview;
+	}
+	
+	@GetMapping("/review/per")
+	public HashMap<String, String> reviewEmo (@Param("appid")int appid, @Param("emo")float emo) {
+		System.out.println(appid);
+		System.out.println(emo);
+		String allCount = reviewService.allCn(appid);
+		String emoCount = reviewService.reviewEmo(appid,emo);
+		System.out.println(allCount);
+		System.out.println(emoCount);
+		HashMap<String, String> emoMap = new HashMap<String, String>();
+		emoMap.put("allCount",allCount);
+		emoMap.put("emoCount",emoCount);
+		return emoMap;
 	}
 }

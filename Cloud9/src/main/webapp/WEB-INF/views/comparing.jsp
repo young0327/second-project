@@ -149,8 +149,8 @@
               <div class="second-rating-box"></div>
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
               <div class="second-rating-box">
-                <div id="chartdiv"></div>
               </div>
+                        <div id="chartdiv"></div>
             </div>
           </div>
         </div>
@@ -197,6 +197,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    
     <script>
        var Modal = new Vue({
         el : '.Modal',
@@ -242,6 +246,82 @@
 			}
 		}
 	});
+       
+       am5.ready(function() {
+       
+       // Create root element
+       // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+       var root = am5.Root.new("chartdiv");
+       
+       
+       // Set themes
+       // https://www.amcharts.com/docs/v5/concepts/themes/
+       root.setThemes([
+         am5themes_Animated.new(root)
+       ]);
+       
+       
+       // Add series
+       // https://www.amcharts.com/docs/v5/charts/word-cloud/
+       var series = root.container.children.push(am5wc.WordCloud.new(root, {
+         categoryField: "tag",
+         valueField: "weight",
+         maxFontSize: am5.percent(15),
+         minFontSize: am5.percent(1),
+         
+       }));
+       
+       // Configure labels
+       series.labels.template.setAll({
+         fontFamily: "Gothic",
+         fill: am5.color(0x85FFC4)
+       });
+       
+       
+       // Data from:
+       // https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
+       series.data.setAll([
+         { tag: "JavaScript", weight: 65 },
+         { tag: "HTML/CSS", weight: 10 },
+         { tag: "Python", weight: 48.24 },
+         { tag: "SQL", weight: 47.08 },
+         { tag: "Java", weight: 35.35 },
+         { tag: "Node.js", weight: 33.91 },
+         { tag: "TypeScript", weight: 30.19 },
+         { tag: "C#", weight: 27.86 },
+         { tag: "Bash/Shell", weight: 27.13 },
+         { tag: "C++", weight: 24.31 },
+         { tag: "PHP", weight: 21.98 },
+         { tag: "C", weight: 21.01 },
+         { tag: "PowerShell", weight: 10.75 },
+         { tag: "Go", weight: 9.55 },
+         { tag: "Kotlin", weight: 8.32 },
+         { tag: "Rust", weight: 7.03 },
+         { tag: "Ruby", weight: 6.75 },
+         { tag: "Dart", weight: 6.02 },
+         { tag: "Assembly", weight: 5.61 },
+         { tag: "Swift", weight: 5.1 },
+         { tag: "R", weight: 5.07 },
+         { tag: "VBA", weight: 4.66 },
+         { tag: "Matlab", weight: 4.66 },
+         { tag: "Groovy", weight: 3.01 },
+         { tag: "Objective-C", weight: 2.8 },
+         { tag: "Scala", weight: 2.6 },
+         { tag: "Perl", weight: 46 },
+         { tag: "Haskell", weight: 12 },
+         { tag: "Delphi", weight: 21 },
+         { tag: "Clojure", weight: 88 },
+         { tag: "Elixir", weight: 74 },
+         { tag: "LISP", weight: 33 },
+         { tag: "Julia", weight: 29 },
+         { tag: "F#", weight: 97 },
+         { tag: "Erlang", weight: 79 },
+         { tag: "APL", weight: 65 },
+         { tag: "Crystal", weight: 56 },
+         { tag: "COBOL", weight: 13 },
+       ]);
+       
+       }); // end am5.ready()
     </script>
     
   </body>
