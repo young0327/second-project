@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.project.domain.App;
 import kr.project.domain.AppImg;
@@ -48,11 +49,11 @@ public class mainController {
 	
 	
 	
-	@RequestMapping("/community.do")
+	@RequestMapping(value="/community.do", method=RequestMethod.GET)
 	public String community(HttpServletRequest req, Model model) {
 		String cate = req.getQueryString();
 		if(cate.contains("category0")){
-			cate = "category";
+			cate = "0";
 		}
 		List<Board>boardlist= boardService.boardList(cate);
 		model.addAttribute("boardlist",boardlist);

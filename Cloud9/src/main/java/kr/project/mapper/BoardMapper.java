@@ -8,7 +8,7 @@ import kr.project.domain.Board;
 
 public interface BoardMapper {
 
-	public List<Board> boardList(String category);
+	public List<Board> boardList(@Param("category")String category);
 	
 	public void boardInsert(Board vo);
 	

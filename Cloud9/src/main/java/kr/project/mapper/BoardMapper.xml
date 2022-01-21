@@ -4,8 +4,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.project.mapper.BoardMapper">
 
-    <select id="boardList" resultType="kr.project.domain.Board" parameterType="String">
-       select * from tsboard where category like CONCAT('%',#{category},'%') order by day DESC;
+    <!-- where category like CONCAT('%',#{category},'%') order by day DESC; -->
+    <select id="boardList" resultType="kr.project.domain.Board" parameterType ="map">
+       select * from tsboard 
+       <choose>
+           <when test='category == "0"'>
+               where bidx is Not Null
+           </when>
+           <when test='category == "1"'>
+               where category ="여행/숙박"
+           </when>
+           <when test='category == "2"'>
+               where category ="음악"
+           </when>
+           <when test='category == "3"'>
+               where category ="게임"
+           </when>
+           <when test='category == "4"'>
+               where category ="엔터테인먼트"
+           </when>
+           <when test='category == "5"'>
+               where category ="자유게시판"
+           </when>
+          <otherwise>
+              where nick =""
+          </otherwise>
+       </choose>
     </select>
     
     <insert id="boardInsert" parameterType="kr.project.domain.Board">

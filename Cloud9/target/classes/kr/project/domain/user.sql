@@ -147,5 +147,7 @@ update app_review_table set emo_result=0.1 ,h_rv="1" where review_no=5;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
 
+select *from tsboard
 select * from app_review_table
 select count(*) from app_review_table where app_id = 1 and emo_result>=0.6 and emo_result<0.8
+desc tsboard

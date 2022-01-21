@@ -73,7 +73,6 @@ public class RestMainController {
 
 	@GetMapping("/board/list")
 	public List<Board> boardListAjax(String cate){
-		System.out.println(cate);
 		List<Board>boardlist= boardService.boardList(cate);
 		return boardlist;
 	}

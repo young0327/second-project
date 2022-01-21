@@ -57,11 +57,11 @@
           <div class="comm-option">
             <p class="modal-p kr-font">카테고리</p>
             <select class="modal-select kr-font" name ="category">
-              <option value="category1">여행/숙박</option>
-              <option value="category2">음악</option>
-              <option value="category3">게임</option>
-              <option value="category4">엔터테인먼트</option>
-              <option value="category5">자유게시판</option>
+              <option value="여행/숙박">여행/숙박</option>
+              <option value="음악">음악</option>
+              <option value="게임">게임</option>
+              <option value="엔터테인먼트">엔터테인먼트</option>
+              <option value="자유게시판">자유게시판</option>
             </select>
           </div>
           <div class="comm-title"><p class="modal-p">제목</p><input class="comm-input" type='text' id= 'title' name='title'></div>
@@ -85,7 +85,7 @@
           </div>
           <div class="detail-botbox">
             <p class="detail md"></p>
-            <p class="detail md" style="display:block" id ="detailBidx"></p>
+            <p class="detail md" style="display:none" id ="detailBidx"></p>
           </div>
           <div class="detail-btnbox">
             <div><button class="detail-btn btn" id ="boardDelete">  <i class="fas fa-trash-alt"></i></button></div>
@@ -106,11 +106,11 @@
           <div class="modifying-option">
             <p class="modifying-modal-p">카테고리</p>
             <select class="modifying-modal-select" name= "modicate" id="modicate">
-           	  <option value="category1">여행/숙박</option>
-              <option value="category2">음악</option>
-              <option value="category3">게임</option>
-              <option value="category4">엔터테인먼트</option>
-              <option value="category5">자유게시판</option>
+           	  <option value="여행/숙박">여행/숙박</option>
+              <option value="음악">음악</option>
+              <option value="게임">게임</option>
+              <option value="엔터테인먼트">엔터테인먼트</option>
+              <option value="자유게시판">자유게시판</option>
             </select>
           </div>
           <div class="modifying-title"><p class="modifying-modal-p">제목</p><input class="modifying-input mdc" type='text' name='title' id ="modititle"></div>
@@ -177,7 +177,7 @@
           <div class="community-left-box">
             <div class="left-inner-box shadow p-3 mb-5 bg-white rounded">
               <div class="article-navbox">
-                <ul class="article-navbox-ul row nav-font-en kr-font">
+                <ul class="article-navbox-ul row nav-font-en kr-font" id="comuCate">
                   <li class="col-sm-2 cate" value=0>전체 토픽</li>
                   <li class="col-sm-2 cate" value=1>여행/숙박</li>
                   <li class="col-sm-2 cate" value=2>음악</li>
@@ -327,9 +327,9 @@
      
    
     //게시판 리스트 리딩
-   $(".cate").click(function(){
-	  	$('div.article-box').html('');
-    	cateN = "category"+this.value;
+   $(".cate").on("click",function(){
+	   $('div.article-box').html('');
+    	let cateN =$(this).val();
     	  $.ajax({
     		  url:"board/list",
     		  type:"get",
