@@ -224,13 +224,9 @@
                 	<div class='wordCloud-inner-box'>
                 		<div class='wordCloud-inner'>
                 			<div class="chart-area"> 
-<<<<<<< HEAD
                 				<div id="wordCloud">
-                				<div id="demo"></div>
                 				</div>
-=======
-                				<div id="bang"></div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-6/Cloud9.git
+                				<div id="bang" style="width: 100%; height:1000px;"></div>
                 			 </div>
                 		</div>
                 	</div> 
@@ -708,18 +704,6 @@
      	    	});
           });
      
-    	 $('#demo').jQCloud(words);
-    	 var words = [
-    		  {text: "Lorem", weight: 13},
-    		  {text: "Ipsum", weight: 10.5},
-    		  {text: "Dolor", weight: 9.4},
-    		  {text: "Sit", weight: 8},
-    		  {text: "Amet", weight: 6.2},
-    		  {text: "Consectetur", weight: 5},
-    		  {text: "Adipiscing", weight: 5}
-    		];
-
-    		
     	 </script>
     	<!-- Resources -->
 	
@@ -743,8 +727,8 @@ coffee.setThemes([
 var series = coffee.container.children.push(am5wc.WordCloud.new(coffee, {
   categoryField: "tag",
   valueField: "weight",
-  maxFontSize: am5.percent(25),
-  minFontSize: am5.percent(5),
+  maxFontSize: am5.percent(30),
+  minFontSize: am5.percent(8),
   colors: am5.ColorSet.new(coffee, {
       colors: [
         am5.color(0x095256),
@@ -766,7 +750,11 @@ var series = coffee.container.children.push(am5wc.WordCloud.new(coffee, {
 
 // Configure labels
 series.labels.template.setAll({
-  fontFamily: "Gothic"
+  fontFamily: "Gothic",
+	  paddingTop: 50,
+	  paddingBottom: 10,
+	  paddingLeft: 10,
+	  paddingRight: 10
 });
 
 
