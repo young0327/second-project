@@ -21,7 +21,7 @@
         width: 100%;
         height: 400px;
       }
-      #wordCloud{
+      #bang{
         width: 100%;
         height: 400px;
       }
@@ -224,7 +224,7 @@
                 	<div class='wordCloud-inner-box'>
                 		<div class='wordCloud-inner'>
                 			<div class="chart-area"> 
-                				<div id="wordCloud"></div>
+                				<div id="bang"></div>
                 			 </div>
                 		</div>
                 	</div> 
@@ -257,7 +257,6 @@
     <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-	
 <script>
        var Modal = new Vue({
         el : '.Modal',
@@ -721,7 +720,100 @@
      	    	});
           })*/
     	 </script>
-    	
+    	<!-- Resources -->
+	
+<!-- Chart code -->
+<script>
+$("#detailBtn3").on("click",function(){
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var coffee = am5.Root.new("bang");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+coffee.setThemes([
+  am5themes_Animated.new(coffee)
+]);
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/word-cloud/
+var series = coffee.container.children.push(am5wc.WordCloud.new(coffee, {
+  categoryField: "tag",
+  valueField: "weight",
+  maxFontSize: am5.percent(25),
+  minFontSize: am5.percent(5),
+  colors: am5.ColorSet.new(coffee, {
+      colors: [
+        am5.color(0x095256),
+        am5.color(0x087f8c),
+        am5.color(0x5aaa95),
+        am5.color(0x86a873),
+        am5.color(0xbb9f06),
+        am5.color(0x22d558),
+        am5.color(0x22d558),
+        am5.color(0xE66C8C),
+        am5.color(0xE117E8),
+        am5.color(0xA5EB68),
+        am5.color(0xD57622),
+        am5.color(0x2264D5),
+
+      ]
+    }),
+}));
+
+// Configure labels
+series.labels.template.setAll({
+  fontFamily: "Gothic"
+});
+
+
+// Data from:
+// https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
+series.data.setAll([
+  { tag: "JavaScript", weight: 64.96 },
+  { tag: "HTML/CSS", weight: 56.07 },
+  { tag: "Python", weight: 48.24 },
+  { tag: "SQL", weight: 47.08 },
+  { tag: "Java", weight: 35.35 },
+  { tag: "Node.js", weight: 33.91 },
+  { tag: "TypeScript", weight: 30.19 },
+  { tag: "C#", weight: 27.86 },
+  { tag: "Bash/Shell", weight: 27.13 },
+  { tag: "C++", weight: 24.31 },
+  { tag: "PHP", weight: 21.98 },
+  { tag: "C", weight: 21.01 },	
+  { tag: "PowerShell", weight: 10.75 },
+  { tag: "Go", weight: 9.55 },
+  { tag: "Kotlin", weight: 8.32 },
+  { tag: "Rust", weight: 7.03 },
+  { tag: "Ruby", weight: 6.75 },
+  { tag: "Dart", weight: 6.02 },
+  { tag: "Assembly", weight: 5.61 },
+  { tag: "Swift", weight: 5.1 },
+  { tag: "R", weight: 5.07 },
+  { tag: "VBA", weight: 4.66 },
+  { tag: "Matlab", weight: 4.66 },
+  { tag: "Groovy", weight: 3.01 },
+  { tag: "Objective-C", weight: 2.8 },
+  { tag: "Scala", weight: 2.6 },
+  { tag: "Perl", weight: 2.46 },
+  { tag: "Haskell", weight: 2.12 },
+  { tag: "Delphi", weight: 2.1 },
+  { tag: "Clojure", weight: 1.88 },
+  { tag: "Elixir", weight: 1.74 },
+  { tag: "LISP", weight: 1.33 },
+  { tag: "Julia", weight: 1.29 },
+  { tag: "F#", weight: 0.97 },
+  { tag: "Erlang", weight: 0.79 },
+  { tag: "APL", weight: 0.65 },
+  { tag: "Crystal", weight: 0.56 },
+  { tag: "COBOL", weight: 0.53 },
+]);
+
+}); // end am5.ready()
+</script>
  
   </body>
 </html>
