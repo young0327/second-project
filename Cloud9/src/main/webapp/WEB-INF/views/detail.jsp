@@ -226,7 +226,7 @@
                 			<div class="chart-area"> 
                 				<div id="wordCloud">
                 				</div>
-                				<div id="bang" style="width: 100%; height:1000px;"></div>
+                				<div id="bang" style="width: 100%; height:800px;"></div>
                 			 </div>
                 		</div>
                 	</div> 
@@ -458,7 +458,7 @@
 	   		 	},
 	   		 plugins:{
 	   			 legend :{
-	   				 position : 'left',
+	   				 position : 'right',
 	   				 labels:{
 	   					padding:30,
 	   					boxHeight : 20,

@@ -26,7 +26,7 @@
   <body>
 
     <!-- Side Bar Start-->
-    <div class="main-box" style="background-image: url('./resources/img/darkness.jpg');">
+    <div class="main-box" style="background-image: url('./resources/img/appstore.png');">
       <div class="main-top">
         <div class="top-title-box">
           <div class="title-inner-box" style="width:30%"></div>
