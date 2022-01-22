@@ -26,10 +26,12 @@ import kr.project.domain.App;
 import kr.project.domain.Board;
 import kr.project.domain.Review;
 import kr.project.domain.User;
+import kr.project.domain.WordCloud;
 import kr.project.service.AppService;
 import kr.project.service.BoardService;
 import kr.project.service.ReviewService;
 import kr.project.service.UserService;
+import kr.project.service.WordCloudService;
 
 @RestController
 public class RestMainController {
@@ -42,7 +44,8 @@ public class RestMainController {
 	AppService appService;
 	@Autowired
 	ReviewService reviewService;
-	
+	@Autowired
+	WordCloudService wordCloudService;
 	
 	
 	@PostMapping("/user/singUp")
@@ -131,5 +134,12 @@ public class RestMainController {
 		emoMap.put("allCount",allCount);
 		emoMap.put("emoCount",emoCount);
 		return emoMap;
+	}
+	
+	@GetMapping("/wordcloud")
+	public List<WordCloud> wordCount(String appid){
+		List<WordCloud> wordList = wordCloudService.wordCount(appid);
+		System.out.println(wordList);
+		return wordList;
 	}
 }

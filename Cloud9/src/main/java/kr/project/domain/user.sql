@@ -27,6 +27,13 @@ rating int,
 primary key (apidx)
 );
 
+create table wordcloud_table
+(word_no int unsigned not null auto_increment,
+app_id varchar(20),
+mode_word varchar(20),
+mode_count int,
+primary key(word_no))
+
 insert into app_img values(1,"https://play-lh.googleusercontent.com/dVrao4PQ0z7boZlNeuhvrnptWnHSFVnZqlq-_qEnURY5HlTjRLiVpism40zWHq9KnN8=w720-h310-rw","https://play-lh.googleusercontent.com/oZiNqukKZ4kG2scPLX87KaE_Z_9aWHUG2nM_MT_R7D9Jic1Lv0xVXAbVtyA2tDYq7oE=w720-h310-rw","https://play-lh.googleusercontent.com/QBItVmd6s4HE0lk_Rz7JqKjttIiosuBkFmeHoJZ__VoDMrd40DKXE7GUyxWSZvL2Ig=w720-h310-rw","https://play-lh.googleusercontent.com/_-0IwyMNcUJWwlCP2O1SJwmybuWum4Lb9YaACjftSnoxMB736w5xleUBSwqUxdiZ3CU=w720-h310-rw")
 CREATE TABLE app_review_table
 (
@@ -150,4 +157,7 @@ select avg(review_rating) from app_review_table where app_id = 1 and review_date
 select *from tsboard
 select * from app_review_table
 select count(*) from app_review_table where app_id = 1 and emo_result>=0.6 and emo_result<0.8
-desc tsboard
+desc wordcloud_table
+drop table wordcloud_table
+insert into wordcloud_table(app_id, mode_word, mode_count) values("1","호텔",11552)
+select * from wordcloud_table

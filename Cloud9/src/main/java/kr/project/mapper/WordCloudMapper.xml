@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.project.mapper.WordCloudMapper">
+    
+    <resultMap type="kr.project.domain.WordCloud" id="WordRM">
+		<result property="wordno" column="word_no"/>
+		<result property="appid" column="app_id"/>
+		<result property="modeword" column="mode_word"/>
+		<result property="modecount" column="mode_count"/>
+	</resultMap>
+	
+    <select id="wordCount" resultMap="WordRM">
+        select * from wordcloud_table where app_id = #{appid}
+    </select>
+    
+</mapper>
+    
