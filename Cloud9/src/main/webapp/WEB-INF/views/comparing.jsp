@@ -111,10 +111,22 @@
             <div class="compare-box">
               <div class="compare-search-box">
                 <div class="search-inner-box">
-                  <input type="search"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
+                  <input type="search" list="appOption"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
+                  <datalist id="appOption">
+                  </datalist>
                 </div>
               </div>
-              <div class="compare-search-box" style="width: 15%;">22</div>
+          
+              <div class="compare-search-box" style="width: 15%;">
+              <div>
+                    <select class="category-division" id="compareCate">
+                       <option value="none">=== 선택 ===</option>
+                       <option value="M">음악</option>
+                       <option value="P">사진/비디오</option>
+                       <option value="H">여행</option>
+                    </select>
+                 </div>
+              </div>
               <div class="compare-search-box">
                 <div class="search-inner-box">
                   <input type="search"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
@@ -632,6 +644,28 @@ am5.ready(function() {
 	chart.appear(1000, 100);
 
 	});
+	
+	$("#compareCate").on("change",function(){
+		let cate= $("#compareCate").val();
+		console.log(cate)
+		$.ajax({
+			url:"compare/app",
+			type:"get",
+			data:{"cate":cate},
+			success:function(data){
+				$("#appOption").html("")
+				for(let i =0; i<5;i++){
+				let appList = 
+					'<option value="'+data[i].appname+'"/>'
+				$("#appOption").append(appList)
+				console.log($("#appOption").html())
+				}
+			},
+			error:function(){
+				console.log("error")
+			}
+		});
+	})
 </script>
     
   </body>

@@ -139,7 +139,12 @@ public class RestMainController {
 	@GetMapping("/wordcloud")
 	public List<WordCloud> wordCount(String appid){
 		List<WordCloud> wordList = wordCloudService.wordCount(appid);
-		System.out.println(wordList);
 		return wordList;
+	}
+	
+	@GetMapping("/compare/app")
+	public List<App> compareApp(String cate){
+		List<App>cateList = appService.cateSearch(cate);
+		return cateList;
 	}
 }
