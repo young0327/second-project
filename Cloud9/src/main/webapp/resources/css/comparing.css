@@ -3,19 +3,22 @@
 #krFont{
 	font-family: 'Noto Sans KR', sans-serif;
 }
+.kr-font{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .main-box{
-	height:2000px;
+	height:2100px;
 }
 .compare-background{
   margin-top: 25px;
-  margin-left: 250px;
+  margin-left: 300px;
   width: 100%;
   height: 95%;
   padding: 20px;
 }
 .compare-box{
   width: 100%;
-  height: 1500px;
+  height: 2200px;
   background-color: white;
   border: 3px solid black;
   padding: 20px;
@@ -23,7 +26,7 @@
 .compare-search-box{
   float: left;
   width: 42.5%;
-  height: 9%;
+  height: 6%;
   padding: 20px;
   padding-left: 50px;
   padding-right: 50px;
@@ -46,7 +49,7 @@
 .compare-icon-box{
   float: left;
   width: 42.5%;
-  height: 16%;
+  height: 10%;
   padding: 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -72,16 +75,17 @@
 }
 .space{
   width: 100%;
-  height: 32%;
+  height: 22%;
   border-bottom: 1px solid rgb(203, 203, 203);
 }
 .rader-chart-box{
   width: 100%;
-  height: 30%;
+  height: 21%;
   padding: 20px;
   padding-left: 100px;
   padding-right: 100px;
   margin-top:20px;
+  border-bottom:1px solid rgb(203,203,203);
 }
 .rader-inner{
   width: 100%;
@@ -91,11 +95,42 @@
   width: 40%;
   height: 40%;
   display: inline-block;
+  padding:50px;
+  margin-top:-50px;
 }
 .second-rating-box{
   float: left;
   width: 42.5%;
-  height: 30%;
+  height: 24%;
   padding: 20px;
 }
 /* background end*/
+
+/* gamsung analy-*/
+.gamsung-top{
+	width:100%;
+	height:17%;
+	padding:10%;
+	padding-left:100px;
+	padding-right:100px;
+}
+.gamsung-mid{
+	width:100%;
+	height:25%;
+}
+.gamsung-bot{
+	width:100%;
+	height:70%;
+}
+.gamsung-percentage{
+	color:red;
+	font-weight:700;
+	font-size:32px;
+}
+.gamsung-down{
+	width:100%;
+	height:70%;
+	background:#eee;
+	margin-top: 30%;
+}
+/* gamsung analy-*/

@@ -22,6 +22,10 @@
           width: 100%;
           height: 500px;
         }
+    	 #chartSecond{
+          width: 100%;
+          height: 500px;
+        }
     </style>
   </head>
   <body>
@@ -102,7 +106,7 @@
           <!-- Side Bar end--> 
         </div>
         
-        <div class="main-content-box col-sm-10">
+        <div class="main-content-box col-sm-10 kr-font">
           <div class="compare-background row ">
             <div class="compare-box">
               <div class="compare-search-box">
@@ -146,9 +150,46 @@
                   <div class="chart-box"><canvas id="radar-chart" width="250" height="250"></canvas></div>
                 </div>
               </div>
-              <div class="second-rating-box"></div>
+              <div class="second-rating-box kr-font">
+              	<div class="gamsung-top">
+              		<div class="gamsung-rating-box"><span class="gamsung-percentage">30</span><span>%</span></div>	
+              	</div>
+              	<div class="gamsung-mid">
+              		<p class="gamsung-percentage">카카오뮤직</p><span>사용한 사람들이</span>
+              		<select>
+              			<option>아주좋음</option>
+              			<option>좋음</option>
+              			<option>보통</option>
+              			<option>나쁨</option>
+              			<option>아주나쁨</option>
+              		</select>
+              		<p>감정을 느꼈습니다</p>
+              	</div>
+              	<div class="gamsung-bot">
+              		<div id="chartdiv"></div>
+              	</div>
+              	<div class="gamsung-down"></div>
+              </div>
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
-              <div class="second-rating-box">
+              <div class="second-rating-box kr-font">
+              	<div class="gamsung-top">
+              		<div class='gamsung-rating-right'><span class="gamsung-percentage">40</span><span>%</span></div>
+              	</div>
+              	<div class="gamsung-mid">
+              		<p class="gamsung-percentage">카카오뮤직</p><span>사용한 사람들이</span>
+              		<select>
+              			<option>아주좋음</option>
+              			<option>좋음</option>
+              			<option>보통</option>
+              			<option>나쁨</option>
+              			<option>아주나쁨</option>
+              		</select>
+              		<p>감정을 느꼈습니다</p>
+              	</div>
+              	<div class="gamsung-bot">
+              		<div id="chartSecond"></div>
+              	</div>
+              	<div class="gamsung-down"></div>
               </div>
                         
             </div>
@@ -197,9 +238,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    
     
     <script>
        var Modal = new Vue({
@@ -246,83 +285,354 @@
 			}
 		}
 	});
-       
-       am5.ready(function() {
-       
-       // Create root element
-       // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-       var root = am5.Root.new("chartdiv");
-       
-       
-       // Set themes
-       // https://www.amcharts.com/docs/v5/concepts/themes/
-       root.setThemes([
-         am5themes_Animated.new(root)
-       ]);
-       
-       
-       // Add series
-       // https://www.amcharts.com/docs/v5/charts/word-cloud/
-       var series = root.container.children.push(am5wc.WordCloud.new(root, {
-         categoryField: "tag",
-         valueField: "weight",
-         maxFontSize: am5.percent(15),
-         minFontSize: am5.percent(1),
-         
-       }));
-       
-       // Configure labels
-       series.labels.template.setAll({
-         fontFamily: "Gothic",
-         fill: am5.color(0x85FFC4)
-       });
-       
-       
-       // Data from:
-       // https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
-       series.data.setAll([
-         { tag: "JavaScript", weight: 65 },
-         { tag: "HTML/CSS", weight: 10 },
-         { tag: "Python", weight: 48.24 },
-         { tag: "SQL", weight: 47.08 },
-         { tag: "Java", weight: 35.35 },
-         { tag: "Node.js", weight: 33.91 },
-         { tag: "TypeScript", weight: 30.19 },
-         { tag: "C#", weight: 27.86 },
-         { tag: "Bash/Shell", weight: 27.13 },
-         { tag: "C++", weight: 24.31 },
-         { tag: "PHP", weight: 21.98 },
-         { tag: "C", weight: 21.01 },
-         { tag: "PowerShell", weight: 10.75 },
-         { tag: "Go", weight: 9.55 },
-         { tag: "Kotlin", weight: 8.32 },
-         { tag: "Rust", weight: 7.03 },
-         { tag: "Ruby", weight: 6.75 },
-         { tag: "Dart", weight: 6.02 },
-         { tag: "Assembly", weight: 5.61 },
-         { tag: "Swift", weight: 5.1 },
-         { tag: "R", weight: 5.07 },
-         { tag: "VBA", weight: 4.66 },
-         { tag: "Matlab", weight: 4.66 },
-         { tag: "Groovy", weight: 3.01 },
-         { tag: "Objective-C", weight: 2.8 },
-         { tag: "Scala", weight: 2.6 },
-         { tag: "Perl", weight: 46 },
-         { tag: "Haskell", weight: 12 },
-         { tag: "Delphi", weight: 21 },
-         { tag: "Clojure", weight: 88 },
-         { tag: "Elixir", weight: 74 },
-         { tag: "LISP", weight: 33 },
-         { tag: "Julia", weight: 29 },
-         { tag: "F#", weight: 97 },
-         { tag: "Erlang", weight: 79 },
-         { tag: "APL", weight: 65 },
-         { tag: "Crystal", weight: 56 },
-         { tag: "COBOL", weight: 13 },
-       ]);
-       
-       }); // end am5.ready()
-    </script>
+      </script>
+      
+       <!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+	// Create root element
+	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+	var root = am5.Root.new("chartdiv");
+
+
+	// Set themes
+	// https://www.amcharts.com/docs/v5/concepts/themes/
+	root.setThemes([
+	  am5themes_Animated.new(root)
+	]);
+
+
+	// Create chart
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/
+	var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+	  panX: false,
+	  panY: false,
+	  startAngle: 160,
+	  endAngle: 380
+	}));
+
+
+	// Create axis and its renderer
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
+	var axisRenderer = am5radar.AxisRendererCircular.new(root, {
+	  innerRadius: -40
+	});
+
+	axisRenderer.grid.template.setAll({
+	  stroke: root.interfaceColors.get("background"),
+	  visible: true,
+	  strokeOpacity: 0.8
+	});
+
+	var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+	  maxDeviation: 0,
+	  min: -40,
+	  max: 100,
+	  strictMinMax: true,
+	  renderer: axisRenderer
+	}));
+
+
+	// Add clock hand
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Clock_hands
+	var axisDataItem = xAxis.makeDataItem({});
+
+	var clockHand = am5radar.ClockHand.new(root, {
+	  pinRadius: am5.percent(20),
+	  radius: am5.percent(100),
+	  bottomWidth: 40
+	})
+
+	var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
+	  sprite: clockHand
+	}));
+
+	xAxis.createAxisRange(axisDataItem);
+
+	var label = chart.radarContainer.children.push(am5.Label.new(root, {
+	  fill: am5.color(0xffffff),
+	  centerX: am5.percent(50),
+	  textAlign: "center",
+	  centerY: am5.percent(50),
+	  fontSize: "3em"
+	}));
+
+	axisDataItem.set("value", 50);
+	bullet.get("sprite").on("rotation", function () {
+	  var value = axisDataItem.get("value");
+	  var text = Math.round(axisDataItem.get("value")).toString();
+	  var fill = am5.color(0x000000);
+	  xAxis.axisRanges.each(function (axisRange) {
+	    if (value >= axisRange.get("value") && value <= axisRange.get("endValue")) {
+	      fill = axisRange.get("axisFill").get("fill");
+	    }
+	  })
+
+	  label.set("text", Math.round(value).toString());
+
+	  clockHand.pin.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
+	  clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
+	});
+
+	setInterval(function () {
+	  axisDataItem.animate({
+	    key: "value",
+	    to: Math.round(Math.random() * 140 - 40),
+	    duration: 500,
+	    easing: am5.ease.out(am5.ease.cubic)
+	  });
+	}, 2000)
+
+	chart.bulletsContainer.set("mask", undefined);
+
+
+	// Create axis ranges bands
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
+	var bandsData = [{
+	  title: "Unsustainable",
+	  color: "#ee1f25",
+	  lowScore: -40,
+	  highScore: -20
+	}, {
+	  title: "Volatile",
+	  color: "#f04922",
+	  lowScore: -20,
+	  highScore: 0
+	}, {
+	  title: "Foundational",
+	  color: "#fdae19",
+	  lowScore: 0,
+	  highScore: 20
+	}, {
+	  title: "Developing",
+	  color: "#f3eb0c",
+	  lowScore: 20,
+	  highScore: 40
+	}, {
+	  title: "Maturing",
+	  color: "#b0d136",
+	  lowScore: 40,
+	  highScore: 60
+	}, {
+	  title: "Sustainable",
+	  color: "#54b947",
+	  lowScore: 60,
+	  highScore: 80
+	}, {
+	  title: "High Performing",
+	  color: "#0f9747",
+	  lowScore: 80,
+	  highScore: 100
+	}];
+
+	am5.array.each(bandsData, function (data) {
+	  var axisRange = xAxis.createAxisRange(xAxis.makeDataItem({}));
+
+	  axisRange.setAll({
+	    value: data.lowScore,
+	    endValue: data.highScore
+	  });
+
+	  axisRange.get("axisFill").setAll({
+	    visible: true,
+	    fill: am5.color(data.color),
+	    fillOpacity: 0.8
+	  });
+
+	  axisRange.get("label").setAll({
+	    text: data.title,
+	    inside: true,
+	    radius: 15,
+	    fontSize: "0.9em",
+	    fill: root.interfaceColors.get("background")
+	  });
+	});
+
+
+	// Make stuff animate on load
+	chart.appear(1000, 100);
+
+	}); // end am5.ready()
+</script>
+
+<!-- Resources -->
+
+
+<!-- 두번째 감성분석 차트 -->
+<script>
+am5.ready(function() {
+
+	// Create root element
+	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+	var root = am5.Root.new("chartSecond");
+
+
+	// Set themes
+	// https://www.amcharts.com/docs/v5/concepts/themes/
+	root.setThemes([
+	  am5themes_Animated.new(root)
+	]);
+
+
+	// Create chart
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/
+	var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+	  panX: false,
+	  panY: false,
+	  startAngle: 160,
+	  endAngle: 380
+	}));
+
+
+	// Create axis and its renderer
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
+	var axisRenderer = am5radar.AxisRendererCircular.new(root, {
+	  innerRadius: -40
+	});
+
+	axisRenderer.grid.template.setAll({
+	  stroke: root.interfaceColors.get("background"),
+	  visible: true,
+	  strokeOpacity: 0.8
+	});
+
+	var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+	  maxDeviation: 0,
+	  min: -40,
+	  max: 100,
+	  strictMinMax: true,
+	  renderer: axisRenderer
+	}));
+
+
+	// Add clock hand
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Clock_hands
+	var axisDataItem = xAxis.makeDataItem({});
+
+	var clockHand = am5radar.ClockHand.new(root, {
+	  pinRadius: am5.percent(20),
+	  radius: am5.percent(100),
+	  bottomWidth: 40
+	})
+
+	var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
+	  sprite: clockHand
+	}));
+
+	xAxis.createAxisRange(axisDataItem);
+
+	var label = chart.radarContainer.children.push(am5.Label.new(root, {
+	  fill: am5.color(0xffffff),
+	  centerX: am5.percent(50),
+	  textAlign: "center",
+	  centerY: am5.percent(50),
+	  fontSize: "3em"
+	}));
+
+	axisDataItem.set("value", 50);
+	bullet.get("sprite").on("rotation", function () {
+	  var value = axisDataItem.get("value");
+	  var text = Math.round(axisDataItem.get("value")).toString();
+	  var fill = am5.color(0x000000);
+	  xAxis.axisRanges.each(function (axisRange) {
+	    if (value >= axisRange.get("value") && value <= axisRange.get("endValue")) {
+	      fill = axisRange.get("axisFill").get("fill");
+	    }
+	  })
+
+	  label.set("text", Math.round(value).toString());
+
+	  clockHand.pin.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
+	  clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
+	});
+
+	setInterval(function () {
+	  axisDataItem.animate({
+	    key: "value",
+	    to: Math.round(Math.random() * 140 - 40),
+	    duration: 500,
+	    easing: am5.ease.out(am5.ease.cubic)
+	  });
+	}, 2000)
+
+	chart.bulletsContainer.set("mask", undefined);
+
+
+	// Create axis ranges bands
+	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
+	var bandsData = [{
+	  title: "Unsustainable",
+	  color: "#ee1f25",
+	  lowScore: -40,
+	  highScore: -20
+	}, {
+	  title: "Volatile",
+	  color: "#f04922",
+	  lowScore: -20,
+	  highScore: 0
+	}, {
+	  title: "Foundational",
+	  color: "#fdae19",
+	  lowScore: 0,
+	  highScore: 20
+	}, {
+	  title: "Developing",
+	  color: "#f3eb0c",
+	  lowScore: 20,
+	  highScore: 40
+	}, {
+	  title: "Maturing",
+	  color: "#b0d136",
+	  lowScore: 40,
+	  highScore: 60
+	}, {
+	  title: "Sustainable",
+	  color: "#54b947",
+	  lowScore: 60,
+	  highScore: 80
+	}, {
+	  title: "High Performing",
+	  color: "#0f9747",
+	  lowScore: 80,
+	  highScore: 100
+	}];
+
+	am5.array.each(bandsData, function (data) {
+	  var axisRange = xAxis.createAxisRange(xAxis.makeDataItem({}));
+
+	  axisRange.setAll({
+	    value: data.lowScore,
+	    endValue: data.highScore
+	  });
+
+	  axisRange.get("axisFill").setAll({
+	    visible: true,
+	    fill: am5.color(data.color),
+	    fillOpacity: 0.8
+	  });
+
+	  axisRange.get("label").setAll({
+	    text: data.title,
+	    inside: true,
+	    radius: 15,
+	    fontSize: "0.9em",
+	    fill: root.interfaceColors.get("background")
+	  });
+	});
+
+
+	// Make stuff animate on load
+	chart.appear(1000, 100);
+
+	});
+</script>
     
   </body>
 </html>
