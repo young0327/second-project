@@ -26,15 +26,12 @@
   <body>
 
     <!-- Side Bar Start-->
-    <div class="main-box" style="background-image: url('./resources/img/appstore.png');">
+    <div class="main-box" style="background-image: url('./resources/img/back.jpg');">
       <div class="main-top">
         <div class="top-title-box">
           <div class="title-inner-box" style="width:30%"></div>
           <div class="title-inner-box">
-            <form class="form-inline" action="search.do">
-            <button class="search-btn"><i class="fas fa-search" style="color:white;"></i></button>
-            <input class="main-input" type="search" placeholder="어플 이름을 입력하세요" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
-          </form>
+            
           </div>
           <div class="title-inner-box" style="width:30%">
           </div>
@@ -48,12 +45,17 @@
             </div>
             <div class="app-animation-box" style="width: 20%;">
               <div class="appicon-box">
-                <p class="font-kr" style="color: white; font-size:24px;">라인과 카카오톡을 비교하면?!</p>
-                <div><img src="./resources/img/kakaoLine.png"></div>
+                <p class="font-kr" style="color: white; font-size:24px;"></p>
+                <div style="margin-top:300px;">
+                <form class="form-inline" action="search.do">
+            		<button class="search-btn"><i class="fas fa-search" style="color:gray;"></i></button>
+            		<input class="main-input" type="search" placeholder="어플 이름을 입력하세요" aria-label="Search" name ="appname" id="appSearch" autocomplete="off">
+          		</form>
+          		</div>
               </div>
             </div>
             <div class="app-animation-box animation-right">
-              <transition name='fade'><div class="chart-box"><div id="chartdiv"></div></div></transition>
+              <transition name='fade'><div class="chart-box"></div></transition>
             </div>
           </div>
         </div>
