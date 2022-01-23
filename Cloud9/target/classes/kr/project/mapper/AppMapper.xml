@@ -21,7 +21,7 @@
 		<result property="apppn" column="app_pn"/>
 		<result property="evascore1" column="eva_score1"/>
 		<result property="evascore2" column="eva_score2"/>
-		<result property="evascore3" column="eva_score1"/>
+		<result property="evascore3" column="eva_score3"/>
 		<result property="appcompany" column="develop_name"/>
 	</resultMap>
 	

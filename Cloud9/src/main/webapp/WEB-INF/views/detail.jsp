@@ -527,8 +527,8 @@
 			    var chart = root.container.children.push(am5radar.RadarChart.new(root, {
 			      panX: false,
 			      panY: false,
-			      startAngle: 180,
-			      endAngle: 360
+			      startAngle: 160,
+			      endAngle: 380
 			    }));
 
 			    // Create axis and its renderer
@@ -636,8 +636,8 @@
 			        text: data.title,
 			        inside: true,
 			        radius: 15,
-			        fontSize: "0.9em",
-			        fill: root.interfaceColors.get("background")
+			        fontSize: "1.1em",
+			        fill: root.interfaceColors.get("black")
 			      });
 			    });
 			    
@@ -706,7 +706,6 @@
      
     	 </script>
     	<!-- Resources -->
-	
 <!-- Chart code -->
 <script>
 $("#detailBtn3").on("click",function(){
