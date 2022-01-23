@@ -171,6 +171,18 @@
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
             <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a kr-font writing">글 작성</a></li>
            </ul>
+           
+           <div class='myFavorite-box'><p>즐겨찾기<p>
+           	 <div class='myFavorite-inner'>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/1.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/2.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/wavve.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/5.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
+           	 </div>
+           </div>
           <!-- Side Bar end--> 
         </div>
         <div class="main-content-box col-sm-10 row">

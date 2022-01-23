@@ -201,7 +201,36 @@
   background-color: black;
   border-bottom: 1px solid #eee;
   
-  
+
+}
+.myFavorite-box{
+	width:100%;
+	height:560px;
+	margin-top:10px;
+	padding:10px;
+}
+.myFavorite-box p{
+	margin-left:-50%;
+	color:white;
+}
+.myFavorite-inner{
+	width:50%;
+	height:100%;
+	padding:5px;
+	box-shadow:gray 1px 1px 1px 1px;
+	background:#eee;
+	border-radius:20px;
+}
+.myIcon-box{
+	width:70px;
+	height: 70px;
+	margin-bottom:5px;
+	display:inline-block;
+}
+.myIcon-box img{
+	widht:100%;
+	height:100%;
+	border-radius:20px;
 }
 
 /******** sidebar-box End *********/
