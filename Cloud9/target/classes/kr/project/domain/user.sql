@@ -154,6 +154,9 @@ update app_review_table set emo_result=0.1 ,h_rv="1" where review_no=5;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
 
+update app_table set app_icon="http://localhost:8081/web/resources/logo/appv.png" where app_id =4
+update app_table set eva_score1 =0.2, eva_score2=0.8, eva_score3=0.4 where app_id = 4
+select * from app_table;
 select *from tsboard
 select * from app_review_table
 select count(*) from app_review_table where app_id = 1 and emo_result>=0.6 and emo_result<0.8
@@ -161,3 +164,7 @@ desc wordcloud_table
 drop table wordcloud_table
 insert into wordcloud_table(app_id, mode_word, mode_count) values("1","호텔",11552)
 select * from wordcloud_table
+
+
+
+SELECT * FROM app_review_table INNER JOIN app_table ON app_review_table.app_id = app_table.app_id WHERE app_table.app_name= "카카오뮤직";

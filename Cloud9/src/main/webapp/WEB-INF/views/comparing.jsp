@@ -111,9 +111,10 @@
             <div class="compare-box">
               <div class="compare-search-box">
                 <div class="search-inner-box">
-                  <input type="search" list="appOption"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
-                  <datalist id="appOption">
+                  <input type="search" list="appOption1" id="compare1" autocomplete="off"><span>  </span>
+                  <datalist id="appOption1">
                   </datalist>
+                  <button id ="vsbtn1"><i class="fas fa-search" style="font-size: 24px;"></i></button>
                 </div>
               </div>
           
@@ -129,31 +130,33 @@
               </div>
               <div class="compare-search-box">
                 <div class="search-inner-box">
-                  <input type="search"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
+                  <input type="search" list="appOption2" id="compare2" autocomplete="off"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
+                   <datalist id="appOption2">
+                  </datalist>
                 </div>
               </div>
-              <div class="compare-icon-box">
+              <div class="compare-icon-box" id="iconbox1">
                 <div class="icon-inner-box">
-                  <div class="icon-img"><img src="#"></div>
-                  <div><p>카카오톡</p></div>
+                  <div class="icon-img"><img src="./resources/img/dfimg.jpg" style="border: 3px solid gray;border-radius: 7px;"></div>
+                  <div><p>어플을 검색해 주세요</p></div>
                 </div>
               </div>
-              <div class="compare-icon-box" style="width: 15%;">앱 아이콘</div>
-              <div class="compare-icon-box">
+              <div class="compare-icon-box" style="width: 15%;"></div>
+              <div class="compare-icon-box" id ="iconbox2">
                 <div class="icon-inner-box">
-                  <div class="icon-img"><img src="#"></div>
-                  <div><p>카카오톡</p></div>
+                  <div class="icon-img"><img src="./resources/img/dfimg.jpg" style="border: 3px solid gray;border-radius: 7px;"></div>
+                  <div><p>어플을 검색해 주세요</p></div>
                 </div>
               </div>
-              <div class="compare-rating-box">
+              <div class="compare-rating-box" id="ratingbox1">
                 <div class="rating-inner-box">
-                  <div class="ratings"><h4>4.3</h4></div>
+                  <div class="ratings"><h4>--</h4></div>
                 </div>
               </div>
               <div class="compare-rating-box" style="width: 15%;">앱 평점</div>
-              <div class="compare-rating-box">
+              <div class="compare-rating-box" id="ratingbox2">
                 <div class="rating-inner-box">
-                  <div class="ratings"><h4>4.5</h4></div>
+                  <div class="ratings"><h4>--</h4></div>
                 </div>
               </div>
               <div class="space"></div>
@@ -163,84 +166,88 @@
                 </div>
               </div>
               <div class="second-rating-box kr-font">
-              	<div class="gamsung-top">
-              		<div class="gamsung-rating-box"><span class="gamsung-percentage">30</span><span>%</span></div>	
-              	</div>
-              	<div class="gamsung-mid">
-              		<p class="gamsung-percentage">카카오뮤직</p><span>사용한 사람들이</span>
-              		<select>
-              			<option>아주좋음</option>
-              			<option>좋음</option>
-              			<option>보통</option>
-              			<option>나쁨</option>
-              			<option>아주나쁨</option>
-              		</select>
-              		<p>감정을 느꼈습니다</p>
-              	</div>
+        <div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
+                		<div class='rating-inner'></div>
+                		<div class='rating-inner rating-right'>
+                			<div class='point kr-font' style="padding-left:80px;">
+                				<span id="emotion-word-rate1" class="ui-word starPoint">--</span>%
+                			</div>
+                			<div class='point word kr-font'>
+                				<p>
+                				<span id="emotion-word-title1" class="ui-word">--</span><br>
+                				<span>을 사용한 사람들이</span>
+               	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect1">
+               	  	  			<option value="0.9">아주좋음</option>
+               	  	  			<option value="0.7">좋음</option>
+               	  	 			<option value="0.5">보통</option>
+               	  	 			<option value="0.3">나쁨</option>
+               	  	 			<option value="0.1">아주나쁨</option>
+               	  				</select><br>감정을 느꼈습니다</p>
+                			</div>
+                		</div>
+                	</div>
               	<div class="gamsung-bot">
               		<div id="chartdiv"></div>
               	</div>
-              	<div class="gamsung-down"></div>
+              	<div class="gamsung-down" id ="compareReview1"></div>
               </div>
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
               <div class="second-rating-box kr-font">
-              	<div class="gamsung-top">
-              		<div class='gamsung-rating-right'><span class="gamsung-percentage">40</span><span>%</span></div>
-              	</div>
-              	<div class="gamsung-mid">
-              		<p class="gamsung-percentage">카카오뮤직</p><span>사용한 사람들이</span>
-              		<select>
-              			<option>아주좋음</option>
-              			<option>좋음</option>
-              			<option>보통</option>
-              			<option>나쁨</option>
-              			<option>아주나쁨</option>
-              		</select>
-              		<p>감정을 느꼈습니다</p>
-              	</div>
+                  <div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
+                		<div class='rating-inner'></div>
+                		<div class='rating-inner rating-right'>
+                			<div class='point kr-font' style="padding-left:80px;">
+                				<span id="emotion-word-rate2" class="ui-word starPoint">--</span>%
+                			</div>
+                			<div class='point word kr-font'>
+                				<p>
+                				<span id="emotion-word-title2" class="ui-word">--</span><br>
+                				<span>을 사용한 사람들이</span>
+               	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect2">
+               	  	  			<option value="0.9">아주좋음</option>
+               	  	  			<option value="0.7">좋음</option>
+               	  	 			<option value="0.5">보통</option>
+               	  	 			<option value="0.3">나쁨</option>
+               	  	 			<option value="0.1">아주나쁨</option>
+               	  				</select><br>감정을 느꼈습니다</p>
+                			</div>
+                		</div>
+                	</div>
               	<div class="gamsung-bot">
               		<div id="chartSecond"></div>
               	</div>
-              	<div class="gamsung-down"></div>
+              	<div class="gamsung-down" id ="compareReview2"></div>
+              	
               </div>
                         
             </div>
           </div>
         </div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
 	<script>
+	
 	new Chart(document.getElementById("radar-chart"), {
 	    type: 'radar',
 	    data: {
-	      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+	      labels: ["항목1", "항목2", "항목3"],
 	      datasets: [
-	        {
-	          label: "1950",
-	          fill: true,
-	          backgroundColor: "rgba(179,181,198,0.2)",
-	          borderColor: "rgba(179,181,198,1)",
-	          pointBorderColor: "#fff",
-	          pointBackgroundColor: "rgba(179,181,198,1)",
-	          data: [8.77,55.61,21.69,6.62,6.82]
-	        }, {
-	          label: "2050",
-	          fill: true,
-	          backgroundColor: "rgba(255,99,132,0.2)",
-	          borderColor: "rgba(255,99,132,1)",
-	          pointBorderColor: "#fff",
-	          pointBackgroundColor: "rgba(255,99,132,1)",
-	          pointBorderColor: "#fff",
-	          data: [25.48,54.16,7.61,8.06,4.45]
-	        }
 	      ]
 	    },
 	    options: {
 	      title: {
 	        display: true,
-	        text: 'Distribution in % of world population'
-	      }
-	    }
+	        text: '두 가지 앱을 비교해 보세요!'
+	      },
+	      /*ticks:{
+	    	  beginAtZero:true,
+	    	  min:0,
+	    	  max:5,
+	    	  stepSize:1
+	      }*/
+	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 } //maxTicksLimit data 최대값의 2배
+			}
+	    
 	});
 	
 	</script>
@@ -250,7 +257,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     
     <script>
        var Modal = new Vue({
@@ -297,16 +307,11 @@
 			}
 		}
 	});
-      </script>
       
        <!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
+let app1emopn1;
 <!-- Chart code -->
-<script>
 am5.ready(function() {
 
 	// Create root element
@@ -334,19 +339,19 @@ am5.ready(function() {
 	// Create axis and its renderer
 	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
 	var axisRenderer = am5radar.AxisRendererCircular.new(root, {
-	  innerRadius: -40
+	  innerRadius: -70
 	});
 
 	axisRenderer.grid.template.setAll({
 	  stroke: root.interfaceColors.get("background"),
 	  visible: true,
-	  strokeOpacity: 0.8
+	  strokeOpacity: 1
 	});
 
 	var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
 	  maxDeviation: 0,
-	  min: -40,
-	  max: 100,
+	  min: 0,
+	  max: 5,
 	  strictMinMax: true,
 	  renderer: axisRenderer
 	}));
@@ -357,35 +362,34 @@ am5.ready(function() {
 	var axisDataItem = xAxis.makeDataItem({});
 
 	var clockHand = am5radar.ClockHand.new(root, {
-	  pinRadius: am5.percent(20),
-	  radius: am5.percent(100),
-	  bottomWidth: 40
+		 radius: am5.percent(85),
+ 	    topWidth: 3,
+ 	    bottomWidth: 20
 	})
 
 	var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
 	  sprite: clockHand
 	}));
 
-	xAxis.createAxisRange(axisDataItem);
+	 xAxis.createAxisRange(axisDataItem);
 
 	var label = chart.radarContainer.children.push(am5.Label.new(root, {
-	  fill: am5.color(0xffffff),
-	  centerX: am5.percent(50),
-	  textAlign: "center",
-	  centerY: am5.percent(50),
-	  fontSize: "3em"
+	  fill: am5.color(0xffffff)
+	
 	}));
-
-	axisDataItem.set("value", 50);
+	
+	
+	 axisDataItem.set("value", 0.1);
+		$("#compare1").on("keyup",function(key){
+			if(key.keyCode==13) {
+			axisDataItem.set("value", appemo1*5);
+			}
+		})
 	bullet.get("sprite").on("rotation", function () {
 	  var value = axisDataItem.get("value");
 	  var text = Math.round(axisDataItem.get("value")).toString();
-	  var fill = am5.color(0x000000);
-	  xAxis.axisRanges.each(function (axisRange) {
-	    if (value >= axisRange.get("value") && value <= axisRange.get("endValue")) {
-	      fill = axisRange.get("axisFill").get("fill");
-	    }
-	  })
+	  var fill = am5.color(0x666666);
+	  
 
 	  label.set("text", Math.round(value).toString());
 
@@ -393,14 +397,6 @@ am5.ready(function() {
 	  clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
 	});
 
-	setInterval(function () {
-	  axisDataItem.animate({
-	    key: "value",
-	    to: Math.round(Math.random() * 140 - 40),
-	    duration: 500,
-	    easing: am5.ease.out(am5.ease.cubic)
-	  });
-	}, 2000)
 
 	chart.bulletsContainer.set("mask", undefined);
 
@@ -408,40 +404,32 @@ am5.ready(function() {
 	// Create axis ranges bands
 	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
 	var bandsData = [{
-	  title: "Unsustainable",
-	  color: "#ee1f25",
-	  lowScore: -40,
-	  highScore: -20
+		 title: "아주나쁨",
+	      color: "#ee1f25",
+	      lowScore: 0,
+	      highScore: 1
 	}, {
-	  title: "Volatile",
-	  color: "#f04922",
-	  lowScore: -20,
-	  highScore: 0
+		  title: "나쁨",
+	      color: "#f04922",
+	      lowScore: 1,
+	      highScore: 2
 	}, {
-	  title: "Foundational",
-	  color: "#fdae19",
-	  lowScore: 0,
-	  highScore: 20
+		 title: "보통",
+	      color: "#fdae19",
+	      lowScore: 2,
+	      highScore: 3
 	}, {
-	  title: "Developing",
-	  color: "#f3eb0c",
-	  lowScore: 20,
-	  highScore: 40
+		 title: "좋음",
+	      color: "#f3eb0c",
+	      lowScore: 3,
+	      highScore: 4,
+	      fontSize: "0.3em"
 	}, {
-	  title: "Maturing",
-	  color: "#b0d136",
-	  lowScore: 40,
-	  highScore: 60
-	}, {
-	  title: "Sustainable",
-	  color: "#54b947",
-	  lowScore: 60,
-	  highScore: 80
-	}, {
-	  title: "High Performing",
-	  color: "#0f9747",
-	  lowScore: 80,
-	  highScore: 100
+		  title: "아주좋음",
+	      color: "#b0d136",
+	      lowScore: 4,
+	      highScore: 5,
+	      fontSize: "0.3em"
 	}];
 
 	am5.array.each(bandsData, function (data) {
@@ -455,15 +443,15 @@ am5.ready(function() {
 	  axisRange.get("axisFill").setAll({
 	    visible: true,
 	    fill: am5.color(data.color),
-	    fillOpacity: 0.8
+	    fillOpacity: 1.0
 	  });
 
 	  axisRange.get("label").setAll({
 	    text: data.title,
 	    inside: true,
 	    radius: 15,
-	    fontSize: "0.9em",
-	    fill: root.interfaceColors.get("background")
+	    fontSize: "1.1em",
+	    fill: root.interfaceColors.get("black")
 	  });
 	});
 
@@ -472,13 +460,12 @@ am5.ready(function() {
 	chart.appear(1000, 100);
 
 	}); // end am5.ready()
-</script>
 
 <!-- Resources -->
 
 
 <!-- 두번째 감성분석 차트 -->
-<script>
+
 am5.ready(function() {
 
 	// Create root element
@@ -506,19 +493,19 @@ am5.ready(function() {
 	// Create axis and its renderer
 	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Axes
 	var axisRenderer = am5radar.AxisRendererCircular.new(root, {
-	  innerRadius: -40
+	  innerRadius: -70
 	});
 
 	axisRenderer.grid.template.setAll({
 	  stroke: root.interfaceColors.get("background"),
 	  visible: true,
-	  strokeOpacity: 0.8
+	  strokeOpacity: 1
 	});
 
 	var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
 	  maxDeviation: 0,
-	  min: -40,
-	  max: 100,
+	  min: 0,
+	  max: 5,
 	  strictMinMax: true,
 	  renderer: axisRenderer
 	}));
@@ -529,9 +516,9 @@ am5.ready(function() {
 	var axisDataItem = xAxis.makeDataItem({});
 
 	var clockHand = am5radar.ClockHand.new(root, {
-	  pinRadius: am5.percent(20),
-	  radius: am5.percent(100),
-	  bottomWidth: 40
+		 radius: am5.percent(85),
+ 	    topWidth: 3,
+ 	    bottomWidth: 20
 	})
 
 	var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
@@ -541,23 +528,21 @@ am5.ready(function() {
 	xAxis.createAxisRange(axisDataItem);
 
 	var label = chart.radarContainer.children.push(am5.Label.new(root, {
-	  fill: am5.color(0xffffff),
-	  centerX: am5.percent(50),
-	  textAlign: "center",
-	  centerY: am5.percent(50),
-	  fontSize: "3em"
+	  fill: am5.color(0xffffff)
+	
 	}));
 
-	axisDataItem.set("value", 50);
+	 axisDataItem.set("value", 0.1);
+		$("#compare2").on("keyup",function(key){
+			if(key.keyCode==13) {
+			axisDataItem.set("value", appemo2*5);
+			}
+		})
 	bullet.get("sprite").on("rotation", function () {
 	  var value = axisDataItem.get("value");
 	  var text = Math.round(axisDataItem.get("value")).toString();
-	  var fill = am5.color(0x000000);
-	  xAxis.axisRanges.each(function (axisRange) {
-	    if (value >= axisRange.get("value") && value <= axisRange.get("endValue")) {
-	      fill = axisRange.get("axisFill").get("fill");
-	    }
-	  })
+	  var fill = am5.color(0x666666);
+	  
 
 	  label.set("text", Math.round(value).toString());
 
@@ -568,7 +553,7 @@ am5.ready(function() {
 	setInterval(function () {
 	  axisDataItem.animate({
 	    key: "value",
-	    to: Math.round(Math.random() * 140 - 40),
+	    to: Math.round(0),
 	    duration: 500,
 	    easing: am5.ease.out(am5.ease.cubic)
 	  });
@@ -580,40 +565,32 @@ am5.ready(function() {
 	// Create axis ranges bands
 	// https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
 	var bandsData = [{
-	  title: "Unsustainable",
-	  color: "#ee1f25",
-	  lowScore: -40,
-	  highScore: -20
+		 title: "아주나쁨",
+	      color: "#ee1f25",
+	      lowScore: 0,
+	      highScore: 1
 	}, {
-	  title: "Volatile",
-	  color: "#f04922",
-	  lowScore: -20,
-	  highScore: 0
+		  title: "나쁨",
+	      color: "#f04922",
+	      lowScore: 1,
+	      highScore: 2
 	}, {
-	  title: "Foundational",
-	  color: "#fdae19",
-	  lowScore: 0,
-	  highScore: 20
+		 title: "보통",
+	      color: "#fdae19",
+	      lowScore: 2,
+	      highScore: 3
 	}, {
-	  title: "Developing",
-	  color: "#f3eb0c",
-	  lowScore: 20,
-	  highScore: 40
+		 title: "좋음",
+	      color: "#f3eb0c",
+	      lowScore: 3,
+	      highScore: 4,
+	      fontSize: "0.3em"
 	}, {
-	  title: "Maturing",
-	  color: "#b0d136",
-	  lowScore: 40,
-	  highScore: 60
-	}, {
-	  title: "Sustainable",
-	  color: "#54b947",
-	  lowScore: 60,
-	  highScore: 80
-	}, {
-	  title: "High Performing",
-	  color: "#0f9747",
-	  lowScore: 80,
-	  highScore: 100
+		  title: "아주좋음",
+	      color: "#b0d136",
+	      lowScore: 4,
+	      highScore: 5,
+	      fontSize: "0.3em"
 	}];
 
 	am5.array.each(bandsData, function (data) {
@@ -627,15 +604,15 @@ am5.ready(function() {
 	  axisRange.get("axisFill").setAll({
 	    visible: true,
 	    fill: am5.color(data.color),
-	    fillOpacity: 0.8
+	    fillOpacity: 1.0
 	  });
 
 	  axisRange.get("label").setAll({
 	    text: data.title,
 	    inside: true,
 	    radius: 15,
-	    fontSize: "0.9em",
-	    fill: root.interfaceColors.get("background")
+	    fontSize: "1.1em",
+	    fill: root.interfaceColors.get("black")
 	  });
 	});
 
@@ -643,29 +620,254 @@ am5.ready(function() {
 	// Make stuff animate on load
 	chart.appear(1000, 100);
 
-	});
+	}); // end am5.ready()
 	
+	// 카테고리 선택에 따라 리스트값 변경
 	$("#compareCate").on("change",function(){
 		let cate= $("#compareCate").val();
 		console.log(cate)
 		$.ajax({
-			url:"compare/app",
+			url:"compare/list",
 			type:"get",
 			data:{"cate":cate},
 			success:function(data){
-				$("#appOption").html("")
-				for(let i =0; i<5;i++){
-				let appList = 
-					'<option value="'+data[i].appname+'"/>'
-				$("#appOption").append(appList)
-				console.log($("#appOption").html())
-				}
+				$("#appOption1").html("")
+				$("#appOption2").html("")
+				for(let i =0; i<data.length;i++){
+				let appList = '<option value="'+data[i].appname+'"/>'
+				$("#appOption1").append(appList)
+				$("#appOption2").append(appList)
+						}
 			},
 			error:function(){
 				console.log("error")
 			}
 		});
 	})
+	
+	let appRader1={};
+	let appemo1="";
+	let appid1="";
+	//검색 어플 입력	
+		$("#compare1").on("keyup",function(key){
+			if(key.keyCode==13) {
+				let compareApp1 = $("#compare1").val();
+				console.log(compareApp1)
+				
+				$.ajax({
+					url:"compare/app",
+					type:"get",
+					data:{"appname":compareApp1},
+					async: false,
+					success:function(data){
+						$("#iconbox1").html("")
+						$("#ratingbox1").html("")
+						let icon ='<div class="icon-inner-box">'+
+			                  '<div class="icon-img"><img src="'+data[0].appicon+'" style="border: 3px solid gray;border-radius: 7px;"></div>'+
+			                  '<div>'+'<p>'+data[0].appname+'</p>'+'</div>'+
+			                '</div>'
+						$("#iconbox1").append(icon);
+			             
+			            let rate ='<div class="rating-inner-box">'+
+		                  '<div class="ratings">'+
+		                  '<h4>'+data[0].apprating.toFixed(1)+'</h4>'+'</div>'+
+			               '</div>'
+			            $("#ratingbox1").append(rate);
+			               
+			               appemo1=data[0].apppn
+			               appid1=data[0].appid
+			               
+			            let score1=data[0].evascore1*10
+			               let score2=data[0].evascore2*10
+			               let score3=data[0].evascore3*10
+			            appRader1={
+				        	          label: data[0].appname,
+				        	          fill: true,
+				        	          backgroundColor: "rgba(179,181,198,0.2)",
+				        	          borderColor: "rgba(179,181,198,1)",
+				        	          pointBorderColor: "#fff",
+				        	          pointBackgroundColor: "rgba(179,181,198,1)",
+				        	          data: [score1, score2, score3]
+				        	        }
+			               $("#emotion-word-title1").text(data[0].appname)
+					},
+					error:function(){
+						console.log(error)
+					}
+					
+				});
+				$.ajax({
+					url:"compare/review",
+					type:"get",
+					data:{"appid":appid1, "emo":appemo1},
+					success:function(data){
+						  $("#emotion-word-rate1").text(data.emoCount/data.allCount*100)
+					},
+					erorr:function(){
+						console.log("n")
+					}
+				});
+				$.ajax({
+		    		url:"review/emo",
+		    		type:"get",
+		    		data:{"appid":appid1,"apppn":appemo1},
+		    		success:function(data){
+		    			  for (let i =0; i<4; i++){
+		    				  let reviews=
+		    					  '<div class="review-box kr-font">'+
+		                  				'<div class="review-inner" style="text-align:left;">'+
+		                  					'<p style="font-size:20px;">'+data[i].reviewRating+'</p>'+
+		                  					'<p>'+data[i].reviewContent+'</p>'+
+		                  				'</div>'+
+		                    		'</div>';
+		    				  $("#compareReview1").append(reviews);
+		    			  	}
+		    			  },
+		    		error: function(){
+		    			console.log("n")
+		    		}
+		    	});
+				
+				
+			}
+	})
+	
+	// 검색 어플 감성확률 
+				
+		 $("#emotionSelect1").on('change',function(){
+			 let changeEmo1 = $("#emotionSelect1").val()
+         		$.ajax({
+         			url:"compare/review",
+     	    		type:"get",
+     	    		data:{"appid":appid1, "emo":changeEmo1},
+     	    		success:function(data){
+     	    			  $("#emotion-word-rate1").text(data.emoCount/data.allCount*100)
+     	    		},
+     	    		error: function(){
+     	    			console.log("error")
+     	    		}
+     	    	});
+          })
+	
+	
+	let appRader2 ={};
+	let appemo2="";
+	let appid2="";
+	//검색 어플 입력2 
+	$("#compare2").on("keyup",function(key){
+			if(key.keyCode==13) {
+				let compareApp2 = $("#compare2").val();
+				$.ajax({
+					url:"compare/app",
+					type:"get",
+					data:{"appname":compareApp2},
+					success:function(data){
+						$("#iconbox2").html("")
+						$("#ratingbox2").html("")
+						
+						let icon ='<div class="icon-inner-box">'+
+			                  '<div class="icon-img"><img src="'+data[0].appicon+'" style="border: 3px solid gray;border-radius: 7px;"></div>'+
+			                  '<div>'+'<p>'+data[0].appname+'</p>'+'</div>'+
+			                '</div>'
+						$("#iconbox2").append(icon);
+			             
+						appemo2=data[0].apppn
+						appid2=data[0].appid
+			           
+			            let rate ='<div class="rating-inner-box">'+
+		                  '<div class="ratings">'+
+		                  '<h4>'+data[0].apprating.toFixed(1)+'</h4>'+'</div>'+
+			               '</div>'
+			            $("#ratingbox2").append(rate);
+			               let score1=data[0].evascore1*10
+			               let score2=data[0].evascore2*10
+			               let score3=data[0].evascore3*10
+			               console.log(score1,score2,score3);
+			            appRader2={
+			        	          label: data[0].appname,
+			        	          fill: true,
+			        	          backgroundColor: "rgba(255,99,132,0.2)",
+			        	          borderColor: "rgba(255,99,132,1)",
+			        	          pointBorderColor: "#fff",
+			        	          pointBackgroundColor: "rgba(255,99,132,1)",
+			        	          pointBorderColor: "#fff",
+			        	          data: [score1, score2, score3]
+			        	        }
+		          
+			               
+			        	new Chart(document.getElementById("radar-chart"), {
+			        	    type: 'radar',
+			        	    data: {
+			        	      labels: ["항목1", "항목2", "항목3"],
+			        	      datasets: [
+			        	    	  appRader1,appRader2 
+			        	      ]
+			        	    },
+			        	    options: {
+			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 }, //maxTicksLimit data 최대값의 2배
+			        	    }
+			        	});
+			            $("#emotion-word-title2").text(data[0].appname)
+
+					},
+					error:function(){
+						console.log(error)
+				}
+					
+				});
+				
+				$.ajax({
+					url:"compare/review",
+					type:"get",
+					data:{"appid":appid2, "emo":appemo2},
+					success:function(data){
+						  $("#emotion-word-rate2").text(data.emoCount/data.allCount*100)
+					},
+					erorr:function(){
+						console.log("n")
+					}
+				});
+				
+				$.ajax({
+		    		url:"review/emo",
+		    		type:"get",
+		    		data:{"appid":appid2,"apppn":appemo2},
+		    		success:function(data){
+		    			  for (let i =0; i<4; i++){
+		    				  let reviews=
+		    					  '<div class="review-box kr-font">'+
+		                  				'<div class="review-inner" style="text-align:left;">'+
+		                  					'<p style="font-size:20px;">'+data[i].reviewRating+'</p>'+
+		                  					'<p>'+data[i].reviewContent+'</p>'+
+		                  				'</div>'+
+		                    		'</div>';
+		    				  $("#compareReview2").append(reviews);
+		    			  	}
+		    			  },
+		    		error: function(){
+		    			console.log("n")
+		    		}
+		    	});
+				
+			}
+	})
+	
+	//검색 어플 감성확률2
+	 $("#emotionSelect2").on('change',function(){
+		 let changeEmo2 = $("#emotionSelect1").val()
+         		$.ajax({
+         			url:"compare/review",
+     	    		type:"get",
+     	    		data:{"appid":appid2, "emo":changeEmo2},
+     	    		success:function(data){
+     	    			  $("#emotion-word-rate2").text(data.emoCount/data.allCount*100)
+     	    		},
+     	    		error: function(){
+     	    			console.log("error")
+     	    		}
+     	    	});
+          })
+	
 </script>
     
   </body>

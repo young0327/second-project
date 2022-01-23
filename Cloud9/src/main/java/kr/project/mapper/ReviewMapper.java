@@ -3,8 +3,10 @@ package kr.project.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.project.domain.App;
 import kr.project.domain.Review;
 
 public interface ReviewMapper {
@@ -19,4 +21,5 @@ public interface ReviewMapper {
 	public String reviewEmo(@Param("appid")int appid,@Param("emo")float emo);
 
 	public String allCn(int appid);
+	
 }

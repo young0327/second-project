@@ -142,9 +142,27 @@ public class RestMainController {
 		return wordList;
 	}
 	
-	@GetMapping("/compare/app")
+	@GetMapping("/compare/list")
 	public List<App> compareApp(String cate){
 		List<App>cateList = appService.cateSearch(cate);
 		return cateList;
+	}
+	
+	@GetMapping("/compare/app")
+	public List<App> pickedApp(String appname){
+		List<App>appinfo = appService.appSearch(appname);
+		return appinfo;
+	}
+	
+	@GetMapping("/compare/review")
+	public HashMap<String, String> compareEmo (@Param("appid")int appid, @Param("emo")float emo) {
+		System.out.println(appid);
+		System.out.println(emo);
+		String allCount = reviewService.allCn(appid);
+		String emoCount = reviewService.reviewEmo(appid,emo);
+		HashMap<String, String> emoMap = new HashMap<String, String>();
+		emoMap.put("allCount",allCount);
+		emoMap.put("emoCount",emoCount);
+		return emoMap;
 	}
 }
