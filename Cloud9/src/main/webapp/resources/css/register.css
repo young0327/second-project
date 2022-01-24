@@ -6,9 +6,12 @@
  
   text-align: center;
 }
+.kr-font{
+  font-family: 'Noto Sans KR', sans-serif;
+}
 .register-box{
   margin-top: 10%;
-  width: 60%;
+  width: 450px;
   height: 65%;
   background-color: white;
   display: inline-block;

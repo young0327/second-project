@@ -189,7 +189,24 @@
               	<div class="gamsung-bot">
               		<div id="chartdiv"></div>
               	</div>
-              	<div class="gamsung-down" id ="compareReview1"></div>
+              	<div class="gamsung-down" id ="compareReview1">
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+				</div>
               </div>
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
               <div class="second-rating-box kr-font">
@@ -216,7 +233,24 @@
               	<div class="gamsung-bot">
               		<div id="chartSecond"></div>
               	</div>
-              	<div class="gamsung-down" id ="compareReview2"></div>
+              	<div class="gamsung-down" id ="compareReview2">
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+				</div>
               	
               </div>
                         

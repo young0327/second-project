@@ -17,14 +17,14 @@
   <body>
 
     <div class="bodyclass" style="background-image:url('./resources/img/darkness.jpg')">
-      <div class="register-box row shadow p-3 mb-5 bg-white rounded">
-        <div class="register-left-square col-md-5">
-          <div class="register-inner-content">
+      <div class="register-box row shadow p-3 mb-5 bg-white rounded kr-font">
+        <div class="register-left-square col-md-12 kr-font">
+          <div class="register-inner-content kr-font">
 	          <form id="frm">
 	           <p class="rg-content">회원가입</p>
 		            <h5></h5>
 		            <input class="form-control" type="text" name="id" id ="id" placeholder="ID" autocomplete="off">
-		            <div class="check-box"><i class="fas fa-check" id = "idcheck" style="text-align: left; ">중복 확인</i></div>
+		            <div class="check-box kr-font"><i class="fas fa-check" id = "idcheck" style="text-align: left; ">중복 확인</i></div>
 		            <h5></h5>
 		            <input class="form-control pw-input" type="password" name="pwd" id="pwd" placeholder="Password">
 		            <h5></h5>
@@ -33,14 +33,12 @@
 		            <h5></h5>
 		            <input class="form-control bbox" type="text" name="nick" id ="nick" placeholder="Nickname" autocomplete="off">
 		            <div class="btn-box bbox">
-		              <button class="btn rg-btn" type="button" id = "register">회원가입</button>
+		              <button class="btn rg-btn kr-font" type="button" id = "register">회원가입</button>
 		            </div>
            		</form>
           </div>
         </div>
-        <div class="register-right-square col-md-7">
-          <h3 class="right-square-content">Welcome to LOGO</h3>
-        </div>
+        
       </div>
     </div>
 
