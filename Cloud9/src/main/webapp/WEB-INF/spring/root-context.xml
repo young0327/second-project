@@ -11,9 +11,9 @@
 			<!-- XML파일 안에서는 태그를 사용하여 객체 생성 , bean은 객체를 생성하는 태그 id는 인스턴스-->	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://testrds.c4fslvqyxo1g.us-east-2.rds.amazonaws.com:3306/Test"/>
-		<property name="username" value="admin"/>
-		<property name="password" value="00000000"/>
+		<property name="jdbcUrl" value="jdbc:mysql://clouddb.cm7mv4rr5dod.us-east-2.rds.amazonaws.com/Cloud"/>
+		<property name="username" value="cloud"/>
+		<property name="password" value="99999999"/>
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close"> <!-- 여기서 close는 connection을 끊는 개념이 아닌 반납 -->

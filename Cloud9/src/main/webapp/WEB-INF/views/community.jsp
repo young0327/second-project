@@ -53,7 +53,8 @@
          <form id ="write_frm">
           <div class="comm-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글쓰기</p></div>
           <div class="comm-writer"><p class="modal-p">작성자</p>
-          <input class="comm-input kr-font" type='text' name ="nick" value ="${users.nick}"readonly="readonly"></div>
+          <input class="comm-input kr-font" type='text' name ="id" value ="${users.id}"readonly="readonly"></div>
+          <div style="display:none" name="id">${user.id}</div>
           <div class="comm-option">
             <p class="modal-p kr-font">카테고리</p>
             <select class="modal-select kr-font" name ="category">
@@ -71,7 +72,6 @@
         </div>
       </div>
     </div>
-  </div>
     <!-- Community Modal End-->
 	 <!-- board detail Modal start HERE-->
    <div class="board-detail-blackmodal">
@@ -101,7 +101,7 @@
         <form id="modifyFrm">
         <div class="modifying-modal-box">
           <div class="modifying-writing"><p style="font-family: 'Noto Sans KR', sans-serif;">글 수정하기</p></div>
-          <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input mdc" type='text' value ="${users.nick}"readonly="readonly"></div>
+          <div class="modifying-writer"><p class="modifying-modal-p">작성자</p><input class="modifying-input mdc" type='text' value ="${users.id}"readonly="readonly"></div>
           <span class="mdc" id="modiBidx" style="display:none"></span>
           <div class="modifying-option">
             <p class="modifying-modal-p">카테고리</p>
@@ -209,7 +209,7 @@
                     <a><p class="article kr-font" id="test" data-value="${list.bidx}">${list.content}</p></a>
                   </div>
                   <div>
-                    <span class="article kr-font" style ="pointer-events: none;" id ="list_nick">${list.nick}</span>
+                    <span class="article kr-font" style ="pointer-events: none;" id ="list_id">${list.id}</span>
                   </div>
                 </div>
                </c:forEach>
@@ -357,7 +357,7 @@
     			            <a><p class="article kr-font" id="test" data-value="`+ data[i].bidx + `">` + data[i].content + `</p></a>
     			          </div>
     			          <div>
-    			            <span class="article kr-font" style ="pointer-events: none;">` + data[i].nick + `</span>
+    			            <span class="article kr-font" style ="pointer-events: none;">` + data[i].id + `</span>
     			          </div>
     			        </div>
     				  	`;
@@ -374,6 +374,7 @@
     //게시글 작성
     $("#commbtn").on("click",function(){
     	let WriteData = $("#write_frm").serialize();
+    	console.log(WriteData)
     	$.ajax({
     		url:"board",
     		type: "post",
@@ -402,7 +403,7 @@
     			let ps = $('.md');
     			$(ps[0]).html(data[0].category);
     			$(ps[1]).html(data[0].title);
-    			$(ps[2]).html(data[0].nick);
+    			$(ps[2]).html(data[0].id);
     			$(ps[3]).html(data[0].day);
     			$(ps[4]).html(data[0].content);
     			$(ps[5]).html(data[0].bidx);
@@ -418,9 +419,9 @@
    
    $("#boardModify").on("click",function(){
 	   let ps = $('.md');
-	   let nick1= $(ps[2]).html()
-	   let nick="<c:out value='${users.nick}'/>"
-	   if (nick1!=nick){
+	   let id1= $(ps[2]).html()
+	   let id="<c:out value='${users.id}'/>"
+	   if (id!=id){
 		   modifyModal.style.display = 'none';
 		   alert("작성자만 글을 수정할 수 있습니다.")
   		 }else{
@@ -465,14 +466,13 @@
     // 게시글 삭제
     $("#boardDelete").on("click",function(){
    	  let ps = $('.md');
-   	   let nick1= $(ps[2]).html()
-   	   let nick="<c:out value='${users.nick}'/>"
-   	   if (nick1!=nick){
+   	   let id1= $(ps[2]).html()
+   	   let id="<c:out value='${users.id}'/>"
+   	   if (id1!=id){
    		   modifyModal.style.display = 'none';
    		   alert("작성자만 글을 삭제 할 수 있습니다.")
      		 }else{
     	let bidx= $("#detailBidx").text()
-    	alert(bidx);
     	$.ajax({
     		url :"board/bidx",
     		type:"delete",

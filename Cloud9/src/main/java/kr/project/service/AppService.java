@@ -20,11 +20,11 @@ public class AppService {
 		return applist;
 	}
 	
-	public List<App> appInfomation(int appid){
+	public List<App> appInfomation(String appid){
 		List<App>appinfo = mapper.appInfomation(appid);
 		return appinfo;
 	}
-	public List<AppImg> appImg(int appid){
+	public List<AppImg> appImg(String appid){
 		List<AppImg>appimg= mapper.appImg(appid);
 		return appimg; 
 	}

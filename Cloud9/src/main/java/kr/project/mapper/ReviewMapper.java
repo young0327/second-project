@@ -12,14 +12,14 @@ import kr.project.domain.Review;
 public interface ReviewMapper {
 
 	//앱 아이디 문자열로 바꿀것
-	public List<Review> reviewRead(int appid);
+	public List<Review> reviewRead(String appid);
 	
-	public String monthRating(@Param("appid")int appid, @Param("month")int month);
+	public String monthRating(@Param("appid")String appid, @Param("month")int month);
 	
-	public List<Review> reviewEmoRead(@Param("appid")int appid, @Param("apppn")float apppn);
+	public List<Review> reviewEmoRead(@Param("appid")String appid, @Param("apppn")float apppn);
 	
-	public String reviewEmo(@Param("appid")int appid,@Param("emo")float emo);
+	public String reviewEmo(@Param("appid")String appid,@Param("emo")float emo);
 
-	public String allCn(int appid);
+	public String allCn(String appid);
 	
 }

@@ -11,9 +11,9 @@ public interface AppMapper {
 
 	public List<App> appSearch(String appname);
 	
-	public List<App> appInfomation(int appid);
+	public List<App> appInfomation(String appid);
 	
-	public List<AppImg> appImg(int appid);
+	public List<AppImg> appImg(String appid);
 	
 	public List<App> cateSearch(String cate);
 	

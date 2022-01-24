@@ -6,7 +6,7 @@ import lombok.Data;
 public class App {
 
 	private String appname;
-	private int appid;
+	private String appid;
 	private String appcompany;
 	private String appicon;
 	private float apprating;

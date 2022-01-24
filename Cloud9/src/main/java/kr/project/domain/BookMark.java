@@ -3,10 +3,9 @@ package kr.project.domain;
 import lombok.Data;
 
 @Data
-
-public class User {
+public class BookMark {
+	private int bmno;
+	private String appid;
 	private String id;
-	private String pwd;
-	private String nick;
 	
 }

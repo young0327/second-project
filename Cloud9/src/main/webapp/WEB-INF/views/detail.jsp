@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -133,11 +134,18 @@
             </div>
             <div class="detail-top-imgbox">
               <ul class="row imgbox-ul">
-                <li class="col-sm-3"><img src="${appimg[0].appimg1}"></li>
-                <li class="col-sm-3"><img src="${appimg[0].appimg2}"></li>
-                <li class="col-sm-3"><img src="${appimg[0].appimg3}"></li>
-                <li class="col-sm-3"><img src="${appimg[0].appimg4}"></li>
+        		 <li class="col-sm-3"><img src="${appimg[0].appimg1}"></li>
+	             <c:if test="${appimg[0].appimg2!='None'}">
+	             <li class="col-sm-3"><img src="${appimg[0].appimg2}"></li>
+	             </c:if>
+	              <c:if test="${appimg[0].appimg3!='None'}">
+	             <li class="col-sm-3"><img src="${appimg[0].appimg3}"></li>
+	             </c:if>
+	             <c:if test="${appimg[0].appimg4!='None'}">
+	             <li class="col-sm-3"><img src="${appimg[0].appimg4}"></li>
+	             </c:if>
               </ul>
+             </div>
             </div>
 
             <div class="detail-mid-box">
@@ -371,15 +379,29 @@
       });
       
       // 페이지 접속시 즐겨찾기 확인
+      let bookYN="";
       $("document").ready(function(){
-    	  let appname=$("#appname").text()
-    	  if($.cookie(appname)=="Y"){
-    		 $(".likebtn").css("color","red");
-   		  }else{
-   			 $(".likebtn").css("color","black");
-   		  }
+    	  let appid=$("#appid").text()
+        	let id = "<c:out value ='${users.id}'/>"
+      	  $.ajax({
+      		  url:"bookmark/list",
+      	  	  type:"get",
+      	  	  data:{"appid":appid, "id":id},
+      	  	  success: function(data){
+      	  		  bookYN=data
+      	  		  console.log(bookYN)
+      	  		if(data==0){
+      	  		$(".likebtn").css("color","black")
+      	  		}else{
+      	  		$(".likebtn").css("color","red")
+      	  		}
+     	  	  },
+     	  	  erorr:function(){
+     	  		  console.log("즐겨찾기 읽기 실패")
+     	  	  }
+     	  	  
+      	  })  
       })
-      
       // 페이지 접속시 도움이 되는 리뷰 출력
       $("document").ready(function(){
     	  let appid=$("#appid").text()
@@ -409,21 +431,38 @@
       })
       
  
-      
       // 즐겨찾기 추가
       $(".likebtn").on("click",function(){
-    	 let appname=$("#appname").text()
-    		 
-    	 if($.cookie(appname)=="Y"){
-    		 $.removeCookie(appname); 
-    		 alert("관심있는 어플에 등록이 해제되었습니다.");
-    		  $(".likebtn").css("color","black")
-    	 }else{
-    		 $.cookie(appname,"Y",{expires:7})
-    		 alert("관심있는 어플에 등록 되었습니다.");
-    		 $(".likebtn").css("color","red")
-    	 }
-      })
+    	 let appid=$("#appid").text()
+      	let id = "<c:out value ='${users.id}'/>"
+    	  		  if(bookYN==0){
+    	  			  $.ajax({
+    	  				  url:"bookmark/enroll",
+    	  				  type:"post",
+    	  				  data:{"appid":appid,"id":id},
+    	  				  success:function(){
+    	  					alert("관심있는 어플에 등록 되었습니다.");
+    	  	    	 		$(".likebtn").css("color","red")
+    	  				  },
+    	  				  error:function(){
+    	  					  console.log("관심어플 등록 실패")
+    	  				  }
+    	  			  })
+    	  		  }else{
+    	  			 $.ajax({
+   	  				  url:"bookmark/cancel",
+   	  				  type:"delete",
+   	  				  data:{"appid":appid,"id":id},
+   	  				  success:function(){
+   	  				 alert("관심있는 어플에 등록이 해제되었습니다.");
+   	    		  $(".likebtn").css("color","black")
+   	  				  },
+   	  				  error:function(){
+   	  					  console.log("관심어플 취소 실패")
+   	  				  }
+   	  			  })
+    	  		  }
+    	  })
       
 
       

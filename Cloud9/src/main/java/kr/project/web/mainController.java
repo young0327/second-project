@@ -73,9 +73,12 @@ public class mainController {
 	}
 	
 	@RequestMapping("/detail.do")
-	public String detail(int appid, Model model) {
+	public String detail(String appid, Model model) {
 		List<AppImg>appimg = appService.appImg(appid);
 		List<App>appinfo = appService.appInfomation(appid);
+		for(int i=0; i<appinfo.size();i++) {
+			appinfo.get(i).setAppinfo(appinfo.get(i).getAppinfo().replace("\n", "<br>"));
+		}
 		model.addAttribute("appinfo", appinfo);
 		model.addAttribute("appimg",appimg);
 		return "detail";

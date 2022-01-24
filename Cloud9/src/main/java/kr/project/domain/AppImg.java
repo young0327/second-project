@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class AppImg {
 
+	private int imgno;
 	private String appid;
 	private String appimg1;
 	private String appimg2;

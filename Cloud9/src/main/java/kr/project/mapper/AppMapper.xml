@@ -7,15 +7,15 @@
     <resultMap type="kr.project.domain.App" id="AppRM">
 		<result property="appid" column="app_id"/>
 		<result property="appname" column="app_name"/>
-		<result property="appicon" column="app_icon"/> <!-- img -->
-		<result property="apprating" column="app_rating"/> <!-- rating -->
-		<result property="appinfo" column="app_info"/> <!-- des -->
+		<result property="appicon" column="img"/> 
+		<result property="apprating" column="rating"/> 
+		<result property="appinfo" column="des"/> 
 		<result property="appurl" column="app_url"/>
-		<result property="apppoint1" column="app_point1"/> <!-- rating_1 -->
-		<result property="apppoint2" column="app_point2"/> <!-- rating_2 -->
-		<result property="apppoint3" column="app_point3"/> <!-- rating_3 -->
-		<result property="apppoint4" column="app_point4"/> <!-- rating_4 -->
-		<result property="apppoint5" column="app_point5"/> <!-- rating_5 -->
+		<result property="apppoint1" column=" rating_1"/> 
+		<result property="apppoint2" column="rating_2"/> 
+		<result property="apppoint3" column="rating_3"/> 
+		<result property="apppoint4" column="rating_4"/> 
+		<result property="apppoint5" column="rating_5"/> 
 		<result property="appprice" column="app_price"/>
 		<result property="appcate" column="app_cate"/>
 		<result property="apppn" column="app_pn"/>
@@ -26,6 +26,7 @@
 	</resultMap>
 	
     <resultMap type="kr.project.domain.AppImg" id="AppImgRM">
+        <result property="imgno" column="img_no"/>
         <result property="appid" column="app_id"/>
         <result property="appimg1" column="app_img1"/>
         <result property="appimg2" column="app_img2"/>

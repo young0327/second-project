@@ -3,48 +3,56 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.project.mapper.BoardMapper">
+    
+   <resultMap type="kr.project.domain.Board" id="BoardRM">
+        <result property="bidx" column="article_no"/>
+        <result property="id" column="user_id"/>
+        <result property="title" column="article_title"/>
+        <result property="content" column="article_content"/>
+        <result property="category" column="article_cate"/>
+        <result property="day" column="article_date"/>
+    </resultMap>
 
-    <!-- where category like CONCAT('%',#{category},'%') order by day DESC; -->
-    <select id="boardList" resultType="kr.project.domain.Board" parameterType ="map">
-       select * from tsboard 
+    <select id="boardList" resultMap="BoardRM" parameterType ="map">
+       select * from community_table 
        <choose>
            <when test='category == "0"'>
-               where bidx is Not Null
+               where article_no is Not Null
            </when>
            <when test='category == "1"'>
-               where category ="여행/숙박"
+               where article_cate ="여행/숙박"
            </when>
            <when test='category == "2"'>
-               where category ="음악"
+               where article_cate ="음악"
            </when>
            <when test='category == "3"'>
-               where category ="게임"
+               where article_cate ="게임"
            </when>
            <when test='category == "4"'>
-               where category ="엔터테인먼트"
+               where article_cate ="엔터테인먼트"
            </when>
            <when test='category == "5"'>
-               where category ="자유게시판"
+               where article_cate ="자유게시판"
            </when>
           <otherwise>
-              where nick =""
+              where user_id =""
           </otherwise>
        </choose>
     </select>
     
     <insert id="boardInsert" parameterType="kr.project.domain.Board">
-        insert into tsboard(nick, title, content, category, day) values(#{nick},#{title},#{content},#{category},now())
+        insert into community_table(user_id, article_title, article_content, article_cate, article_date) values(#{id},#{title},#{content},#{category},now())
     </insert>
     
-    <select id="boardRead" resultType="kr.project.domain.Board" parameterType="String">
-        select * from tsboard where bidx =#{bidx}
+    <select id="boardRead" resultMap="BoardRM" >
+        select * from community_table where article_no =#{bidx}
     </select>
     
     <delete id="boardDelete">
-        delete from tsboard where bidx=#{bidx}
+        delete from community_table where article_no=#{bidx}
     </delete>
     
     <update id="boardUpdate" parameterType="map">
-        update tsboard set title=#{title}, content=#{content}, category=#{category}, day=now() where bidx=#{bidx}
+        update community_table set article_title=#{title}, article_content=#{content}, article_cate=#{category}, article_date=now() where article_no=#{bidx}
     </update>
 </mapper>

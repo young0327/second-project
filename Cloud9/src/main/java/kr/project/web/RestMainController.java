@@ -29,6 +29,7 @@ import kr.project.domain.User;
 import kr.project.domain.WordCloud;
 import kr.project.service.AppService;
 import kr.project.service.BoardService;
+import kr.project.service.BookMarkService;
 import kr.project.service.ReviewService;
 import kr.project.service.UserService;
 import kr.project.service.WordCloudService;
@@ -46,8 +47,10 @@ public class RestMainController {
 	ReviewService reviewService;
 	@Autowired
 	WordCloudService wordCloudService;
+	@Autowired
+	BookMarkService bookMarkService;
 	
-	
+	//appid 모두 String으로 변경
 	@PostMapping("/user/singUp")
 	public void joinAjax(User vo) {
 		userService.regist(vo);
@@ -103,13 +106,13 @@ public class RestMainController {
 	}
 	
 	@GetMapping("/review")
-	public List<Review> reviewRead(int appid) {
+	public List<Review> reviewRead(String appid) {
 		List<Review>reviewlist = reviewService.reviewRead(appid);
 		return reviewlist;
 	}
 	
 	@GetMapping("/review/monthRate")
-	public String monthRating(@Param("appid")int appid, @Param("month")int month) {
+	public String monthRating(@Param("appid")String appid, @Param("month")int month) {
 		String monthRate = reviewService.monthRating(appid,month);
 		return monthRate;
 	}
@@ -121,13 +124,13 @@ public class RestMainController {
 	}
 
 	@GetMapping("/review/emo")
-	public List<Review> reviewEmoRead(@Param("appid")int appid,  @Param("apppn")float apppn) {
+	public List<Review> reviewEmoRead(@Param("appid")String appid,  @Param("apppn")float apppn) {
 		List<Review>emoReview = reviewService.reviewEmoRead(appid,apppn);
 		return emoReview;
 	}
 	
 	@GetMapping("/review/per")
-	public HashMap<String, String> reviewEmo (@Param("appid")int appid, @Param("emo")float emo) {
+	public HashMap<String, String> reviewEmo (@Param("appid")String appid, @Param("emo")float emo) {
 		String allCount = reviewService.allCn(appid);
 		String emoCount = reviewService.reviewEmo(appid,emo);
 		HashMap<String, String> emoMap = new HashMap<String, String>();
@@ -155,7 +158,7 @@ public class RestMainController {
 	}
 	
 	@GetMapping("/compare/review")
-	public HashMap<String, String> compareEmo (@Param("appid")int appid, @Param("emo")float emo) {
+	public HashMap<String, String> compareEmo (@Param("appid")String appid, @Param("emo")float emo) {
 		System.out.println(appid);
 		System.out.println(emo);
 		String allCount = reviewService.allCn(appid);
@@ -164,5 +167,21 @@ public class RestMainController {
 		emoMap.put("allCount",allCount);
 		emoMap.put("emoCount",emoCount);
 		return emoMap;
+	}
+	
+	@GetMapping("/bookmark/list")
+	public String bookMarkRead (String appid, String id) {
+	String readCount = bookMarkService.bookMarkRead (appid,id);
+	return readCount;
+	}
+	
+	@PostMapping("bookmark/enroll")
+	public void bookMarkEnroll(String appid,String id) {
+	bookMarkService.bookMarkEnroll(appid,id);
+	}
+	
+	@DeleteMapping("bookmark/cancel")
+	public void bookMarkDelete(String appid,String id) {
+	bookMarkService.bookMarkDelete(appid, id);
 	}
 }

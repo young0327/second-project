@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.project.mapper.BookMarkMapper">
+       
+       <resultMap type="kr.project.domain.BookMark" id="BookRM">
+		<result property="id" column="user_id"/>
+		<result property="appid" column="app_id"/>
+	</resultMap>
+	
+       
+       
+       <select id="bookMarkRead" parameterType="map" resultType="String">
+           select count(*) from bookmark_table where user_id =#{id} and app_id=#{appid}
+       </select>
+       
+      <insert id="bookMarkEnroll" parameterType="map">
+           insert into bookmark_table(user_id,app_id) values(#{id},#{appid})
+       </insert>
+    
+      <delete id="bookMarkDelete">
+          delete from bookmark_table where user_id=#{id} and app_id=#{appid}
+      </delete>
+    
+    
+</mapper>
+    

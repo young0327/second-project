@@ -23,14 +23,11 @@ public class Review {
     // 리뷰 평점 
     private float reviewRating;
 
-    // 감성분석 결과 
-    private float emoResult;
-
     // 리뷰 날짜 
     private String reviewDate;
 
     // 리뷰 작성자 
-    private String appCrawlId;
+    private String appWriter;
     
     // 리뷰 카테
     private String reviewCate;

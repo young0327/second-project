@@ -13,14 +13,14 @@
     
     
     <select id ="login" resultType="kr.project.domain.User" resultMap="UserRM">
-	 select * from user_info where user_id=#{id} and user_pwd=#{pwd}
+	 select * from user_info where user_id=#{id} and user_pwd=#{pwd} 
     </select>
     
     <insert id ="regist" parameterType="kr.project.domain.User">
-        insert into user_info(user_id,user_pwd,user_nick) values(#{id}, #{pwd}, #{nick})
+        insert into user_info values(#{id}, #{pwd}, #{nick}, now())
     </insert>
     
-    <select id ="idcheckAjax" parameterType="String" resultMap="UserRM">
+    <select id ="idcheckAjax"  resultMap="UserRM">
         select * from user_info where user_id = #{id}
     </select>
  </mapper>   

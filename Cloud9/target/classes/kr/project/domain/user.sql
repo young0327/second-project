@@ -5,7 +5,50 @@ user_nick varchar(10),
 user_joindate date,
 primary key (user_id)
 );
+CREATE TABLE bookmark_table
+(
+    BM_no    INT            NOT NULL        AUTO_INCREMENT COMMENT '즐겨찾기 번호', 
+    user_id  VARCHAR(20)    NOT NULL    COMMENT '회원 아이디', 
+    app_id   VARCHAR(20)    NOT NULL    COMMENT '앱 아이디', 
+     PRIMARY KEY (BM_no)
+);
 
+
+
+ALTER TABLE bookmark_table
+    ADD CONSTRAINT FK_bookmark_table_app_id_app_table_app_id FOREIGN KEY (app_id)
+        REFERENCES app_table (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+drop table bookmark_table
+ALTER TABLE app_img COMMENT '앱 정보 이미지';
+
+ALTER TABLE app_img
+    ADD CONSTRAINT FK_app_img_app_id_app_table_app_id FOREIGN KEY (app_id)
+        REFERENCES app_table (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+CREATE TABLE bookmark_table
+(
+    BM_no    INT            NOT NULL        AUTO_INCREMENT COMMENT '즐겨찾기 번호', 
+    user_id  VARCHAR(20)    NOT NULL    COMMENT '회원 아이디', 
+    app_id   VARCHAR(20)    NOT NULL    COMMENT '앱 아이디', 
+     PRIMARY KEY (BM_no)
+);
+drop table bookmark_table
+alter table app_img drop primary key;
+desc bookmark_table
+alter table bookmark_table add column BM_no  INT UNSIGNED AUTO_INCREMENT primary key
+
+출처: https://wkdgusdn3.tistory.com/entry/데이터베이스-mysql에서-primary-key-수
+drop table app_list
+alter table app_table modify column app_id varchar(20);
+desc app_table
+ALTER TABLE bookmark_table
+    ADD CONSTRAINT FK_bookmark_table_app_id_app_table_app_id FOREIGN KEY (app_id)
+        REFERENCES app_table (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+mysql> SET foreign_key_checks = 1; // 체크 해제
+delete table app_list
+drop table bookmark_table
+desc app_list
+alter table app_list drop primary key
+desc
 CREATE TABLE app_img
 (
     app_id    VARCHAR(20)    NOT NULL    COMMENT '앱 아이디', 

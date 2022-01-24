@@ -18,27 +18,27 @@ public class ReviewService {
 	@Autowired
 	ReviewMapper mapper;
 	
-	public List<Review> reviewRead(int appid){
+	public List<Review> reviewRead(String appid){
 		List<Review> reviewlist = mapper.reviewRead(appid); 
 		return reviewlist;
 	}
 	
-	public String monthRating(@Param("appid")int appid, @Param("month")int month) {
+	public String monthRating(@Param("appid")String appid, @Param("month")int month) {
 		String monthRate = mapper.monthRating(appid,month);
 		return monthRate;
 	}
 	
-	public List<Review>reviewEmoRead(@Param("appid")int appid, @Param("apppn")float apppn){
+	public List<Review>reviewEmoRead(@Param("appid")String appid, @Param("apppn")float apppn){
 		List<Review>emoReview = mapper.reviewEmoRead(appid,apppn);
 		return emoReview;
 	}
 	
-	public String reviewEmo(@Param("appid")int appid, @Param("emo")float emo) {
+	public String reviewEmo(@Param("appid")String appid, @Param("emo")float emo) {
 		String emoPercent = mapper.reviewEmo(appid, emo);
 		return emoPercent;
 	}
 	
-	public String allCn(int appid) {
+	public String allCn(String appid) {
 		String allCount = mapper.allCn(appid);
 		return allCount;
 	}
