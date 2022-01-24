@@ -22,7 +22,7 @@ body{
   width: 100%;
   height: 100%;
   padding: 15%;
-  margin-left:280px;
+  margin-left:20%;
   
 }
 .article-navbox{
@@ -317,5 +317,6 @@ body{
   .article-navbox-ul{
     display: none;
   }
+ 
   
 }
