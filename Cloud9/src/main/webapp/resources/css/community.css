@@ -198,6 +198,10 @@ body{
   float: right;
   margin-left: 10px;
 }
+.detail-btn2{
+  float: center;
+  margin-left: 10px;
+}
 .detail-btn:hover{
   color: red;
 }

@@ -172,7 +172,7 @@
             <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a kr-font writing">글 작성</a></li>
            </ul>
            
-           <div class='myFavorite-box'><p>즐겨찾기<p>
+           <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span><button class="detail-btn2" style="border:none; background:none;"><i class="fas fa-trash-alt" style="color:white;"></i></button></div>
            	 <div class='myFavorite-inner'>
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/1.png"></div></a>
