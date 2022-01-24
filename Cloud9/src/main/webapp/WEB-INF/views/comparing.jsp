@@ -181,12 +181,12 @@
         <div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point kr-font' style="padding-left:80px;">
-                				<span id="emotion-word-rate1" class="ui-word starPoint">--</span>%
+                			<div class='point kr-font' style="padding-left:25px;">
+                				<span id="emotion-word-rate1" class="ui-word starPoint"></span>%
                 			</div>
                 			<div class='point word kr-font'>
                 				<p>
-                				<span id="emotion-word-title1" class="ui-word">--</span><br>
+                				<span id="emotion-word-title1" class="ui-word starPoint"></span><br>
                 				<span>을 사용한 사람들이</span>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect1">
                	  	  			<option value="0.9">아주좋음</option>
@@ -225,12 +225,12 @@
                   <div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point kr-font' style="padding-left:80px;">
-                				<span id="emotion-word-rate2" class="ui-word starPoint">--</span>%
+                			<div class='point kr-font' style="padding-left:25px;">
+                				<span id="emotion-word-rate2" class="ui-word starPoint"></span>%
                 			</div>
                 			<div class='point word kr-font'>
                 				<p>
-                				<span id="emotion-word-title2" class="ui-word">--</span><br>
+                				<span id="emotion-word-title2" class="ui-word starPoint"></span><br>
                 				<span>을 사용한 사람들이</span>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect2">
                	  	  			<option value="0.9">아주좋음</option>
