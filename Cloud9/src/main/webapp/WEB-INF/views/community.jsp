@@ -179,6 +179,7 @@
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/2.png"></div></a>
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/wavve.png"></div></a>
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/5.png"></div></a>
            	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
            	 </div>
