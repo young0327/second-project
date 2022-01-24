@@ -103,6 +103,18 @@
             <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="compare.do">유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
+          <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span><button class="detail-btn2" style="border:none; background:none;"><i class="fas fa-trash-alt" style="color:white;"></i></button></div>
+           	 <div class='myFavorite-inner'>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/1.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/2.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/wavve.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/5.png"></div></a>
+           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
+           	 </div>
+           </div>
           <!-- Side Bar end--> 
         </div>
         
@@ -169,12 +181,12 @@
         <div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point kr-font' style="padding-left:80px;">
-                				<span id="emotion-word-rate1" class="ui-word starPoint">--</span>%
+                			<div class='point kr-font' style="padding-left:25px;">
+                				<span id="emotion-word-rate1" class="ui-word starPoint"></span>%
                 			</div>
                 			<div class='point word kr-font'>
                 				<p>
-                				<span id="emotion-word-title1" class="ui-word">--</span><br>
+                				<span id="emotion-word-title1" class="ui-word starPoint"></span><br>
                 				<span>을 사용한 사람들이</span>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect1">
                	  	  			<option value="0.9">아주좋음</option>
@@ -189,19 +201,36 @@
               	<div class="gamsung-bot">
               		<div id="chartdiv"></div>
               	</div>
-              	<div class="gamsung-down" id ="compareReview1"></div>
+              	<div class="gamsung-down" id ="compareReview1">
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+				</div>
               </div>
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
               <div class="second-rating-box kr-font">
                   <div class='analy-inner analy-inner-left'><p class='kr-font' style="font-size:20px;"></p>
                 		<div class='rating-inner'></div>
                 		<div class='rating-inner rating-right'>
-                			<div class='point kr-font' style="padding-left:80px;">
-                				<span id="emotion-word-rate2" class="ui-word starPoint">--</span>%
+                			<div class='point kr-font' style="padding-left:25px;">
+                				<span id="emotion-word-rate2" class="ui-word starPoint"></span>%
                 			</div>
                 			<div class='point word kr-font'>
                 				<p>
-                				<span id="emotion-word-title2" class="ui-word">--</span><br>
+                				<span id="emotion-word-title2" class="ui-word starPoint"></span><br>
                 				<span>을 사용한 사람들이</span>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect2">
                	  	  			<option value="0.9">아주좋음</option>
@@ -216,7 +245,24 @@
               	<div class="gamsung-bot">
               		<div id="chartSecond"></div>
               	</div>
-              	<div class="gamsung-down" id ="compareReview2"></div>
+              	<div class="gamsung-down" id ="compareReview2">
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+					<div class="gamsung-review-box kr-font">
+						<div><h5>제목부분</h5></div>
+						<div><p>내용부분</p></div>
+					</div>	
+				</div>
               	
               </div>
                         

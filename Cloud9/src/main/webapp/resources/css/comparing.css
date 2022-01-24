@@ -129,13 +129,29 @@
 }
 .gamsung-down{
 	width:100%;
-	height:70%;
-	background:#eee;
+	height:100%;
+	border-radius:30px;
 	margin-top: 30%;
+	padding:20px;
+	overflow-y:scroll;
+}
+.gamsung-review-box{
+	width:100%;
+	height:170px;
+	margin-bottom:10px;
+	background:#eee;
+	border-radius:20px;
+	padding:15px;
+	text-align:left;
 }
 .category-division{
    border:none;
    background:#eee;
    border-radius:10px;
+}
+.starPoint{
+	color:red;
+	font-weight:700;
+	font-size:32px;
 }
 /* gamsung analy-*/
