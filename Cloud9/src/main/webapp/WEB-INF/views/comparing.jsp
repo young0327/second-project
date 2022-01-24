@@ -550,14 +550,6 @@ am5.ready(function() {
 	  clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
 	});
 
-	setInterval(function () {
-	  axisDataItem.animate({
-	    key: "value",
-	    to: Math.round(0),
-	    duration: 500,
-	    easing: am5.ease.out(am5.ease.cubic)
-	  });
-	}, 2000)
 
 	chart.bulletsContainer.set("mask", undefined);
 
@@ -652,7 +644,6 @@ am5.ready(function() {
 		$("#compare1").on("keyup",function(key){
 			if(key.keyCode==13) {
 				let compareApp1 = $("#compare1").val();
-				console.log(compareApp1)
 				
 				$.ajax({
 					url:"compare/app",
@@ -677,7 +668,7 @@ am5.ready(function() {
 			               appemo1=data[0].apppn
 			               appid1=data[0].appid
 			               
-			            let score1=data[0].evascore1*10
+			               let score1=data[0].evascore1*10
 			               let score2=data[0].evascore2*10
 			               let score3=data[0].evascore3*10
 			            appRader1={
@@ -689,7 +680,21 @@ am5.ready(function() {
 				        	          pointBackgroundColor: "rgba(179,181,198,1)",
 				        	          data: [score1, score2, score3]
 				        	        }
-			               $("#emotion-word-title1").text(data[0].appname)
+			               
+			               new Chart(document.getElementById("radar-chart"), {
+			        	    type: 'radar',
+			        	    data: {
+			        	      labels: ["항목1", "항목2", "항목3"],
+			        	      datasets: [
+			        	    	  appRader1,appRader2 
+			        	      ]
+			        	    },
+			        	    options: {
+			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 }, //maxTicksLimit data 최대값의 2배
+			        	    }
+			        	});
+			            $("#emotion-word-title1").text(data[0].appname)
+			               
 					},
 					error:function(){
 						console.log(error)
@@ -712,6 +717,7 @@ am5.ready(function() {
 		    		type:"get",
 		    		data:{"appid":appid1,"apppn":appemo1},
 		    		success:function(data){
+		    			 $("#compareReview1").html("");
 		    			  for (let i =0; i<4; i++){
 		    				  let reviews=
 		    					  '<div class="review-box kr-font">'+
@@ -760,6 +766,7 @@ am5.ready(function() {
 				$.ajax({
 					url:"compare/app",
 					type:"get",
+					async: false,
 					data:{"appname":compareApp2},
 					success:function(data){
 						$("#iconbox2").html("")
@@ -831,8 +838,10 @@ am5.ready(function() {
 				$.ajax({
 		    		url:"review/emo",
 		    		type:"get",
+		    		
 		    		data:{"appid":appid2,"apppn":appemo2},
 		    		success:function(data){
+		    			$("#compareReview2").html("");
 		    			  for (let i =0; i<4; i++){
 		    				  let reviews=
 		    					  '<div class="review-box kr-font">'+
@@ -854,7 +863,7 @@ am5.ready(function() {
 	
 	//검색 어플 감성확률2
 	 $("#emotionSelect2").on('change',function(){
-		 let changeEmo2 = $("#emotionSelect1").val()
+		 let changeEmo2 = $("#emotionSelect2").val()
          		$.ajax({
          			url:"compare/review",
      	    		type:"get",
