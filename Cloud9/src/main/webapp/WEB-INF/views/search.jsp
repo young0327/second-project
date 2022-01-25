@@ -128,103 +128,15 @@
       </div>  
     </div>
 
-    
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script>
-      var Modal = new Vue({
-        el : '.Modal',
-        data : {
-          modalOpen : true,
-        }
-      })
-      
-    </script>
-    <script>
-      $('.category').on('click',function(){
-        $('.list-group').slideToggle();
-      })
-
-  // 로그인 확인 및 설정 
-      $(document).on('click','#btn_Login',function(){
-		if($('#id').val()!="" && $('#pwd').val()!=""){
-			let loginData=$("#frm").serialize();
-			$.ajax({ 
-				url:"user/login",
-				type: "get",
-				data : loginData,
-				success : function(YN){
-					if(YN=="y"){
-						location.reload();
-					}else{
-						alert("아이디와 비밀번호를 확인해 주세요");
-					}
-				},
-				error : function(){
-					alert("아이디와 비밀번호를 확인해 주세요");
-				}
-			});
-		}else{
-			
-			if($('#id').val()==""){
-				alert("아이디를 입력해 주세요")
-			}
-			
-			if($('#pwd').val()==""){
-				alert("비밀번호를 입력해 주세요")
-			}
-		}
-	});
-      
-      //즐겨찾기
-      $("document").ready(function(){
-    	  let id = "<c:out value ='${users.id}'/>"
-    		  $("#myFavorite").html("")
-    		  $.ajax({
-          		  url:"bookmark/img",
-          	  	  type:"get",
-          	  	  data:{"id":id},
-          	  	  success: function(data){
-          	  		  console.log(data)
-          	  		 
-          	  	for(let i=0; i<data.length;i++){
-          	  		let appicon = 
-          	  			'<div class="myIcon-box" id="'+data[i].appid+'">'+
-          	  			'<a href="detail.do?appid='+data[i].appid+'">'+
-          	  					'<img src="'+data[i].appicon+'">'+
-          	  					'</a>'+'</div>'
-          	  				$("#myFavorite").append(appicon)
-          	  	}
-         	  			
-          	  	  },
-          	  	  error:function(){
-          	  		  console.log("즐겨찾기 리스트 출력 실패")
-          	  	  }
-          	  	  })
-      })
-  
-      $("#bookmarkbtn").on("click",function(){
-    	  let appid=$("#myFavorite").children().first().attr("id")
-    	  let id = "<c:out value ='${users.id}'/>"
-    	  console.log(appid)
-    		  $.ajax({
-	  				  url:"bookmark/cancel",
-	  				  type:"delete",
-	  				  data:{"appid":appid,"id":id},
-	  				  success:function(){
-	  			$("#myFavorite").children().first().attr('style',"display:none")
-	  				  },
-	  				  error:function(){
-	  					  console.log("관심어플 취소 실패")
-	  					
-	  				  }
-	  			  })
-      })
-    </script>
-
-    
+    <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bookmark.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/modal.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
+	
+   
     
   </body>
 </html>

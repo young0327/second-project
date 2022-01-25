@@ -194,22 +194,7 @@
               		<div id="chartdiv"></div>
               	</div>
               	<div class="gamsung-down" id ="compareReview1">
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
+					
 				</div>
               </div>
               <div class="second-rating-box" style="width: 15%;">감성분석</div>
@@ -238,22 +223,7 @@
               		<div id="chartSecond"></div>
               	</div>
               	<div class="gamsung-down" id ="compareReview2">
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
-					<div class="gamsung-review-box kr-font">
-						<div><h5>제목부분</h5></div>
-						<div><p>내용부분</p></div>
-					</div>	
+					
 				</div>
               	
               </div>
@@ -299,53 +269,17 @@
 	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bookmark.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/modal.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
     
     <script>
-       var Modal = new Vue({
-        el : '.Modal',
-        data : {
-          modalOpen : true,
-        }
-      })
+     
        
-      $('.category').on('click',function(){
-        $('.list-group').slideToggle();
-      })
-      
+     
         
-      // 로그인 확인 및 설정 
-      $(document).on('click','#btn_Login',function(){
-		if($('#id').val()!="" && $('#pwd').val()!=""){
-			let loginData=$("#frm").serialize();
-			$.ajax({ 
-				url:"user/login",
-				type: "get",
-				data : loginData,
-				success : function(YN){
-					console.log(YN)
-					if(YN=="y"){
-						location.reload();
-					}else{
-						alert("아이디와 비밀번호를 확인해 주세요");
-					}
-				},
-				error : function(){
-					alert("아이디와 비밀번호를 확인해 주세요");
-				}
-			});
-			
-		}else{
-			
-			if($('#id').val()==""){
-				alert("아이디를 입력해 주세요")
-			}
-			
-			if($('#pwd').val()==""){
-				alert("비밀번호를 입력해 주세요")
-			}
-		}
-	});
-      
+    
        <!-- Resources -->
 
 let app1emopn1;
@@ -682,7 +616,7 @@ am5.ready(function() {
 		$("#compare1").on("keyup",function(key){
 			if(key.keyCode==13) {
 				let compareApp1 = $("#compare1").val();
-				
+				let cate= $("#compareCate").val();
 				$.ajax({
 					url:"compare/app",
 					type:"get",
@@ -718,7 +652,8 @@ am5.ready(function() {
 				        	          pointBackgroundColor: "rgba(179,181,198,1)",
 				        	          data: [score1, score2, score3]
 				        	        }
-			               
+			             
+			               console.log(cate)
 			               new Chart(document.getElementById("radar-chart"), {
 			        	    type: 'radar',
 			        	    data: {
@@ -758,12 +693,10 @@ am5.ready(function() {
 		    			 $("#compareReview1").html("");
 		    			  for (let i =0; i<4; i++){
 		    				  let reviews=
-		    					  '<div class="review-box kr-font">'+
-		                  				'<div class="review-inner" style="text-align:left;">'+
-		                  					'<p style="font-size:20px;">'+data[i].reviewRating+'</p>'+
-		                  					'<p>'+data[i].reviewContent+'</p>'+
-		                  				'</div>'+
-		                    		'</div>';
+		    					  '<div class="gamsung-review-box kr-font">'+
+		    					  '<div><h5>'+data[i].reviewTitle+'</h5></div>'+
+		    					  '<div><p>'+data[i].reviewContent+'</p></div>'+
+		                  		  '</div>';
 		    				  $("#compareReview1").append(reviews);
 		    			  	}
 		    			  },
@@ -771,8 +704,7 @@ am5.ready(function() {
 		    			console.log("n")
 		    		}
 		    	});
-				
-				
+			
 			}
 	})
 	
@@ -799,6 +731,7 @@ am5.ready(function() {
 	let appid2="";
 	//검색 어플 입력2 
 	$("#compare2").on("keyup",function(key){
+		
 			if(key.keyCode==13) {
 				let compareApp2 = $("#compare2").val();
 				$.ajax({
@@ -882,12 +815,10 @@ am5.ready(function() {
 		    			$("#compareReview2").html("");
 		    			  for (let i =0; i<4; i++){
 		    				  let reviews=
-		    					  '<div class="review-box kr-font">'+
-		                  				'<div class="review-inner" style="text-align:left;">'+
-		                  					'<p style="font-size:20px;">'+data[i].reviewRating+'</p>'+
-		                  					'<p>'+data[i].reviewContent+'</p>'+
-		                  				'</div>'+
-		                    		'</div>';
+		    					  '<div class="gamsung-review-box kr-font">'+
+		    					  '<div><h5>'+data[i].reviewTitle+'</h5></div>'+
+		    					  '<div><p>'+data[i].reviewContent+'</p></div>'+
+		                  		  '</div>';
 		    				  $("#compareReview2").append(reviews);
 		    			  	}
 		    			  },
@@ -916,32 +847,7 @@ am5.ready(function() {
           })
 	
           
-     //즐겨찾기
-       $("document").ready(function(){
-    	  let id = "<c:out value ='${users.id}'/>"
-    		  $("#myFavorite").html("")
-    		  $.ajax({
-          		  url:"bookmark/img",
-          	  	  type:"get",
-          	  	  data:{"id":id},
-          	  	  success: function(data){
-          	  		  console.log(data)
-          	  		 
-          	  	for(let i=0; i<data.length;i++){
-          	  		let appicon = 
-          	  			'<div class="myIcon-box" id="'+data[i].appid+'">'+
-          	  			'<a href="detail.do?appid='+data[i].appid+'">'+
-          	  					'<img src="'+data[i].appicon+'">'+
-          	  				'</a>'+'</div>'
-          	  				$("#myFavorite").append(appicon)
-          	  	}
-         	  			
-          	  	  },
-          	  	  error:function(){
-          	  		  console.log("즐겨찾기 리스트 출력 실패")
-          	  	  }
-          	  	  })
-      })
+     
 </script>
     
   </body>

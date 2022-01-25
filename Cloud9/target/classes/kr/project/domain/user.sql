@@ -183,7 +183,11 @@ update app_table set app_pn = 4.5 where app_id =1;
 update app_table set eva_score1 = 0.7
 update app_table set eva_score2 = 0.42
 update app_table set eva_score3 = 0.2
-
+select * from app_review_table where app_id="1129048043" order by date desc
+desc app_review_table
+select * from app_review_table where app_id="1354870453" order by date desc
+select * from app_table order by app_pn desc
+select avg(rating) from app_review_table where app_id = "696690152" and date between DATE_SUB(now(), INTERVAL 12 Month) and now()
 desc app_review_table
 select * from app_review_table
 alter table app_review_table add column pn decimal(12,1);
@@ -199,9 +203,10 @@ update app_review_table set emo_result=0.1 ,h_rv="1" where review_no=5;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
 
+
 update app_table set app_icon="http://localhost:8081/web/resources/logo/appv.png" where app_id =4
 update app_table set eva_score1 =0.2, eva_score2=0.8, eva_score3=0.4 where app_id = 4
-select * from app_table;
+select * from app_table where app_id ="415597317"
 select *from tsboard
 select * from app_review_table
 select count(*) from app_review_table where app_id = 1 and emo_result>=0.6 and emo_result<0.8

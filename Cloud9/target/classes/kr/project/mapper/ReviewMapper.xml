@@ -52,20 +52,11 @@
       <select id="reviewEmo" parameterType="map"  resultType="String">
           select Count(*) from app_review_table where app_id = #{appid}
           <choose>
-              <when test='emo gte 0 and emo lt 0.2'>
-                   <![CDATA[and pn>=0 and pn<0.2]]>
+              <when test='emo==0'>
+                   and pn=0
               </when>
-                <when test='emo gte 0.2 and emo lt 0.4'>
-                  <![CDATA[and pn>=0.2 and pn<0.4]]>
-              </when>
-              <when test='emo gte 0.4 and emo lt 0.6'>
-                  <![CDATA[and pn>=0.4 and pn<0.6]]>
-              </when>
-               <when test='emo gte 0.6 and emo lt 0.8'>
-                  <![CDATA[and pn>=0.6 and pn<0.8]]>
-              </when>
-                <when test='emo gte 0.8 and emo lte 1'>
-                  <![CDATA[and pn>=0.8 and pn<=1]]>
+                <when test='emo==1'>
+                 and pn=1
               </when>
               <otherwise>
                   and 1=1

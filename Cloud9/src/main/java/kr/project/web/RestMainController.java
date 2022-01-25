@@ -68,7 +68,7 @@ public class RestMainController {
 		User user = userService.login(vo);
 		String YN;
 		if (user != null) {
-			YN="y";
+			YN= user.getId();
 			session.setAttribute("users", user);
 		} else {
 			YN="n";
@@ -131,17 +131,22 @@ public class RestMainController {
 	
 	@GetMapping("/review/per")
 	public HashMap<String, String> reviewEmo (@Param("appid")String appid, @Param("emo")float emo) {
+		System.out.println("감성 점수"+emo);
 		String allCount = reviewService.allCn(appid);
 		String emoCount = reviewService.reviewEmo(appid,emo);
 		HashMap<String, String> emoMap = new HashMap<String, String>();
 		emoMap.put("allCount",allCount);
 		emoMap.put("emoCount",emoCount);
+		System.out.println("전체"+allCount);
+		System.out.println("감성"+emoCount);
 		return emoMap;
 	}
 	
 	@GetMapping("/wordcloud")
 	public List<WordCloud> wordCount(String appid){
+		System.out.println("아이디:"+appid);
 		List<WordCloud> wordList = wordCloudService.wordCount(appid);
+		System.out.println(wordList);
 		return wordList;
 	}
 	
