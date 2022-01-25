@@ -145,7 +145,9 @@
       </div>  
     </div>
 
-    
+    <script>
+  	let payCate ='<c:out value='${cateList[0].appcate}'/>'
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -154,6 +156,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/bookmark.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/modal.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/cateprice.js"></script>
      
   </body>
 </html>

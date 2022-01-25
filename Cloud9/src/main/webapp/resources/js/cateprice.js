@@ -1,6 +1,5 @@
 $("#paySelect").on("change",function(){
     	let payD = $(this).val();
-      	let payCate ='<c:out value='${cateList[0].appcate}'/>'
     	
     	  console.log("payD:"+payD)
     	  console.log("payCate:"+payCate)

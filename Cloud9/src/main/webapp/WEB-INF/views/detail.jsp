@@ -192,9 +192,9 @@
                 			<div class='point word kr-font'>
                 				<p>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="monthSelect">
-               	  	  			<option value="1">1개월</option>
-               	  	  			<option value="3">3개월</option>
-               	  	 			<option value="6">6개월</option>
+               	  	  			<option value="6">6개월</option>
+               	  	  			<option value="12">12개월</option>
+               	  	 			<option value="18">18개월</option>
                	  				</select>동안<br><span id="ui-word-title" class="ui-word">${appinfo[0].appname}</span><br>의 평점</p>
                 			</div>
                 		</div>

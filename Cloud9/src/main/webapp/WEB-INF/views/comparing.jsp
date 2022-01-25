@@ -118,7 +118,7 @@
                   <input type="search" list="appOption1" id="compare1" autocomplete="off"><span>  </span>
                   <datalist id="appOption1">
                   </datalist>
-                  <button id ="vsbtn1" style="background:none; border:none;"><i class="fas fa-search" style="font-size: 24px;"></i></button>
+                  <button id ="vsbtn1"><i class="fas fa-search" style="font-size: 24px;"></i></button>
                 </div>
               </div>
           
@@ -610,7 +610,7 @@ am5.ready(function() {
 		$("#compare1").on("keyup",function(key){
 			if(key.keyCode==13) {
 				let compareApp1 = $("#compare1").val();
-				let cate= $("#compareCate").val();
+				let cate1= $("#compareCate").val();
 				$.ajax({
 					url:"compare/app",
 					type:"get",
@@ -646,61 +646,72 @@ am5.ready(function() {
 				        	          pointBackgroundColor: "rgba(179,181,198,1)",
 				        	          data: [score1, score2, score3]
 				        	        }
-			             if(cate=="M"){
+			             
+			               console.log(cate1)
+			               
+			               if(cate1 =="M"){
 			               new Chart(document.getElementById("radar-chart"), {
-				        	    type: 'radar',
-				        	    data: {
-				        	      labels: ["항목1", "항목2", "항목3"],
-				        	      datasets: [
-				        	    	  appRader1,appRader2 
-				        	      ]
-				        	    }
-				        	   }
-			               }else if(cate=="P"){
+			        	    type: 'radar',
+			        	    data: {
+			        	      labels: ["디자인", "기능", "가격"],
+			        	      datasets: [
+			        	    	  appRader1,appRader2 
+			        	      ]
+			        	    },
+			        	    options: {
+			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+			        	    }
+			        	})
+			               }else if(cate1=="P"){
 			            	   new Chart(document.getElementById("radar-chart"), {
 					        	    type: 'radar',
 					        	    data: {
-					        	      labels: ["항목1", "항목2", "항목3"],
+					        	      labels: ["기능 및 디자인", "서비스", "CS"],
 					        	      datasets: [
 					        	    	  appRader1,appRader2 
 					        	      ]
-			            	   		}
-			            	   }
+					        	    },
+					        	    options: {
+					        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+					        	    }
+					        	})
 			               }else{
 			            	   new Chart(document.getElementById("radar-chart"), {
 					        	    type: 'radar',
 					        	    data: {
-					        	      labels: ["항목1", "항목2", "항목3"],
+					        	      labels: ["기능 및 디자인 ", "혜택", "CS"],
 					        	      datasets: [
 					        	    	  appRader1,appRader2 
 					        	      ]
-			            	   		}
-			            	   }
+					        	    },
+					        	    options: {
+					        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+					        	    }
+					        	})
 			               }
-			        	    ,options: {
-			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 }, //maxTicksLimit data 최대값의 2배
-			        	    }
-			        	});
+			               
 			            $("#emotion-word-title1").text(data[0].appname)
 			               
-					}
-					}
-					,error:function(){
+					},
+					error:function(){
 						console.log(error)
 					}
 					
 				});
+				let Emo1=1
 				$.ajax({
 					url:"compare/review",
 					type:"get",
-					data:{"appid":appid1, "emo":appemo1},
+					data:{"appid":appid1, "emo":Emo1},
 					success:function(data){
-						  $("#emotion-word-rate1").text(data.emoCount/data.allCount*100)
+						let cul = data.emoCount/data.allCount*100
+						  $("#emotion-word-rate1").text(cul.toFixed(1))
 					},
 					erorr:function(){
 						console.log("n")
 					}
 				});
+			
 				$.ajax({
 		    		url:"review/emo",
 		    		type:"get",
@@ -733,7 +744,8 @@ am5.ready(function() {
      	    		type:"get",
      	    		data:{"appid":appid1, "emo":changeEmo1},
      	    		success:function(data){
-     	    			  $("#emotion-word-rate1").text(data.emoCount/data.allCount*100)
+     	    			let cul = data.emoCount/data.allCount*100
+     	    			  $("#emotion-word-rate1").text(cul.toFixed())
      	    		},
      	    		error: function(){
      	    			console.log("error")
@@ -750,6 +762,7 @@ am5.ready(function() {
 		
 			if(key.keyCode==13) {
 				let compareApp2 = $("#compare2").val();
+				let cate2= $("#compareCate").val();
 				$.ajax({
 					url:"compare/app",
 					type:"get",
@@ -789,18 +802,46 @@ am5.ready(function() {
 			        	        }
 		          
 			               
-			        	new Chart(document.getElementById("radar-chart"), {
-			        	    type: 'radar',
-			        	    data: {
-			        	      labels: ["항목1", "항목2", "항목3"],
-			        	      datasets: [
-			        	    	  appRader1,appRader2 
-			        	      ]
-			        	    },
-			        	    options: {
-			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 }, //maxTicksLimit data 최대값의 2배
-			        	    }
-			        	});
+			            if(cate2 =="M"){
+				               new Chart(document.getElementById("radar-chart"), {
+				        	    type: 'radar',
+				        	    data: {
+				        	      labels: ["디자인", "기능", "가격"],
+				        	      datasets: [
+				        	    	  appRader1,appRader2 
+				        	      ]
+				        	    },
+				        	    options: {
+				        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+				        	    }
+				        	})
+				               }else if(cate2=="P"){
+				            	   new Chart(document.getElementById("radar-chart"), {
+						        	    type: 'radar',
+						        	    data: {
+						        	      labels: ["기능 및 디자인", "서비스", "CS"],
+						        	      datasets: [
+						        	    	  appRader1,appRader2 
+						        	      ]
+						        	    },
+						        	    options: {
+						        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+						        	    }
+						        	})
+				               }else{
+				            	   new Chart(document.getElementById("radar-chart"), {
+						        	    type: 'radar',
+						        	    data: {
+						        	      labels: ["기능 및 디자인 ", "혜택", "CS"],
+						        	      datasets: [
+						        	    	  appRader1,appRader2 
+						        	      ]
+						        	    },
+						        	    options: {
+						        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+						        	    }
+						        	})
+				               }
 			            $("#emotion-word-title2").text(data[0].appname)
 
 					},
@@ -809,13 +850,14 @@ am5.ready(function() {
 				}
 					
 				});
-				
+				let Emo2 =1
 				$.ajax({
 					url:"compare/review",
 					type:"get",
-					data:{"appid":appid2, "emo":appemo2},
+					data:{"appid":appid2, "emo":Emo2},
 					success:function(data){
-						  $("#emotion-word-rate2").text(data.emoCount/data.allCount*100)
+						let cul = data.emoCount/data.allCount*100
+						  $("#emotion-word-rate2").text(cul.toFixed(1))
 					},
 					erorr:function(){
 						console.log("n")
@@ -854,7 +896,8 @@ am5.ready(function() {
      	    		type:"get",
      	    		data:{"appid":appid2, "emo":changeEmo2},
      	    		success:function(data){
-     	    			  $("#emotion-word-rate2").text(data.emoCount/data.allCount*100)
+     	    			let cul = data.emoCount/data.allCount*100
+						  $("#emotion-word-rate2").text(cul.toFixed(1))
      	    		},
      	    		error: function(){
      	    			console.log("error")

@@ -28,20 +28,11 @@
       <select id="reviewEmoRead" parameterType="map"  resultMap="ReviewRM">
           select * from app_review_table where app_id = #{appid}
           <choose>
-              <when test='apppn gte 0 and apppn lt 0.2'>
-                  <![CDATA[and pn>=0 and pn<0.2 and h_rv='1']]>
+              <when test='apppn lt 0.5'>
+                  <![CDATA[and pn<0.5 and h_rv='1']]>
               </when>
-              <when test='apppn gte 0.2 and apppn lt 0.4'>
-                  <![CDATA[and pn>=0.2 and pn<0.4 and h_rv='1']]>
-              </when>
-              <when test='apppn gte 0.4 and apppn lt 0.6'>
-                  <![CDATA[and pn>=0.4 and pn<0.6 and h_rv='1']]>
-              </when>
-               <when test='apppn gte 0.6 and apppn lt 0.8'>
-                  <![CDATA[and pn>=0.6 and pn<0.8 and h_rv='1']]>
-              </when>
-                <when test='apppn gte 0.8 and apppn lte 1'>
-                  <![CDATA[and pn>=0.8 and pn<=1 and h_rv='1']]>
+                <when test=' apppn gte 0.5 and apppn lte 1'>
+                  <![CDATA[and pn>=0.5 and pn<=1 and h_rv='1']]>
               </when>
               <otherwise>
                   and 1=1

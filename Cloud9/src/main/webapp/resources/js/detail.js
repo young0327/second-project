@@ -268,7 +268,7 @@
      // 평점 추이 텍스트로 출력
      $("#detailBtn2").on("click",function(){
     	let appid = $("#appid").text();
-    	let month = 1
+    	let month = 6;
     		$.ajax({
 	    		url:"review/monthRate",
 	    		type:"get",
