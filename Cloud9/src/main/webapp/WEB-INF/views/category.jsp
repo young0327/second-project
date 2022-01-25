@@ -135,7 +135,7 @@
 	                <span style="font-size: 15px;">&nbsp&nbsp&nbsp ${cateList.appprice}원</span>
 	                </c:otherwise>
 				</c:choose>               
-               </p><p class="word" style="margin-left: 590px; margin-top: -40px;">${cateList.appcompany}</p>
+               </p><p class="word" style="margin-left: 500px; margin-top: -40px;">${cateList.appcompany}</p>
                 </div>
             </div>
             </c:forEach>

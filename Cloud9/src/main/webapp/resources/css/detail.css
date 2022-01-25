@@ -86,7 +86,7 @@ body{
 /*top img box*/
 .detail-top-imgbox{
     width: 85%;
-    height: 25%;
+    height: 20%;
     display: inline-block;
     padding: 10px;
     border-bottom: 1px solid rgb(189, 189, 189);
@@ -105,7 +105,7 @@ body{
 .detail-mid-box{
     margin-top: 30px;
     width: 85%;
-    height: 5%;
+    height: 3%;
     display: inline-block;
 }
 .mid-list-box ul{
@@ -152,6 +152,8 @@ body{
 .tab-content-right{
     width: 40%;
     padding: 10px;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 .helpful-box{
     width: 100%;
