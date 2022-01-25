@@ -147,6 +147,7 @@ body{
 }
 .tab-content-left{
     width: 60%;
+    text-align:left;
 }
 .tab-content-right{
     width: 40%;
@@ -201,6 +202,7 @@ body{
 	height:80%;
 	width:80%;
 	margin-left:10%;
+	margin-top:-10%;
 }
 
 

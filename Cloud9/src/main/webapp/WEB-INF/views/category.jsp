@@ -206,9 +206,7 @@
 		}
 	});
 
-      $('.category').on('click',function(){
-        $('.list-group').slideToggle();
-      });
+     
 
       // 가격 카테고리 선택
       
