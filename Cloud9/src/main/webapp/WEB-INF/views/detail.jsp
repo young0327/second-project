@@ -120,7 +120,7 @@
               <div class="line detailtop-name row detailtop col-md-7">
                 <div class="namebox box_udline">
                   <h4 class="kr-font" id ="appname">${appinfo[0].appname}</h4><span class='kr-font'>${appinfo[0].appcompany}</span>
-                  <p class="kr-font">한줄요약이 들어가는 곳입니다</p>
+                  
                   <h2><i class="fas fa-star" style="font-size:24px"></i>  ${appinfo[0].apprating}</h2>
                 <div class="box">
                     <div class="content kr-font">
@@ -233,7 +233,7 @@
                 <div class='bottom-review-box'>
                 </div>
                 </div>
-              </div>
+              
               <div class="tab-box">
                 <div class='wordCloud-box'>
                 	<div class='wordCloud-inner-box'>
@@ -246,6 +246,7 @@
                 		</div>
                 	</div> 
                 </div>
+              </div>
               </div>
               <div class="tab-box">
                 <p>fourth</p>
