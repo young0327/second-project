@@ -181,11 +181,8 @@
                 				<span id="emotion-word-title1" class="ui-word starPoint"></span><br>
                 				<span>을 사용한 사람들이</span>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect1">
-               	  	  			<option value="0.9">아주좋음</option>
-               	  	  			<option value="0.7">좋음</option>
-               	  	 			<option value="0.5">보통</option>
-               	  	 			<option value="0.3">나쁨</option>
-               	  	 			<option value="0.1">아주나쁨</option>
+               	  	  			<option value="1">좋음</option>
+               	  	 			<option value="0">나쁨</option>
                	  				</select><br>감정을 느꼈습니다</p>
                 			</div>
                 		</div>
@@ -210,11 +207,8 @@
                 				<span id="emotion-word-title2" class="ui-word starPoint"></span><br>
                 				<span>을 사용한 사람들이</span>
                	  				<select style="border:none; background:#eee; border-radius:20px;" id="emotionSelect2">
-               	  	  			<option value="0.9">아주좋음</option>
-               	  	  			<option value="0.7">좋음</option>
-               	  	 			<option value="0.5">보통</option>
-               	  	 			<option value="0.3">나쁨</option>
-               	  	 			<option value="0.1">아주나쁨</option>
+               	  	  			<option value="1">좋음</option>
+               	  	 			<option value="0">나쁨</option>
                	  				</select><br>감정을 느꼈습니다</p>
                 			</div>
                 		</div>
@@ -280,10 +274,10 @@
      
         
     
-       <!-- Resources -->
+       
 
 let app1emopn1;
-<!-- Chart code -->
+
 am5.ready(function() {
 
 	// Create root element
@@ -652,24 +646,46 @@ am5.ready(function() {
 				        	          pointBackgroundColor: "rgba(179,181,198,1)",
 				        	          data: [score1, score2, score3]
 				        	        }
-			             
-			               console.log(cate)
+			             if(cate=="M"){
 			               new Chart(document.getElementById("radar-chart"), {
-			        	    type: 'radar',
-			        	    data: {
-			        	      labels: ["항목1", "항목2", "항목3"],
-			        	      datasets: [
-			        	    	  appRader1,appRader2 
-			        	      ]
-			        	    },
-			        	    options: {
+				        	    type: 'radar',
+				        	    data: {
+				        	      labels: ["항목1", "항목2", "항목3"],
+				        	      datasets: [
+				        	    	  appRader1,appRader2 
+				        	      ]
+				        	    }
+				        	   }
+			               }else if(cate=="P"){
+			            	   new Chart(document.getElementById("radar-chart"), {
+					        	    type: 'radar',
+					        	    data: {
+					        	      labels: ["항목1", "항목2", "항목3"],
+					        	      datasets: [
+					        	    	  appRader1,appRader2 
+					        	      ]
+			            	   		}
+			            	   }
+			               }else{
+			            	   new Chart(document.getElementById("radar-chart"), {
+					        	    type: 'radar',
+					        	    data: {
+					        	      labels: ["항목1", "항목2", "항목3"],
+					        	      datasets: [
+					        	    	  appRader1,appRader2 
+					        	      ]
+			            	   		}
+			            	   }
+			               }
+			        	    ,options: {
 			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 }, //maxTicksLimit data 최대값의 2배
 			        	    }
 			        	});
 			            $("#emotion-word-title1").text(data[0].appname)
 			               
-					},
-					error:function(){
+					}
+					}
+					,error:function(){
 						console.log(error)
 					}
 					

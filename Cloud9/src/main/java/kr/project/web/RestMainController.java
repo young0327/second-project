@@ -131,14 +131,11 @@ public class RestMainController {
 	
 	@GetMapping("/review/per")
 	public HashMap<String, String> reviewEmo (@Param("appid")String appid, @Param("emo")float emo) {
-		System.out.println("감성 점수"+emo);
 		String allCount = reviewService.allCn(appid);
 		String emoCount = reviewService.reviewEmo(appid,emo);
 		HashMap<String, String> emoMap = new HashMap<String, String>();
 		emoMap.put("allCount",allCount);
 		emoMap.put("emoCount",emoCount);
-		System.out.println("전체"+allCount);
-		System.out.println("감성"+emoCount);
 		return emoMap;
 	}
 	
