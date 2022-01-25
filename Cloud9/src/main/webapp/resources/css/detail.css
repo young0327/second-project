@@ -168,6 +168,15 @@ body{
     padding-top: 10px;
     padding-left: 10px;
     border-radius: 10px;
+      
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+   
+    
 }
 .helpful-top{
     margin-top: 10px;
