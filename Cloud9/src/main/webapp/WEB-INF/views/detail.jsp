@@ -276,7 +276,6 @@
     let appid = ${appinfo[0].appid}
 	let apppn = ${appinfo[0].apppn}
 	 let emo = ${appinfo[0].apppn};
-	 let emos = 
     </script>
         
         

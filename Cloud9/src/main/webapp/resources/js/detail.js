@@ -154,7 +154,7 @@
     		  type:"get",
     		  data:{"appid":appid},
     		  success:function(data){
-    			  for (let i =0; i<data.length; i++){
+    			  for (let i =0; i<4; i++){
     				  let reviews=
     					   '<div class="helpful-box">'+
                      		'<div class="helpful-inner">'+
@@ -461,11 +461,11 @@
     
      //감성 분석 확률
    $("#detailBtn2").on("click",function(){
-    	
+    	let emos = $("#emotionSelect").val()
     	  $.ajax({
     		  url:"review/per",
     		  type:"get",
-    		  data:{"appid":appid,"emo":emo},
+    		  data:{"appid":appid,"emo":emos},
     		  success:function(data){
 				let cul=data.emoCount/data.allCount*100
 					console.log(cul)
@@ -478,10 +478,11 @@
      });
      
     	 $("#emotionSelect").on('change',function(){
+			let emos = $("#emotionSelect").val()
          		$.ajax({
      	    		url:"review/per",
      	    		type:"get",
-     	    		data:{"appid":appid,"emo":emo},
+     	    		data:{"appid":appid,"emo":emos},
      	    		success:function(data){
 						let cul=data.emoCount/data.allCount*100
      	    			  $("#emotion-word-rate").text(cul.toFixed(1))

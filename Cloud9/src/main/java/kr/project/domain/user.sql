@@ -215,6 +215,7 @@ drop table wordcloud_table
 insert into wordcloud_table(app_id, mode_word, mode_count) values("1","호텔",11552)
 select * from wordcloud_table
 
-
-
+select count(*) from wordcloud_table where app_id =415597317
+select * from app_review_table where app_id =696690152
+select * from wordcloud_table where app_id =696690152
 SELECT * FROM app_review_table INNER JOIN app_table ON app_review_table.app_id = app_table.app_id WHERE app_table.app_name= "카카오뮤직";
