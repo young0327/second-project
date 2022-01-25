@@ -157,8 +157,7 @@
 	             </c:if>
               </ul>
              </div>
-            </div>
-
+	
             <div class="detail-mid-box">
               <div class="mid-list-box">
                 <ul class="mid-list-box-div row kr-font">
@@ -169,9 +168,9 @@
                   <li class="col-md-1"></li>
                   <li class="mid-list-box-list col-md-2" id="detailBtn3">워드클라우드</li>
                   <li class="col-md-1"></li>
-                 
                 </ul>
               </div>
+               </div>
               <div class="tab-box">
                 <div class="tab-inner-box">
                   <div class="tab-content-box tab-content-left">
@@ -616,8 +615,8 @@
 			    var chart = root.container.children.push(am5radar.RadarChart.new(root, {
 			      panX: false,
 			      panY: false,
-			      startAngle: 160,
-			      endAngle: 380
+			      startAngle: 180,
+			      endAngle: 360
 			    }));
 
 			    // Create axis and its renderer
