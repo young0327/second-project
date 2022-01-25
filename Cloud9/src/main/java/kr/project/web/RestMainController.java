@@ -184,4 +184,10 @@ public class RestMainController {
 	public void bookMarkDelete(String appid,String id) {
 	bookMarkService.bookMarkDelete(appid, id);
 	}
+	
+	@GetMapping("/bookmark/img")
+	public List<App>bookMarkImg(String id){
+		List<App>bookMarklist = appService.bookMarkImg(id);
+		return bookMarklist;
+	}
 }

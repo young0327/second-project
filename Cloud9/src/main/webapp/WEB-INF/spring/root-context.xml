@@ -11,7 +11,7 @@
 			<!-- XML파일 안에서는 태그를 사용하여 객체 생성 , bean은 객체를 생성하는 태그 id는 인스턴스-->	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://clouddb.cm7mv4rr5dod.us-east-2.rds.amazonaws.com/Cloud"/>
+		<property name="jdbcUrl" value="jdbc:mysql://cloud9.cyvilpxnyi7h.ap-northeast-2.rds.amazonaws.com/Cloud"/>
 		<property name="username" value="cloud"/>
 		<property name="password" value="99999999"/>
 	</bean>

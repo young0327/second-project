@@ -19,4 +19,5 @@ public interface AppMapper {
 	
 	public List<App> catePay(@Param("payD")String payD,@Param("payCate")String payCate);
 
+	public List<App> bookMarkImg(String id);
 }

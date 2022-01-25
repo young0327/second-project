@@ -104,15 +104,7 @@
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span><button class="detail-btn2" style="border:none; background:none;"><i class="fas fa-trash-alt" style="color:white;"></i></button></div>
-           	 <div class='myFavorite-inner'>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/1.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/2.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/wavve.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/5.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
+           	 <div class='myFavorite-inner' id= "myFavorite">
            	 </div>
            </div>
           <!-- Side Bar end--> 
@@ -923,6 +915,33 @@ am5.ready(function() {
      	    	});
           })
 	
+          
+     //즐겨찾기
+       $("document").ready(function(){
+    	  let id = "<c:out value ='${users.id}'/>"
+    		  $("#myFavorite").html("")
+    		  $.ajax({
+          		  url:"bookmark/img",
+          	  	  type:"get",
+          	  	  data:{"id":id},
+          	  	  success: function(data){
+          	  		  console.log(data)
+          	  		 
+          	  	for(let i=0; i<data.length;i++){
+          	  		let appicon = 
+          	  			'<div class="myIcon-box" id="'+data[i].appid+'">'+
+          	  			'<a href="detail.do?appid='+data[i].appid+'">'+
+          	  					'<img src="'+data[i].appicon+'">'+
+          	  				'</a>'+'</div>'
+          	  				$("#myFavorite").append(appicon)
+          	  	}
+         	  			
+          	  	  },
+          	  	  error:function(){
+          	  		  console.log("즐겨찾기 리스트 출력 실패")
+          	  	  }
+          	  	  })
+      })
 </script>
     
   </body>

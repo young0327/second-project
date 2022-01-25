@@ -104,15 +104,7 @@
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a kr-font" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
           <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span><button class="detail-btn2" style="border:none; background:none;"><i class="fas fa-trash-alt" style="color:white;"></i></button></div>
-           	 <div class='myFavorite-inner'>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/1.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/2.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/wavve.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/4.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/5.png"></div></a>
-           	 	<div class='myIcon-box'><a href="#"><img src="./resources/img/watcha.png"></div></a>
+           	 <div class='myFavorite-inner' id= "myFavorite">
            	 </div>
            </div>
           <!-- Side Bar end--> 
@@ -140,7 +132,14 @@
                 <div class="line likebox">
                   <div class="likebtn"><i class="fas fa-heart"></i></div>
                   <div class="likeWord">Like</div>
-                  <div class="kr-font">10,300</div>
+                  <c:choose>
+                  <c:when test="${empty appinfo[0].appprice}">
+                  <div class="kr-font">무료</div>
+                  </c:when>
+                  <c:otherwise>
+                  <div class="kr-font">${appinfo[0].appprice}</div>
+                  </c:otherwise>
+                  </c:choose>
                 </div>
               </div>
             </div>
@@ -390,6 +389,34 @@
           });
       });
       
+      //페이지 접속시 즐겨찾기 리스트 출력
+      $("document").ready(function(){
+    	  let id = "<c:out value ='${users.id}'/>"
+    		  $("#myFavorite").html("")
+    		  $.ajax({
+          		  url:"bookmark/img",
+          	  	  type:"get",
+          	  	  data:{"id":id},
+          	  	  success: function(data){
+          	  		  console.log(data)
+          	  		 
+          	  	for(let i=0; i<data.length;i++){
+          	  		let appicon = 
+          	  			'<div class="myIcon-box" id="'+data[i].appid+'">'+
+          	  			'<a href="detail.do?appid='+data[i].appid+'">'+
+          	  					'<img src="'+data[i].appicon+'">'+
+          	  					'</div>'+'</a>'
+          	  				$("#myFavorite").append(appicon)
+          	  	}
+         	  			
+          	  	  },
+          	  	  error:function(){
+          	  		  console.log("즐겨찾기 리스트 출력 실패")
+          	  	  }
+          	  	  })
+      })
+      
+      
       // 페이지 접속시 즐겨찾기 확인
       let bookYN="";
       $("document").ready(function(){
@@ -442,12 +469,14 @@
     	  })
       })
       
+      
  
       // 즐겨찾기 추가
       $(".likebtn").on("click",function(){
     	 let appid=$("#appid").text()
       	let id = "<c:out value ='${users.id}'/>"
-    	  		  if(bookYN==0){
+      	console.log($(".likebtn").attr("style"))
+    	  		  if( $(".likebtn").attr("style")=="color: black;"){
     	  			  $.ajax({
     	  				  url:"bookmark/enroll",
     	  				  type:"post",
@@ -455,6 +484,13 @@
     	  				  success:function(){
     	  					alert("관심있는 어플에 등록 되었습니다.");
     	  	    	 		$(".likebtn").css("color","red")
+    	  	    	 		appicon = 
+          	  			'<div class="myIcon-box" id="${appinfo[0].appid}">'+
+          	  			'<a href="detail.do?appid=${appinfo[0].appid}">'+
+          	  					'<img src="${appinfo[0].appicon}">'+
+          	  				'</a>'+'</div>'
+          	  				$("#myFavorite").append(appicon)
+    	  	    	 		
     	  				  },
     	  				  error:function(){
     	  					  console.log("관심어플 등록 실패")
@@ -467,10 +503,12 @@
    	  				  data:{"appid":appid,"id":id},
    	  				  success:function(){
    	  				 alert("관심있는 어플에 등록이 해제되었습니다.");
-   	    		  $(".likebtn").css("color","black")
+   	    		  $(".likebtn").css("color","black");
+   	    		  $("#${appinfo[0].appid}").attr('style',"display:none")
    	  				  },
    	  				  error:function(){
    	  					  console.log("관심어플 취소 실패")
+   	  					
    	  				  }
    	  			  })
     	  		  }

@@ -67,4 +67,9 @@
         </choose>
     </select>
     
+    <select id="bookMarkImg" resultMap="AppRM">
+        select app_table.app_id,app_table.img from app_table INNER JOIN bookmark_table on app_table.app_id = bookmark_table.app_id where bookmark_table.user_id = #{id} 
+    </select>
+    
+    
  </mapper>

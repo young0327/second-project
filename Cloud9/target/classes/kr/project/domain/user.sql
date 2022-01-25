@@ -13,8 +13,10 @@ CREATE TABLE bookmark_table
      PRIMARY KEY (BM_no)
 );
 
+alter table app_review_table drop column app_id
+select* from app_table
 
-
+select * from bookmark_table
 ALTER TABLE bookmark_table
     ADD CONSTRAINT FK_bookmark_table_app_id_app_table_app_id FOREIGN KEY (app_id)
         REFERENCES app_table (app_id) ON DELETE RESTRICT ON UPDATE RESTRICT;

@@ -1,8 +1,11 @@
 package kr.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.project.domain.App;
 import kr.project.mapper.BookMarkMapper;
 
 @Service
@@ -24,5 +27,6 @@ public class BookMarkService {
 	public void bookMarkDelete(String appid, String id) {
 		mapper.bookMarkDelete(appid,id);
 	}
+	
 	
 }

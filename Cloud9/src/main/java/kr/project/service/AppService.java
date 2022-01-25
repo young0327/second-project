@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import kr.project.domain.App;
 import kr.project.domain.AppImg;
@@ -37,6 +38,12 @@ public class AppService {
 	public List<App>catePay(String payD, String payCate){
 		List<App>catePayList = mapper.catePay(payD,payCate);
 		return catePayList;
+	}
+	
+	@GetMapping("/bookmark/img")
+	public List<App>bookMarkImg(String id){
+		List<App>bookMarklist = mapper.bookMarkImg(id);
+		return bookMarklist;
 	}
 	
 }
