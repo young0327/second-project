@@ -225,6 +225,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/bookmark.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/community.js"></script>
     
   </body>
 </html>

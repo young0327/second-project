@@ -159,7 +159,7 @@
     					   '<div class="helpful-box">'+
                      		'<div class="helpful-inner">'+
                         	'<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>' + data[i].reviewTitle +'</p></div>'+
-                        	'<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">'+data[i].appCrawlId +'</span><span style="margin-left:62%; color: rgb(161, 161, 161);">'+data[i].reviewDate+'</span></div>'+
+                        	'<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">'+data[i].appWriter +'</span><span style="margin-left:62%; color: rgb(161, 161, 161);">'+data[i].reviewDate+'</span></div>'+
                         	'<div class="kr-font" style="font-size:20px;"><p><i class="fas fa-star" style="font-size:18px; color:yellow;"></i>&nbsp' + data[i].reviewRating + '</p></div>'+
                         	'<div class="kr-font"><p>'+data[i].reviewContent+'</p>'+
                      		 '</div>'+

@@ -143,7 +143,6 @@ public class RestMainController {
 	public List<WordCloud> wordCount(String appid){
 		System.out.println("아이디:"+appid);
 		List<WordCloud> wordList = wordCloudService.wordCount(appid);
-		System.out.println(wordList);
 		return wordList;
 	}
 	
