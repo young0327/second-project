@@ -118,7 +118,7 @@
                   <input type="search" list="appOption1" id="compare1" autocomplete="off"><span>  </span>
                   <datalist id="appOption1">
                   </datalist>
-                  <button id ="vsbtn1"><i class="fas fa-search" style="font-size: 24px;"></i></button>
+                  <button id ="vsbtn1" style="background:none; border:none;"><i class="fas fa-search" style="font-size: 24px;"></i></button>
                 </div>
               </div>
           
