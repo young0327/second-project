@@ -178,7 +178,7 @@
                   ${appinfo[0].appinfo}
                   </div>
                   <div class="tab-content-box tab-content-right" id ="reviewbox">
-                    
+                    <h5 class="kr-font">도움이 되는 리뷰</h5>
                   </div>
                 </div>
               </div>
@@ -231,7 +231,7 @@
                 		</div>
                 	</div>
                 </div>
-                <div class='bottom-review-box'>
+                <div class='bottom-review-box'><h5 class="kr-font">감정에 따른 도움이 되는 리뷰</h5>
                 </div>
                 </div>
               
