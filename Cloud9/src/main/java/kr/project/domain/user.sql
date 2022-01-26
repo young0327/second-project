@@ -162,7 +162,7 @@ app_point1="2483",app_point2="3572",app_point3="1243",app_point4="4257",app_poin
 where app_name = "카카오뮤직";
 
 select*from app_table
-select*from app_review_table
+select*from wordcloud_table where app_id ="696690152"
 drop table app_review_table
 desc app_table
 desc test
@@ -183,7 +183,7 @@ update app_table set app_pn = 4.5 where app_id =1;
 update app_table set eva_score1 = 0.7
 update app_table set eva_score2 = 0.42
 update app_table set eva_score3 = 0.2
-select * from app_review_table where app_id="1129048043" order by date desc
+select * from app_review_table where app_id="1036141497"
 desc app_review_table
 select * from app_review_table where app_id="1354870453" order by date desc
 select * from app_table order by app_pn desc
@@ -202,8 +202,11 @@ update app_review_table set emo_result=0.2 ,h_rv="1" where review_no=4;
 update app_review_table set emo_result=0.1 ,h_rv="1" where review_no=5;
 update app_list set app_cate ="뮤직" where app_id =(select distinct app_id from app_review_table where app_cate="뮤직")
 select avg(review_rating) from app_review_table where app_id = 1 and review_date between DATE_SUB(now(), INTERVAL 1 Month) and now()
-
-
+select * from app_table
+select *from wordcloud_table where app_id=1345937284
+select *from app_review_table where app_id=1345937284
+select mode_word from wordcloud_table where app_id ="1060016122" order by mode_count desc limit 5
+select * from worldcloud_table
 update app_table set app_icon="http://localhost:8081/web/resources/logo/appv.png" where app_id =4
 update app_table set eva_score1 =0.2, eva_score2=0.8, eva_score3=0.4 where app_id = 4
 select * from app_table where app_id ="415597317"
@@ -214,7 +217,7 @@ desc wordcloud_table
 drop table wordcloud_table
 insert into wordcloud_table(app_id, mode_word, mode_count) values("1","호텔",11552)
 select * from wordcloud_table
-
+select * from wordcloud_table inner join app_table on wordcloud_table.app_id = app_table.app_id where app_cate ="MF" order by mode_count desc 
 select count(*) from wordcloud_table where app_id =415597317
 select * from app_review_table where app_id =696690152
 select * from wordcloud_table where app_id =696690152

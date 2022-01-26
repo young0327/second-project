@@ -16,9 +16,11 @@ import kr.project.domain.App;
 import kr.project.domain.AppImg;
 import kr.project.domain.Board;
 import kr.project.domain.User;
+import kr.project.domain.WordCloud;
 import kr.project.service.AppService;
 import kr.project.service.BoardService;
 import kr.project.service.UserService;
+import kr.project.service.WordCloudService;
 
 @Controller	
 public class mainController {
@@ -29,6 +31,8 @@ public class mainController {
 	BoardService boardService;
 	@Autowired
 	AppService appService;
+	@Autowired
+	WordCloudService wordcloudService;
 	
 	@RequestMapping("/main")
 	public String main() { // http://127.0.0.1:8081/web/1

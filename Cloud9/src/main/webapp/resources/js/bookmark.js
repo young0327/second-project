@@ -1,5 +1,6 @@
  $("document").ready(function(){
     	  let id = sessionStorage.getItem("users")
+    	  console.log(id)
     		  $("#myFavorite").html("")
     		  $.ajax({
           		  url:"bookmark/img",

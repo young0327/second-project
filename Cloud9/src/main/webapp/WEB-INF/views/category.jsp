@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -113,29 +114,25 @@
             		 <div class="kr-font result-alert"><p><span style="font-size: 32px; color: rgb(23, 69, 79); font-weight: 700;">사진/비디오</span> 카테고리</p></div>
             	</c:when>
             	</c:choose>
-            <div class="kr-font" style="margin-right:80%;">
-              <select style="border: none; background-color: #eee; border-radius: 10px; font-size: 20px;" id ="paySelect">
-                <option value="${cateList[0].appcate}">전체</option>
-                <option value="F">무료</option>
-                <option value="P">유료</option>
-              </select>
-            </div>
+           
             <div class="categoryBox">
             <c:forEach items="${cateList}" var="cateList">
             <div class="result-box row">
               <div class="app-icon-img col-md-3"><img src=${cateList.appicon}></div>
               <div class="kr-font app-content-box col-md-9">
-                <h5 class="kr-font"><a href="detail.do?appid=${cateList.appid}" style="color:black;">${cateList.appname}</a></h5	>
+                <h5 class="kr-font"><a href="detail.do?appid=${cateList.appid}" style="color:black;">${cateList.appname}</a></h5>
                 <p class="kr-font" style="font-size: 23px;">${cateList.apprating}
+                <span class="applicationid" style="display:none">${cateList.appid}</span>
                 <c:choose>
 	                <c:when test="${empty cateList.appprice}">
 	               <span style="font-size: 15px;">&nbsp&nbsp&nbsp 무료</span>
 	                </c:when>
 	                <c:otherwise>
+	                <span class="hashtag"></span>
 	                <span style="font-size: 15px;">&nbsp&nbsp&nbsp ${cateList.appprice}원</span>
 	                </c:otherwise>
-				</c:choose>               
-               </p><p class="word" style="margin-left: 500px; margin-top: -40px;">${cateList.appcompany}</p>
+				</c:choose>
+               </p><p class="word" style="margin-left: 500px; margin-top: -60px;">${cateList.appcompany}</p>
                 </div>
             </div>
             </c:forEach>
@@ -144,9 +141,19 @@
         </div>
       </div>  
     </div>
-
+	
     <script>
+   
   	let payCate ='<c:out value='${cateList[0].appcate}'/>'
+ 	let appids = '<c:out value='${fn:length(cateList)}'/>'
+  	let applist=[]
+ 	
+ 	for(let i =0; i<appids; i++){
+ 		
+ 		
+ 		applist.push('<c:out value='${cateList[i].appid}'/>')
+ 	}
+ 	console.log(applist)
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -157,6 +164,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/modal.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/cateprice.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/hashtag.js"></script>
      
   </body>
 </html>

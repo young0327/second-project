@@ -1,6 +1,7 @@
 package kr.project.web;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -190,4 +191,11 @@ public class RestMainController {
 		List<App>bookMarklist = appService.bookMarkImg(id);
 		return bookMarklist;
 	}
+	
+	/*@GetMapping("/hashtag")
+	public List<WordCloud>hashtag(String appid){
+		List<WordCloud>hashlist =wordCloudService.hashtag(appid); 
+		System.out.println(hashlist);
+		return hashlist;
+	}*/
 }

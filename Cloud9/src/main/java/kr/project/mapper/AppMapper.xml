@@ -11,7 +11,7 @@
 		<result property="apprating" column="rating"/> 
 		<result property="appinfo" column="des"/> 
 		<result property="appurl" column="app_url"/>
-		<result property="apppoint1" column=" rating_1"/> 
+		<result property="apppoint1" column="rating_1"/> 
 		<result property="apppoint2" column="rating_2"/> 
 		<result property="apppoint3" column="rating_3"/> 
 		<result property="apppoint4" column="rating_4"/> 

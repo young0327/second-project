@@ -114,7 +114,7 @@
           <div class="main-content-carousel shadow p-3 mb-5 bg-white rounded">
             <div class="detail-top-box row">
               <div class="line detailtop-icon detailtop col-md-3">
-                <div class="iconbox"><img src="${appinfo[0].appicon}"></div>
+                <div class="iconbox"><img class="iconimg" src="${appinfo[0].appicon}"></div>
                 <span id="appid"style="display:none">${appinfo[0].appid}</span>
               </div>
               <div class="line detailtop-name row detailtop col-md-7">

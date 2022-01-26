@@ -37,7 +37,6 @@
 				type: "get",
 				data : loginData,
 				success : function(YN){
-					console.log(YN)
 					if(YN=="y"){
 						location.reload();
 					}else{
@@ -126,14 +125,13 @@
       let bookYN="";
       $("document").ready(function(){
     	  let appid=$("#appid").text()
-        	let id = "<c:out value ='${users.id}'/>"
+        	 let id = sessionStorage.getItem("users")
       	  $.ajax({
       		  url:"bookmark/list",
       	  	  type:"get",
       	  	  data:{"appid":appid, "id":id},
       	  	  success: function(data){
       	  		  bookYN=data
-      	  		  console.log(bookYN)
       	  		if(data==0){
       	  		$(".likebtn").css("color","black")
       	  		}else{
@@ -154,18 +152,34 @@
     		  type:"get",
     		  data:{"appid":appid},
     		  success:function(data){
-    			  for (let i =0; i<4; i++){
-    				  let reviews=
-    					   '<div class="helpful-box">'+
-                     		'<div class="helpful-inner">'+
-                        	'<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>' + data[i].reviewTitle +'</p></div>'+
-                        	'<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">'+data[i].appWriter +'</span><span style="margin-left:62%; color: rgb(161, 161, 161);">'+data[i].reviewDate+'</span></div>'+
-                        	'<div class="kr-font" style="font-size:20px;"><p><i class="fas fa-star" style="font-size:18px; color:yellow;"></i>&nbsp' + data[i].reviewRating + '</p></div>'+
-                        	'<div class="kr-font"><p>'+data[i].reviewContent+'</p>'+
-                     		 '</div>'+
-                    		'</div>';
-    				  
-    				  $("#reviewbox").append(reviews);
+    		  if(data==0){
+    		  for (let i =0; i<4; i++){
+	    				  let reviews=
+	    					   '<div class="helpful-box">'+
+	                     		'<div class="helpful-inner">'+
+	                        	'<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAppV:가 도움이 될만한 리뷰를 수집 중입니다&nbsp:)</p>'+'</div>'+
+	                        	'<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400"></span><span style="margin-left:62%; color: rgb(161, 161, 161);"></span></div>'+
+	                        	'<div class="kr-font" style="font-size:20px;"><p></p></div>'+
+	                        	'<div class="kr-font"><p></p>'+
+	                     		 '</div>'+
+	                    		'</div>';
+	    				  
+	    				  $("#reviewbox").append(reviews);
+	    				  }
+    		  }else{
+	    			 for (let i =0; i<4; i++){
+	    				  let reviews=
+	    					   '<div class="helpful-box">'+
+	                     		'<div class="helpful-inner">'+
+	                        	'<div class="helpful-top kr-font" style="font-weight:700; font-size:20px;"><p>' + data[i].reviewTitle +'</p>'+'</div>'+
+	                        	'<div class="kr-font" style="margin-top:-10px;"><span style="font-weight:400">'+data[i].appWriter +'</span><span style="margin-left:62%; color: rgb(161, 161, 161);">'+data[i].reviewDate+'</span></div>'+
+	                        	'<div class="kr-font" style="font-size:20px;"><p><i class="fas fa-star" style="font-size:18px; color:yellow;"></i>&nbsp' + data[i].reviewRating + '</p></div>'+
+	                        	'<div class="kr-font"><p>'+data[i].reviewContent+'</p>'+
+	                     		 '</div>'+
+	                    		'</div>';
+	    				  
+	    				  $("#reviewbox").append(reviews);
+	    			  }
     			  }
     		  },
     		  error:function(){
@@ -178,9 +192,9 @@
  
       // 즐겨찾기 추가
       $(".likebtn").on("click",function(){
-    	 let appid=$("#appid").text()
-      	let id = "<c:out value ='${users.id}'/>"
-      	console.log($(".likebtn").attr("style"))
+    	 let appids=$("#appid").text()
+    	 let id = sessionStorage.getItem("users")
+    	 let urls = $(".iconimg").attr("src")
     	  		  if( $(".likebtn").attr("style")=="color: black;"){
     	  			  $.ajax({
     	  				  url:"bookmark/enroll",
@@ -190,9 +204,9 @@
     	  					alert("관심있는 어플에 등록 되었습니다.");
     	  	    	 		$(".likebtn").css("color","red")
     	  	    	 		appicon = 
-          	  			'<div class="myIcon-box" id="${appinfo[0].appid}">'+
-          	  			'<a href="detail.do?appid=${appinfo[0].appid}">'+
-          	  					'<img src="${appinfo[0].appicon}">'+
+          	  			'<div class="myIcon-box" id="'+appids+'">'+
+          	  			'<a href="detail.do?appid="'+appids+'">'+
+          	  					'<img src="'+urls+'">'+
           	  				'</a>'+'</div>'
           	  				$("#myFavorite").append(appicon)
     	  	    	 		
@@ -209,7 +223,7 @@
    	  				  success:function(){
    	  				 alert("관심있는 어플에 등록이 해제되었습니다.");
    	    		  $(".likebtn").css("color","black");
-   	    		  $("#${appinfo[0].appid}").attr('style',"display:none")
+   	    		  $('#'+appids).attr("style","display:none")
    	  				  },
    	  				  error:function(){
    	  					  console.log("관심어플 취소 실패")
@@ -442,14 +456,15 @@
 	    		type:"get",
 	    		data:{"appid":appid,"apppn":apppn},
 	    		success:function(data){
-	    			  for (let i =0; i<4; i++){
+	    		console.log(data)
+	    		let size = data.length
+	    			  for (let i = size-1; i>size-4; i--){
 	    				  let reviews=
 	    					  '<div class="review-box kr-font">'+
 	                  				'<div class="review-inner" style="text-align:left;">'+
-	                  					'<p style="font-size:20px;">'+data[i].reviewRating+'</p>'+
-	                  					'<p>'+data[i].reviewContent+'</p>'+
-	                  				'</div>'+
-	                    		'</div>';
+	                  					'<p style="font-size:20px;">'+data[i].reviewTitle+'</p>'+
+	                  					'<p>'+data[i].reviewContent+'</p>'+'</div>'+'</div>'
+	                    		;
 	    				  $(".bottom-review-box").append(reviews);
 	    			  	}
 	    			  },
@@ -468,7 +483,6 @@
     		  data:{"appid":appid,"emo":emos},
     		  success:function(data){
 				let cul=data.emoCount/data.allCount*100
-					console.log(cul)
     			  $("#emotion-word-rate").text(cul.toFixed(1))
     		  },
     		  error:function(){
@@ -498,4 +512,3 @@
 <!-- Chart code -->
 
 
-// end am5.ready()

@@ -1,5 +1,7 @@
 package kr.project.domain;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data

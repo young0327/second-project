@@ -18,4 +18,7 @@ public class WordCloudService {
 		List<WordCloud>wordList =mapper.wordCount(appid);
 		return wordList;
 	}
+
+	
 }
+

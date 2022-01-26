@@ -1,8 +1,5 @@
 $("#paySelect").on("change",function(){
     	let payD = $(this).val();
-    	
-    	  console.log("payD:"+payD)
-    	  console.log("payCate:"+payCate)
     	  $.ajax({
     		  url:"cate/pay",
     		  type:"get",

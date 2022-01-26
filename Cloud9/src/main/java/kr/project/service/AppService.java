@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import kr.project.domain.App;
 import kr.project.domain.AppImg;
+import kr.project.domain.WordCloud;
 import kr.project.mapper.AppMapper;
 
 @Service
@@ -40,10 +41,12 @@ public class AppService {
 		return catePayList;
 	}
 	
-	@GetMapping("/bookmark/img")
 	public List<App>bookMarkImg(String id){
 		List<App>bookMarklist = mapper.bookMarkImg(id);
 		return bookMarklist;
 	}
+	
+	
+	
 	
 }

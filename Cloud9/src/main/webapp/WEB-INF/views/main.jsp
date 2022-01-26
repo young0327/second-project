@@ -66,7 +66,7 @@
                 <div class="inner-content-box">
                   <div class="flaticon"><i class="fas fa-edit"></i></div>
                   <p class="main-title-word font-kr">카테고리 이동하기</p>
-                  <a href="category.do?M"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
+                  <a href="category.do?MF"><div class="direct-go"><p class="font-kr">바로가기  </p></div></a>
                 </div>
               </div>
               </div>
