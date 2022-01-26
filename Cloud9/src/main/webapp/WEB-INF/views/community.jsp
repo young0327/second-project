@@ -142,14 +142,14 @@
        		</c:otherwise>
        		</c:choose>	
        <c:choose>
-      	<c:when  test ="${!empty users.nick}">
-      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en" href="logout.do"><i class="fas fa-sign-out-alt"></i>>LOGOUT</a></div>
-      		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
-      	</c:when>
-      	<c:otherwise>
-      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en" href="logout.do"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></div>
-      		  <div style="text-align: right; display:block;" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
-      	</c:otherwise>
+	     <c:when  test ="${!empty users.nick}">
+	      		<div style='margin-left:30px; margin-top:23px; display:block' ><button class="nav-font-enlg" id ="logout"><i class="fas fa-sign-out-alt"></i>LOGOUT</button></div>
+	      		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
+	      	</c:when>
+	      	<c:otherwise>
+	      	      <div style='margin-left:30px; margin-top:23px; display:none' ><button class="nav-font-enlg" id ="logout"><i class="fas fa-sign-out-alt"></i>LOGOUT</button></div>
+	      	      <div style="text-align: right; display:block" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
+	      	</c:otherwise>
       </c:choose>
     </div>
   </nav>
@@ -172,7 +172,7 @@
             <li class="sidebar-personal-list"><i class="icon far fa-comment-alt"></i><a class="list-a kr-font writing">글 작성</a></li>
            </ul>
            
-           <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span></div>
+           <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white; padding-right: 17px;"><span>즐겨찾기<span></div>
            	<div class='myFavorite-inner' id= "myFavorite">
            	 </div>
            </div>
@@ -226,6 +226,11 @@
     <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/bookmark.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/community.js"></script>
-    
+      <script>
+ 	$("#logout").on("click",function(){
+ 		sessionStorage.clear()
+ 		location.href="logout.do"
+ 	});
+    </script>
   </body>
 </html>

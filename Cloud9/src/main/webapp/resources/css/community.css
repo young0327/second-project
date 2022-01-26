@@ -329,5 +329,13 @@ body{
     display: none;
   }
  
+  .nav-font-enlg{
+  font-family: 'Nunito', sans-serif;
+  color:black;
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding-top:-10px;
   
+}
 }

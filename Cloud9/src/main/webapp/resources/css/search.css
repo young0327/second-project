@@ -26,7 +26,7 @@
   margin-top: 30px;
   padding: 5px;
   width: 80%;
-  height: 15%;
+  height: 12%;
   margin-right: auto;
   margin-left: 100px;
   background-color: rgb(233, 246, 250);
@@ -60,4 +60,13 @@
   color: rgb(135, 134, 134);
 }
 
+.nav-font-enlg{
+  font-family: 'Nunito', sans-serif;
+  color:black;
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding-top:-10px;
+  
+}
 /*result box */

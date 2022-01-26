@@ -28,37 +28,7 @@
      })
      
        
-      // 로그인 확인 및 설정 
-      $(document).on('click','#btn_Login',function(){
-		if($('#id').val()!="" && $('#pwd').val()!=""){
-			let loginData=$("#frm").serialize();
-			$.ajax({ 
-				url:"user/login",
-				type: "get",
-				data : loginData,
-				success : function(YN){
-					if(YN=="y"){
-						location.reload();
-					}else{
-						alert("아이디와 비밀번호를 확인해 주세요");
-					}
-				},
-				error : function(){
-					alert("아이디와 비밀번호를 확인해 주세요");
-				}
-			});
-			
-		}else{
-			
-			if($('#id').val()==""){
-				alert("아이디를 입력해 주세요")
-			}
-			
-			if($('#pwd').val()==""){
-				alert("비밀번호를 입력해 주세요")
-			}
-		}
-	});
+      
 
  
       $(document).ready(function(){
@@ -192,15 +162,16 @@
  
       // 즐겨찾기 추가
       $(".likebtn").on("click",function(){
+      let id = sessionStorage.getItem("users")
     	 let appids=$("#appid").text()
-    	 let id = sessionStorage.getItem("users")
     	 let urls = $(".iconimg").attr("src")
     	  		  if( $(".likebtn").attr("style")=="color: black;"){
     	  			  $.ajax({
     	  				  url:"bookmark/enroll",
     	  				  type:"post",
     	  				  data:{"appid":appid,"id":id},
-    	  				  success:function(){
+    	  				  success:function(data){
+    	  				  if(data=="Y"){
     	  					alert("관심있는 어플에 등록 되었습니다.");
     	  	    	 		$(".likebtn").css("color","red")
     	  	    	 		appicon = 
@@ -209,7 +180,9 @@
           	  					'<img src="'+urls+'">'+
           	  				'</a>'+'</div>'
           	  				$("#myFavorite").append(appicon)
-    	  	    	 		
+    	  	    	 	}else{
+    	  	    	 		alert("로그인 후 이용해 주세요");
+    	  	    	 	}	
     	  				  },
     	  				  error:function(){
     	  					  console.log("관심어플 등록 실패")
@@ -231,9 +204,8 @@
    	  				  }
    	  			  })
     	  		  }
-    	  })
-      
-
+    	  		  
+ })
       
       //도넛차트
     

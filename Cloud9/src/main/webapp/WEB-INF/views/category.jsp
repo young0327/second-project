@@ -67,11 +67,11 @@
       
       <c:choose>
       	<c:when  test ="${!empty users.nick}">
-      		<div style='margin-left:30px; margin-top:23px; display:block' ><a class="nav-font-en" href="logout.do"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></div>
+      		<div style='margin-left:30px; margin-top:23px; display:block' ><button class="nav-font-enlg" id ="logout"><i class="fas fa-sign-out-alt"></i>LOGOUT</button></div>
       		<div style="text-align: right; display:none" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
       	</c:when>
       	<c:otherwise>
-      	      <div style='margin-left:30px; margin-top:23px; display:none' ><a class="nav-font-en" href="logout.do"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></div>
+      	      <div style='margin-left:30px; margin-top:23px; display:none' ><button class="nav-font-enlg" id ="logout"><i class="fas fa-sign-out-alt"></i>LOGOUT</button></div>
       	      <div style="text-align: right; display:block" class="col-sm-1 loginbox"><a class="nav-font-en" onclick="location.href='register.do'"><i class="fas fa-users-cog"></i>Register</a></div>
       	</c:otherwise>
       </c:choose>
@@ -94,7 +94,7 @@
             <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="compare.do">유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
-          <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span></div>
+          <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white; padding-right: 17px;"><span>즐겨찾기<span></div>
            		<div class='myFavorite-inner' id= "myFavorite">
            	 </div>
            </div>
@@ -142,19 +142,6 @@
       </div>  
     </div>
 	
-    <script>
-   
-  	let payCate ='<c:out value='${cateList[0].appcate}'/>'
- 	let appids = '<c:out value='${fn:length(cateList)}'/>'
-  	let applist=[]
- 	
- 	for(let i =0; i<appids; i++){
- 		
- 		
- 		applist.push('<c:out value='${cateList[i].appid}'/>')
- 	}
- 	console.log(applist)
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -165,6 +152,11 @@
     <script src="${pageContext.request.contextPath}/resources/js/catescroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/cateprice.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/hashtag.js"></script>
-     
+       <script>
+ 	$("#logout").on("click",function(){
+ 		sessionStorage.clear()
+ 		location.href="logout.do"
+ 	});
+    </script>
   </body>
 </html>

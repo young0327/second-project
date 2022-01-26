@@ -177,8 +177,15 @@ public class RestMainController {
 	}
 	
 	@PostMapping("bookmark/enroll")
-	public void bookMarkEnroll(String appid,String id) {
+	public String bookMarkEnroll(String appid,String id) {
+		String YNN="";
+		if(id !="") {
+		 YNN="Y";
 	bookMarkService.bookMarkEnroll(appid,id);
+	}else {
+		 YNN="N";
+	}
+	return YNN;
 	}
 	
 	@DeleteMapping("bookmark/cancel")
@@ -192,10 +199,4 @@ public class RestMainController {
 		return bookMarklist;
 	}
 	
-	/*@GetMapping("/hashtag")
-	public List<WordCloud>hashtag(String appid){
-		List<WordCloud>hashlist =wordCloudService.hashtag(appid); 
-		System.out.println(hashlist);
-		return hashlist;
-	}*/
 }

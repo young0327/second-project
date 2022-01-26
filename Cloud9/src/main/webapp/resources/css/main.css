@@ -135,6 +135,17 @@
   font-family: 'Nunito', sans-serif;
   color:black;
 }
+
+.nav-font-enlg{
+  font-family: 'Nunito', sans-serif;
+  color:black;
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding-top:-10px;
+  
+}
+
 .top-icon-btn{
   border-radius: 50px;
   margin-top: -10px;
