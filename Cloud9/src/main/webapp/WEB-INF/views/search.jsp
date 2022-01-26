@@ -80,7 +80,7 @@
     <!-- Navbar end-->
     <!-- Side Bar Start-->
     <div class="main-box">
-      <div class="main-sub row">
+      <div class="main-sub row" id="main-sub">
         <div class="sidebar col-sm-2" id="List">
           <ul class="sidebar-list">
             <li class="sidebar-personal-list" ><i class="icon fas fa-home"></i><a class="list-a kr-font" href="main">홈 화면
