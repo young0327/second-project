@@ -169,7 +169,8 @@
   max-width: 250px;
   min-width: 150px;
   position:fixed;
-  padding-left:-20px
+  padding-left:-20px;
+  margin-left:-30px;
 }
 .sidebar-list{
   padding-top: 30px;
