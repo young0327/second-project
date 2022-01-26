@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>AppV</title>
     <style>
       #chartdiv{
         width: 100%;
@@ -177,7 +178,7 @@
                   ${appinfo[0].appinfo}
                   </div>
                   <div class="tab-content-box tab-content-right" id ="reviewbox">
-                    
+                    <h5 class="kr-font">도움이 되는 리뷰</h5>
                   </div>
                 </div>
               </div>
@@ -230,7 +231,7 @@
                 		</div>
                 	</div>
                 </div>
-                <div class='bottom-review-box'>
+                <div class='bottom-review-box'><h5 class="kr-font">감정에 따른 도움이 되는 리뷰</h5>
                 </div>
                 </div>
               

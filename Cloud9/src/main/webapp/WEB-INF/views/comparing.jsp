@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title>AppV</title>
     <style>
     	 #chartdiv{
           width: 100%;
@@ -118,7 +118,7 @@
                   <input type="search" list="appOption1" id="compare1" autocomplete="off"><span>  </span>
                   <datalist id="appOption1">
                   </datalist>
-                  <button id ="vsbtn1"><i class="fas fa-search" style="font-size: 24px;"></i></button>
+                  <button id ="vsbtn1" style="border:none;background:none;"><i class="fas fa-search" style="font-size: 24px;"></i></button>
                 </div>
               </div>
           
