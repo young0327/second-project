@@ -94,7 +94,7 @@
             <li class="sidebar-personal-list"><i class="icon fas fa-not-equal"></i><a class="list-a font-kr" href="compare.do">유사앱 비교</a></li>
             <li class="sidebar-personal-list" ><i class="icon far fa-comments"></i><a class="list-a font-kr" href="community.do?category=category0">커뮤니티</a></li>
           </ul>
-          <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span><button class="detail-btn2" style="border:none; background:none;" id="bookmarkbtn"><i class="fas fa-trash-alt" style="color:white;"></i></button></div>
+          <div class='myFavorite-box kr-font'><div class="kr-font" style="color:white;"><span>즐겨찾기<span></div>
            	<div class='myFavorite-inner' id= "myFavorite">
            	 </div>
            </div>

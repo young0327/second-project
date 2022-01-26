@@ -179,7 +179,7 @@
     $("#boardDelete").on("click",function(){
    	  let ps = $('.md');
    	   let id1= $(ps[2]).html()
-   	   let id="<c:out value='${users.id}'/>"
+   	   let id = sessionStorage.getItem("users")
    	   if (id1!=id){
    		   modifyModal.style.display = 'none';
    		   alert("작성자만 글을 삭제 할 수 있습니다.")

@@ -22,21 +22,4 @@
           	  	  }
           	  	  })
       })
-  	//즐겨찾기 삭제
-      $("#bookmarkbtn").on("click",function(){
-    	  let appid=$("#myFavorite").children().first().attr("id")
-    	  let id = "<c:out value ='${users.id}'/>"
-    	  console.log(appid)
-    		  $.ajax({
-	  				  url:"bookmark/cancel",
-	  				  type:"delete",
-	  				  data:{"appid":appid,"id":id},
-	  				  success:function(){
-	  			$("#myFavorite").children().first().attr('style',"display:none")
-	  				  },
-	  				  error:function(){
-	  					  console.log("관심어플 취소 실패")
-	  					
-	  				  }
-	  			  })
-      })
+  	

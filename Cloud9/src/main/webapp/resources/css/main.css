@@ -146,8 +146,9 @@
 /******** main-box *********/
 .main-box{
   width: 100vw;
-  height: 1000px;
+  height: 75vh;
   margin-left: 20px;
+  padding-left: 15px;
   text-align: center;
   background-color: #eee;
 }

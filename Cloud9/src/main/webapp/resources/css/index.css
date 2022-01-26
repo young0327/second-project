@@ -11,8 +11,10 @@ body{
 /******** main-box *********/
 .main-box{
   width: 100vw;
-  height: 100vh;
+  height:100vh;
   text-align: center;
+  background-position: center;
+  padding-left: 15px;
   background-image: url('../assets/darkness.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -121,6 +123,7 @@ body{
   border-radius: 30px;
   box-shadow: gray 2px 2px 2px 2px;
   padding: 30px;
+  padding-top: 0px;
 }
 .content-go:hover{
   background:linear-gradient(rgb(171, 171, 171),rgb(96, 96, 96));
