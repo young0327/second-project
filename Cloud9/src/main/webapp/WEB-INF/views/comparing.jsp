@@ -634,9 +634,9 @@ am5.ready(function() {
 			               appemo1=data[0].apppn
 			               appid1=data[0].appid
 			               
-			               let score1=data[0].evascore1*10.toFixed(1)
-			               let score2=data[0].evascore2*10.toFixed(1)
-			               let score3=data[0].evascore3*10.toFixed(1)
+			               let score1=data[0].evascore1*10
+			               let score2=data[0].evascore2*10
+			               let score3=data[0].evascore3*10
 			            appRader1={
 				        	          label: data[0].appname,
 				        	          fill: true,
