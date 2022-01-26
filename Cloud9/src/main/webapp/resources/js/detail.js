@@ -430,7 +430,7 @@
 	    		success:function(data){
 	    		console.log(data)
 	    		let size = data.length
-	    			  for (let i = size-1; i>size-4; i--){
+	    			  for (let i = size-1; i>size-5; i--){
 	    				  let reviews=
 	    					  '<div class="review-box kr-font">'+
 	                  				'<div class="review-inner" style="text-align:left;">'+
