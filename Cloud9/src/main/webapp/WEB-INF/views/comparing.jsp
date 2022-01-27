@@ -134,9 +134,10 @@
               </div>
               <div class="compare-search-box">
                 <div class="search-inner-box">
-                  <input type="search" list="appOption2" id="compare2" autocomplete="off"><span>  </span><i class="fas fa-search" style="font-size: 24px;"></i>
+                  <input type="search" list="appOption2" id="compare2" autocomplete="off"><span>  </span>
                    <datalist id="appOption2">
                   </datalist>
+                  <button id ="vsbtn2" style="border:none;background:none;"><i class="fas fa-search" style="font-size: 24px;"></i>
                 </div>
               </div>
               <div class="compare-icon-box" id="iconbox1">
@@ -241,15 +242,14 @@
 	        display: true,
 	        text: '두 가지 앱을 비교해 보세요!'
 	      },
-	      /*ticks:{
-	    	  beginAtZero:true,
-	    	  min:0,
-	    	  max:5,
-	    	  stepSize:1
-	      }*/
-	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 } //maxTicksLimit data 최대값의 2배
+	      scale:{
+	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+	    	pointLabels:{
+	    		fontSize:18,
+	    		fontColor: '#000000'
+	    	}
 			}
-	    
+	    }
 	});
 	
 	</script>
@@ -659,7 +659,13 @@ am5.ready(function() {
 			        	      ]
 			        	    },
 			        	    options: {
-			        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+			        	    	  scale:{
+			        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+			        	  	    	pointLabels:{
+			        	  	    		fontSize:18,
+			        	  	    		fontColor: '#000000'
+			        	  	    	}
+			        	  			}
 			        	    }
 			        	})
 			               }else if(cate1=="P"){
@@ -672,7 +678,13 @@ am5.ready(function() {
 					        	      ]
 					        	    },
 					        	    options: {
-					        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+					        	    	 scale:{
+						        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+						        	  	    	pointLabels:{
+						        	  	    		fontSize:18,
+						        	  	    		fontColor: '#000000'
+						        	  	    	}
+						        	  			}
 					        	    }
 					        	})
 			               }else{
@@ -685,7 +697,13 @@ am5.ready(function() {
 					        	      ]
 					        	    },
 					        	    options: {
-					        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+					        	    	 scale:{
+						        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+						        	  	    	pointLabels:{
+						        	  	    		fontSize:18,
+						        	  	    		fontColor: '#000000'
+						        	  	    	}
+						        	  			}
 					        	    }
 					        	})
 			               }
@@ -734,6 +752,154 @@ am5.ready(function() {
 			
 			}
 	})
+	
+	
+	$("#vsbtn1").on("click",function(){
+		let compareApp1 = $("#compare1").val();
+		let cate1= $("#compareCate").val();
+		$.ajax({
+			url:"compare/app",
+			type:"get",
+			data:{"appname":compareApp1},
+			async: false,
+			success:function(data){
+				$("#iconbox1").html("")
+				$("#ratingbox1").html("")
+				let icon ='<div class="icon-inner-box">'+
+	                  '<div class="icon-img"><img src="'+data[0].appicon+'" style="border: 3px solid gray;border-radius: 7px;"></div>'+
+	                  '<div>'+'<p>'+data[0].appname+'</p>'+'</div>'+
+	                '</div>'
+				$("#iconbox1").append(icon);
+	             
+	            let rate ='<div class="rating-inner-box">'+
+                  '<div class="ratings">'+
+                  '<h4>'+data[0].apprating.toFixed(1)+'</h4>'+'</div>'+
+	               '</div>'
+	            $("#ratingbox1").append(rate);
+	               
+	               appemo1=data[0].apppn
+	               appid1=data[0].appid
+	               
+	               let score1=data[0].evascore1*10
+	               let score2=data[0].evascore2*10
+	               let score3=data[0].evascore3*10
+	            appRader1={
+		        	          label: data[0].appname,
+		        	          fill: true,
+		        	          backgroundColor: "rgba(179,181,198,0.2)",
+		        	          borderColor: "rgba(179,181,198,1)",
+		        	          pointBorderColor: "#fff",
+		        	          pointBackgroundColor: "rgba(179,181,198,1)",
+		        	          data: [score1, score2, score3]
+		        	        }
+	             
+	               console.log(cate1)
+	               
+	               if(cate1 =="M"){
+	               new Chart(document.getElementById("radar-chart"), {
+	        	    type: 'radar',
+	        	    data: {
+	        	      labels: ["디자인", "기능", "가격"],
+	        	      datasets: [
+	        	    	  appRader1,appRader2 
+	        	      ]
+	        	    },
+	        	    options: {
+	        	    	 scale:{
+		        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+		        	  	    	pointLabels:{
+		        	  	    		fontSize:18,
+		        	  	    		fontColor: '#000000'
+		        	  	    	}
+		        	  			}
+	        	    }
+	        	})
+	               }else if(cate1=="P"){
+	            	   new Chart(document.getElementById("radar-chart"), {
+			        	    type: 'radar',
+			        	    data: {
+			        	      labels: ["기능 및 디자인", "서비스", "CS"],
+			        	      datasets: [
+			        	    	  appRader1,appRader2 
+			        	      ]
+			        	    },
+			        	    options: {
+			        	    	 scale:{
+				        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+				        	  	    	pointLabels:{
+				        	  	    		fontSize:18,
+				        	  	    		fontColor: '#000000'
+				        	  	    	}
+				        	  			}
+			        	    }
+			        	})
+	               }else{
+	            	   new Chart(document.getElementById("radar-chart"), {
+			        	    type: 'radar',
+			        	    data: {
+			        	      labels: ["기능 및 디자인 ", "혜택", "CS"],
+			        	      datasets: [
+			        	    	  appRader1,appRader2 
+			        	      ]
+			        	    },
+			        	    options: {
+			        	    	 scale:{
+				        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+				        	  	    	pointLabels:{
+				        	  	    		fontSize:18,
+				        	  	    		fontColor: '#000000'
+				        	  	    	}
+				        	  			}
+			        	    }
+			        	})
+	               }
+	               
+	            $("#emotion-word-title1").text(data[0].appname)
+	               
+			},
+			error:function(){
+				console.log(error)
+			}
+			
+		});
+		let Emo1=1
+		$.ajax({
+			url:"compare/review",
+			type:"get",
+			data:{"appid":appid1, "emo":Emo1},
+			success:function(data){
+				let cul = data.emoCount/data.allCount*100
+				  $("#emotion-word-rate1").text(cul.toFixed(1))
+			},
+			erorr:function(){
+				console.log("n")
+			}
+		});
+	
+		$.ajax({
+    		url:"review/emo",
+    		type:"get",
+    		data:{"appid":appid1,"apppn":appemo1},
+    		success:function(data){
+    			 $("#compareReview1").html("");
+    			  for (let i =0; i<4; i++){
+    				  let reviews=
+    					  '<div class="gamsung-review-box kr-font">'+
+    					  '<div><h5>'+data[i].reviewTitle+'</h5></div>'+
+    					  '<div><p>'+data[i].reviewContent+'</p></div>'+
+                  		  '</div>';
+    				  $("#compareReview1").append(reviews);
+    			  	}
+    			  },
+    		error: function(){
+    			console.log("n")
+    		}
+    	});
+	
+	
+	})
+	
+	
 	
 	// 검색 어플 감성확률 
 				
@@ -812,7 +978,13 @@ am5.ready(function() {
 				        	      ]
 				        	    },
 				        	    options: {
-				        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+				        	    	 scale:{
+					        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+					        	  	    	pointLabels:{
+					        	  	    		fontSize:18,
+					        	  	    		fontColor: '#000000'
+					        	  	    	}
+					        	  			}
 				        	    }
 				        	})
 				               }else if(cate2=="P"){
@@ -825,7 +997,13 @@ am5.ready(function() {
 						        	      ]
 						        	    },
 						        	    options: {
-						        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+						        	    	 scale:{
+							        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+							        	  	    	pointLabels:{
+							        	  	    		fontSize:18,
+							        	  	    		fontColor: '#000000'
+							        	  	    	}
+							        	  			}
 						        	    }
 						        	})
 				               }else{
@@ -838,7 +1016,13 @@ am5.ready(function() {
 						        	      ]
 						        	    },
 						        	    options: {
-						        	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 10}, //maxTicksLimit data 최대값의 2배
+						        	    	 scale:{
+							        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+							        	  	    	pointLabels:{
+							        	  	    		fontSize:18,
+							        	  	    		fontColor: '#000000'
+							        	  	    	}
+							        	  			}
 						        	    }
 						        	})
 				               }
@@ -910,6 +1094,152 @@ am5.ready(function() {
  		location.href="logout.do"
  	});
      
+	$("#vsbtn2").on("click",function(){
+		let compareApp2 = $("#compare2").val();
+		let cate2= $("#compareCate").val();
+		$.ajax({
+			url:"compare/app",
+			type:"get",
+			async: false,
+			data:{"appname":compareApp2},
+			success:function(data){
+				$("#iconbox2").html("")
+				$("#ratingbox2").html("")
+				
+				let icon ='<div class="icon-inner-box">'+
+	                  '<div class="icon-img"><img src="'+data[0].appicon+'" style="border: 3px solid gray;border-radius: 7px;"></div>'+
+	                  '<div>'+'<p>'+data[0].appname+'</p>'+'</div>'+
+	                '</div>'
+				$("#iconbox2").append(icon);
+	             
+				appemo2=data[0].apppn
+				appid2=data[0].appid
+	           
+	            let rate ='<div class="rating-inner-box">'+
+                  '<div class="ratings">'+
+                  '<h4>'+data[0].apprating.toFixed(1)+'</h4>'+'</div>'+
+	               '</div>'
+	            $("#ratingbox2").append(rate);
+	               let score1=data[0].evascore1*10
+	               let score2=data[0].evascore2*10
+	               let score3=data[0].evascore3*10
+	               console.log(score1,score2,score3);
+	            appRader2={
+	        	          label: data[0].appname,
+	        	          fill: true,
+	        	          backgroundColor: "rgba(255,99,132,0.2)",
+	        	          borderColor: "rgba(255,99,132,1)",
+	        	          pointBorderColor: "#fff",
+	        	          pointBackgroundColor: "rgba(255,99,132,1)",
+	        	          pointBorderColor: "#fff",
+	        	          data: [score1, score2, score3]
+	        	        }
+          
+	               
+	            if(cate2 =="M"){
+		               new Chart(document.getElementById("radar-chart"), {
+		        	    type: 'radar',
+		        	    data: {
+		        	      labels: ["디자인", "기능", "가격"],
+		        	      datasets: [
+		        	    	  appRader1,appRader2 
+		        	      ]
+		        	    },
+		        	    options: {
+		        	    	 scale:{
+			        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+			        	  	    	pointLabels:{
+			        	  	    		fontSize:18,
+			        	  	    		fontColor: '#000000'
+			        	  	    	}
+			        	  			}
+		        	    }
+		        	})
+		               }else if(cate2=="P"){
+		            	   new Chart(document.getElementById("radar-chart"), {
+				        	    type: 'radar',
+				        	    data: {
+				        	      labels: ["기능 및 디자인", "서비스", "CS"],
+				        	      datasets: [
+				        	    	  appRader1,appRader2 
+				        	      ]
+				        	    },
+				        	    options: {
+				        	    	 scale:{
+					        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+					        	  	    	pointLabels:{
+					        	  	    		fontSize:18,
+					        	  	    		fontColor: '#000000'
+					        	  	    	}
+					        	  			}
+				        	    }
+				        	})
+		               }else{
+		            	   new Chart(document.getElementById("radar-chart"), {
+				        	    type: 'radar',
+				        	    data: {
+				        	      labels: ["기능 및 디자인 ", "혜택", "CS"],
+				        	      datasets: [
+				        	    	  appRader1,appRader2 
+				        	      ]
+				        	    },
+				        	    options: {
+				        	    	 scale:{
+					        	  	    	ticks: { beginAtZero: true, display: false, max: 10, min: 0, stepSize: 1 },
+					        	  	    	pointLabels:{
+					        	  	    		fontSize:18,
+					        	  	    		fontColor: '#000000'
+					        	  	    	}
+					        	  			}
+				        	    }
+				        	})
+		               }
+	            $("#emotion-word-title2").text(data[0].appname)
+
+			},
+			error:function(){
+				console.log(error)
+		}
+			
+		});
+		let Emo2 =1
+		$.ajax({
+			url:"compare/review",
+			type:"get",
+			data:{"appid":appid2, "emo":Emo2},
+			success:function(data){
+				let cul = data.emoCount/data.allCount*100
+				  $("#emotion-word-rate2").text(cul.toFixed(1))
+			},
+			erorr:function(){
+				console.log("n")
+			}
+		});
+		
+		$.ajax({
+    		url:"review/emo",
+    		type:"get",
+    		
+    		data:{"appid":appid2,"apppn":appemo2},
+    		success:function(data){
+    			$("#compareReview2").html("");
+    			  for (let i =0; i<4; i++){
+    				  let reviews=
+    					  '<div class="gamsung-review-box kr-font">'+
+    					  '<div><h5>'+data[i].reviewTitle+'</h5></div>'+
+    					  '<div><p>'+data[i].reviewContent+'</p></div>'+
+                  		  '</div>';
+    				  $("#compareReview2").append(reviews);
+    			  	}
+    			  },
+    		error: function(){
+    			console.log("n")
+    		}
+    	});
+	
+	
+	})
+	
 </script>
     
   </body>

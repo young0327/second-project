@@ -10,6 +10,6 @@ public interface BookMarkMapper {
 	
 	public void bookMarkEnroll(@Param("appid")String appid, @Param("id")String id);
 	
-	public void bookMarkDelete(@Param("appid")String appid, @Param("id")String id);
+	public int bookMarkDelete(@Param("appid")String appid, @Param("id")String id);
 
 }

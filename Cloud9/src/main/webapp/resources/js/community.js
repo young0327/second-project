@@ -2,8 +2,9 @@
       var comm_modal = document.querySelector('.comm-black-modal')
       var commBtn = document.querySelector('#commbtn')
       write.addEventListener('click',function(){
-    	  let id = "<c:out value='${users.id}'/>"
-    	       	if(id==""){
+    	  let id = sessionStorage.getItem("users")
+    	  console.log(id)
+    	       	if(id==null){
     	       		alert("로그인해야 글을 작성할 수 있습니다.");
     	     	  	} else {
     	     	 		comm_modal.style.display ='block'

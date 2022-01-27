@@ -190,7 +190,8 @@ public class RestMainController {
 	
 	@DeleteMapping("bookmark/cancel")
 	public void bookMarkDelete(String appid,String id) {
-	bookMarkService.bookMarkDelete(appid, id);
+		System.out.println(appid+"/"+id);
+		System.out.println(bookMarkService.bookMarkDelete(appid, id));
 	}
 	
 	@GetMapping("/bookmark/img")

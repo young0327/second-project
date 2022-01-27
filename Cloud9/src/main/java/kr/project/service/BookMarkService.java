@@ -24,8 +24,8 @@ public class BookMarkService {
 		}
 	
 
-	public void bookMarkDelete(String appid, String id) {
-		mapper.bookMarkDelete(appid,id);
+	public int bookMarkDelete(String appid, String id) {
+		return mapper.bookMarkDelete(appid,id);
 	}
 	
 	
