@@ -55,19 +55,6 @@ $("#detailBtn3").on("click",function(){
 		// Data from:
 		// https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
 		
-		/*console.log(rs)
-		var wordlist =[]
-		let aJson= new Object();
-			aJson.tag=rs[0].modeword
-			aJson.weight=rs[0].modecount
-		
-			console.log(wordlist)
-			aJson.tag=rs[1].modeword
-			aJson.weight=rs[1].modecount
-			wordlist.push(aJson)
-			console.log(wordlist)
-			
-		JSON.stringify(wordlist);*/
 		
 		series.data.setAll(
 				rs
